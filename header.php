@@ -17,16 +17,16 @@
     <script src="https://cdn.bootcss.com/mdui/0.4.2/js/mdui.min.js"></script>
     <link rel="stylesheet" href="https://cdn.bootcss.com/mdui/0.4.2/css/mdui.min.css">
     <link rel="stylesheet" href="https://cui.dcloud.store/css/cui.css">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('grid.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>">
+    <!-- <link rel="stylesheet" href="<?php $this->options->themeUrl('grid.css'); ?>"> -->
+    <!-- <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>"> -->
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
 </head>
 <body class="mdui-drawer-body-left mdui-appbar-with-toolbar  mdui-theme-primary-indigo mdui-theme-accent-pink">
 
-<header class="mdui-appbar mdui-appbar-fixed">
+<header class="mdui-appbar mdui-shadow-0 mdui-appbar-fixed">
   <div class="mdui-toolbar mdui-color-theme">
-    <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">landscape</i></span>
+    <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
     <a href="/" class="mdui-typo-headline mdui-hidden-xs"><?php $this->options->title(); ?></a>
           <a href="" class="mdui-typo-title"><?php $this->archiveTitle(); ?></a>
         <div class="mdui-toolbar-spacer"></div>
@@ -60,9 +60,10 @@
 .DreamCat-List-headimg {
     width: 60px;
     height: 60px;
-    margin-top: 20px;
+    margin-top: 35px;
     margin-left: 20px;
     border-radius: 50%;
+    border: 2px solid #e8e6e6;
     background-size: cover!important;
     background-position: center center!important;
 }
@@ -75,7 +76,7 @@
     font-weight: 600;
     position: absolute;
     box-sizing: border-box;
-    margin-bottom: 70px;
+    margin-bottom: 55px;
 }
 </style>
     <div class="mdui-drawer mdui-color-grey-50" id="main-drawer">
@@ -141,31 +142,35 @@
               </div>
             </div>
             <?php endif; ?>
-            
-        <div class="mdui-collapse-item">
+        
+        
+        
+            <div class="mdui-collapse-item mdui-collapse-item-open">
                 <div class="mdui-collapse-item-header mdui-list-item">
-                        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">inbox</i>
-                        <div class="mdui-list-item-content mdui-text-color-theme-text">归档</div>
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">inbox</i>
+                        <div class="mdui-list-item-content mdui-text-color-theme-text">归 档</div>
                         <i class="mdui-collapse-item-arrow mdui-list-item-icon mdui-icon material-icons mdui-ripple mdui-text-color-theme-text">keyboard_arrow_down</i>
                 </div>
 
-                <div class="mdui-collapse-item-body" style="">
+                <div class="mdui-collapse-item-body" style="height: auto;">
                     <ul class="mdui-list mdui-list-dense">
-                        
+                        <?php $this->widget('Widget_Contents_Post_Date', 'type=month&format=F Y')
+                        ->parse('<li class="mdui-list-item mdui-ripple"><a href="{permalink}">{date}</a></li>'); ?>
                     </ul>
                 </div>
             </div>
-            
+        
+  
         <div class="mdui-collapse-item">
                 <div class="mdui-collapse-item-header mdui-list-item">
                         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">view_week</i>
-                        <div class="mdui-list-item-content mdui-text-color-theme-text">分类</div>
+                        <div class="mdui-list-item-content mdui-text-color-theme-text">分 类</div>
                         <i class="mdui-collapse-item-arrow mdui-list-item-icon mdui-icon material-icons mdui-ripple mdui-text-color-theme-text">keyboard_arrow_down</i>
                 </div>
 
                 <div class="mdui-collapse-item-body" style="">
                     <ul class="mdui-list mdui-list-dense">
-                        
+                        <?php $this->widget('Widget_Metas_Category_List')->listCategories('wrapClass=widget-list'); ?>
                     </ul>
                 </div>
             </div>
