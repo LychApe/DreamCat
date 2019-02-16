@@ -30,11 +30,13 @@
     <a href="/" class="mdui-typo-headline mdui-hidden-xs"><?php $this->options->title(); ?></a>
           <a href="" class="mdui-typo-title"><?php $this->archiveTitle(); ?></a>
         <div class="mdui-toolbar-spacer"></div>
+    <form method="post" action="">
       <div class="mdui-textfield mdui-textfield-expandable mdui-float-right">
         <button class="mdui-textfield-icon mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></button>
         <input class="mdui-textfield-input" type="text" placeholder="Search"/>
         <button class="mdui-textfield-close mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">close</i></button>
       </div>
+    </form>
     </div>
   </div>
 </header>
@@ -79,6 +81,7 @@
     margin-bottom: 55px;
 }
 </style>
+
     <div class="mdui-drawer mdui-color-grey-50" id="main-drawer">
       <div class="mdui-list DreamCat-List-01" mdui-collapse="{accordion: true}" style="margin-bottom: 50%;">
             
@@ -94,15 +97,14 @@
         </div>
       </div>
      
-        
+        <!-- 首页 -->
             <a href="/">
               <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">near_me</i>
                 <div class="mdui-list-item-content">首  页</div>
               </li>
             </a>
-            
-            
+        <!-- 用户 -->    
             <div class="mdui-collapse-item mdui-collapse-item-dense">
               <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">account_box</i>
@@ -142,62 +144,74 @@
               </div>
             </div>
             <?php endif; ?>
-        
-        
-        
-            <div class="mdui-collapse-item mdui-collapse-item-open">
-                <div class="mdui-collapse-item-header mdui-list-item">
+        <!-- 归档 --> 
+            <div class="mdui-collapse-item  mdui-collapse-item-dense">
+                    <div class="mdui-collapse-item-header mdui-list-item">
                     <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">inbox</i>
                         <div class="mdui-list-item-content mdui-text-color-theme-text">归 档</div>
                         <i class="mdui-collapse-item-arrow mdui-list-item-icon mdui-icon material-icons mdui-ripple mdui-text-color-theme-text">keyboard_arrow_down</i>
-                </div>
-
-                <div class="mdui-collapse-item-body" style="height: auto;">
-                    <ul class="mdui-list mdui-list-dense">
-                        <?php $this->widget('Widget_Contents_Post_Date', 'type=month&format=F Y')
-                        ->parse('<li class="mdui-list-item mdui-ripple"><a href="{permalink}">{date}</a></li>'); ?>
-                    </ul>
-                </div>
-            </div>
-        
-  
-        <div class="mdui-collapse-item">
-                <div class="mdui-collapse-item-header mdui-list-item">
-                        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">view_week</i>
-                        <div class="mdui-list-item-content mdui-text-color-theme-text">分 类</div>
-                        <i class="mdui-collapse-item-arrow mdui-list-item-icon mdui-icon material-icons mdui-ripple mdui-text-color-theme-text">keyboard_arrow_down</i>
-                </div>
-
+                    </div>
                 <div class="mdui-collapse-item-body" style="">
                     <ul class="mdui-list mdui-list-dense">
-                        <?php $this->widget('Widget_Metas_Category_List')->listCategories('wrapClass=widget-list'); ?>
+                    <?php $this->widget('Widget_Contents_Post_Date', 'type=month&format=F Y')->parse('<li class="mdui-list-item mdui-ripple" ><a href="{permalink}" class="mdui-list-item-content mdui-text-color-theme-text">{date}</a></li>'); ?>
                     </ul>
                 </div>
             </div>
-        
+        <!-- 分类 -->
+            <div class="mdui-collapse-item  mdui-collapse-item-dense">
+                    <div class="mdui-collapse-item-header mdui-list-item">
+                            <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">view_week</i>
+                            <div class="mdui-list-item-content mdui-text-color-theme-text">分 类</div>
+                            <i class="mdui-collapse-item-arrow mdui-list-item-icon mdui-icon material-icons mdui-ripple mdui-text-color-theme-text">keyboard_arrow_down</i>
+                    </div>
+                    <div class="mdui-collapse-item-body" style="">
+                        <ul class="mdui-list mdui-list-dense" for="show-category-button">
+                            <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>
+                            <?php while ($category->next()): ?>
+                                <li class="mdui-list-item mdui-ripple">
+                                    <a href="<?php $category->permalink(); ?>" class="mdui-list-item-content mdui-text-color-theme-text" title="<?php $category->name(); ?>">
+                                        <?php $category->name(); ?>
+                                    </a>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    </div>
+                </div>
+        <!-- RSS -->
+            <a href="<?php $this->options->feedUrl(); ?>">
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">rss_feed</i>
+                <div class="mdui-list-item-content">RSS</div>
+              </li>
+            </a>
+
           <div class="mdui-divider"></div>
-          
+
+        <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
             <a>
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">description</i>
                 <span class="mdui-list-item-content mdui-text-color-theme-text">文章</span>
-                <div class="cui-bubble cui-bubble-num cui-error">1</div>
+                <div class="cui-bubble cui-bubble-num cui-error"><?php $stat->publishedPostsNum() ?></div>
             </li>
             </a>
-        
             <a>
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">textsms</i>
                 <span class="mdui-list-item-content mdui-text-color-theme-text">评论</span>
-                <div class="cui-bubble cui-bubble-num cui-error">
-                    <?php 
-                    echo("99+");
-                    //echo mysqli_num_rows( $ALLNUM );
-                    ?>
-                </div>
+                <div class="cui-bubble cui-bubble-num cui-error"><?php $stat->publishedCommentsNum() ?></div>
             </li>
             </a>
-        
+
+            <div class="mdui-divider"></div>
+
+            <a>
+    		  <li class="mdui-list-item mdui-ripple" mdui-dialog="{target:'#About_DreamCat'}">
+				<i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">info_outline</i>
+				<div class="mdui-list-item-content">DreamCat</div>
+			  </li>
+			</a>
+
         </div>
       </div>
 

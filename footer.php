@@ -17,17 +17,17 @@
     color: #999;
 }
 </style>
-
+<!--START by LEO-->
 <div class="DreamCat-footer">
     <div class="DreamCat-infooter">
-                <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">DreamCat</strong> Made by FnTieStudio</p>  
+                <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">DreamCat</strong> Made By <strong style="color: rgba(77, 136, 255,.9);">FnTieStudio</strong></p>
                     <div class="mdui-typo"> 
                     <p>Copyright © <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
+                    <p>Published with <a href="http://typecho.org">Typecho</a></p>
                     </div>
-                <p>Published with Typecho</p>
     </div>
 </div>
-
+<!--END-->
 <script>
     !function (e, t, a) {
         function r() {
@@ -75,7 +75,32 @@
         }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
     }(window, document);
 </script>
-
+          <div class="mdui-dialog" id="About_DreamCat">
+            <div class="mdui-dialog-title">ABOUT DreamCat</div>
+            <div class="mdui-dialog-content">
+            <blockquote>
+				<div class="mdui-chip">
+                  <span class="mdui-chip-icon">Fn</span>
+                  <span class="mdui-chip-title">DreamCat</span>
+                </div>
+                <div class="mdui-chip">
+                  <span class="mdui-chip-icon">V</span>
+                  <span class="mdui-chip-title">F-216</span>
+                </div>
+				<br/>
+				</p> 
+				<div class="mdui-typo">       
+				<p>开发者: <a href="https://github.com/Han-Fen" target="_blank">HanFen</a> | <a href="https://github.com/pa4sword" target="_blank">pa4sword</a> | <a href="https://github.com/
+Dev-Leo" target="_blank">
+Dev-Leo</a></p>
+				</div>
+				<footer>© Copyright 2019 by FnTieStudio All rights are reserved.</footer>
+			</blockquote>
+            </div>
+            <div class="mdui-dialog-actions">
+              <button class="mdui-btn mdui-ripple" mdui-dialog-close>知 道 啦 !</button>
+            </div>
+          </div>
 <?php $this->footer(); ?>
 </body>
 </html>

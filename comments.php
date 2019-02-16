@@ -23,23 +23,23 @@
             <?php else: ?>
     		<p>
                 <label for="author" class="required"><?php _e('称呼'); ?></label>
-    			<input type="text" name="author" id="author" class="text" value="<?php $this->remember('author'); ?>" required />
+    			<input type="text" name="author" id="author" class="mdui-textfield-input" value="<?php $this->remember('author'); ?>" required />
     		</p>
     		<p>
                 <label for="mail"<?php if ($this->options->commentsRequireMail): ?> class="required"<?php endif; ?>><?php _e('Email'); ?></label>
-    			<input type="email" name="mail" id="mail" class="text" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> />
+    			<input type="email" name="mail" id="mail" class="mdui-textfield-input" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> />
     		</p>
     		<p>
                 <label for="url"<?php if ($this->options->commentsRequireURL): ?> class="required"<?php endif; ?>><?php _e('网站'); ?></label>
-    			<input type="url" name="url" id="url" class="text" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
+    			<input type="url" name="url" id="url" class="mdui-textfield-input" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
     		</p>
             <?php endif; ?>
     		<p>
                 <label for="textarea" class="required"><?php _e('内容'); ?></label>
-                <textarea rows="8" cols="50" name="text" id="textarea" class="textarea" required ><?php $this->remember('text'); ?></textarea>
+                <textarea rows="8" cols="50" name="text" id="mdui-textfield-input" class="mdui-textfield-input" required ><?php $this->remember('text'); ?></textarea>
             </p>
     		<p>
-                <button type="submit" class="submit"><?php _e('提交评论'); ?></button>
+               <button class="mdui-btn mdui-color-theme-accent mdui-ripple"><?php _e('提交评论'); ?></button>
             </p>
     	</form>
     </div>

@@ -82,12 +82,26 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
       <?php endif; ?>
     </div>
 
-    
-
-
-
 </div>
 <!--End-->
+<br/>
+
+
+
+
+
+
+
+<style>
+.moe-post-wzimg {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+</style>
 
 
 
@@ -97,25 +111,51 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 
 
-<div class="col-mb-12 col-8" id="main" role="main">
-	<?php while($this->next()): ?>
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-			<h2 class="post-title" itemprop="name headline"><a itemprop="url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
-			<ul class="post-meta">
-				<li itemprop="author" itemscope itemtype="http://schema.org/Person"><?php _e('作者: '); ?><a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a></li>
-				<li><?php _e('时间: '); ?><time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date(); ?></time></li>
-				<li><?php _e('分类: '); ?><?php $this->category(','); ?></li>
-				<li itemprop="interactionCount"><a itemprop="discussionUrl" href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?></a></li>
-			</ul>
-            <div class="post-content" itemprop="articleBody">
-    			<?php $this->content('- 阅读剩余部分 -'); ?>
+
+
+<br/>
+<div class="mdui-container mdui-center">
+<?php while($this->next()): ?>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="mdui-row">
+    <div class="mdui-col-md-1 mdui-col-lg-1"></div>
+    <div class="mdui-col-md-10 mdui-col-lg-10">
+      <div class="mdui-card" id="main" role="main" style="border-radius:9px;">
+        <div class="mdui-card-media">
+          <img class="moe-post-wzimg" src="https://api.i-meto.com/bing?color=white"/>
+          <div class="mdui-card-media-covered">
+          <div class="mdui-card-primary">
+            <div class="mdui-card-primary-title"><?php $this->title() ?></div>
+          </div>
+        </div>
+        </div>
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-subtitle"><?php $this->content('- 阅读剩余部分 -'); ?></div>
+        </div>
+        <div class="mdui-divider"></div>
+        <div class="mdui-card-header">
+            <div class="mdui-row">
+                <div class="mdui-col-xs-6">   
+                  <img class="mdui-card-header-avatar" src="//mdui-aliyun.cdn.w3cbus.com/docs/assets/docs/img/avatar1.jpg"/>
+                  <div class="mdui-card-header-title"><?php $this->author(); ?></div>
+                  <div class="mdui-card-header-subtitle"><time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date(); ?></div>
+                </div>
+                <div class="mdui-col-xs-6">   
+            <a href="<?php $this->permalink() ?>" class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">keyboard_arrow_right</i></a>
+                </div>
             </div>
-        </article>
-	<?php endwhile; ?>
+        </div>
+      </div>
+    </div>
+    <div class="mdui-col-md-1 mdui-col-lg-1"></div>
+  </div>
+<br/>
+</article>
+<?php endwhile; ?>
+</div>
+<?php $this->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
 
-    <?php $this->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
-</div><!-- end #main-->
 
 
-<?php $this->need('sidebar.php'); ?>
+<br/>
 <?php $this->need('footer.php'); ?>
