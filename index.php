@@ -11,7 +11,6 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  $this->need('header.php');
  ?>
-
 <!--Start-->
 <style>
 .DreamCat-inCo{
@@ -60,15 +59,15 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 <div class="mdui-container-fluid">
     <div class="mdui-row DreamCat-content-header">
         <div class="mdui-container fade-scale in">
-            <h1 class="title">HanFen's Blog</h1>
-            <h5 class="subtitle">DreamCat is Very Good !</h5>
+            <h1 class="title"><?php $this->options->title(); ?></h1>
+            <h5 class="subtitle"><?php $this->options->description(); ?></h5>
         </div>
     </div>
     
     <div class="mdui-row">
       <div class="mdui-col-xs-6 comment-section">
         <div class="cui-card-link-avatar comment-section cui-animate-hover-up">
-        	<img src="https://q1.qlogo.cn/g?b=qq&nk=1091044631&s=640" class="cui-card-link-avatar-image" />
+        	<img src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=640" class="cui-card-link-avatar-image" />
         	<div class="cui-card-link-avatar-text">
         		<div class="cui-card-link-avatar-title"><?php $this->author(); ?></div>
         		<div class="cui-card-link-avatar-subtitle">Root</div>
@@ -122,21 +121,29 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     <div class="mdui-col-md-10 mdui-col-lg-10">
       <div class="mdui-card" id="main" role="main" style="border-radius:9px;">
         <div class="mdui-card-media">
-          <img class="moe-post-wzimg" src="https://api.i-meto.com/bing?color=white"/>
+            
+<img class="moe-post-wzimg" src="<?php echo thumb($this->cid); ?>"/>
           <div class="mdui-card-media-covered">
           <div class="mdui-card-primary">
             <div class="mdui-card-primary-title"><?php $this->title() ?></div>
           </div>
         </div>
         </div>
-        <div class="mdui-card-primary">
-          <div class="mdui-card-primary-subtitle"><?php $this->content('- 阅读剩余部分 -'); ?></div>
-        </div>
+
         <div class="mdui-divider"></div>
         <div class="mdui-card-header">
             <div class="mdui-row">
                 <div class="mdui-col-xs-6">   
-                  <img class="mdui-card-header-avatar" src="//mdui-aliyun.cdn.w3cbus.com/docs/assets/docs/img/avatar1.jpg"/>
+                 
+                  <span itemprop="image">
+                      
+                            <!--<img class="mdui-card-header-avatar" 
+                            src="https://cn.gravatar.com/avatar/"/>-->
+                            
+                        <img class="mdui-card-header-avatar" 
+                            src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=100"/>
+
+                  </span>
                   <div class="mdui-card-header-title"><?php $this->author(); ?></div>
                   <div class="mdui-card-header-subtitle"><time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date(); ?></div>
                 </div>

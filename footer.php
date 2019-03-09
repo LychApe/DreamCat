@@ -85,7 +85,7 @@
                 </div>
                 <div class="mdui-chip">
                   <span class="mdui-chip-icon">V</span>
-                  <span class="mdui-chip-title">F-216</span>
+                  <span class="mdui-chip-title">F-1.0-309</span>
                 </div>
 				<br/>
 				</p> 

@@ -23,24 +23,13 @@
     <?php $this->header(); ?>
 </head>
 <body class="mdui-drawer-body-left mdui-appbar-with-toolbar  mdui-theme-primary-indigo mdui-theme-accent-pink">
-
 <header class="mdui-appbar mdui-shadow-0 mdui-appbar-fixed">
   <div class="mdui-toolbar mdui-color-theme">
     <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
     <a href="/" class="mdui-typo-headline mdui-hidden-xs"><?php $this->options->title(); ?></a>
           <a href="" class="mdui-typo-title"><?php $this->archiveTitle(); ?></a>
         <div class="mdui-toolbar-spacer"></div>
-    <form method="post" action="">
-      <div class="mdui-textfield mdui-textfield-expandable mdui-float-right">
-        <button class="mdui-textfield-icon mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></button>
-        <input class="mdui-textfield-input" type="text" placeholder="Search"/>
-        <button class="mdui-textfield-close mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">close</i></button>
-      </div>
-    </form>
-    </div>
-  </div>
 </header>
-
 <style>
 .DreamCat-List-01 {
     padding: 0px 0!important;
@@ -87,7 +76,7 @@
             
       <div class="mdui-card DreamCat-List-02">
         <div class="moe-menu-bg" style="background: url(https://www.imys.net/img/brand.jpg);">
-            <img class="DreamCat-List-headimg mdui-shadow-6" src="https://q1.qlogo.cn/g?b=qq&nk=1091044631&s=640">
+            <img class="DreamCat-List-headimg mdui-shadow-6" src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=640">
             <span class="DreamCat-menu-author"><?php $this->author(); ?></span>
               <div class="mdui-card-media-covered">
                 <div class="mdui-card-primary">
@@ -135,7 +124,7 @@
                         <div class="mdui-list-item-content">登陆</div>
                   </li>
                 </a>
-                <a href="ClassSchedule.php">
+                <a href="admin/register.php">
                     <li class="mdui-list-item mdui-ripple">
                         <i class="mdui-list-item-icon mdui-icon material-icons">group_add</i>
                         <div class="mdui-list-item-content">注册</div>
@@ -214,6 +203,12 @@
 
         </div>
       </div>
+
+
+    
+    </div>
+  </div>
+
 
 <div id="body">
     <div class="container">
