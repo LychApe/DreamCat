@@ -1,6 +1,13 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
 
+<div class="mdui-row DreamCat-content-header">
+    <div class="mdui-container fade-scale in">
+        <h1 class="title"><?php $this->options->title(); ?></h1>
+        <h5 class="subtitle"><?php $this->options->description(); ?></h5>
+    </div>
+</div>
+
     <div class="col-mb-12 col-8" id="main" role="main">
         <h3 class="archive-title"><?php $this->archiveTitle(array(
             'category'  =>  _t('分类 %s 下的文章'),

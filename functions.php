@@ -20,10 +20,10 @@ function thumb($cid) {
     if (empty($imgurl)) {
     $rand_num = 10; //随机图片数量，根据图片目录中图片实际数量设置
     if ($rand_num == 0) {
-    $imgurl = "usr/themes/default/img/OER/0.jpg";
+    $imgurl = "usr/themes/DreamCat-X1/img/OER/0.jpg";
     //如果$rand_num = 0,则显示默认图片，须命名为"0.jpg"，注意是绝对地址
     }else{
-    $imgurl = "usr/themes/default/img/OER/".rand(1,$rand_num).".jpg";
+    $imgurl = "usr/themes/DreamCat-X1/img/OER/".rand(1,$rand_num).".jpg";
     //随机图片，须按"1.jpg","2.jpg","3.jpg"...的顺序命名，注意是绝对地址
     }
     }

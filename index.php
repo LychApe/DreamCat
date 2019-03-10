@@ -10,7 +10,7 @@
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  $this->need('header.php');
- ?>
+?>
 <!--Start-->
 <style>
 .DreamCat-inCo{
@@ -83,14 +83,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 </div>
 <!--End-->
-<br/>
-
-
-
-
-
-
-
 <style>
 .moe-post-wzimg {
     width: 100%;
@@ -102,17 +94,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 }
 </style>
 
-
-
-
-
-
-
-
-
-
-
-<br/>
 <div class="mdui-container mdui-center">
 <?php while($this->next()): ?>
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
