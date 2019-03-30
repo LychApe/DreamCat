@@ -1,21 +1,21 @@
 # DreamCat
 
 **安装**
+------
 >稳定版本
-<br/>
 <br/>1.请点击Releases下载稳定版本
 <br/>2.放入Typecho主题文件夹中
 <br/>3.启用以完成安装
 <br/>
+
 >尝鲜版本
-<br/>
 <br/>1.请点击Download下载尝鲜版本
 <br/>2.放入Typecho "themes"文件夹中
 <br/>3.修改本主题文件夹名为"DreamCat-X1"
 <br/>4.启用以完成安装
 
 **更新日志**
-----
+------
 >DreamCat (X1.0-214) 
 <br/>1.项目建立!
 <br/>2.完成主体页面
