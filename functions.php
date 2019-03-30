@@ -39,7 +39,8 @@ function thumb($cid) {
     echo $imgurl;
     }
     else{
-    echo $this->options->siteUrl().$img['path'];
+    //echo $this->options->siteUrl().$img['path'];
+    echo Helper::options()->siteUrl.$img['path'];
     }
 }
 
