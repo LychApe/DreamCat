@@ -19,7 +19,7 @@
  width: 95px;
 }
 .DreamCat-content-header {
-    min-height: 100px;
+    min-height: 143px;
     margin-left: -240px;
     padding: 10px 16px 48px 256px;
     color: #fff;
@@ -76,7 +76,7 @@
       <div class="mdui-row">
         <div class="mdui-col-md-2"></div>
         <div class="mdui-col-sm-6 mdui-col-md-8">
-          <div class="mdui-card" style="transform: translateY(-15%);">
+          <div class="mdui-card" style="margin-top: -15%;; border-radius:9px;"">
             <div class="mdui-card-header mdui-color-grey-50">
               <img class="mdui-card-header-avatar" src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=100"/>
               <div class="mdui-card-header-title"><?php $this->author(); ?></div>
@@ -93,9 +93,17 @@
                     <?php $this->content(); ?>
                 </div>
             </div>
-                <p class="detail-info"> 本文由 xxx 创作，采用 知识共享署名4.0 国际许可协议进行许可!<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名!<br>最后编辑时间为: </p>
+                <p class="detail-info"> #本文由 <?php $this->author(); ?> 创作，采用 知识共享署名4.0 国际许可协议进行许可!<br>#本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名!<br>#最后编辑时间为: <?php $this->date('F j, Y'); ?></p>
             <div class="mdui-card-actions">
-              <button class="mdui-btn mdui-btn-icon mdui-float-right"><i class="mdui-icon material-icons">expand_more</i></button>
+
+            <div class="mdui-row">
+                <div class="mdui-col-xs-6">   
+                </div>
+                <div class="mdui-col-xs-6">   
+            <a href="<?php $this->permalink() ?>" class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">keyboard_arrow_right</i></a>
+                </div>
+            </div>
+
             </div>
           </div>
         </div>
@@ -104,12 +112,8 @@
     </div>
 </div>
 
-
-
-
-
-
-
+<br>
+<br>
 
 <!--<div class="col-mb-12 col-8" id="main" role="main">
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
