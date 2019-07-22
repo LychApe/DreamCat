@@ -11,16 +11,21 @@
 >尝鲜版本
 <br/>1.请点击Download下载尝鲜版本
 <br/>2.放入Typecho "themes"文件夹中
-<br/>3.修改本主题文件夹名为"DreamCat-X1"
+<br/>3.修改本主题文件夹名为"DreamCat"
 <br/>4.启用以完成安装
 
 **更新日志**
 ------
->DreamCat (X1.0-330) 
+>DreamCat (X1.1-190717) 
+<br/>1.主体UI重构
+<br/>2.升级mdui0.4.3
+<br/>3.修复若干bug
+
+>DreamCat (X1.0-190330) 
 <br/>1.修复文章页浮动BUG
 <br/>2.文章页细节调教
 
->DreamCat (X1.0-309) 
+>DreamCat (X1.0-190309) 
 <br/>1.修复若干bug
 <br/>2.文章随机图片
 <br/>3.调用QQ头像
@@ -28,6 +33,7 @@
 >DreamCat (X1.0-214) 
 <br/>1.项目建立!
 <br/>2.完成主体页面
+
 ## 版权信息
   DreamCat遵循GPL3.0开源协议发布，并提供免费使用，您可以自由传播和修改，在遵照下面的约束条件的前提下：
 
@@ -39,4 +45,4 @@
 
 只要你遵循上述条款规定，您就可以自由使用并传播本源代码。
 
-版权所有Copyright © 2015-2019 by FnTieStudio All rights reserved!
+版权所有Copyright © 2015-2019 by Leakei All rights reserved!
