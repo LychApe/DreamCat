@@ -12,80 +12,40 @@
             'tag'       =>  _t('标签 %s 下的文章'),
             'author'    =>  _t('%s 发布的文章')
         ), '', ' - '); ?><?php $this->options->title(); ?></title>
-
+        
     <!-- 使用url函数转换相关路径 -->
-    <script src="https://cdn.bootcss.com/mdui/0.4.2/js/mdui.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/mdui/0.4.2/css/mdui.min.css">
-    <link rel="stylesheet" href="https://cui.dcloud.store/css/cui.css">
-    <!-- <link rel="stylesheet" href="<?php $this->options->themeUrl('grid.css'); ?>"> -->
-    <!-- <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>"> -->
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('src/css/style.css'); ?>">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script src="//cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdnjscn.b0.upaiyun.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
 </head>
-<body class="mdui-drawer-body-left mdui-appbar-with-toolbar  mdui-theme-primary-indigo mdui-theme-accent-pink">
-<header class="mdui-appbar mdui-shadow-0 mdui-appbar-fixed">
-  <div class="mdui-toolbar mdui-color-theme">
-    <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
-    <a href="/" class="mdui-typo-headline mdui-hidden-xs"><?php $this->options->title(); ?></a>
-          <a href="" class="mdui-typo-title"><?php $this->archiveTitle(); ?></a>
-        <div class="mdui-toolbar-spacer"></div>
-</header>
-<style>
-.DreamCat-List-01 {
-    padding: 0px 0!important;
-    margin: 0;
-    list-style: none;
-    background-color: transparent;
-}
-.DreamCat-List-02 {
-    border-radius: 0px
-}
-.moe-menu-bg {
-    width: 100%;
-    height: 200px;
-    position: relative!important;
-    background-size: cover!important;
-    background-position: 50% 50%!important;
-    background-repeat: no-repeat!important;
-}
-.DreamCat-List-headimg {
-    width: 60px;
-    height: 60px;
-    margin-top: 35px;
-    margin-left: 20px;
-    border-radius: 50%;
-    border: 2px solid #e8e6e6;
-    background-size: cover!important;
-    background-position: center center!important;
-}
-.DreamCat-menu-author {
-    left: 0;
-    bottom: 0;
-    color: #fff;
-    padding: 20px;
-    font-size: 20px;
-    font-weight: 600;
-    position: absolute;
-    box-sizing: border-box;
-    margin-bottom: 55px;
-}
-</style>
-
-    <div class="mdui-drawer mdui-color-grey-50" id="main-drawer">
+<!-- Body-->
+<body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+    
+    <!--[if lt IE 8]>
+        <div class="browsehappy" role="dialog"><?php _e('当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>'); ?>.</div>
+    <![endif]-->
+<header>
+    <div class="mdui-drawer mdui-color-grey-50" style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">
       <div class="mdui-list DreamCat-List-01" mdui-collapse="{accordion: true}" style="margin-bottom: 50%;">
             
-      <div class="mdui-card DreamCat-List-02">
-        <div class="moe-menu-bg" style="background: url(https://www.imys.net/img/brand.jpg);">
+      <div class="mdui-card DreamCat-List-02" style="overflow: inherit;">
+        <div class="DreamCat-menu-bg" style="background: url(<?php $this->options->themeUrl('src/img/brand.jpg'); ?>);">
             <img class="DreamCat-List-headimg mdui-shadow-6" src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=640">
-            <span class="DreamCat-menu-author"><?php $this->author(); ?></span>
               <div class="mdui-card-media-covered">
                 <div class="mdui-card-primary">
-                  <div class="mdui-card-primary-subtitle"><?php $this->options->description(); ?></div>
+                  <div class="DreamCat-menu-author font-weight: 400; mdui-valign"><?php $this->author(); ?></div>
                 </div>
               </div>
         </div>
       </div>
-     
         <!-- 首页 -->
             <a href="/">
               <li class="mdui-list-item mdui-ripple">
@@ -108,12 +68,12 @@
                         <div class="mdui-list-item-content">后台</div>
                   </li>
                 </a>
-                <a href="ClassSchedule.php">
+                <!--<a href="ClassSchedule.php">
                     <li class="mdui-list-item mdui-ripple">
                         <i class="mdui-list-item-icon mdui-icon material-icons">group_add</i>
                         <div class="mdui-list-item-content">退出</div>
                     </li>
-                </a>
+                </a>-->
               </div>
             </div>
             <?php else:?>
@@ -124,7 +84,7 @@
                         <div class="mdui-list-item-content">登陆</div>
                   </li>
                 </a>
-                <a href="admin/register.php">
+                <a href="/admin/register.php">
                     <li class="mdui-list-item mdui-ripple">
                         <i class="mdui-list-item-icon mdui-icon material-icons">group_add</i>
                         <div class="mdui-list-item-content">注册</div>
@@ -181,14 +141,18 @@
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">description</i>
                 <span class="mdui-list-item-content mdui-text-color-theme-text">文章</span>
-                <div class="cui-bubble cui-bubble-num cui-error"><?php $stat->publishedPostsNum() ?></div>
+                <div class="mdui-chip">
+                    <span class="mdui-chip-title"><?php $stat->publishedPostsNum() ?></span>
+                </div>
             </li>
             </a>
             <a>
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">textsms</i>
                 <span class="mdui-list-item-content mdui-text-color-theme-text">评论</span>
-                <div class="cui-bubble cui-bubble-num cui-error"><?php $stat->publishedCommentsNum() ?></div>
+                <div class="mdui-chip">
+                  <span class="mdui-chip-title"><?php $stat->publishedCommentsNum() ?></span>
+                </div>
             </li>
             </a>
 
@@ -200,16 +164,20 @@
 				<div class="mdui-list-item-content">DreamCat</div>
 			  </li>
 			</a>
-
         </div>
+</header>
+<div class="mdui-container-fluid" style="padding-left: 0px; padding-right: 0px;" >
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar mdui-color-indigo">
+        <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
+        <a href="/" class="mdui-typo-headline mdui-hidden-xs"><?php #$this->options->title(); ?></a>
+              <a href="" class="mdui-typo-title"><?php #$this->archiveTitle(); ?></a>
+            <div class="mdui-toolbar-spacer"></div>
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">refresh</i></a>
       </div>
-
-
-    
     </div>
-  </div>
-
-
+</div>
+<div class="mdui-container-fluid" style="padding-left: 0px; padding-right: 0px;">
 <div id="body">
     <div class="container">
         <div class="row">

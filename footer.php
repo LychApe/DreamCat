@@ -20,8 +20,8 @@
 <!--START by LEO-->
 <div class="DreamCat-footer">
     <div class="DreamCat-infooter">
-                <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">DreamCat</strong> Made By <strong style="color: rgba(77, 136, 255,.9);">FnTieStudio</strong></p>
                     <div class="mdui-typo"> 
+                    <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">DreamCat</strong>  Made By <strong style="color: rgba(77, 136, 255,.9);">Leakei</strong>
                     <p>Copyright © <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
                     <p>Published with <a href="http://typecho.org">Typecho</a></p>
                     </div>
@@ -34,14 +34,12 @@
             for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
             requestAnimationFrame(r)
         }
-
         function n() {
             var t = "function" == typeof e.onclick && e.onclick;
             e.onclick = function (e) {
                 t && t(), o(e)
             }
         }
-
         function o(e) {
             var a = t.createElement("div");
             a.className = "heart", s.push({
@@ -53,7 +51,6 @@
                 color: c()
             }), t.body.appendChild(a)
         }
-
         function i(e) {
             var a = t.createElement("style");
             a.type = "text/css";
@@ -64,11 +61,9 @@
             }
             t.getElementsByTagName("head")[0].appendChild(a)
         }
-
         function c() {
             return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
         }
-
         var s = [];
         e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
             setTimeout(e, 1e3 / 60)
@@ -79,13 +74,13 @@
             <div class="mdui-dialog-title">ABOUT DreamCat</div>
             <div class="mdui-dialog-content">
             <blockquote>
-				<div class="mdui-chip">
-                  <span class="mdui-chip-icon">Fn</span>
+                <div class="mdui-chip">
+                  <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">star</i></span>
                   <span class="mdui-chip-title">DreamCat</span>
                 </div>
                 <div class="mdui-chip">
-                  <span class="mdui-chip-icon">V</span>
-                  <span class="mdui-chip-title">F-1.0-330</span>
+                  <span class="mdui-chip-icon mdui-color-blue">X</span>
+                  <span class="mdui-chip-title">1.1-190723</span>
                 </div>
 				<br/>
 				</p> 
@@ -93,14 +88,20 @@
 				<p>开发者: <a href="https://github.com/Han-Fen" target="_blank">HanFen</a> | <a href="https://github.com/pa4sword" target="_blank">pa4sword</a> | <a href="https://github.com/
 Dev-Leo" target="_blank">
 Dev-Leo</a></p>
+                <p>鸣谢:<a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>
 				</div>
-				<footer>© Copyright 2019 by FnTieStudio All rights are reserved.</footer>
+				<footer>© Copyright 2015-2019 by Leakei All rights are reserved.</footer>
 			</blockquote>
             </div>
             <div class="mdui-dialog-actions">
               <button class="mdui-btn mdui-ripple" mdui-dialog-close>知 道 啦 !</button>
             </div>
           </div>
+          
+<script type="text/javascript" src="https://down.inwao.com/Bash/jquery.min.js"></script>
+<script type="text/javascript" src="https://down.inwao.com/Bash/go-top.js"></script>
+
+</div>
 <?php $this->footer(); ?>
 </body>
 </html>

@@ -1,0 +1,56 @@
+.DreamCat-List-01 {
+    padding: 0px 0!important;
+    margin: 0;
+    list-style: none;
+    background-color: transparent;
+}
+.DreamCat-List-02 {
+    border-radius: 0px
+}
+.DreamCat-List-headimg {
+    width: 75px;
+    height: 75px;
+    margin-top: 35px;
+    margin-left: 30%;
+    border-radius: 50%;
+    /* border: 1.5px solid #3e7ced; */
+    background-size: cover!important;
+    background-position: center center!important;
+}
+.DreamCat-menu-bg {
+    width: 100%;
+    height: 185px;
+    position: relative!important;
+    background-size: cover!important;
+    background-position: 50% 50%!important;
+    background-repeat: no-repeat!important;
+}
+.DreamCat-menu-author {
+    display: block;
+    font-size: 20px;
+    line-height: 15px;
+    /* opacity: .54; */
+    padding-left: 30%;
+}
+.DreamCat-main-pic {
+    height: 215px;
+    object-fit: cover;
+}
+.DreamCat-top-card {
+    height: 215px;
+}
+.DreamCat-top-card-a{
+    border-radius:18px;
+    box-shadow: 0 6px 6px -3px rgba(0,0,0,.2), 0 10px 14px 1px rgba(0,0,0,.14), 0 4px 18px 3px rgba(0,0,0,.12);
+}
+.moe-post-wzimg {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.jbs1{
+    background-image: linear-gradient(160deg, #00ffd5 20%,#008cff 80%);
+}

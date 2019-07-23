@@ -1,5 +1,6 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
+
 <style>
 .DreamCat-inCo{
   padding-top: 20px;
@@ -70,13 +71,14 @@
     background-color: #ae74ac;
 }
 </style>
+
 <div class="mdui-container-fluid">
     <div class="mdui-row DreamCat-content-header"></div>
     <div class="mdui-container">
       <div class="mdui-row">
-        <div class="mdui-col-md-2"></div>
-        <div class="mdui-col-sm-6 mdui-col-md-8">
-          <div class="mdui-card" style="margin-top: -15%;; border-radius:9px;"">
+        <div class="mdui-col-md-1"></div>
+        <div class="mdui-col-sm-6 mdui-col-md-10">
+          <div class="mdui-card" style="margin-top: -15%; border-radius:9px;">
             <div class="mdui-card-header mdui-color-grey-50">
               <img class="mdui-card-header-avatar" src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=100"/>
               <div class="mdui-card-header-title"><?php $this->author(); ?></div>
@@ -84,8 +86,23 @@
             </div>
             <div class="di-color cl"><div class="di-color-a"></div><div class="di-color-b"></div><div class="di-color-c"></div><div class="di-color-d"></div><div class="di-color-e"></div></div>
             <div class="mdui-card-primary">
-              <div class="mdui-card-primary-title"><?php $this->title() ?></div>
-              <div class="mdui-card-primary-subtitle"><time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date(); ?></div>
+              <div class="mdui-card-primary-title mdui-text-center" style="font-weight: 400;"><?php $this->title() ?></div>
+              <div class="mdui-card-primary-subtitle mdui-text-center">
+                  
+<div class="mdui-chip">
+  <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">access_time</i></span>
+  <span class="mdui-chip-title"> <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date(); ?> </span>
+</div>
+<div class="mdui-chip">
+  <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">brush</i></span>
+  <span class="mdui-chip-title"> <?php echo art_count($this->cid); ?>个字 </span>
+</div>
+<div class="mdui-chip">
+  <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">whatshot</i></span>
+  <span class="mdui-chip-title"> <?php _e(getViewsStr($this));?></span>
+</div>
+
+              </div>
             </div>
             <div style="border-top: 1px dashed #e0e0e0; font-size: 14px;"></div>
             <div class="mdui-card-content">
@@ -94,49 +111,65 @@
                 </div>
             </div>
                 <p class="detail-info"> #本文由 <?php $this->author(); ?> 创作，采用 知识共享署名4.0 国际许可协议进行许可!<br>#本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名!<br>#最后编辑时间为: <?php $this->date('F j, Y'); ?></p>
-            <div class="mdui-card-actions">
-
-            <div class="mdui-row">
-                <div class="mdui-col-xs-6">   
-                </div>
-                <div class="mdui-col-xs-6">   
-            <a href="<?php $this->permalink() ?>" class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">keyboard_arrow_right</i></a>
-                </div>
-            </div>
-
-            </div>
           </div>
         </div>
-        <div class="mdui-col-md-2"></div>
+        <div class="mdui-col-md-1"></div>
       </div>
     </div>
 </div>
-
-<br>
 <br>
 
-<!--<div class="col-mb-12 col-8" id="main" role="main">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <h1 class="post-title" itemprop="name headline"><a itemprop="url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h1>
-        <ul class="post-meta">
-            <li itemprop="author" itemscope itemtype="http://schema.org/Person"><?php _e('作者: '); ?><a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a></li>
-            <li><?php _e('时间: '); ?><time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date(); ?></time></li>
-            <li><?php _e('分类: '); ?><?php $this->category(','); ?></li>
-        </ul>
-        <div class="post-content" itemprop="articleBody">
-            <?php $this->content(); ?>
-        </div>
-        <p itemprop="keywords" class="tags"><?php _e('标签: '); ?><?php $this->tags(', ', true, 'none'); ?></p>
-    </article>
+<?php $this->need('comments.php'); ?>
 
-    <?php $this->need('comments.php'); ?>
+<br>
+<br/>
+<style>
+.moe-nav {
+    height: 96px;
+    color: #fff!important;
+    margin-top: 18px;
+    background: rgba(0,0,0,.3);
+}
+.moe-c-d {
+    display: none;
+}
+.moe-nav a {
+    color: #fff!important;
+}
+.moe-nav-left {
+    text-align: left;
+}
+.moe-nav-text {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    padding-top: 24px;
+    display: inline-block;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+.moe-nav a {
+    color: #fff!important;
+}
+.moe-nav-right {
+    text-align: right;
+}
+</style>
+</div>
+<div class="moe-nav">
+   <div class="mdui-divider moe-c-d"></div>
+    <div class="mdui-container">
+     <div class="mdui-row">
+     <?php thePrev($this); ?>
+     <?php theNext($this); ?>
+     </div>
+    </div>
+</div>
 
-    <ul class="post-near">
-        <li>上一篇: <?php $this->thePrev('%s','没有了'); ?></li>
-        <li>下一篇: <?php $this->theNext('%s','没有了'); ?></li>
-    </ul>
-</div>--><!-- end #main-->
 
+    <!-- end #main-->
 
 <?php #$this->need('sidebar.php'); ?>
 <?php $this->need('footer.php'); ?>
