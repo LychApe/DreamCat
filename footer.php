@@ -21,9 +21,9 @@
 <div class="DreamCat-footer">
     <div class="DreamCat-infooter">
                     <div class="mdui-typo"> 
-                    <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">DreamCat</strong>  Made By <strong style="color: rgba(77, 136, 255,.9);">Leakei</strong>
+                    <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">DreamCat</strong>  Made By <strong style="color: rgba(77, 136, 255,.9);">LychApe</strong>
                     <p>Copyright © <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
-                    <p>Published with <a href="http://typecho.org">Typecho</a></p>
+                    <p>Designed by <a href="https://hanfen.run">HanFen</a></p>
                     </div>
     </div>
 </div>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="mdui-chip">
                   <span class="mdui-chip-icon mdui-color-blue">X</span>
-                  <span class="mdui-chip-title">1.1-190723</span>
+                  <span class="mdui-chip-title">1.2-2003005</span>
                 </div>
 				<br/>
 				</p> 
@@ -90,16 +90,16 @@ Dev-Leo" target="_blank">
 Dev-Leo</a></p>
                 <p>鸣谢:<a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>
 				</div>
-				<footer>© Copyright 2015-2019 by Leakei All rights are reserved.</footer>
+				<footer>© Copyright 2015-2020 by LychApe All rights are reserved.</footer>
 			</blockquote>
             </div>
             <div class="mdui-dialog-actions">
               <button class="mdui-btn mdui-ripple" mdui-dialog-close>知 道 啦 !</button>
             </div>
           </div>
-          
-<script type="text/javascript" src="https://down.inwao.com/Bash/jquery.min.js"></script>
-<script type="text/javascript" src="https://down.inwao.com/Bash/go-top.js"></script>
+<button class="mdui-fab mdui-fab-fixed mdui-ripple top mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>          
+<!---<script type="text/javascript" src="https://down.inwao.com/Bash/jquery.min.js"></script>
+<script type="text/javascript" src="https://down.inwao.com/Bash/go-top.js"></script>!-->
 
 </div>
 <?php $this->footer(); ?>

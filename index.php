@@ -46,7 +46,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 }
 </style>
 <div class="mdui-container-fluid">
-    <div class="mdui-row DreamCat-content-header">
+    <div class="mdui-row DreamCat-content-header mdui-shadow-18">
         <div class="mdui-container fade-scale in">
             <h1 class="title"><?php $this->options->title(); ?></h1>
             <h5 class="subtitle"><?php $this->options->description(); ?></h5>
@@ -79,11 +79,31 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
       <div class="mdui-hidden-xs mdui-col-sm-4">
       
   <div class="mdui-row">
-      <div class="mdui-card DreamCat-top-card mdui-shadow-20" style="border-radius:18px;">
-        <div class="mdui-card-media">
-          <img class="DreamCat-main-pic" src="https://img14.360buyimg.com/img/jfs/t1/47682/30/1255/344736/5cf070daE0e5ed7f7/11569460e6e5dff4.jpg"/>
-        </div>
-      </div>
+		<div class="mdui-card DreamCat-top-card mdui-shadow-20" style="border-radius:18px;">
+		        <div class="mdui-card-media">
+		          <img class="DreamCat-main-pic" src="https://huanblog.com/usr/themes/dobyi/images/navigation-bg.jpg" style="
+		    height: 100px;
+		    position: relative;
+		    background-size: cover;
+		    background-position: center;
+		    border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;">
+		        </div>
+		
+		<img class="DreamCat-List-headimg mdui-shadow-6" src="//q2.qlogo.cn/headimg_dl?dst_uin=1091044631@qq.com&amp;spec=640" style="
+		    margin-top: -50px;
+		    position: relative;
+		    left: 7%;
+		    /* margin-right: -20px; */">
+		
+		<div class="number" style="
+		    color: #999;
+		    font-size: 15px;
+		    display: flex;
+		    justify-content: center;
+		    margin: 8%;">
+		<span>等我会点技术了，就不谈文学了@_@</span>
+		</div>
+		      </div>
   </div>
       
       </div>

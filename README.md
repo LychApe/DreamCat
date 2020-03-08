@@ -48,4 +48,4 @@
 
 只要你遵循上述条款规定，您就可以自由使用并传播本源代码。
 
-版权所有Copyright © 2015-2019 by Leakei All rights reserved!
+版权所有Copyright © 2015-2020 by LychApe All rights reserved!

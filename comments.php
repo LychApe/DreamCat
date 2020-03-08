@@ -70,22 +70,6 @@ function threadedComments($comments, $options) {
             
             <div class="mdui-row-xs-2">
               <div class="mdui-col">
-                  <div class="mdui-container vwrap">
-<style>
-                        .v .vwrap input {
-                            background: 0 0;
-                        }
-                        .v .vinput {
-                            border: none;
-                            resize: none;
-                            outline: none;
-                            padding: 10px 5px;
-                            max-width: 100%;
-                            font-size: .775rem;
-                        }
-</style>
-                        <?php spam_protection_math();?>
-                  </div>
               </div>
               <div class="mdui-col">
                   <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right" type="submit" title="Cmd|Ctrl+Enter" id="misubmit">回复</button>
@@ -132,31 +116,6 @@ function threadedComments($comments, $options) {
             
             <div class="mdui-row-xs-2">
               <div class="mdui-col">
-                  <div class="mdui-container">
-<style>
-                          .v .vwrap input {
-                            background: 0 0;
-                        }
-                        .v .vinput {
-                            border: none;
-                            resize: none;
-                            outline: none;
-                            padding: 10px 5px;
-                            max-width: 100%;
-                            font-size: .775rem;
-                        }
-                        .v .vlist .vcard .vimg {
-                            width: 3.125rem;
-                            height: 3.125rem;
-                            float: left;
-                            border-radius: 50%;
-                            margin-right: .7525rem;
-                            border: 1px solid #f5f5f5;
-                            padding: .125rem;
-                        }
-</style>
-                        <?php spam_protection_math();?>
-                  </div>
               </div>
               <div class="mdui-col">
                   <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right" type="submit" title="Cmd|Ctrl+Enter" id="misubmit">回复</button>
