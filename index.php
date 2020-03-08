@@ -89,7 +89,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 		    border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;">
 		        </div>
 		
-		<img class="DreamCat-List-headimg mdui-shadow-6" src="//q2.qlogo.cn/headimg_dl?dst_uin=1091044631@qq.com&amp;spec=640" style="
+		<img class="DreamCat-List-headimg mdui-shadow-6" src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=640" style="
 		    margin-top: -50px;
 		    position: relative;
 		    left: 7%;
@@ -101,7 +101,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 		    display: flex;
 		    justify-content: center;
 		    margin: 8%;">
-		<span>等我会点技术了，就不谈文学了@_@</span>
+		<span><?php $this->options->description(); ?></span>
 		</div>
 		      </div>
   </div>
