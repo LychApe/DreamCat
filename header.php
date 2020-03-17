@@ -173,7 +173,7 @@
         <a href="/" class="mdui-typo-headline mdui-hidden-xs"><?php #$this->options->title(); ?></a>
               <a href="" class="mdui-typo-title"><?php #$this->archiveTitle(); ?></a>
             <div class="mdui-toolbar-spacer"></div>
-                <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">refresh</i></a>
+                <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">refresh</i></a>
       </div>
     </div>
 </div>
