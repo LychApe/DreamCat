@@ -46,7 +46,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 }
 </style>
 <div class="mdui-container-fluid">
-    <div class="mdui-row DreamCat-content-header mdui-shadow-18">
+    <div class="mdui-row DreamCat-content-header">
         <div class="mdui-container fade-scale in">
             <h1 class="title"><?php $this->options->title(); ?></h1>
             <h5 class="subtitle"><?php $this->options->description(); ?></h5>
