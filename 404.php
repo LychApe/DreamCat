@@ -1,10 +1,17 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
 
+<style>
+.indo-404 {
+	text-align:center
+}
 
-<div class="mdui-color-theme mdui-typo-display-3 mdui-center">
-        <span>404<span class="mdui-404"><?php _e('这个页面不见了?');?></span></span>
-</div>
+</style>
+	<div class="mdui-color-theme mdui-typo-display-3">
+		<div class="indo-404"
+        <span>404<span class="mdui-404"><?php _e('<br>这个页面不见了?');?></span></span>
+        </div>
+	</div>
 
 <div class="mdui-divider"></div>
 <div class="mdui-row mdui-color-white">
