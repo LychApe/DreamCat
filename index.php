@@ -63,12 +63,11 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
   <div class="mdui-dialog" id="search-1">
     <div class="mdui-dialog-content">
     
-      <div class="mdui-textfield mdui-textfield-expandable">
-        <button class="mdui-textfield-icon mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></button>
         <form method="post" action="">
+        	<div class="mdui-textfield">
         	<input class="mdui-textfield-input" type="text" name="s" placeholder="Search"/>
+        	</div>
     	</form>
-        <button class="mdui-textfield-close mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">close</i></button>
       </div>
     </div>
   </div>
