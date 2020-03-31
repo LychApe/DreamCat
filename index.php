@@ -55,8 +55,24 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     
     <div class="mdui-row">
       <div class="mdui-col-xs-6 mdui-float-right SetButton">
-        <button class="mdui-fab mdui-color-theme-accent mdui-ripple" style="background-color: #3e7ced!important;"><i class="mdui-icon material-icons">search</i></button>
+        <button class="mdui-fab mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#search-1'}" style="background-color: #3e7ced!important;"><i class="mdui-icon material-icons">search</i></button>
       </div>
+      
+ 
+<div class="mdui-container">
+  <div class="mdui-dialog" id="search-1">
+    <div class="mdui-dialog-content">
+    
+      <div class="mdui-textfield mdui-textfield-expandable">
+        <button class="mdui-textfield-icon mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></button>
+        <form method="post" action="">
+        	<input class="mdui-textfield-input" type="text" name="s" placeholder="Search"/>
+    	</form>
+        <button class="mdui-textfield-close mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">close</i></button>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
 </div>
 

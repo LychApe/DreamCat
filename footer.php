@@ -80,7 +80,7 @@
                 </div>
                 <div class="mdui-chip">
                   <span class="mdui-chip-icon mdui-color-blue">X</span>
-                  <span class="mdui-chip-title">1.2-2003005</span>
+                  <span class="mdui-chip-title">1.3-2020331</span>
                 </div>
 				<br/>
 				</p> 
@@ -97,7 +97,28 @@ Dev-Leo</a></p>
               <button class="mdui-btn mdui-ripple" mdui-dialog-close>知 道 啦 !</button>
             </div>
           </div>
-<button class="mdui-fab mdui-fab-fixed mdui-ripple top mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>          
+<a onclick="topFunction()" id="myBtn" title="回顶部" class="mdui-fab mdui-fab-fixed mdui-ripple top mdui-color-theme-accent" style="display: none;"><i class="mdui-icon material-icons">arrow_upward</i></a>  
+
+
+<!-- 返回顶部js -->
+<script type="text/javascript">
+// 当网页向下滑动 30px 出现"返回顶部" 按钮
+window.onscroll = function() {scrollFunction()};
+ 
+function scrollFunction() {console.log(121);
+    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+ 
+// 点击按钮，返回顶部
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
 <!---<script type="text/javascript" src="https://down.inwao.com/Bash/jquery.min.js"></script>
 <script type="text/javascript" src="https://down.inwao.com/Bash/go-top.js"></script>!-->
 

@@ -121,7 +121,7 @@
 
 <?php $this->need('comments.php'); ?>
 
-<br>
+<br/>
 <br/>
 <style>
 .moe-nav {
