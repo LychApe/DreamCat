@@ -101,14 +101,14 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 		    position: relative;
 		    background-size: cover;
 		    background-position: center;
-		    border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;">
+		    border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;"/>
 		        </div>
 		
 		<img class="DreamCat-List-headimg mdui-shadow-6" src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=640" style="
 		    margin-top: -50px;
 		    position: relative;
 		    left: 7%;
-		    /* margin-right: -20px; */">
+		    /* margin-right: -20px; */"/>
 		
 		<div class="number" style="
 		    color: #999;
