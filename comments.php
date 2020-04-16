@@ -34,10 +34,10 @@ function threadedComments($comments, $options) {
                           <div class="mdui-card-header-title mdui-typo"><?php $comments->author(); ?> <span class="mdui-float-right"><?php $comments->dateWord(); ?></span></div>
                           <div class="mdui-card-header-subtitle"><?php echo getBrowser($comments->agent); ?> <?php echo getOs($comments->agent); ?></div>
                         </div>
-                        <div class="mdui-card-content" style="line-height: 10px;">
+                        <div class="mdui-card-content">
                             <?php showCommentContent($comments->coid); ?>
                         </div>
-					<!--<span class="vat"><?php #$comments->reply('回复'); ?></span>-->
+					<?php #$comments->reply('回复'); ?>
                     </div> 
 			</div>
 		</div>
