@@ -97,26 +97,38 @@ Dev-Leo</a></p>
               <button class="mdui-btn mdui-ripple" mdui-dialog-close>知 道 啦 !</button>
             </div>
           </div>
-<a onclick="topFunction()" id="myBtn" title="回顶部" class="mdui-fab mdui-fab-fixed mdui-ripple top mdui-color-theme-accent" style="display: none;"><i class="mdui-icon material-icons">arrow_upward</i></a>  
 
-
+<!--右下悬浮按钮-->
+  <div class="mdui-fab-wrapper">
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink" id="myBtn">
+          <i class="mdui-icon material-icons">&#xe5d8;</i></a>
+  </div>
 <!-- 返回顶部js -->
-<script type="text/javascript">
+<script src="//cdn.bootcss.com/mdui/0.4.3/js/mdui.min.js"></script>
+<script src='https://cdnjs.loli.net/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js'></script>
+<script>
+var scroll = new SmoothScroll("a[href*='#']");
+var $$ = mdui.JQ;
+$$('#myBtn').on('click', function () {
+  mdui.snackbar({
+    message: '啊！撞到头辣！(๑╹っ╹๑)',
+    position: 'right-top'
+  });
+});
+var $$ = mdui.JQ;
+$$('#ERRO-404').on('click', function () {
+  mdui.snackbar({
+    message: '当前状态不支持辣！(๑╹っ╹๑)',
+    position: 'right-top'
+  });
+});
 // 当网页向下滑动 30px 出现"返回顶部" 按钮
-window.onscroll = function() {scrollFunction()};
- 
 function scrollFunction() {console.log(121);
     if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
         document.getElementById("myBtn").style.display = "block";
     } else {
         document.getElementById("myBtn").style.display = "none";
     }
-}
- 
-// 点击按钮，返回顶部
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
 }
 </script>
 <!---<script type="text/javascript" src="https://down.inwao.com/Bash/jquery.min.js"></script>
