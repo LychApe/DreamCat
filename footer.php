@@ -21,9 +21,9 @@
 <div class="DreamCat-footer">
     <div class="DreamCat-infooter">
                     <div class="mdui-typo"> 
-                    <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">DreamCat</strong>  Made By <strong style="color: rgba(77, 136, 255,.9);">LychApe</strong>
+                    <p>Designed by <a href="https://hanfen.run">HanFen</a> Power by <a href="http://typecho.org/">Typecho</a>.</p>
+                    <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">DreamCat</strong>
                     <p>Copyright © <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
-                    <p>Designed by <a href="https://hanfen.run">HanFen</a></p>
                     </div>
     </div>
 </div>
