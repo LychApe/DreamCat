@@ -3,9 +3,9 @@
  * DreamCat  是一个极简自适应博客主题,年轻人追梦的必备良品!
  * 
  * @package DreamCat
- * @author LeaKei
- * @version 0.1
- * @link httpS://leakei.com
+ * @author LychApe
+ * @version 1.4
+ * @link https://github.com/LychApe/DreamCat
  */
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
@@ -22,7 +22,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  border-radius: 18px;
 }
 .SetButton{
- transform: translateY(-47.2%);
+ transform: translateY(-50%);
  width: 95px;
 }
 .DreamCat-content-header {
@@ -44,6 +44,11 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     -webkit-transform: none;
     transform: none;
 }
+@media screen and (max-width: 760px){
+.DreamCat-content-header {
+    min-height: auto;
+}
+}
 </style>
 <div class="mdui-container-fluid">
     <div class="mdui-row DreamCat-content-header">
@@ -55,7 +60,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     
     <div class="mdui-row">
       <div class="mdui-col-xs-6 mdui-float-right SetButton">
-        <button class="mdui-fab mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#search-1'}" style="background-color: #3e7ced!important;"><i class="mdui-icon material-icons">search</i></button>
+        <button class="mdui-shadow-0 mdui-fab mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#search-1'}" style="background-color: #3f51b5!important;"><i class="mdui-icon material-icons">search</i></button>
       </div>
       
  
@@ -104,7 +109,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 		    border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;"/>
 		        </div>
 		
-		<img class="DreamCat-List-headimg mdui-shadow-6" src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=640" style="
+		<img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->logoUrl() ?>" style="
 		    margin-top: -50px;
 		    position: relative;
 		    left: 7%;
@@ -213,7 +218,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                             src="https://cn.gravatar.com/avatar/"/>-->
                             
                         <img class="mdui-card-header-avatar" 
-                            src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=100"/>
+                            src="<?php $this->options->logoUrl() ?>"/>
                   </span>
                   <div class="mdui-card-header-title"><?php $this->author(); ?></div>
                   <div class="mdui-card-header-subtitle"><time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date(); ?></div>

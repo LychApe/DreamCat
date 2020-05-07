@@ -33,12 +33,13 @@
         <div class="browsehappy" role="dialog"><?php _e('当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>'); ?>.</div>
     <![endif]-->
 <header>
+    
     <div class="mdui-drawer mdui-color-grey-50" style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">
       <div class="mdui-list DreamCat-List-01" mdui-collapse="{accordion: true}" style="margin-bottom: 50%;">
             
       <div class="mdui-card DreamCat-List-02" style="overflow: inherit;">
         <div class="DreamCat-menu-bg" style="background: url(<?php $this->options->themeUrl('src/img/brand.jpg'); ?>);">
-            <img class="DreamCat-List-headimg mdui-shadow-6" src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=640">
+            <img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->logoUrl() ?>">
               <div class="mdui-card-media-covered">
                 <div class="mdui-card-primary">
                   <div class="DreamCat-menu-author font-weight: 400; mdui-valign"><?php $this->author(); ?></div>
@@ -126,6 +127,28 @@
                         </ul>
                     </div>
                 </div>
+                
+        <!-- 页面 -->
+        <div class="mdui-collapse-item  mdui-collapse-item-dense">
+                <div class="mdui-collapse-item-header mdui-list-item">
+                        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">layers</i>
+                        <div class="mdui-list-item-content mdui-text-color-theme-text">页 面</div>
+                        <i class="mdui-collapse-item-arrow mdui-list-item-icon mdui-icon material-icons mdui-ripple mdui-text-color-theme-text">keyboard_arrow_down</i>
+                </div>
+                <div class="mdui-collapse-item-body" style="">
+                    <ul class="mdui-list mdui-list-dense" for="show-category-button">
+                       <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+                        <?php while ($pages->next()): ?>
+                            <li class="mdui-list-item mdui-ripple">
+                                <a href="<?php $pages->permalink(); ?>" class="mdui-list-item-content mdui-text-color-theme-text" title="<?php $pages->title(); ?>">
+                                    <?php $pages->title(); ?>
+                                </a>
+                            </li>
+                        <?php endwhile; ?>
+                    </ul>
+                </div>
+            </div>
+                
         <!-- RSS -->
             <a href="<?php $this->options->feedUrl(); ?>">
               <li class="mdui-list-item mdui-ripple">

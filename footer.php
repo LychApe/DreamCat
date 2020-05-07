@@ -80,7 +80,7 @@
                 </div>
                 <div class="mdui-chip">
                   <span class="mdui-chip-icon mdui-color-blue">X</span>
-                  <span class="mdui-chip-title">1.3-2020331</span>
+                  <span class="mdui-chip-title">1.4-2020507</span>
                 </div>
 				<br/>
 				</p> 

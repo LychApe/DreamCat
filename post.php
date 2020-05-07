@@ -32,6 +32,9 @@
     margin: 0;
     min-height: auto;
     padding: 72px 16px 20px;
+.DreamCat-content-header {
+    min-height: auto;
+}
 }
 .fade-scale.in {
     opacity: 1;
@@ -80,7 +83,7 @@
         <div class="mdui-col-sm-6 mdui-col-md-10">
           <div class="mdui-card" style="margin-top: -15%; border-radius:9px;">
             <div class="mdui-card-header mdui-color-grey-50">
-              <img class="mdui-card-header-avatar" src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=100"/>
+              <img class="mdui-card-header-avatar" src="<?php $this->options->logoUrl() ?>"/>
               <div class="mdui-card-header-title"><?php $this->author(); ?></div>
               <div class="mdui-card-header-subtitle"><?php $this->options->description(); ?></div>
             </div>
@@ -110,18 +113,18 @@
                     <?php $this->content(); ?>
                 </div>
             </div>
-                <p class="detail-info"> #本文由 <?php $this->author(); ?> 创作，采用 知识共享署名4.0 国际许可协议进行许可!<br>#本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名!<br>#最后编辑时间为: <?php $this->date('F j, Y'); ?></p>
+                <p class="detail-info mdui-typo">#如无特别声明，该文章均为 <a href="<?php $this->options->siteUrl(); ?>"><?php $this->author(); ?></a> 原创，转载请遵循 署名-非商业性使用 4.0 国际（CC BY-NC 4.0） 协议，即转载请注明文章来源。
+                <br>#最后编辑时间为: <?php echo date('Y 年 m 月 d 日' , $this->modified); ?></p>
           </div>
         </div>
         <div class="mdui-col-md-1"></div>
       </div>
     </div>
-</div>
+
 <br>
-
 <?php $this->need('comments.php'); ?>
-
 <br/>
+</div>
 <br/>
 <style>
 .moe-nav {

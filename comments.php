@@ -28,6 +28,7 @@ function threadedComments($comments, $options) {
 ?>
 </div>
         <div class="mdui-container">
+        <div class="mdui-container">
         	<div class="mdui-card" style="border-radius:18px;" id="<?php $comments->theId(); ?>">
                         <div class="mdui-card-header">
                           <img class="mdui-card-header-avatar" src="<?php echo $avatar ?>"/>
@@ -40,6 +41,7 @@ function threadedComments($comments, $options) {
 					<?php #$comments->reply('回复'); ?>
                     </div> 
 			</div>
+		</div>
 		</div>
         <br/>
 		<?php if ($comments->children) { ?>
@@ -56,6 +58,7 @@ function threadedComments($comments, $options) {
 <form  method="post" action="<?php $this->commentUrl() ?>" id="comment-form">
 	<?php if($this->user->hasLogin()): ?>
 	
+<div class="mdui-container">
 <div class="mdui-container">
     <div class="mdui-card" style="border-radius:18px;">
         <div class="mdui-card-content">
@@ -80,11 +83,12 @@ function threadedComments($comments, $options) {
         </div>
     </div>
 </div>
-		
+</div>	
 		
 <?php else: ?>
 		
 		
+  <div class="mdui-container">
   <div class="mdui-container">
     <div class="mdui-card" style="border-radius:18px;">
         <div class="mdui-card-content">
@@ -126,6 +130,7 @@ function threadedComments($comments, $options) {
         </div>
     </div>
   </div>
+</div>
 </div>
 		
 

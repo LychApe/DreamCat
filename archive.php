@@ -49,7 +49,7 @@
     
     <div class="mdui-row">
       <div class="mdui-col-xs-6 mdui-float-right SetButton">
-        <button class="mdui-fab mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#search-1'}" style="background-color: #3e7ced!important;"><i class="mdui-icon material-icons">search</i></button>
+        <button class="mdui-shadow-0 mdui-fab mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#search-1'}" style="background-color: #3f51b5!important;"><i class="mdui-icon material-icons">search</i></button>
       </div>
       
  
@@ -149,7 +149,7 @@
                             src="https://cn.gravatar.com/avatar/"/>-->
                             
                         <img class="mdui-card-header-avatar" 
-                            src="//q2.qlogo.cn/headimg_dl?dst_uin=<?php $this->author->mail();?>&spec=100"/>
+                            src="<?php $this->options->logoUrl() ?>"/>
                   </span>
                   <div class="mdui-card-header-title"><?php $this->author(); ?></div>
                   <div class="mdui-card-header-subtitle"><time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date(); ?></div>
