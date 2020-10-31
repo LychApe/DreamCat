@@ -22,8 +22,7 @@
 .DreamCat-content-header {
     min-height: 143px;
     margin-left: -240px;
-    width: 100%;
-    padding: 12px 22px 58px 273px;
+    padding: 10px 10000000px 48px 256px;
     color: #fff;
     background: #3f51b5;
     text-shadow: 0 1px 1px rgba(0,0,0,0.2);
