@@ -72,26 +72,15 @@
     }(window, document);
 </script>
           <div class="mdui-dialog" id="About_DreamCat">
-            <div class="mdui-dialog-title">ABOUT DreamCat</div>
-            <div class="mdui-dialog-content">
+            <div class="mdui-dialog-title">DreamCat</div>
+            <div class="mdui-dialog-content" style="height: 219px;">
             <blockquote>
-                <div class="mdui-chip">
-                  <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">star</i></span>
-                  <span class="mdui-chip-title">DreamCat</span>
-                </div>
-                <div class="mdui-chip">
-                  <span class="mdui-chip-icon mdui-color-blue">X</span>
-                  <span class="mdui-chip-title">1.5-20201031</span>
-                </div>
-				<br/>
-				</p> 
-				<div class="mdui-typo">       
-				<p>开发者: <a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a href="https://github.com/
-Dev-Leo" target="_blank">
-Dev-Leo</a></p>
-                <p>鸣谢:<a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>
+				<p></p> 
+				<div class="mdui-typo">  
+				<p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a href="https://github.com/LychApe/DreamCat" target="_blank">1.5-20201031</a></p>
+				<p>主题开发：<a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a href="https://github.com/Dev-Leo" target="_blank">Dev-Leo</a></p>
+				<p>鸣谢：<a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>
 				</div>
-				<footer>© Copyright 2015-2020 by LychApe All rights are reserved.</footer>
 			</blockquote>
             </div>
             <div class="mdui-dialog-actions">
