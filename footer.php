@@ -20,11 +20,12 @@
 <!--START by LEO-->
 <div class="DreamCat-footer">
     <div class="DreamCat-infooter">
-                    <div class="mdui-typo"> 
-                    <p>Designed by <a href="https://hanfen.run">HanFen</a> Power by <a href="http://typecho.org/">Typecho</a>.</p>
-                    <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">DreamCat</strong>
-                    <p>Copyright © <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
-                    </div>
+        <br/>
+        <div class="mdui-typo"> 
+        <p>Designed by <a href="https://hanfen.run">HanFengA7</a> Power by <a href="http://typecho.org/">Typecho</a>.</p>
+        <p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">DreamCat</strong>
+        <p>Copyright © <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
+        </div>
     </div>
 </div>
 <!--END-->
@@ -80,12 +81,12 @@
                 </div>
                 <div class="mdui-chip">
                   <span class="mdui-chip-icon mdui-color-blue">X</span>
-                  <span class="mdui-chip-title">1.4-2020507</span>
+                  <span class="mdui-chip-title">1.5-20201031</span>
                 </div>
 				<br/>
 				</p> 
 				<div class="mdui-typo">       
-				<p>开发者: <a href="https://github.com/Han-Fen" target="_blank">HanFen</a> | <a href="https://github.com/pa4sword" target="_blank">pa4sword</a> | <a href="https://github.com/
+				<p>开发者: <a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a href="https://github.com/
 Dev-Leo" target="_blank">
 Dev-Leo</a></p>
                 <p>鸣谢:<a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>

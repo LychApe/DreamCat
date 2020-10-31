@@ -22,7 +22,8 @@
 .DreamCat-content-header {
     min-height: 143px;
     margin-left: -240px;
-    padding: 10px 16px 48px 256px;
+    width: 100%;
+    padding: 12px 22px 58px 273px;
     color: #fff;
     background: #3f51b5;
     text-shadow: 0 1px 1px rgba(0,0,0,0.2);
@@ -75,12 +76,10 @@
 }
 </style>
 
-<div class="mdui-container-fluid">
+<div class="mdui-container">
     <div class="mdui-row DreamCat-content-header"></div>
     <div class="mdui-container">
       <div class="mdui-row">
-        <div class="mdui-col-md-1"></div>
-        <div class="mdui-col-sm-6 mdui-col-md-10">
           <div class="mdui-card" style="margin-top: -15%; border-radius:9px;">
             <div class="mdui-card-header mdui-color-grey-50">
               <img class="mdui-card-header-avatar" src="<?php $this->options->logoUrl() ?>"/>
@@ -114,16 +113,16 @@
                 </div>
             </div>
                 <p class="detail-info mdui-typo">#如无特别声明，该文章均为 <a href="<?php $this->options->siteUrl(); ?>"><?php $this->author(); ?></a> 原创，转载请遵循 署名-非商业性使用 4.0 国际（CC BY-NC 4.0） 协议，即转载请注明文章来源。
-                <br>#最后编辑时间为: <?php echo date('Y 年 m 月 d 日' , $this->modified); ?></p>
+                <br/>#最后编辑时间为: <?php echo date('Y 年 m 月 d 日' , $this->modified); ?></p>
           </div>
-        </div>
-        <div class="mdui-col-md-1"></div>
-      </div>
-    </div>
+      
+    
 
-<br>
+<br/>
 <?php $this->need('comments.php'); ?>
 <br/>
+</div>
+</div>
 </div>
 <br/>
 <style>
