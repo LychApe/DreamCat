@@ -22,7 +22,7 @@
 .DreamCat-content-header {
     min-height: 143px;
     margin-left: -240px;
-    padding: 10px 10000000px 48px 256px;
+    padding: 10px 16px 48px 256px;
     color: #fff;
     background: #3f51b5;
     text-shadow: 0 1px 1px rgba(0,0,0,0.2);
@@ -75,7 +75,7 @@
 }
 </style>
 
-<div class="mdui-container">
+<div class="mdui-container-fluid">
     <div class="mdui-row DreamCat-content-header"></div>
     <div class="mdui-container">
       <div class="mdui-row">
