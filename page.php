@@ -1,6 +1,10 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
-
+<style>
+.img{
+    width: 100%;
+}
+</style>
 <div class="mdui-container">
 
 	<div class="mdui-valign mdui-typo" itemprop="name headline">

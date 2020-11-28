@@ -51,6 +51,9 @@
     line-height: 19px;
     background-color: #f6f6f6;
 }
+.img{
+    width: 100%;
+}
 </style>
 <style>
 .di-color div {
@@ -107,7 +110,7 @@
             </div>
             <div style="border-top: 1px dashed #e0e0e0; font-size: 14px;"></div>
             <div class="mdui-card-content">
-                <div itemprop="articleBody">
+                <div class="mdui-typo">
                     <?php $this->content(); ?>
                 </div>
             </div>
