@@ -2,20 +2,22 @@
 
 **安装**
 ------
->稳定版本
-<br/>1.请点击Releases下载稳定版本
-<br/>2.放入Typecho主题文件夹中
-<br/>3.启用以完成安装
-<br/>
 
->尝鲜版本
-<br/>1.请点击Download下载尝鲜版本
-<br/>2.放入Typecho "themes"文件夹中
-<br/>3.修改本主题文件夹名为"DreamCat"
-<br/>4.启用以完成安装
+>尝试版本(可能有Bug)  
+1.请点击Code下载  
+2.放入Typecho "themes"文件夹中  
+3.修改本主题文件夹名为"DreamCat"  
+4.启用以完成安装  
+
 
 **更新日志**
 ------
+>DreamCat(C1.0.0-20202612)  
+1.格式化代码格式, 提高可读性(仅完成大部分, 未全部完成)  
+2.修复了几个bug  
+3.删除了一些无用代码和调试代码, 缩减体积  
+<small> 感谢 [https://github.com/HanFengA7](HanFeng47) 的帮助与支持 </small>
+
 >DreamCat (X1.5-20201031) 
 <br/>1.修复UI若干bug
 
@@ -65,4 +67,6 @@
 
 只要你遵循上述条款规定，您就可以自由使用并传播本源代码。
 
-版权所有Copyright © 2015-2020 by LychApe All rights reserved!
+版权所有 Copyright © 2015-2020 by LychApe All rights reserved!  
+
+版权所有 Copyright © 2020 by CornWorld All rights reserved
