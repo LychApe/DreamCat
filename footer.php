@@ -62,8 +62,18 @@
 			<blockquote>
 				<p></p> 
 				<div class="mdui-typo">  
-				<p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a href="https://github.com/LychApe/DreamCat" target="_blank">1.5-20201031</a></p>
-				<p>主题开发：<a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a href="https://github.com/Dev-Leo" target="_blank">Dev-Leo</a></p>
+				<p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a href="https://github.com/LychApe/DreamCat" target="_blank">X1.6-20201226</a></p>
+				<p>主题开发：<a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a href="https://github.com/Dev-Leo" target="_blank">Dev-Leo</a> | <a href="https://github.com/CornWorld" target="_blank">CornWorld</a></p>
+				<p>鸣谢：<a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>
+				</div>
+			</blockquote>
+@@ -112,4 +112,4 @@ function scrollFunction() {console.log(121);
+</div>
+<?php $this->footer(); ?>
+</body>
+</html> 
+</html>
+
 				<p>鸣谢：<a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>
 				</div>
 			</blockquote>
