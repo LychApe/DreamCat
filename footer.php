@@ -67,7 +67,6 @@
 				<p>鸣谢：<a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>
 				</div>
 			</blockquote>
-@@ -112,4 +112,4 @@ function scrollFunction() {console.log(121);
 </div>
 <?php $this->footer(); ?>
 </body>
