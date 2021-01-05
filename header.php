@@ -14,8 +14,11 @@
 		),'',' - '); ?><?php $this->options->title(); ?></title>
 
 	<link rel="stylesheet" href="<?php $this->options->themeUrl('src/css/style.css'); ?>">
-	<link rel="stylesheet" href="https://cdn.bootcss.com/mdui/0.4.3/css/mdui.min.css">
-	<script src="https://cdn.bootcss.com/mdui/0.4.3/js/mdui.min.js"></script>
+	<!--<link rel="stylesheet" href="https://cdn.bootcss.com/mdui/0.4.3/css/mdui.min.css">-->
+	<link href="https://cdn.bootcdn.net/ajax/libs/mdui/0.4.3/css/mdui.min.css" rel="stylesheet">
+	<!--<script src="https://cdn.bootcss.com/mdui/0.4.3/js/mdui.min.js"></script>-->
+	<script src="https://cdn.bootcdn.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+	<script src="<?php $this->options->themeUrl('src/js/iconfont.js'); ?>"></script>
 	
 	<!--[if lt IE 9]>
 	<script src="//cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>
@@ -170,6 +173,15 @@
 			}
 		}
 	</style>
+	<style>
+.icon {
+  width: 3em;
+  height: 2em;
+  vertical-align: 11em;
+  fill: currentColor;
+  overflow: hidden;
+}
+</style>
 </head>
 <!-- Body-->
 <body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
@@ -182,11 +194,15 @@
 		<div class="mdui-list DreamCat-List-01" mdui-collapse="{accordion: true}" style="margin-bottom: 50%;">
 		<div class="mdui-card DreamCat-List-02" style="overflow: inherit;">
 			<div class="DreamCat-menu-bg" style="background: url(<?php $this->options->themeUrl('src/img/brand.jpg'); ?>);">
+			    <?php if(!empty($this->options->logoUrl)): ?>
 				<img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->logoUrl() ?>">
+				<?php else: ?>
+				<img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->themeUrl('src/img/default-avatar.png'); ?>">
+				<?php endif; ?>
 				<div class="mdui-card-media-covered">
 					<div class="mdui-card-primary">
-						<div class="DreamCat-menu-author font-weight: 400; mdui-valign">
-							<?php $this->author(); ?>
+						<div class="DreamCat-menu-author font-weight: 400; mdui-valign;text-align:center;">
+							<?php $this->options->title(); ?>
 						</div>
 					</div>
 				</div>
@@ -199,37 +215,7 @@
 					<div class="mdui-list-item-content">首  页</div>
 				</li>
 			</a>
-		<!-- 用户 -->	
-			<div class="mdui-collapse-item mdui-collapse-item-dense">
-				<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-					<i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">account_box</i>
-					<div class="mdui-list-item-content">用  户</div>
-					<i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-				</div>
-				<div class="mdui-collapse-item-body mdui-list">
-<?php if ($this->user->hasLogin()):?>
-					<a href="/admin/login.php">
-						<li class="mdui-list-item mdui-ripple">
-							<i class="mdui-list-item-icon mdui-icon material-icons">https</i>
-							<div class="mdui-list-item-content">后台</div>
-						</li>
-					</a>
-<?php else: ?>
-					<a href="/admin/login.php">
-						<li class="mdui-list-item mdui-ripple">
-							<i class="mdui-list-item-icon mdui-icon material-icons">https</i>
-							<div class="mdui-list-item-content">登录</div>
-						</li>
-					</a>
-					<a href="/admin/register.php">
-						<li class="mdui-list-item mdui-ripple">
-							<i class="mdui-list-item-icon mdui-icon material-icons">group_add</i>
-							<div class="mdui-list-item-content">注册</div>
-						</li>
-					</a>	
-<?php endif; ?>
-				</div>
-			</div>
+	
 		<!-- 归档 --> 
 			<div class="mdui-collapse-item mdui-collapse-item-dense">
 				<div class="mdui-collapse-item-header mdui-list-item">

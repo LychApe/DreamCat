@@ -62,26 +62,62 @@
 			<blockquote>
 				<p></p> 
 				<div class="mdui-typo">  
-				<p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a href="https://github.com/LychApe/DreamCat" target="_blank">X1.6-20201226</a></p>
+				<p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a href="https://github.com/LychApe/DreamCat" target="_blank">X1.7-20210102</a></p>
 				<p>主题开发：<a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a href="https://github.com/Dev-Leo" target="_blank">Dev-Leo</a> | <a href="https://github.com/CornWorld" target="_blank">CornWorld</a></p>
+				<p>近期接手开发[1.7版本始]：<a href="https://www.wbstudio.org/" target="_blank">WBStudio</a></p>
 				<p>鸣谢：<a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>
 				</div>
+			
 			</blockquote>
+				<div class="mdui-dialog-actions">
+			  <button class="mdui-btn mdui-ripple" mdui-dialog-close>知 道 啦 !</button>
+			</div>
 </div>
+
+
+
+
 <?php $this->footer(); ?>
 </body>
 </html> 
 </html>
 
-				<p>鸣谢：<a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>
+						
 				</div>
+			
 			</blockquote>
+		
 			</div>
-			<div class="mdui-dialog-actions">
-			  <button class="mdui-btn mdui-ripple" mdui-dialog-close>知 道 啦 !</button>
-			</div>
+			
 		  </div>
-
+ <div class="mdui-dialog" id="qq">
+  <div class="mdui-dialog-title">加我的QQ</div>
+  <div class="mdui-dialog-content"><img src="<?php $this->options->qq() ?>"></div>
+  <div class="mdui-dialog-actions">
+    <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
+  </div>
+</div>
+ <div class="mdui-dialog" id="weibo">
+  <div class="mdui-dialog-title">加我的微博</div>
+  <div class="mdui-dialog-content"><img src="<?php $this->options->weibo() ?>"></div>
+  <div class="mdui-dialog-actions">
+<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
+  </div>
+</div>
+ <div class="mdui-dialog" id="zfb">
+  <div class="mdui-dialog-title">加我的支付宝</div>
+  <div class="mdui-dialog-content"><img src="<?php $this->options->zfb() ?>"></div>
+  <div class="mdui-dialog-actions">
+<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
+  </div>
+</div>
+ <div class="mdui-dialog" id="weixin">
+  <div class="mdui-dialog-title">加我的微信</div>
+  <div class="mdui-dialog-content"><img src="<?php $this->options->weixin() ?>"></div>
+  <div class="mdui-dialog-actions">
+<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
+  </div>
+</div>
 <!--右下悬浮按钮-->
   <div class="mdui-fab-wrapper">
 		<a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink" id="myBtn">

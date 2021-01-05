@@ -7,7 +7,11 @@
 		<div class="mdui-row">
 			<div class="mdui-card" style="margin-top: -15%; border-radius:9px;">
 				<div class="mdui-card-header mdui-color-grey-50">
+				    <?php if(!empty($this->options->logoUrl)): ?>
 				<img class="mdui-card-header-avatar" src="<?php $this->options->logoUrl() ?>"/>
+				<?php else: ?>
+				<img class="mdui-card-header-avatar" src="<?php $this->options->themeUrl('src/img/default-avatar.png'); ?>"/>
+					<?php endif; ?>
 					<div class="mdui-card-header-title"><?php $this->author(); ?></div>
 					<div class="mdui-card-header-subtitle"><?php $this->options->description(); ?></div>
 				</div>
@@ -22,6 +26,7 @@
 					<div class="mdui-card-primary-title mdui-text-center" style="font-weight: 400;">
 						<?php $this->title() ?>
 					</div>
+					<br>
 					<div class="mdui-card-primary-subtitle mdui-text-center">
 						<div class="mdui-chip">
 							<span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">access_time</i></span>
@@ -35,8 +40,16 @@
 							<span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">whatshot</i></span>
 							<span class="mdui-chip-title"> <?php _e(getViewsStr($this));?></span>
 						</div>
+						<?php if($this->options->baidusl == 'checked'): ?>
+							<div class="mdui-chip">
+							<span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xeb3b;</i></span>
+				<span class="mdui-chip-title">百度收录：<?php echo baidu_record() ?>
+</span>
+	</div>
+	<?php endif; ?>
 					</div>
 				</div>
+		
 				<div style="border-top: 1px dashed #e0e0e0; font-size: 14px;"></div>
 				<div class="mdui-card-content">
 					<div class="mdui-typo">
@@ -49,7 +62,9 @@
 					#最后编辑时间为: <?php echo date('Y 年 m 月 d 日' , $this->modified); ?>
 				</p>
 			</div>
+		
 			<br/>
+			
 <?php $this->need('comments.php'); ?>
 			<br/>
 		</div>
@@ -57,12 +72,16 @@
 </div>
 <br/>
 
+
 <div class="moe-nav">
 	<div class="mdui-divider moe-c-d"></div>
 	<div class="mdui-container">
 		<div class="mdui-row">
-		<?php thePrev($this); ?>
-		<?php theNext($this); ?>
+
+                    <?php thePrev($this); ?>
+                
+                    <?php theNext($this); ?>
+            </div>
 		</div>
 	</div>
 </div>
