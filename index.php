@@ -4,7 +4,7 @@
  * 
  * @package DreamCat
  * @author LychApe
- * @version 1.5-20201031
+ * @version 1.7-20210104
  * @link https://github.com/LychApe/DreamCat
  */
 
@@ -56,7 +56,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 			<div class="mdui-dialog-content">
 			<form method="post" action="">
 				<div class="mdui-textfield">
-				<input class="mdui-textfield-input" type="text" name="s" placeholder="Search" />
+				<input class="mdui-textfield-input" type="text" name="s" placeholder="输入关键词进行搜索" />
 				</div>
 			</form>
 			</div>
@@ -69,10 +69,14 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 		<div class="mdui-col-xs-12 mdui-col-sm-8">
 		<div class="mdui-card DreamCat-top-card mdui-shadow-18" style="border-radius:18px;">
 			<div class="mdui-card-media">
+			     <?php if(!empty($this->options->headbj1)): ?>
+			     <img class="DreamCat-main-pic" src="<?php $this->options->headbj1() ?>" />
+			     <?php else: ?>
 			<img class="DreamCat-main-pic" src="//img14.360buyimg.com/img/jfs/t1/60307/19/4269/282412/5d2629faE5c3b1ef5/02d26b22dfe459d0.jpg" />
+			<?php endif; ?>
 			<div class="mdui-card-media-covered">
 				<div class="mdui-card-primary">
-					<div class="mdui-card-primary-title">Life is not fair, be used to it ! </div>
+					<div class="mdui-card-primary-title"><?php $this->options->Dec() ?> </div>
 				</div>
 			</div>
 			</div>
@@ -82,12 +86,58 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 		<div class="mdui-row">
 			<div class="mdui-card DreamCat-top-card mdui-shadow-20" style="border-radius:18px;">
 			<div class="mdui-card-media">
-				<img class="DreamCat-main-pic" src="https://huanblog.com/usr/themes/dobyi/images/navigation-bg.jpg" style="height: 100px;position: relative;background-size: cover;background-position: center;border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;" />
+			    <?php if(!empty($this->options->headbj2)): ?>
+			    <img class="DreamCat-main-pic" src="<?php $this->options->headbj2() ?>" style="height: 100px;position: relative;background-size: cover;background-position: center;border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;" />
+			    <?php else: ?>
+				<img class="DreamCat-main-pic" src="//img14.360buyimg.com/img/jfs/t1/60307/19/4269/282412/5d2629faE5c3b1ef5/02d26b22dfe459d0.jpg" style="height: 100px;position: relative;background-size: cover;background-position: center;border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;" />
+				<?php endif; ?>
 			</div>
-			<img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->logoUrl() ?>" style="margin-top: -50px;position: relative;left: 7%;/* margin-right: -20px; */" />
-			<div class="number" style="color: #999;font-size: 15px;display: flex;justify-content: center;margin: 8%;">
-				<span>
-				<?php $this->options->description(); ?></span>
+			<?php if(!empty($this->options->logoUrl)): ?>
+			<img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->logoUrl() ?>" style="margin-top: -50px;position: relative;left: 10%;/* margin-right: -20px; */" />
+				<?php else: ?>
+				<img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->themeUrl('src/img/default-avatar.png'); ?>" style="margin-top: -50px;position: relative;left: 10%;/* margin-right: -20px; */" />
+								<?php endif; ?>
+								<div class="number" style="color: #999;font-size: 15px;display: flex;justify-content: center;margin: 1%;">
+			    <?php if(!empty($this->options->Decc)): ?>
+			  <div class="mdui-chip">
+  <span class="mdui-chip-title"><?php $this->options->Decc() ?></span>
+</div>
+				
+				<?php else: ?>
+				<div class="mdui-chip">
+  <span class="mdui-chip-title">博主很懒,啥都没写</span>
+</div>
+					<?php endif; ?>
+			</div>
+
+
+	<center>
+	    <?php if(!empty($this->options->qq)): ?>
+	    <a mdui-dialog="{target: '#qq'}">
+<svg class="icon" aria-hidden="true">
+  <use xlink:href="#icon-QQ"></use>
+  
+</svg></a>
+<?php endif; ?>
+<?php if(!empty($this->options->weibo)): ?>
+<a mdui-dialog="{target: '#weibo'}">
+<svg class="icon" aria-hidden="true">
+<use xlink:href="#icon-weibo"></use>
+</svg></a>
+<?php endif; ?>
+<?php if(!empty($this->options->zfb)): ?>
+<a mdui-dialog="{target: '#zfb'}">
+<svg class="icon" aria-hidden="true">
+<use xlink:href="#icon-zhifubao"></use>
+</svg></a>
+<?php endif; ?>
+<?php if(!empty($this->options->weixin)): ?>
+<a mdui-dialog="{target: '#weixin'}">
+<svg class="icon" aria-hidden="true">
+<use xlink:href="#icon-weixin"></use>
+</svg></a>
+<?php endif; ?>
+</center>
 			</div>
 			</div>
 		</div>
@@ -96,8 +146,11 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 	</div>
 	<br />
 	<br />
+	
 	<div class="mdui-container mdui-center">
+	   
 <?php while($this->next()): ?>
+ <a href ='<?php $this->permalink() ?>'>
 		<article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
 			<div class="mdui-row">
 				<div id="main">
@@ -116,31 +169,18 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 										<div class="mdui-card-primary">
 											<div class="mdui-card-primary-title">
 												<?php $this->title(); ?>
+												
+												<?php if($this->options->articletime == 'checked'): ?>
+												<br><small>发表时间:
+												<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished">
+												<?php $this->date(); ?></time>
+												</small>
+												<?php endif; ?>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="mdui-divider"></div>
-									<div class="mdui-card-header">
-										<div class="mdui-row">
-											<div class="mdui-col-xs-6">
-											<span itemprop="image">
-												<!--<img class="mdui-card-header-avatar" src="https://cn.gravatar.com/avatar/"/>-->
-												<img class="mdui-card-header-avatar" src="<?php $this->options->logoUrl() ?>" />
-											</span>
-											<div class="mdui-card-header-title">
-												<?php $this->author(); ?>
-											</div>
-											<div class="mdui-card-header-subtitle">
-												<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished">
-												<?php $this->date(); ?></time>
-											</div>
-											</div>
-											<div class="mdui-col-xs-6">
-											<a href="<?php $this->permalink() ?>" class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">keyboard_arrow_right</i></a>
-											</div>
-										</div>
-									</div>
+							
 								</div>
 							</div>
 						</div>
@@ -148,9 +188,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 					<div class="mdui-col-md-1 mdui-col-lg-1"></div>
 				</div>
 			</div>
-		</article>
+</article>
+		</a>
 <?php endwhile; ?>
 	</div>
+	</a>
+	</div>
+	
 	<div class="moe-margin-card-top"></div>
 	<div class="moe-page-div moe-card-a">
 		<?php $this->pageLink('<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-color-theme-accent mdui-shadow-5 moe-prev"><i class="mdui-icon material-icons">navigate_before</i></button>','prev'); ?>

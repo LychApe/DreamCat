@@ -59,9 +59,17 @@ function threadedComments($comments, $options) {
 	<div class="mdui-card-content">
 		<div class="mdui-row">
 			<div class="mdui-col-xs-12 mdui-col-sm-12">
+			  <div class="mdui-typo">
+                    <h4>
+                        <?php _e('登录身份: '); ?>
+                        <a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>
+                        <a href="<?php $this->options->logoutUrl(); ?>" title="Logout"><?php _e('退出'); ?> &raquo;</a>
+                    </h4>
+                </div>
 			<div class="mdui-textfield">
 				<i class="mdui-icon material-icons">explore</i>
-				<textarea name="text" id="veditor" class="mdui-textfield-input" maxlength="160" placeholder="快来评论吧~"><?php $this->remember('text',false); ?></textarea>
+	
+				<textarea name="text" id="veditor" class="mdui-textfield-input" maxlength="<?php if(!empty($this->options->commentszs)): ?><?php $this->options->commentszs() ?><?php else: ?>1000<?php endif; ?>" placeholder="嘿~ 大神，快来点评一下吧"><?php $this->remember('text',false); ?></textarea>
 			</div>	  
 			</div>
 			<div class="mdui-col-xs-12 mdui-col-sm-12">
@@ -95,7 +103,7 @@ function threadedComments($comments, $options) {
 				<div class="mdui-col-xs-12 mdui-col-sm-12">
 					<div class="mdui-textfield">
 						<i class="mdui-icon material-icons">explore</i>
-						<textarea name="text" id="veditor" class="mdui-textfield-input" maxlength="160" placeholder="快来评论吧~"><?php $this->remember('text'); ?></textarea>
+						<textarea name="text" id="veditor" class="mdui-textfield-input" maxlength="<?php if(!empty($this->options->commentszs)): ?><?php $this->options->commentszs() ?><?php else: ?>1000<?php endif; ?>" placeholder="嘿~ 大神，快来点评一下吧"><?php $this->remember('text'); ?></textarea>
 					</div>
 				</div>
 			</div>
