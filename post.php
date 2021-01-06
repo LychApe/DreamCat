@@ -73,17 +73,20 @@
 <br/>
 
 
-<div class="moe-nav">
-	<div class="mdui-divider moe-c-d"></div>
-	<div class="mdui-container">
-		<div class="mdui-row">
-
-                    <?php thePrev($this); ?>
-                
-                    <?php theNext($this); ?>
+<?php if (M_content() > 1): ?>
+<?php else: ?>
+    <div class="moe-nav">
+    	<div class="mdui-divider moe-c-d"></div>
+    	<div class="mdui-container">
+        	<div class="mdui-row">
+                <?php thePrev($this); ?>
+                <?php theNext($this); ?>
             </div>
-		</div>
-	</div>
+    	</div>
+    </div>
+<?php endif; ?>
+
+
 </div>
 
 <!-- end #main-->

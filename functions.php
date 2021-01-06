@@ -349,7 +349,7 @@ $content = $db->fetchRow($sql);
  
 if ($content) {
 $content = $widget->filter($content);
-$link = '<a href="' . $content['permalink'] . '" class="mdui-ripple mdui-col-xs-10 mdui-col-sm-6 moe-nav-right">
+$link = '<a href="' . $content['permalink'] . '" class="mdui-ripple mdui-col-xs-10 mdui-col-sm-6 moe-nav-right mdui-float-right">
 	   <div class="moe-nav-text">
 		<span class="moe-nav-direction">下一篇</span>
 		<i class="mdui-icon material-icons">arrow_forward</i>
@@ -679,4 +679,19 @@ else{
  return false;
 	}
    return $os;
+}
+
+/*
+* M_content
+*/
+function M_content(){
+$db = Typecho_Db::get();
+$sql = $db->select()->from('table.contents')
+->where('table.contents.created > ?', $widget->created)
+->where('table.contents.status = ?', 'publish')
+->where('table.contents.type = ?', $widget->type)
+->where('table.contents.password IS NULL')
+->order('table.contents.created', Typecho_Db::SORT_ASC)
+->limit(1);
+return $db->fetchRow($sql);
 }
