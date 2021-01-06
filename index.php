@@ -4,7 +4,7 @@
  * 
  * @package DreamCat
  * @author LychApe
- * @version 1.7-20210104
+ * @version 1.8-20210106
  * @link https://github.com/LychApe/DreamCat
  */
 

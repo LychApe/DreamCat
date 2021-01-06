@@ -21,8 +21,8 @@ function themeConfig($form) {
 	$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('articletime'));
 	$options = Typecho_Widget::widget('Widget_Options');
 		$Html = <<<HTML
-	<link rel="stylesheet" href="/usr/themes/echo/layui/css/layui.css?v=2.5.6">
-	<script src="/usr/themes/echo/layui/layui.js?v=2.5.6"></script>
+	<link rel="stylesheet" href="/usr/themes/DreamCat/layui/css/layui.css?v=2.5.6">
+	<script src="/usr/themes/DreamCat/layui/layui.js?v=2.5.6"></script>
 	
 <div style="background-color: #F2F2F2;">
   <div class="layui-row layui-col-space15">
@@ -32,7 +32,7 @@ function themeConfig($form) {
         <div class="layui-card-body">
 	<fieldset class="layui-elem-field">
 	
-		<legend>DreamCat 主题配置中心 <small> Version:1.7</small></legend>
+		<legend>DreamCat 主题配置中心 <small> Version:1.8</small></legend>
 
       	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
 		<legend>基本设置</legend>

@@ -7,8 +7,6 @@
 	<div class="DreamCat-infooter">
 		<br/>
 		<div class="mdui-typo"> 
-		<p>Designed by <a href="https://hanfen.run">HanFengA7</a> Power by <a href="http://typecho.org/">Typecho</a>.</p>
-		<p id="testme">Theme <strong style="color: rgba(77, 136, 255,.9);">DreamCat</strong>
 		<p>Copyright © <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
 		</div>
 	</div>
@@ -62,10 +60,11 @@
 			<blockquote>
 				<p></p> 
 				<div class="mdui-typo">  
-				<p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a href="https://github.com/LychApe/DreamCat" target="_blank">X1.7-20210102</a></p>
-				<p>主题开发：<a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a href="https://github.com/Dev-Leo" target="_blank">Dev-Leo</a> | <a href="https://github.com/CornWorld" target="_blank">CornWorld</a></p>
-				<p>近期接手开发[1.7版本始]：<a href="https://www.wbstudio.org/" target="_blank">WBStudio</a></p>
-				<p>鸣谢：<a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>
+				<p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a href="https://github.com/LychApe/DreamCat" target="_blank">X1.8-20210106</a></p>
+				<p>主题开发：<a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a href="https://github.com/Dev-Leo" target="_blank">Dev-Leo</a> | <a href="https://github.com/CornWorld" target="_blank">CornWorld</a>  | <a href="https://www.wbstudio.org/" target="_blank">WBStudio</a> | <a href="https://github.com/DFFZMXJ" target="_blank">学神之女</a></p>
+
+    		<p>Designed by <a href="https://hanfen.run" style="text-decoration: none">HanFengA7</a> Power by <a href="http://typecho.org/" style="text-decoration: none">Typecho</a></p>
+				<p>Copyright © 2015-2021 by LychApe All rights reserved!</p>
 				</div>
 			
 			</blockquote>

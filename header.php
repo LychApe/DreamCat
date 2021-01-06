@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="<?php $this->options->themeUrl('src/css/style.css'); ?>">
 	<!--<link rel="stylesheet" href="https://cdn.bootcss.com/mdui/0.4.3/css/mdui.min.css">-->
 	<link href="https://cdn.bootcdn.net/ajax/libs/mdui/0.4.3/css/mdui.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="<?php $this->options->themeUrl('src/css/md2.css'); ?>">
 	<!--<script src="https://cdn.bootcss.com/mdui/0.4.3/js/mdui.min.js"></script>-->
 	<script src="https://cdn.bootcdn.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
 	<script src="<?php $this->options->themeUrl('src/js/iconfont.js'); ?>"></script>
@@ -190,7 +191,7 @@
 	<div class="browsehappy" role="dialog"><?php _e('当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>'); ?>.</div>
 	<![endif]-->
 	<header>
-		<div class="mdui-drawer mdui-color-grey-50" style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">
+		<div class="mc-drawer mdui-drawer mdui-color-grey-50" style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">
 		<div class="mdui-list DreamCat-List-01" mdui-collapse="{accordion: true}" style="margin-bottom: 50%;">
 		<div class="mdui-card DreamCat-List-02" style="overflow: inherit;">
 			<div class="DreamCat-menu-bg" style="background: url(<?php $this->options->themeUrl('src/img/brand.jpg'); ?>);">
@@ -201,8 +202,10 @@
 				<?php endif; ?>
 				<div class="mdui-card-media-covered">
 					<div class="mdui-card-primary">
-						<div class="DreamCat-menu-author font-weight: 400; mdui-valign;text-align:center;">
+					    <div class="mdui-valig">
+						<div class="DreamCat-menu-author nmdui-center" style="font-weight: 400;text-align: center;">
 							<?php $this->options->title(); ?>
+						</div>
 						</div>
 					</div>
 				</div>
@@ -307,6 +310,12 @@
 				</li>
 				</a>
 			</div>
+			
+          <div class="copyright">
+
+          </div>
+        </div>
+        
 	</header>
 	<div class="mdui-container-fluid" style="padding-left: 0px; padding-right: 0px;" >
 		<div class="mdui-appbar mdui-shadow-0">
