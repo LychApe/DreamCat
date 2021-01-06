@@ -16,7 +16,7 @@
 
 **更新日志**
 >DreamCat(X1.7-20210104)  
-1.后台增加主题配置中心，可操作更多自定义配置
+1.后台增加主题配置中心，可操作更多自定义配置  
 2.修复了已知问题    
 
 ------
@@ -77,4 +77,4 @@
 
 版权所有 Copyright © 2015-2021 by LychApe All rights reserved!  
 
-主题开发：<a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a href="https://github.com/Dev-Leo" target="_blank">Dev-Leo</a> | <a href="https://github.com/CornWorld" target="_blank">CornWorld</a>
+主题开发：<a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a href="https://github.com/Dev-Leo" target="_blank">Dev-Leo</a> | <a href="https://github.com/CornWorld" target="_blank">CornWorld</a>| <a href="https://www.wbstudio.org/" target="_blank">WBStudio</a>
