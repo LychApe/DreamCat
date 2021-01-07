@@ -74,7 +74,6 @@
 
 
 <?php if (M_content() > 1): ?>
-<?php else: ?>
     <div class="moe-nav">
     	<div class="mdui-divider moe-c-d"></div>
     	<div class="mdui-container">
@@ -84,6 +83,8 @@
             </div>
     	</div>
     </div>
+<?php else: ?>
+
 <?php endif; ?>
 
 
