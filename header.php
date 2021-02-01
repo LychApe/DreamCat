@@ -12,14 +12,29 @@
 			'tag' => _t('标签 %s 下的文章'),
 			'author' => _t('%s 发布的文章')
 		),'',' - '); ?><?php $this->options->title(); ?></title>
-
-	<link rel="stylesheet" href="<?php $this->options->themeUrl('src/css/style.css'); ?>">
-	<!--<link rel="stylesheet" href="https://cdn.bootcss.com/mdui/0.4.3/css/mdui.min.css">-->
-	<link href="https://cdn.bootcdn.net/ajax/libs/mdui/0.4.3/css/mdui.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="<?php $this->options->themeUrl('src/css/md2.css'); ?>">
-	<!--<script src="https://cdn.bootcss.com/mdui/0.4.3/js/mdui.min.js"></script>-->
-	<script src="https://cdn.bootcdn.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
-	<script src="<?php $this->options->themeUrl('src/js/iconfont.js'); ?>"></script>
+		
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+      integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
+      crossorigin="anonymous"
+    />
+    <link 
+      rel="stylesheet" 
+      href="<?php $this->options->themeUrl('src/css/style.css'); ?>"
+    />
+    <link 
+      rel="stylesheet" 
+      href="<?php $this->options->themeUrl('src/css/md2.css'); ?>"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+      integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+      crossorigin="anonymous"
+    ></script>
+	<script 
+        src="<?php $this->options->themeUrl('src/js/iconfont.js'); ?>"
+    ></script>
 	
 	<!--[if lt IE 9]>
 	<script src="//cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>
