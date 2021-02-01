@@ -32,10 +32,12 @@
       integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
       crossorigin="anonymous"
     ></script>
+	<!--<script 
+        src="<?php #$this->options->themeUrl('src/js/iconfont.js'); ?>"
+    ></script>-->
 	<script 
-        src="<?php $this->options->themeUrl('src/js/iconfont.js'); ?>"
-    ></script>
-	
+	    src="//at.alicdn.com/t/font_2359325_loysvemas8m.js">
+	</script>
 	<!--[if lt IE 9]>
 	<script src="//cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>
 	<script src="//cdnjscn.b0.upaiyun.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -190,7 +192,7 @@
 		}
 	</style>
 	<style>
-.icon {
+.dc_icon {
   width: 3em;
   height: 2em;
   vertical-align: 11em;

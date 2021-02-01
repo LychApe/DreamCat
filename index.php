@@ -4,7 +4,7 @@
  * 
  * @package DreamCat
  * @author LychApe
- * @version 1.8-20210106
+ * @version 1.9-20210201
  * @link https://github.com/LychApe/DreamCat
  */
 
@@ -111,31 +111,47 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 			</div>
 
 
-	<center>
-	    <?php if(!empty($this->options->qq)): ?>
-	    <a mdui-dialog="{target: '#qq'}">
-<svg class="icon" aria-hidden="true">
-  <use xlink:href="#icon-QQ"></use>
-  
-</svg></a>
+<center>
+<?php if(!empty($this->options->github)): ?>
+    <a href="<?php $this->options->github() ?>">
+        <svg class="dc_icon" aria-hidden="true" style="fill: black">
+        <use xlink:href="#dc_icongithub"></use>
+        </svg>
+    </a>
+<?php endif; ?>
+<?php if(!empty($this->options->qq)): ?>
+    <a mdui-dialog="{target: '#qq'}">
+        <svg class="dc_icon" aria-hidden="true">
+        <use xlink:href="#dc_iconQQ"></use>
+        </svg>
+    </a>
 <?php endif; ?>
 <?php if(!empty($this->options->weibo)): ?>
-<a mdui-dialog="{target: '#weibo'}">
-<svg class="icon" aria-hidden="true">
-<use xlink:href="#icon-weibo"></use>
-</svg></a>
+    <a mdui-dialog="{target: '#weibo'}">
+        <svg class="dc_icon" aria-hidden="true">
+        <use xlink:href="#dc_icon552cd5bdeaada"></use>
+        </svg>
+    </a>
 <?php endif; ?>
 <?php if(!empty($this->options->zfb)): ?>
-<a mdui-dialog="{target: '#zfb'}">
-<svg class="icon" aria-hidden="true">
-<use xlink:href="#icon-zhifubao"></use>
-</svg></a>
+    <a mdui-dialog="{target: '#zfb'}">
+        <svg class="dc_icon" aria-hidden="true">
+        <use xlink:href="#dc_iconzhifubao"></use>
+        </svg>
+    </a>
 <?php endif; ?>
 <?php if(!empty($this->options->weixin)): ?>
 <a mdui-dialog="{target: '#weixin'}">
-<svg class="icon" aria-hidden="true">
-<use xlink:href="#icon-weixin"></use>
+<svg class="dc_icon" aria-hidden="true">
+<use xlink:href="#dc_iconweixin"></use>
 </svg></a>
+<?php endif; ?>
+<?php if(!empty($this->options->linkedin)): ?>
+    <a href="<?php $this->options->linkedin() ?>">
+        <svg class="dc_icon" aria-hidden="true" style="fill: black">
+        <use xlink:href="#dc_iconlinkedin"></use>
+        </svg>
+    </a>
 <?php endif; ?>
 </center>
 			</div>

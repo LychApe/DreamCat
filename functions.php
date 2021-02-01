@@ -17,6 +17,8 @@ function themeConfig($form) {
 	$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('weixin'));
 	$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('zfb'));
 	$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('weibo'));
+	$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('github'));
+	$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('linkedin'));
 	$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('baidusl'));
 	$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('articletime'));
 	$options = Typecho_Widget::widget('Widget_Options');
@@ -32,7 +34,7 @@ function themeConfig($form) {
         <div class="layui-card-body">
 	<fieldset class="layui-elem-field">
 	
-		<legend>DreamCat 主题配置中心 <small> Version:1.8</small></legend>
+		<legend>DreamCat 主题配置中心 <small> Version:1.9</small></legend>
 
       	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
 		<legend>基本设置</legend>
@@ -145,6 +147,20 @@ function themeConfig($form) {
 					<div class="layui-word-aux">填写您的微博二维码图片地址,它将在首页以及其他地方显示，不填则不显示</div>
 				</div>
 			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">您的Github<br/>地址</label>
+				<div class="layui-input-block">
+					<input type="text" name="dreamcat_github" value="{$options->github}" placeholder="填写Github地址" autocomplete="off" class="layui-input">
+					<div class="layui-word-aux">填写您的Github地址,它将在首页以及其他地方显示，不填则不显示</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">您的Linkedin<br/>地址</label>
+				<div class="layui-input-block">
+					<input type="text" name="dreamcat_linkedin" value="{$options->linkedin}" placeholder="填写Linkedin地址" autocomplete="off" class="layui-input">
+					<div class="layui-word-aux">填写您的Linkedin地址,它将在首页以及其他地方显示，不填则不显示</div>
+				</div>
+			</div>
 			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
 		<legend>文章页设置</legend>
 		</fieldset>
@@ -241,6 +257,9 @@ function themeConfig($form) {
 			$("input[name=echo_thumbType][value='1']").attr("checked", '{$options->thumbType}' == 1 ? true : false);
 			$("input[name=echo_thumbType][value='2']").attr("checked", '{$options->thumbType}' == 2 ? true : false);
 			$("input[name=echo_thumbType][value='3']").attr("checked", '{$options->thumbType}' == 3 ? true : false);
+			$("input[name=echo_thumbType][value='4']").attr("checked", '{$options->thumbType}' == 4 ? true : false);
+			$("input[name=echo_thumbType][value='5']").attr("checked", '{$options->thumbType}' == 5 ? true : false);
+			$("input[name=echo_thumbType][value='6']").attr("checked", '{$options->thumbType}' == 6 ? true : false);
 			form.render();
 
 			//同步input值

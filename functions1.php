@@ -14,6 +14,8 @@ function themeConfig($form) {
 	$weixin = new Typecho_Widget_Helper_Form_Element_Text('weixin', NULL, NULL, _t('您的微信二维码图片地址'), _t('填写您的微信二维码图片地址,它将在首页以及其他地方显示，不填则不显示'));
 	$zfb = new Typecho_Widget_Helper_Form_Element_Text('zfb', NULL, NULL, _t('您的支付宝二维码图片地址'), _t('填写您的支付宝二维码图片地址,它将在首页以及其他地方显示，不填则不显示'));
 	$weibo = new Typecho_Widget_Helper_Form_Element_Text('weibo', NULL, NULL, _t('您的微博二维码图片地址'), _t('填写您的微博二维码图片地址,它将在首页以及其他地方显示，不填则不显示'));
+	$github = new Typecho_Widget_Helper_Form_Element_Text('github', NULL, NULL, _t('您的Github地址'), _t('填写您的Github地址,它将在首页以及其他地方显示，不填则不显示'));
+	$linkedin = new Typecho_Widget_Helper_Form_Element_Text('linkedin', NULL, NULL, _t('您的Linkedin地址'), _t('填写您的Linkedin地址,它将在首页以及其他地方显示，不填则不显示'));
 	$form->addInput($logoUrl);
 	$form->addInput($Dec);
 	$form->addInput($Decc);
@@ -24,6 +26,8 @@ function themeConfig($form) {
 	$form->addInput($weixin);
 	$form->addInput($zfb);
 	$form->addInput($weibo);
+	$form->addInput($github);
+	$form->addInput($linkedin);
 	/*$sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', 
 	array('ShowRecentPosts' => _t('显示最新文章'),
 	'ShowRecentComments' => _t('显示最近回复'),
