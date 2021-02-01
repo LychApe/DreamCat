@@ -18,9 +18,9 @@
 
 >DreamCat(X1.9-20210201)  
 1.升级 MDUI 1.0.1   
-2.修复了移动端点击侧边栏的 DreamCat 后阴影不会自动消失Bug
-3.更新主题配置中心
-4.联系方式增加 github linkedin 
+2.修复了移动端点击侧边栏的 DreamCat 后阴影不会自动消失Bug  
+3.更新主题配置中心  
+4.联系方式增加 github linkedin  
 
 ------
 
