@@ -1,5 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php 
+<?php
 function threadedComments($comments, $options) {
 	$commentClass = '';
 	if ($comments->authorId) {
@@ -13,8 +13,8 @@ function threadedComments($comments, $options) {
 	$commentLevelClass = $comments->levels > 0 ? ' comment-child' : ' comment-parent';
 ?>
 <?php
-	$host = 'https://gravatar.loli.net'; 
-	$url = '/avatar/'; 
+	$host = 'https://gravatar.loli.net';
+	$url = '/avatar/';
 	$rating = Helper::options()->commentsAvatarRating;
 	$hash = md5(strtolower($comments->mail));
 	$email = strtolower($comments->mail);
@@ -24,7 +24,7 @@ function threadedComments($comments, $options) {
 	}
 	else {
 		$avatar = $host . $url . $hash . '?s=50' . '&r=' . $rating . '&d=mm';
-	}	   
+	}
 ?>
 		<div class="mdui-card" style="border-radius:18px;" id="<?php $comments->theId(); ?>">
 			<div class="mdui-card-header">
@@ -37,9 +37,9 @@ function threadedComments($comments, $options) {
 				</div>
 			</div>
 			<div class="mdui-card-content">
-				<?php showCommentContent($comments->coid); ?>
+				<?php echo showCommentContent($comments->coid); ?>
 			</div>
-		</div> 
+		</div>
 		<br/>
 		<?php if ($comments->children): ?>
 		<?php $comments->threadedComments($options); ?>
@@ -68,18 +68,18 @@ function threadedComments($comments, $options) {
                 </div>
 			<div class="mdui-textfield">
 				<i class="mdui-icon material-icons">explore</i>
-	
+
 				<textarea name="text" id="veditor" class="mdui-textfield-input" maxlength="<?php if(!empty($this->options->commentszs)): ?><?php $this->options->commentszs() ?><?php else: ?>1000<?php endif; ?>" placeholder="嘿~ 大神，快来点评一下吧"><?php $this->remember('text',false); ?></textarea>
-			</div>	  
+			</div>
 			</div>
 			<div class="mdui-col-xs-12 mdui-col-sm-12">
 				<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right" type="submit" title="Cmd|Ctrl+Enter" id="misubmit">回复</button>
-				<?php $security = $this->widget('Widget_Security'); ?>  
+				<?php $security = $this->widget('Widget_Security'); ?>
 			</div>
 		</div>
 	</div>
 </div>
-		
+
 <?php else: ?>
 	<div class="mdui-card" style="border-radius:18px;">
 		<div class="mdui-card-content">
@@ -90,14 +90,14 @@ function threadedComments($comments, $options) {
 						<input class="mdui-textfield-input" type="text" name="author" placeholder="昵称" value="<?php $this->remember('author'); ?>"/>
 					</div>
 				</div>
-				
+
 				<div class="mdui-col-xs-12 mdui-col-sm-6">
 					<div class="mdui-textfield">
 						<i class="mdui-icon material-icons">email</i>
 						<input class="mdui-textfield-input" type="email" name="mail" placeholder="邮箱" value="<?php $this->remember('mail'); ?>" <?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?>/>
 					</div>
 				</div>
-				
+
 			</div>
 			<div class="mdui-row">
 				<div class="mdui-col-xs-12 mdui-col-sm-12">
@@ -107,7 +107,7 @@ function threadedComments($comments, $options) {
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="mdui-row-xs-2">
 				<div class="mdui-col">
 				</div>
@@ -116,14 +116,14 @@ function threadedComments($comments, $options) {
 					<?php $security = $this->widget('Widget_Security'); ?>
 				</div>
 			</div>
-		
+
 		</div>
 	</div>
 	</div>
-		
+
 
 <?php endif; ?>
-</form>	
+</form>
 <?php if($this->commentsNum!=0): ?>
 <!--<span class="vnum"><?php #$this->commentsNum('%d'); ?></span> 评论-->
 <?php else: ?>
