@@ -155,7 +155,7 @@ $this->need('header.php');
                                                             <div class="mdui-card-media">
                                                             <?php $t = thumb($this); ?>
                                                             <?php if ($t[0] == 0):?>
-                                                                <img class="moe-post-wzimg" style="object-fit: contain;" src="<?php echo $t[1]; ?>"/>
+                                                                <img class="moe-post-wzimg" style="object-fit: cover;" src="<?php echo $t[1]; ?>"/>
                                                             <?php endif; ?>
                                                             <?php if ($t[0] == 1) : ?>
                                                                  <img class="moe-post-wzimg" style="object-fit: cover;" src="<?php echo $t[1]; ?>"/>

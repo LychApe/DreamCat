@@ -174,6 +174,7 @@ function themeConfig($form) {
     </div>
 </div>
 <br />
+<br />
 <script>
     layui.use(["colorpicker", "form", "transfer"], function () {
         var $ = layui.$;

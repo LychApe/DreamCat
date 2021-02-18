@@ -21,7 +21,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     <div class="mdui-dialog-title">关于 DreamCat</div>
     <div class="mdui-dialog-content" style="height: 219px;">
         <blockquote>
-            <div class="mdui-typo"><p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a href="https://github.com/LychApe/DreamCat" target="_blank">X1.9-20210201</a></p>
+            <div class="mdui-typo"><p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a href="https://github.com/LychApe/DreamCat" target="_blank">X1.9-20210218</a></p>
                 <p>主题开发：<a
                             href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a
                             href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a
@@ -43,19 +43,15 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 <div class="mdui-dialog" id="qq">
     <div class="mdui-dialog-title">加我的QQ</div>
-    <div class="mdui-dialog-content">
+    <div class="mdui-dialog-content mdui-typo">
         <img src="<?php $this->options->qq() ?>">
     </div>
-    <div class="mdui-dialog-content mdui-typo"><img src="<?php $this->options->qq() ?>"></div>
     <div class="mdui-dialog-actions">
         <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
     </div>
 </div>
 <div class="mdui-dialog" id="weibo">
     <div class="mdui-dialog-title">加我的微博</div>
-    <div class="mdui-dialog-content">
-        <img src="<?php $this->options->weibo() ?>">
-    </div>
     <div class="mdui-dialog-content mdui-typo">
         <img src="<?php $this->options->weibo() ?>">
     </div>
@@ -65,9 +61,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 </div>
 <div class="mdui-dialog" id="zfb">
     <div class="mdui-dialog-title">加我的支付宝</div>
-    <div class="mdui-dialog-content">
-        <img src="<?php $this->options->zfb() ?>">
-    </div>
     <div class="mdui-dialog-content mdui-typo">
         <img src="<?php $this->options->zfb() ?>">
     </div>
@@ -77,9 +70,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 </div>
 <div class="mdui-dialog" id="weixin">
     <div class="mdui-dialog-title">加我的微信</div>
-    <div class="mdui-dialog-content">
-        <img src="<?php $this->options->weixin() ?>">
-    </div>
     <div class="mdui-dialog-content mdui-typo">
         <img src="<?php $this->options->weixin() ?>">
     </div>

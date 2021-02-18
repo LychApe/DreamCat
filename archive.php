@@ -30,6 +30,7 @@
             </div>
         </div>
     </div>
+<div class="mdui-container mdui-center">
 <?php if ($this->have()): ?>
     <?php while ($this->next()): ?>
         <a href ='<?php $this->permalink() ?>'>
@@ -47,7 +48,7 @@
                                         <div class="mdui-card-media">
                                             <?php $t = thumb($this); ?>
                                             <?php if ($t[0] == 0):?>
-                                                <img class="moe-post-wzimg" style="object-fit: contain;" src="<?php echo $t[1]; ?>"/>
+                                                <img class="moe-post-wzimg" style="object-fit: cover;" src="<?php echo $t[1]; ?>"/>
                                             <?php endif; ?>
                                             <?php if ($t[0] == 1) : ?>
                                                 <img class="moe-post-wzimg" style="object-fit: cover;" src="<?php echo $t[1]; ?>"/>
@@ -117,6 +118,7 @@
         </button>
         <?php $this->pageLink('<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-color-theme-accent mdui-shadow-5 moe-next"><i class="mdui-icon material-icons">navigate_next</i></button>', 'next'); ?>
     </div>
+</div>
 
     <!-- end #main -->
 <?php $this->need('footer.php'); ?>
