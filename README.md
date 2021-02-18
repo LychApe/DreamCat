@@ -29,10 +29,10 @@ QQ群：1034830519
 ------
 
 >DreamCat(X1.9.1-20210209)  
-1. 将归档页面的样式与首页同步  
-2. 修复文章预览图片缩放问题  
-3. 删除 functions1.php , 其功能完全由 functions.php 替代  
-4. 格式化代码, 提高可读性 (CornWorld完成)  
+1.将归档页面的样式与首页同步  
+2.修复文章预览图片缩放问题  
+3.删除 functions1.php , 其功能完全由 functions.php 替代  
+4.格式化代码, 提高可读性 (CornWorld完成)  
 
 >DreamCat(X1.9-20210201)  
 1.升级 MDUI 1.0.1   
