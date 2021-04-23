@@ -350,7 +350,7 @@ function thePrev($widget, $default = NULL)
     $content = $db->fetchRow($sql);
     if ($content) {
         $content = $widget->filter($content);
-        $link = '<a href=' . $content['permalink'] . '" class="mdui-ripple mdui-col-xs-2 mdui-col-sm-6 moe-nav-left"><div class="moe-nav-text"> <i class="mdui-icon material-icons">arrow_back</i> <span class="moe-nav-direction mdui-hidden-xs-down">上一篇</span> <div class="moe-nav-chapter mdui-hidden-xs-down">' . $content['title'] . '</div> </div> </a>';
+        $link = '<a href=' . $content['permalink'] . ' class="mdui-ripple mdui-col-xs-2 mdui-col-sm-6 moe-nav-left"><div class="moe-nav-text"> <i class="mdui-icon material-icons">arrow_back</i> <span class="moe-nav-direction mdui-hidden-xs-down">上一篇</span> <div class="moe-nav-chapter mdui-hidden-xs-down">' . $content['title'] . '</div> </div> </a>';
         echo $link;
     } else {
         echo $default;
