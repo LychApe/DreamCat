@@ -1,18 +1,172 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php
-function threadedComments($comments, $options) {
-	$commentClass = '';
-	if ($comments->authorId) {
-		if ($comments->authorId == $comments->ownerId) {
-			$commentClass .= ' comment-by-author';
-		} else {
-			$commentClass .= ' comment-by-user';
-		}
-	}
+<style>
+.comment-list{list-style-type:none;}
+.fillet-A1{border-radius:.5rem}
+.shadow-A1{box-shadow:.5rem .875rem 2.375rem rgba(39,44,49,.06),.0625rem .1875rem .5rem rgba(39,44,49,.03)}
+.button-ts{position:relative}
+.button-ts:active{
+transform:translateY(2px);
+-webkit-transition:box-shadow 2.5s;
+box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
+.0625rem .1875rem .5rem transparent
+}
+.border-comm{
+    border-radius:12px;
+}
+    .border-comm-1{
+        border-radius:9px;
+    }
+    .border-comm-2{
+        border-radius:19px;
+    }
+    .border-comm-3{
+        border-radius:19px;
+    }
+a{
+    text-decoration: none;
+    color: black;
+}
+</style>
 
-	$commentLevelClass = $comments->levels > 0 ? ' comment-child' : ' comment-parent';
-?>
-<?php
+<div id="comments">
+    <div class="mdui-chip shadow-A1" style="background-color: #ececec;">
+      <span class="mdui-chip-icon"><i class="mdui-icon material-icons">create</i></span>
+      <span class="mdui-chip-title"><?php _e('添加新评论'); ?></span>
+    </div>
+    <?php $this->comments()->to($comments); ?>
+    <?php if ($comments->have()): ?>
+    <?php if($this->allow('comment')): ?>
+    <div id="<?php $this->respondId(); ?>" class="respond">
+        <div class="cancel-comment-reply">
+        <?php $comments->cancelReply(); ?>
+        </div>
+    <br/>
+    <br/>
+    <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
+        <div class="mdui-card border-comm-2 shadow-A1">
+          <div class="mdui-row">
+        <?php if($this->user->hasLogin()): ?>
+        <div class="mdui-valign">
+          <p class="mdui-center"><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout"><?php _e('退出'); ?> &raquo;</a></p>
+        </div>
+        <?php else: ?>
+              <!--Card_1-->
+                <div class="mdui-col-lg-6">
+                <div class="mdui-col-sm-12">
+                    <div class="mdui-textfield">
+                        <i class="mdui-icon material-icons">account_circle</i>
+                        <input type="text" name="author" id="author" class="mdui-textfield-input" placeholder="Username" value="<?php $this->remember('author'); ?>" required />
+                    </div>
+                </div>
+                </div>
+                <div class="mdui-col-lg-6">
+                <div class="mdui-col-sm-12">
+                    <div class="mdui-textfield">
+                      <i class="mdui-icon material-icons">email</i>
+                      <input class="mdui-textfield-input" type="email" type="email" name="mail" id="mail" placeholder="Email" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> <?php endif; ?> />
+                    </div>
+                </div>
+                </div>
+                <div class="mdui-col-lg-12">
+                <div class="mdui-col-sm-12">
+                    <div class="mdui-textfield">
+                      <i class="mdui-icon material-icons">language</i>
+                      <input type="url" name="url" id="url" class="mdui-textfield-input" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
+                    </div>
+                </div>
+                </div>
+<?php endif; ?>
+              <!--Card_2-->
+                  <div class="mdui-col-lg-12">
+                  <div class="mdui-col-sm-12">
+                    <div class="mdui-textfield mdui-textfield-floating-label">
+                      <i class="mdui-icon material-icons">textsms</i>
+                      <textarea rows="8" cols="50" name="text" id="textarea" class="mdui-textfield-input" maxlength="<?php if(!empty($this->options->commentszs)): ?><?php $this->options->commentszs() ?><?php else: ?>1000<?php endif; ?>" placeholder="嘿~ 大神，快来点评一下吧" required><?php $this->remember('text'); ?></textarea>
+                    </div>
+                  </div>
+                  </div>
+                <br/>
+                <!--<div class="mdui-clearfix">-->
+                  <div class="mdui-float-right">
+                      <div class="mdui-row mdui-row-gapless">
+                             <input type="submit" class="mdui-btn mdui-btn-raised mdui-color-deep-purple-accent border-comm-3" id="Post" value=" 发 射 ! " />
+                      </div>
+                  </div>
+    </form>              
+          <div class="mdui-dialog" id="Advanced-1">
+            <div class="mdui-dialog-content">
+            <ul class="mdui-list">
+                
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">camera_rear</i>
+                <div class="mdui-list-item-content">匿名发布</div>
+                <label class="mdui-switch">
+                  <input type="checkbox" disabled/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+              </li>
+
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">camera_front</i>
+                <div class="mdui-list-item-content">私信作者</div>
+                <label class="mdui-switch">
+                  <input type="checkbox" disabled/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+              </li>
+            </ul>
+            </div>
+            <div class="mdui-dialog-actions">
+              <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>知 道 啦 !</button>
+            </div>
+          </div>
+                  
+                  <div class="mdui-float-left">
+                      <div class="mdui-row mdui-row-gapless">
+                          <button class="mdui-btn mdui-btn-raised mdui-color-deep-purple-accent border-comm-3" mdui-dialog="{target: '#Advanced-1'}"> 高 级 ! </button>
+                      </div>
+                  </div>
+        </div>
+        </div>          
+
+    </div>
+    <?php else: ?>
+    <h3><?php _e('评论已关闭'); ?></h3>
+    <?php endif; ?>
+    
+    
+<br/>
+    <div class="mdui-chip shadow-A1" style="background-color: #ececec;">
+      <span class="mdui-chip-icon"><i class="mdui-icon material-icons">assessment</i></span>
+      <span class="mdui-chip-title"><?php $this->commentsNum(_t('暂无评论'), _t('仅有一条评论'), _t('已有 %d 条评论')); ?></span>
+    </div>
+    
+    <?php $comments->listComments(); ?>
+
+    <?php $comments->pageNav('<i class="mdui-icon material-icons">arrow_forward</i>', '<i class="mdui-icon material-icons">arrow_back</i>',10,'',array('wrapTag' => 'div', 'wrapClass' => 'pagination','itemTag' => '','currentClass' => 'page-number',)); ?>
+    
+    <?php endif; ?>
+
+    
+</div>
+
+
+
+
+
+
+<?php function threadedComments($comments, $options) {
+    $commentClass = '';
+    if ($comments->authorId) {
+        if ($comments->authorId == $comments->ownerId) {
+            $commentClass .= ' comment-by-author';
+        } else {
+            $commentClass .= ' comment-by-user';
+        }
+    }
+ 
+    $commentLevelClass = $comments->levels > 0 ? ' comment-child' : ' comment-parent';
+
 	$host = 'https://gravatar.loli.net';
 	$url = '/avatar/';
 	$rating = Helper::options()->commentsAvatarRating;
@@ -26,111 +180,74 @@ function threadedComments($comments, $options) {
 		$avatar = $host . $url . $hash . '?s=50' . '&r=' . $rating . '&d=mm';
 	}
 ?>
-		<div class="mdui-card" style="border-radius:18px;" id="<?php $comments->theId(); ?>">
-			<div class="mdui-card-header">
-				<img class="mdui-card-header-avatar" src="<?php echo $avatar ?>"/>
-				<div class="mdui-card-header-title mdui-typo"><?php $comments->author(); ?>
-					<span class="mdui-float-right"><?php $comments->dateWord(); ?></span>
-				</div>
-				<div class="mdui-card-header-subtitle">
-					<?php echo getBrowser($comments->agent); ?> <?php echo getOs($comments->agent); ?>
-				</div>
-			</div>
-			<div class="mdui-card-content">
-				<?php echo showCommentContent($comments->coid); ?>
-			</div>
-		</div>
-		<br/>
-		<?php if ($comments->children): ?>
-		<?php $comments->threadedComments($options); ?>
-		<?php endif; ?>
-
-
-<?php } ?>
-<?php $this->comments()->to($comments); ?>
-<?php if($this->allow('comment')): ?>
-
-
-<div class="" id="<?php $this->respondId(); ?>">
-<form  method="post" action="<?php $this->commentUrl() ?>" id="comment-form">
-	<?php if($this->user->hasLogin()): ?>
-
-<div class="mdui-card" style="border-radius:18px;">
-	<div class="mdui-card-content">
-		<div class="mdui-row">
-			<div class="mdui-col-xs-12 mdui-col-sm-12">
-			  <div class="mdui-typo">
-                    <h4>
-                        <?php _e('登录身份: '); ?>
-                        <a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>
-                        <a href="<?php $this->options->logoutUrl(); ?>" title="Logout"><?php _e('退出'); ?> &raquo;</a>
-                    </h4>
+ 
+<li id="li-<?php $comments->theId(); ?>" class="comment-body<?php 
+if ($comments->levels > 0) {
+    echo ' comment-child';
+    $comments->levelsAlt(' comment-level-odd', ' comment-level-even');
+} else {
+    echo ' comment-parent';
+}
+$comments->alt(' comment-odd', ' comment-even');
+echo $commentClass;
+?>">
+    
+        <div class="mdui-card fillet-A1 shadow-A1 button-ts" id="<?php $comments->theId(); ?>">
+              <div class="mdui-card-header mdui-color-grey-50">
+                <a href="<?php $comments->permalink(); ?>">
+                    <img class="mdui-card-header-avatar" src="<?php echo $avatar ?>"/>
+                </a>
+                <div class="mdui-card-header-title mdui-text-truncate"><?php $comments->author(); ?></div>
+                <div class="mdui-card-header-subtitle"><?php $comments->date('Y-m-d H:i'); ?></div>
+                <div class="mdui-card-menu">
+                <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '<?php echo getBrowser($comments->agent); ?> <?php echo getOs($comments->agent); ?>'}"><i class="mdui-icon material-icons">settings_system_daydream</i></button>
                 </div>
-			<div class="mdui-textfield">
-				<i class="mdui-icon material-icons">explore</i>
+              </div>
+              <div class="mdui-divider"></div>
+              <?php $identity = mt_rand()+mt_rand()+mt_rand()+mt_rand();?>
+              <div class="mdui-card-content" id="<?php echo $identity; ?>"><?php $comments->content(); ?></div>
 
-				<textarea name="text" id="veditor" class="mdui-textfield-input" maxlength="<?php if(!empty($this->options->commentszs)): ?><?php $this->options->commentszs() ?><?php else: ?>1000<?php endif; ?>" placeholder="嘿~ 大神，快来点评一下吧"><?php $this->remember('text',false); ?></textarea>
-			</div>
-			</div>
-			<div class="mdui-col-xs-12 mdui-col-sm-12">
-				<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right" type="submit" title="Cmd|Ctrl+Enter" id="misubmit">回复</button>
-				<?php $security = $this->widget('Widget_Security'); ?>
-			</div>
-		</div>
-	</div>
-</div>
+  <div class="mdui-card-actions" style="padding: 0px;">
+                  <div class="mdui-float-left">
+                      <div class="mdui-row mdui-row-gapless">
+                          <button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-left: -12px; background-color: rgb(236 236 236);"> <?php $comments->reply(); ?> </button>
+                      </div>
+                  </div>
+    
 
-<?php else: ?>
-	<div class="mdui-card" style="border-radius:18px;">
-		<div class="mdui-card-content">
-			<div class="mdui-row">
-				<div class="mdui-col-xs-12 mdui-col-sm-6">
-					<div class="mdui-textfield">
-						<i class="mdui-icon material-icons">account_circle</i>
-						<input class="mdui-textfield-input" type="text" name="author" placeholder="昵称" value="<?php $this->remember('author'); ?>"/>
-					</div>
-				</div>
-
-				<div class="mdui-col-xs-12 mdui-col-sm-6">
-					<div class="mdui-textfield">
-						<i class="mdui-icon material-icons">email</i>
-						<input class="mdui-textfield-input" type="email" name="mail" placeholder="邮箱" value="<?php $this->remember('mail'); ?>" <?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?>/>
-					</div>
-				</div>
-
-			</div>
-			<div class="mdui-row">
-				<div class="mdui-col-xs-12 mdui-col-sm-12">
-					<div class="mdui-textfield">
-						<i class="mdui-icon material-icons">explore</i>
-						<textarea name="text" id="veditor" class="mdui-textfield-input" maxlength="<?php if(!empty($this->options->commentszs)): ?><?php $this->options->commentszs() ?><?php else: ?>1000<?php endif; ?>" placeholder="嘿~ 大神，快来点评一下吧"><?php $this->remember('text'); ?></textarea>
-					</div>
-				</div>
-			</div>
-
-			<div class="mdui-row-xs-2">
-				<div class="mdui-col">
-				</div>
-				<div class="mdui-col">
-					<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right" type="submit" title="Cmd|Ctrl+Enter" id="misubmit">回复</button>
-					<?php $security = $this->widget('Widget_Security'); ?>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	</div>
+    <button class="mdui-btn mdui-btn-icon mdui-float-right" onclick="playAudio(<?php echo $identity ?>)" ><i class="mdui-icon material-icons">settings_voice</i></button>
+  </div>
+        </div>
+        <br/>
+    <script type="text/javascript"> 
+		function playAudio(commentID){
+		    //commendID: The identity of every comment.
+		    var audioID = "audioPlayer";
+		    if(document.getElementById(audioID)) document.getElementById(audioID).remove();
+		    var content = document.getElementById(commentID).innerHTML.replace(/\&/g,"和");
+		    var audio = document.createElement("audio");
+	        audio.setAttribute("autoplay","autoplay");
+	        audio.setAttribute("id","audioPlayer");
+	        var source = document.createElement("source");
+	        source.src="https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=6&text="+content;
+	        source.setAttribute("type","audio/mpeg");
+	        var embed = document.createElement("embed");
+	        embed.style.display="none";
+	        audio.appendChild(source);
+	        audio.appendChild(embed);
+        	document.body.appendChild(audio);
+		}
+		if(typeof(publiced)=="undefined") console.log("使用此控制台可能会让攻击者利用 Self-XSS（自跨站脚本）攻击来冒充你，并窃取你的信息。请勿输入或粘贴你不明白的代码。");
+		var publiced = true;
+</script>
 
 
-<?php endif; ?>
-</form>
-<?php if($this->commentsNum!=0): ?>
-<!--<span class="vnum"><?php #$this->commentsNum('%d'); ?></span> 评论-->
-<?php else: ?>
-<!--<div class="vempty" style="display:block;">快来做第一个评论的人吧~</div>-->
-<?php endif; ?>
-<?php if ($comments->have()): ?>
-<?php $comments->listComments(); ?>
-<?php endif; ?>
-		<?php $comments->pageNav('<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>',10,'',array('wrapTag' => 'div', 'wrapClass' => 'pagination','itemTag' => '','currentClass' => 'page-number',)); ?>
-<?php endif; ?>
+<?php if ($comments->children) { ?>
+    <div class="comment-children">
+        <?php $comments->threadedComments($options); ?>
+    </div>
+<?php } ?>
+</li>
+<?php } ?>
+
+

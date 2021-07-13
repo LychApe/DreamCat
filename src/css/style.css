@@ -54,3 +54,13 @@
 .jbs1{
     background-image: linear-gradient(160deg, #00ffd5 20%,#008cff 80%);
 }
+.comment-list{list-style-type:none;}
+.fillet-A1{border-radius:.5rem}
+.shadow-A1{box-shadow:.5rem .875rem 2.375rem rgba(39,44,49,.06),.0625rem .1875rem .5rem rgba(39,44,49,.03)}
+.button-ts{position:relative}
+.button-ts:active{
+transform:translateY(2px);
+-webkit-transition:box-shadow 2.5s;
+box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
+.0625rem .1875rem .5rem transparent
+}

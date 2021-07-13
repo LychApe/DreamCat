@@ -15,7 +15,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
     <div class="mdui-row DreamCat-content-header" style="min-height: 140px;"></div>
     <div class="mdui-container">
         <div class="mdui-row">
-            <div class="mdui-card" style="margin-top: -15%; border-radius:9px;">
+            <div class="mdui-card shadow-A1" style="margin-top: -15%; border-radius:9px;">
                 <div class="mdui-card-header mdui-color-grey-50">
                     <?php if (!empty($this->options->logoUrl)): ?>
                         <img class="mdui-card-header-avatar" src="<?php $this->options->logoUrl() ?>"/>
