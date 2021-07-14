@@ -45,7 +45,7 @@ $this->need('header.php');
                     <div class="mdui-container">
                         <div class="mdui-row">
                             <div class="mdui-col-xs-12 mdui-col-sm-8">
-                                <div class="mdui-card DreamCat-top-card mdui-shadow-18" style="border-radius:18px;">
+                                <div class="mdui-card DreamCat-top-card shadow-A1" style="border-radius:18px;">
                                     <div class="mdui-card-media">
                                         <div class="mdui-card-media">
                                             <?php if(!empty($this->options->headbj1)): ?>
@@ -64,7 +64,7 @@ $this->need('header.php');
                             </div>
                             <div class="mdui-hidden-xs mdui-col-sm-4">
                                 <div class="mdui-row">
-                                    <div class="mdui-card DreamCat-top-card mdui-shadow-20" style="border-radius:18px;">
+                                    <div class="mdui-card DreamCat-top-card shadow-A1" style="border-radius:18px;">
                                         <div class="mdui-card-media">
                                             <?php if(!empty($this->options->headbj2)): ?><img class="DreamCat-main-pic" src="<?php $this->options->headbj2() ?>" style="height: 100px;position: relative;background-size: cover;background-position: center;border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;" />
                                             <?php else: ?><img class="DreamCat-main-pic" src="//img14.360buyimg.com/img/jfs/t1/60307/19/4269/282412/5d2629faE5c3b1ef5/02d26b22dfe459d0.jpg" style="height: 100px;position: relative;background-size: cover;background-position: center;border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;" />
@@ -138,9 +138,10 @@ $this->need('header.php');
                     </div>
                     <br />
                     <br />
+                    
                     <div class="mdui-container mdui-center">
                         <?php while($this->next()): ?>
-                            <a href ='<?php $this->permalink() ?>'>
+                            <a href ="<?php $this->permalink() ?>" title="<?php $this->title(); ?>" style="text-decoration: none;">
                                 <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
                                     <div class="mdui-row">
                                         <div id="main">
@@ -151,7 +152,27 @@ $this->need('header.php');
                                                     <div class="lis">
                                                         <div class="spot"></div>
                                                         <div class="g-lin mdui-hidden-xs"></div>
-                                                        <div class="mdui-card mdui-hoverable" id="main" role="main" style="border-radius:9px; transform: translateY(-15%);">
+            
+    <?php if($this->options->listtc == 'checked'): ?> 
+                  <div class="mdui-card mdui-hoverable shadow-A1" id="main" role="main" style="border-radius:9px; transform: translateY(-15%);">
+                    <div class="mdui-card-primary">
+                      <div class="mdui-card-primary-title"><?php $this->title(); ?></div>
+                      <div class="mdui-card-primary-subtitle"><?php $this->excerpt(180, '...'); ?></div>
+                    </div>
+                    <div style="border-top: 1px dashed #e0e0e0; font-size: 14px;"></div>
+                    <div class="mdui-card-header">
+                        <?php if (!empty($this->options->logoUrl)): ?>
+                            <img class="mdui-card-header-avatar" src="<?php $this->options->logoUrl() ?>"/>
+                        <?php else: ?>
+                            <img class="mdui-card-header-avatar"
+                                 src="<?php $this->options->themeUrl('src/img/default-avatar.png'); ?>"/>
+                        <?php endif; ?>
+                      <div class="mdui-card-header-title"><?php $this->author(); ?></div>
+                      <div class="mdui-card-header-subtitle"><?php $this->date(); ?></div>
+                    </div>
+                  </div>
+    <?php else: ?> 
+                                                        <div class="mdui-card mdui-hoverable shadow-A1" id="main" role="main" style="border-radius:9px; transform: translateY(-15%);">
                                                             <div class="mdui-card-media">
                                                             <?php $t = thumb($this); ?>
                                                             <?php if ($t[0] == 0):?>
@@ -176,6 +197,8 @@ $this->need('header.php');
                                                                 </div>
                                                             </div>
                                                         </div>
+    <?php endif;?>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
@@ -186,6 +209,7 @@ $this->need('header.php');
                             </a>
                         <?php endwhile; ?>
                     </div>
+                    
                     <div class="moe-margin-card-top"></div>
                     <div class="moe-page-div moe-card-a">
                         <?php $this->pageLink('<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-color-theme-accent mdui-shadow-5 moe-prev"><i class="mdui-icon material-icons">navigate_before</i></button>','prev'); ?>

@@ -31,6 +31,7 @@ function themeConfig($form) {
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('linkedin'));
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('baidusl'));
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('articletime'));
+    $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('listtc'));
     $options = Typecho_Widget::widget('Widget_Options');
     $Html = <<<HTML
 <!-- CSS -->
@@ -40,9 +41,6 @@ function themeConfig($form) {
   integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
   crossorigin="anonymous"
 />
-
-
-
 <style>
 .mdui-tab .mdui-tab-active {
     color: rgb(74 69 62 / 70%);
@@ -51,7 +49,6 @@ function themeConfig($form) {
 .mdui-tab-indicator {
     background-color: rgb(74 69 62 / 70%);
 }
-
 .fillet-A1{border-radius:.5rem}
 .shadow-A1{box-shadow:.5rem .875rem 2.375rem rgba(39,44,49,.06),.0625rem .1875rem .5rem rgba(39,44,49,.03)}
 .button-ts{position:relative}
@@ -63,12 +60,10 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
 }
 </style>
 <!-- JavaScript -->
-
-
       <div class="mdui-card">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-          <div class="mdui-card-primary-subtitle">Version: X2.0 [20210711]</div>
+          <div class="mdui-card-primary-subtitle">Version: X2.0 [20210714]</div>
         </div>
         
         <div class="mdui-tab mdui-tab-centered" mdui-tab>
@@ -84,7 +79,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
                         <div class="mdui-card-header">
                           <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png"/>
                           <div class="mdui-card-header-title">DreamCat</div>
-                          <div class="mdui-card-header-subtitle">X2.0 [20210711] (Dev)</div>
+                          <div class="mdui-card-header-subtitle">X2.0 [20210714] (Dev_2)</div>
                         </div>
                     </div>
                 </div>
@@ -112,10 +107,9 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
                 <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
                     <div class="mdui-card-content">
                     最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-                    <div class="mdui-float-right">当前版本：X2.0 [20210711] (DEV)</div>
+                    <div class="mdui-float-right">当前版本：X2.0 [20210714] (DEV_2)</div>
                     </div>
                 </div>
-
                 <br/>
                 <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
                     <div class="mdui-card-content">
@@ -147,7 +141,6 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
           <input type="text" class="mdui-textfield-input" name="dreamcat_Dec" value="{$options->Dec}" placeholder="填入首页标语"/>
           <div class="mdui-textfield-helper">在这里填入一个首页标语, 以在网站前台显示首页标语，留空则不显示</div>
         </div>
-
         <br/>
         <div class="mdui-chip">
           <span class="mdui-chip-title">SEO设置</span>
@@ -224,8 +217,13 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
     </div>  
     <br/>
     <div class="mdui-textfield">
-      <input type="text" class="mdui-textfield-input" name="dreamcat_articletime" value="{$options->baidusl}" placeholder="填入disabled/checked"/>
-      <div class="mdui-textfield-helper">开启则文章内显示百度是否收 （开启：checked 关闭：disabled）</div>
+      <input type="text" class="mdui-textfield-input" name="dreamcat_listtc" value="{$options->listtc}" placeholder="填入disabled/checked"/>
+      <div class="mdui-textfield-helper">开启则首页时间线的文章不在以 图片+标题的方式展示，而是改为 标题+内容 的方式展示（开启：checked 关闭：disabled）</div>
+    </div>  
+    <br/>
+    <div class="mdui-textfield">
+      <input type="text" class="mdui-textfield-input" name="dreamcat_baidusl" value="{$options->baidusl}" placeholder="填入disabled/checked"/>
+      <div class="mdui-textfield-helper">开启则文章内显示百度是否收录 （开启：checked 关闭：disabled）</div>
     </div>
     <br/>
         <div class="mdui-textfield">
@@ -300,7 +298,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
             <div class="mdui-card-header">
               <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2477819731@qq.com&spec=640"/>
               <div class="mdui-card-header-title">学神之女</div>
-              <div class="mdui-card-header-subtitle"></div>
+              <div class="mdui-card-header-subtitle">举头望涵涵，低头思第一。</div>
             </div>
         </div>
         <br/>
@@ -315,12 +313,10 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
 </div>
         
         <div class="mdui-card-actions">
-
         </div>
       </div>
       
       
-
 <style>
 .primary {
     border: none;
@@ -338,15 +334,11 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
     cursor: default;
 }
 </style>
-
-
   	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 			<script
   src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
-
 <script>
 	//同步input值
-
 			//同步input值
 			$('input').bind('input propertychange blur', function(){
 				var name = $(this).attr("name").split('_')[1];

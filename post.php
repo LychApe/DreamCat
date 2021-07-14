@@ -4,7 +4,7 @@
  *
  * @package DreamCat
  * @author LychApe
- * @version 1.9-20210201
+ * @version 2.0-20210713
  * @link https://github.com/LychApe/DreamCat
  */
 
@@ -25,6 +25,15 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
                     <?php endif; ?>
                     <div class="mdui-card-header-title"><?php $this->author(); ?></div>
                     <div class="mdui-card-header-subtitle"><?php $this->options->description(); ?></div>
+                
+<?php $currGroup = get_object_vars($this->user) ['row']['group'];if ($currGroup == "administrator"): ?> 
+    <div class="mdui-card-menu">
+      <a href="/admin/write-post.php?cid=<?php echo $this->cid;?>" target="_blank" class="mdui-btn mdui-btn-icon mdui-text-color-black-icon"><i class="mdui-icon material-icons ">mode_edit</i></a>
+    </div>
+<?php else: ?> 
+<?php endif;?>              
+
+
                 </div>
                 <div class="di-color cl">
                     <div class="di-color-a"></div>

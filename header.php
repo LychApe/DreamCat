@@ -38,6 +38,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     <![endif]-->
     <?php $this->header(); // 通过自有函数输出HTML头部信息 ?>
     <style>
+        @font-face {
+          font-family: SourceHanSansHWSC-VF;
+          src: url(<?php $this->options->themeUrl('src/SourceHanSansHWSC-VF.otf.woff2'); ?>);
+        }
+        body {
+          font-family: SourceHanSansHWSC-VF;
+        }
         .DreamCat-content-header {
             min-height: 50px;
             margin-left: -240px;
