@@ -79,7 +79,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
                         <div class="mdui-card-header">
                           <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png"/>
                           <div class="mdui-card-header-title">DreamCat</div>
-                          <div class="mdui-card-header-subtitle">X2.0 [20210714] (Dev_2)</div>
+                          <div class="mdui-card-header-subtitle">X2.0 [20210715] </div>
                         </div>
                     </div>
                 </div>
