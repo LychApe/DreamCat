@@ -30,20 +30,6 @@ a{
 
 <div id="comments">
     <?php $this->comments()->to($comments); ?>
-    <?php if ($comments->have()): ?>
-    <br/>
-    <div class="mdui-chip shadow-A1" style="background-color: #ececec;">
-      <span class="mdui-chip-icon"><i class="mdui-icon material-icons">assessment</i></span>
-      <span class="mdui-chip-title"><?php $this->commentsNum(_t('暂无评论'), _t('仅有一条评论'), _t('已有 %d 条评论')); ?></span>
-    </div>
-    
-    <?php $comments->listComments(); ?>
-
-    <?php $comments->pageNav('<i class="mdui-icon material-icons">arrow_forward</i>', '<i class="mdui-icon material-icons">arrow_back</i>',10,'',array('wrapTag' => 'div', 'wrapClass' => 'pagination','itemTag' => '','currentClass' => 'page-number',)); ?>
-    
-    <?php endif; ?>
-    
-    
     <div class="mdui-chip shadow-A1" style="background-color: #ececec;">
       <span class="mdui-chip-icon"><i class="mdui-icon material-icons">create</i></span>
       <span class="mdui-chip-title"><?php _e('添加新评论'); ?></span>
@@ -105,40 +91,8 @@ a{
                              <input type="submit" class="mdui-btn mdui-btn-raised mdui-color-deep-purple-accent border-comm-3" id="Post" value=" 发 射 ! " />
                       </div>
                   </div>
-    </form>              
-          <div class="mdui-dialog" id="Advanced-1">
-            <div class="mdui-dialog-content">
-            <ul class="mdui-list">
-                
-              <li class="mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons">camera_rear</i>
-                <div class="mdui-list-item-content">匿名发布</div>
-                <label class="mdui-switch">
-                  <input type="checkbox" disabled/>
-                  <i class="mdui-switch-icon"></i>
-                </label>
-              </li>
-
-              <li class="mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons">camera_front</i>
-                <div class="mdui-list-item-content">私信作者</div>
-                <label class="mdui-switch">
-                  <input type="checkbox" disabled/>
-                  <i class="mdui-switch-icon"></i>
-                </label>
-              </li>
-            </ul>
-            </div>
-            <div class="mdui-dialog-actions">
-              <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>知 道 啦 !</button>
-            </div>
-          </div>
+    </form>             
                   
-                  <div class="mdui-float-left">
-                      <div class="mdui-row mdui-row-gapless">
-                          <button class="mdui-btn mdui-btn-raised mdui-color-deep-purple-accent border-comm-3" mdui-dialog="{target: '#Advanced-1'}"> 高 级 ! </button>
-                      </div>
-                  </div>
         </div>
         </div>          
 
@@ -146,6 +100,21 @@ a{
     <?php else: ?>
     <h3><?php _e('评论已关闭'); ?></h3>
     <?php endif; ?>
+    <?php if ($comments->have()): ?>
+    <br/>
+    <div class="mdui-chip shadow-A1" style="background-color: #ececec;">
+      <span class="mdui-chip-icon"><i class="mdui-icon material-icons">assessment</i></span>
+      <span class="mdui-chip-title"><?php $this->commentsNum(_t('暂无评论'), _t('仅有一条评论'), _t('已有 %d 条评论')); ?></span>
+    </div>
+    
+    <?php $comments->listComments(); ?>
+
+    <?php $comments->pageNav('<i class="mdui-icon material-icons">arrow_forward</i>', '<i class="mdui-icon material-icons">arrow_back</i>',10,'',array('wrapTag' => 'div', 'wrapClass' => 'pagination','itemTag' => '','currentClass' => 'page-number',)); ?>
+    
+    <?php endif; ?>
+    
+    
+
     
     
 
