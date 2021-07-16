@@ -66,7 +66,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
       <div class="mdui-card">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-          <div class="mdui-card-primary-subtitle">Version: X2.1 [20210716]</div>
+          <div class="mdui-card-primary-subtitle">Version: X2.1.210716</div>
         </div>
         
         <div class="mdui-tab mdui-tab-centered" mdui-tab>
@@ -82,7 +82,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
                         <div class="mdui-card-header">
                           <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png"/>
                           <div class="mdui-card-header-title">DreamCat</div>
-                          <div class="mdui-card-header-subtitle">X2.1 [20210716] </div>
+                          <div class="mdui-card-header-subtitle">X2.1.210716</div>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
                 <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
                     <div class="mdui-card-content">
                     最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-                    <div class="mdui-float-right">当前版本：X2.1 [20210716]</div>
+                    <div class="mdui-float-right">当前版本：X2.1.210716</div>
                     </div>
                 </div>
                 <br/>
@@ -242,11 +242,11 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
           <div>
           <p>CDN加速模式: 填写"AccelerationMode"或留空</p>
           <p>自定义CDN加速模式: 填写CDN静态资源链接</p>
-          <p>本地资源: 填写LocalMode</p>
-          <p>p.s.留空则默认使用DreamCat源</p>
+          <p>本地资源: 填写LocalMode (需要在终端手动输入git submodule init)</p>
+          <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
           </div>
         </div>
-
+<?php var_dump($options->CustomCdn);?>
     <div class="mdui-chip">
       <span class="mdui-chip-title">随机图片设置</span>
     </div>
@@ -254,7 +254,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
           <input type="text" class="mdui-textfield-input" name="dreamcat_CustomRandomPictures" value="{$options->CustomRandomPictures}" placeholder="填入自定义随机图片链接或留空" />
           <div>
           <p>自定义随机图片：填入一个自定义随机图片接链或留空</p>
-          <p>p.s.留空则默认使用DreamCat源</p>
+          <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
           </div>
         </div>
 
@@ -265,7 +265,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
           <input type="text" class="mdui-textfield-input" name="dreamcat_CustomFont" value="{$options->CustomFont}" placeholder="填入字体链接或留空" />
           <div>
           <p>自定义字体：填入一个字体接链或留空</p>
-          <p>p.s.留空则默认使用DreamCat源</p>
+          <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
           </div>
         </div>
     </div>
@@ -406,10 +406,17 @@ HTML;
 function thumb($obj)
 {
     $rand_num = 10;
+    $options = Helper::options();
+    if($options->CustomRandomPictures == ''){
+        $imgcdn = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@main";
+    }else{
+        $imgcdn = $options->CustomRandomPictures;
+    }
+    
     if ($rand_num == 0) {
-        $imgurl = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@main" . "/img/OER/0.jpg"; //如果$rand_num = 0,则显示默认图片，须命名为"0.jpg"
+        $imgurl = $imgcdn . "/img/OER/0.jpg"; //如果$rand_num = 0,则显示默认图片，须命名为"0.jpg"
     } else {
-        $imgurl = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@main" . "/img/OER/" . rand(1, $rand_num) . ".jpg"; // 须按"1.jpg","2.jpg","3.jpg"，一定要安装顺序
+        $imgurl = $imgcdn . "/img/OER/" . rand(1, $rand_num) . ".jpg"; // 须按"1.jpg","2.jpg","3.jpg"，一定要安装顺序
     }
     $attach = $obj->attachments(1)->attachment;
     if (isset($attach->isImage) && $attach->isImage == 1) {
@@ -753,4 +760,35 @@ function M_content(){
         ->order('table.contents.created', Typecho_Db::SORT_ASC)
         ->limit(1);
     return $db->fetchRow($sql);
+}
+
+
+#自定义CDN
+function CustomCDN_url($agent)
+{   
+    $options = Helper::options();
+    if (empty($options->CustomCdn) || $options->CustomCdn == 'AccelerationMode') {
+        $CustomCDN = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@main/"."$agent";
+        echo "$CustomCDN";
+        #var_dump(Helper::options()->CustomCdn);
+    }elseif ($options->CustomCdn == 'LocalMode') {
+        $options->themeUrl("/src/"."$agent");
+    }else{
+        $CustomCDN = $options->CustomCdn . "$agent";
+        echo "$CustomCDN";
+    }
+}
+
+
+#自定义字体
+function CustomFont_url()
+{   
+    $options = Helper::options();
+    if($options->CustomFont == ''){
+        $CustomFont = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@main/SourceHanSansHWSC-VF.otf.woff2";
+        echo ($CustomFont);
+    }else{
+        $CustomFont = $options->CustomFont;
+        echo ($CustomFont);
+    }
 }
