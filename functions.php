@@ -5,13 +5,13 @@
  *
  * @package DreamCat
  * @author LychApe
- * @version X2.0 [20210715]
+ * @version X2.1 [20210716]
  * @link https://github.com/LychApe/DreamCat
  */
 error_reporting(E_ALL^E_NOTICE);
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
-define("THEME_URL", rtrim(preg_replace('/^' . preg_quote($options->siteUrl, '/') . '/', $options->rootUrl . '/', $options->themeUrl, 1), '/'));
+#define("THEME_URL", rtrim(preg_replace('/^' . preg_quote($options->siteUrl, '/') . '/', $options->rootUrl . '/', $options->themeUrl, 1), '/'));
 
 function themeConfig($form) {
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('logoUrl'));
@@ -32,6 +32,9 @@ function themeConfig($form) {
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('baidusl'));
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('articletime'));
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('listtc'));
+    $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomCdn'));
+    $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomFont'));
+    $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomRandomPictures'));
     $options = Typecho_Widget::widget('Widget_Options');
     $Html = <<<HTML
 <!-- CSS -->
@@ -63,7 +66,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
       <div class="mdui-card">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-          <div class="mdui-card-primary-subtitle">Version: X2.0 [20210715]</div>
+          <div class="mdui-card-primary-subtitle">Version: X2.1 [20210716]</div>
         </div>
         
         <div class="mdui-tab mdui-tab-centered" mdui-tab>
@@ -79,7 +82,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
                         <div class="mdui-card-header">
                           <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png"/>
                           <div class="mdui-card-header-title">DreamCat</div>
-                          <div class="mdui-card-header-subtitle">X2.0 [20210715] </div>
+                          <div class="mdui-card-header-subtitle">X2.1 [20210716] </div>
                         </div>
                     </div>
                 </div>
@@ -107,7 +110,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
                 <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
                     <div class="mdui-card-content">
                     最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-                    <div class="mdui-float-right">当前版本：X2.0 [20210715]</div>
+                    <div class="mdui-float-right">当前版本：X2.1 [20210716]</div>
                     </div>
                 </div>
                 <br/>
@@ -229,6 +232,41 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
         <div class="mdui-textfield">
           <input type="text" class="mdui-textfield-input" name="dreamcat_commentszs" value="{$options->commentszs}" placeholder="填入一个数字限制评论的字数" />
           <div class="mdui-textfield-helper">文章可评论的字数</div>
+        </div>
+    <br/>
+    <div class="mdui-chip">
+      <span class="mdui-chip-title">自定义CDN设置</span>
+    </div>
+        <div class="mdui-textfield">
+          <input type="text" class="mdui-textfield-input" name="dreamcat_CustomCdn" value="{$options->CustomCdn}" placeholder="自定义CDN"/>
+          <div>
+          <p>CDN加速模式: 填写"AccelerationMode"或留空</p>
+          <p>自定义CDN加速模式: 填写CDN静态资源链接</p>
+          <p>本地资源: 填写LocalMode</p>
+          <p>p.s.留空则默认使用DreamCat源</p>
+          </div>
+        </div>
+
+    <div class="mdui-chip">
+      <span class="mdui-chip-title">随机图片设置</span>
+    </div>
+        <div class="mdui-textfield">
+          <input type="text" class="mdui-textfield-input" name="dreamcat_CustomRandomPictures" value="{$options->CustomRandomPictures}" placeholder="填入自定义随机图片链接或留空" />
+          <div>
+          <p>自定义随机图片：填入一个自定义随机图片接链或留空</p>
+          <p>p.s.留空则默认使用DreamCat源</p>
+          </div>
+        </div>
+
+    <div class="mdui-chip">
+      <span class="mdui-chip-title">字体设置</span>
+    </div>
+        <div class="mdui-textfield">
+          <input type="text" class="mdui-textfield-input" name="dreamcat_CustomFont" value="{$options->CustomFont}" placeholder="填入字体链接或留空" />
+          <div>
+          <p>自定义字体：填入一个字体接链或留空</p>
+          <p>p.s.留空则默认使用DreamCat源</p>
+          </div>
         </div>
     </div>
 </div>
@@ -369,9 +407,9 @@ function thumb($obj)
 {
     $rand_num = 10;
     if ($rand_num == 0) {
-        $imgurl = THEME_URL . "/usr/themes/DreamCat/src/img/OER/0.jpg"; //如果$rand_num = 0,则显示默认图片，须命名为"0.jpg"
+        $imgurl = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@main" . "/img/OER/0.jpg"; //如果$rand_num = 0,则显示默认图片，须命名为"0.jpg"
     } else {
-        $imgurl = THEME_URL . "/usr/themes/DreamCat/src/img/OER/" . rand(1, $rand_num) . ".jpg"; // 须按"1.jpg","2.jpg","3.jpg"，一定要安装顺序
+        $imgurl = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@main" . "/img/OER/" . rand(1, $rand_num) . ".jpg"; // 须按"1.jpg","2.jpg","3.jpg"，一定要安装顺序
     }
     $attach = $obj->attachments(1)->attachment;
     if (isset($attach->isImage) && $attach->isImage == 1) {
