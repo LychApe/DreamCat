@@ -1,0 +1,3 @@
+[submodule "DreamCat_StaticResources"]
+	path = DreamCat_StaticResources
+	url = https://github.com/LychApe/DreamCat_StaticResources.git

@@ -3,7 +3,7 @@
 QQ交流群:1034830519  
 祝您使用愉快:-)  
 
-[DreamCat静态资源](https://github. com/LychApe/DreamCat_StaticResources)
+[DreamCat静态资源](https://github.com/LychApe/DreamCat_StaticResources)
 
 ## 安装(Install)
 
