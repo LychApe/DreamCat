@@ -165,7 +165,7 @@ $this->need('header.php');
                             <img class="mdui-card-header-avatar" src="<?php $this->options->logoUrl() ?>"/>
                         <?php else: ?>
                             <img class="mdui-card-header-avatar"
-                                 src="<?php $this->options->themeUrl('src/img/default-avatar.png'); ?>"/>
+                                 src="<?php CustomCDN_url('img/default-avatar.png'); ?>"/>
                         <?php endif; ?>
                       <div class="mdui-card-header-title"><?php $this->author(); ?></div>
                       <div class="mdui-card-header-subtitle"><?php $this->date(); ?></div>
