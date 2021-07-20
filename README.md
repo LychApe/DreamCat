@@ -5,6 +5,14 @@ QQ交流群:1034830519
 
 [DreamCat静态资源](https://github.com/LychApe/DreamCat_StaticResources)
 
+## 鸣谢  
+
+`JetBrains` 提供优秀的IDE。  
+
+<a href="https://www.jetbrains.com/?from=DreamCat" target="_blank">
+<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gov9g3tzrnj30u00wj0tn.jpg" width="150"/>
+</a>  
+  
 ## 安装(Install)
 
 > ### 开发版本（最新）  
@@ -40,14 +48,6 @@ QQ交流群:1034830519
 ------
 ### 更多
 **详细更新日志前往UpdateLog.md文件浏览**
-
-## 鸣谢  
-
-`JetBrains` 提供优秀的IDE。  
-
-<a href="https://www.jetbrains.com/?from=DreamCat" target="_blank">
-<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gov9g3tzrnj30u00wj0tn.jpg" width="150"/>
-</a>  
 
 ## 版权信息
 ### GPLv3
