@@ -1,5 +1,5 @@
 <?php
-
+ini_set("error_reporting","E_ALL & ~E_NOTICE");
 /**
  * DreamCat   是一个极简自适应博客主题,年轻人追梦的必备良品!
  *
