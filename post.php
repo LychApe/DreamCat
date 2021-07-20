@@ -97,7 +97,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <br/>
 
 
-<?php if (M_content() > 1): ?>
+<?php 
+if (M_content() > 1): 
+?>
     <div class="moe-nav">
         <div class="mdui-divider moe-c-d"></div>
         <div class="mdui-container">

@@ -753,9 +753,9 @@ function getOs($agent)
 function M_content(){
     $db = Typecho_Db::get();
     $sql = $db->select()->from('table.contents')
-        ->where('table.contents.created > ?', $widget->created)
+        ->where('table.contents.created > ?', Typecho_Widget::widget('Widget_Stat')->created)
         ->where('table.contents.status = ?', 'publish')
-        ->where('table.contents.type = ?', $widget->type)
+        ->where('table.contents.type = ?', Typecho_Widget::widget('Widget_Stat')->type)
         ->where('table.contents.password IS NULL')
         ->order('table.contents.created', Typecho_Db::SORT_ASC)
         ->limit(1);
