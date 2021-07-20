@@ -750,18 +750,6 @@ function getOs($agent)
     return $os;
 }
 
-function M_content(){
-    $db = Typecho_Db::get();
-    $sql = $db->select()->from('table.contents')
-        ->where('table.contents.created > ?', Typecho_Widget::widget('Widget_Stat')->created)
-        ->where('table.contents.status = ?', 'publish')
-        ->where('table.contents.type = ?', Typecho_Widget::widget('Widget_Stat')->type)
-        ->where('table.contents.password IS NULL')
-        ->order('table.contents.created', Typecho_Db::SORT_ASC)
-        ->limit(1);
-    return $db->fetchRow($sql);
-}
-
 
 #自定义CDN
 function CustomCDN_url($agent)

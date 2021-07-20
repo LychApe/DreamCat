@@ -98,7 +98,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
 
 <?php 
-if (M_content() > 1): 
+if (Typecho_Widget::widget('Widget_Stat')->publishedPostsNum > 1): 
 ?>
     <div class="moe-nav">
         <div class="mdui-divider moe-c-d"></div>
