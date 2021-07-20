@@ -1,17 +1,21 @@
 # DreamCat
 
-QQ交流群:1034830519  
+QQ交流群: `1034830519`   
 祝您使用愉快:-)  
 
-[DreamCat静态资源](https://github.com/LychApe/DreamCat_StaticResources)
+[DreamCat静态资源](https://github.com/LychApe/DreamCat_StaticResources)  
+[![](https://data.jsdelivr.com/v1/package/gh/LychApe/DreamCat_StaticResources/badge)](https://www.jsdelivr.com/package/gh/LychApe/DreamCat_StaticResources)  
 
 ## 鸣谢  
 
 `JetBrains` 提供优秀的IDE。  
+`JetBrains` 工具极大地提高了DreamCat的创造力和效率。
 
 <a href="https://www.jetbrains.com/?from=DreamCat" target="_blank">
-<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gov9g3tzrnj30u00wj0tn.jpg" width="150"/>
+<img src = 'https://ftp.bmp.ovh/imgs/2021/07/7883cb70a96b6ccd.png' width="145"/>
+<img src = 'https://ftp.bmp.ovh/imgs/2021/07/17d8f636fea2c03b.png' width="145"/>
 </a>  
+
   
 ## 安装(Install)
 
@@ -49,6 +53,9 @@ QQ交流群:1034830519
 ### 更多
 **详细更新日志前往UpdateLog.md文件浏览**
 
+## Github Star 趋势 
+[![Stargazers over time](https://starchart.cc/LychApe/DreamCat.svg)](https://starchart.cc/LychApe/DreamCat)  
+  
 ## 版权信息
 ### GPLv3
 由 `LychApe`(`荔猿`) 维护的 `DreamCat` 仓库及其附属存储库默认遵循`GPLv3`协议开源发布  
