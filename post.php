@@ -26,7 +26,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
                     <div class="mdui-card-header-title"><?php $this->author(); ?></div>
                     <div class="mdui-card-header-subtitle"><?php $this->options->description(); ?></div>
                 
-<?php $currGroup = get_object_vars($this->user) ['row']['group'];if ($currGroup == "administrator"): ?> 
+<?php if ($this->user->hasLogin()): ?> 
     <div class="mdui-card-menu">
       <a href="/admin/write-post.php?cid=<?php echo $this->cid;?>" target="_blank" class="mdui-btn mdui-btn-icon mdui-text-color-black-icon"><i class="mdui-icon material-icons ">mode_edit</i></a>
     </div>
