@@ -185,7 +185,11 @@ echo $commentClass;
                           <button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-left: -12px; background-color: rgb(236 236 236);"> <?php $comments->reply(); ?> </button>
                       </div>
                   </div>
-    
+
+<?php $comments->cancelReply('
+  <div class="mdui-float-left" style="margin-left: -80px;">
+          <button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style=" background-color: rgb(236 236 236);">取消回复</button>
+  </div>'); ?>
 
     <button class="mdui-btn mdui-btn-icon mdui-float-right" onclick="playAudio(<?php echo $identity ?>)" ><i class="mdui-icon material-icons">settings_voice</i></button>
   </div>
