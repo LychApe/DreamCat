@@ -20,12 +20,15 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
     <title><?php $this->archiveTitle(array(
             'category' => _t('分类 %s 下的文章'),
             'search' => _t('包含关键字 %s 的文章'),
             'tag' => _t('标签 %s 下的文章'),
             'author' => _t('%s 发布的文章')
         ),'',' - '); ?><?php $this->options->title(); ?></title>
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//cdn.bootcss.com" />
     <link rel="stylesheet" href="https://cdn.bootcss.com/mdui/1.0.1/css/mdui.min.css">
     <link rel="stylesheet" href="<?php CustomCDN_url('css/style.css');?>" />
     <link rel="stylesheet" href="<?php CustomCDN_url('css/md2.css');?>" />
@@ -72,7 +75,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             </div>
             <!-- 首页 -->
             <a href="/">
-                <li class="mdui-list-item mdui-ripple">
+                <li class="mdui-list-item mdui-ripple" style="margin-top: 8px;">
                     <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">near_me</i>
                     <div class="mdui-list-item-content">首&nbsp;&nbsp;页</div>
                 </li>
@@ -106,6 +109,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                     <?php $category->name(); ?>
                                 </a>
                             </li>
+                            <br/>
                         <?php endwhile; ?>
                     </ul>
                 </div>

@@ -9,12 +9,14 @@
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 ?>
+<br/>
 <div class="DreamCat-footer">
     <div class="DreamCat-infooter">
         <br/>
         <div class="mdui-typo">
             <p>Copyright © <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
         </div>
+        <br/>
     </div>
 </div>
 <div class="mdui-dialog" id="About_DreamCat">
