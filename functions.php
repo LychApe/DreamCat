@@ -439,10 +439,11 @@ function theNext($widget, $default = NULL)
     $content = $db->fetchRow($sql);
     if ($content) {
         $content = $widget->filter($content);
-        $link = '<a href="' . $content['permalink'] . '" class="mdui-ripple mdui-col-xs-10 mdui-col-sm-6 moe-nav-right"> <div class="moe-nav-text"> <span class="moe-nav-direction">下一篇</span> <i class="mdui-icon material-icons">arrow_forward</i> <div class="moe-nav-chapter">' . $content['title'] . '</div> </div> </a>';
+        $link = '<a href="' . $content['permalink'] . '" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right"><div class="doc-footer-nav-text"><i class="mdui-icon material-icons">arrow_forward</i><span class="doc-footer-nav-direction">Next</span><div class="doc-footer-nav-chapter">' . $content['title'] . '</div></div></a>';
         echo $link;
     } else {
-        echo $default;
+        $link2 = '<a class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right"><div class="doc-footer-nav-text"><i class="mdui-icon material-icons">arrow_forward</i><span class="doc-footer-nav-direction">Next</span><div class="doc-footer-nav-chapter">没有啦!!!</div></div></a>';
+        echo $link2;
     }
 }
 
@@ -458,10 +459,12 @@ function thePrev($widget, $default = NULL)
     $content = $db->fetchRow($sql);
     if ($content) {
         $content = $widget->filter($content);
-        $link = '<a href="' . $content['permalink'] . '" class="mdui-ripple mdui-col-xs-2 mdui-col-sm-6 moe-nav-left"><div class="moe-nav-text"> <i class="mdui-icon material-icons">arrow_back</i> <span class="moe-nav-direction mdui-hidden-xs-down">上一篇</span> <div class="moe-nav-chapter mdui-hidden-xs-down">' . $content['title'] . '</div> </div> </a>';
+        $link = '<a href="' . $content['permalink'] . '" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"><div class="doc-footer-nav-text"><i class="mdui-icon material-icons">arrow_back</i><span class="doc-footer-nav-direction mdui-hidden-xs-down">Previous</span><div class="doc-footer-nav-chapter mdui-hidden-xs-down">' . $content['title'] . '</div></div></a>';
         echo $link;
     } else {
-        echo $default;
+        $link2 = '<a class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"><div class="doc-footer-nav-text"><i class="mdui-icon material-icons">arrow_back</i><span class="doc-footer-nav-direction mdui-hidden-xs-down">Previous</span><div class="doc-footer-nav-chapter mdui-hidden-xs-down">没有啦!!!</div></div></a>';
+
+        echo $link2;
     }
 }
 /**  判断内容页是否百度收录 */

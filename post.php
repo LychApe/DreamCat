@@ -100,21 +100,71 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php 
 if (Typecho_Widget::widget('Widget_Stat')->publishedPostsNum > 1): 
 ?>
-    <div class="moe-nav">
-        <div class="mdui-divider moe-c-d"></div>
-        <div class="mdui-container">
-            <div class="mdui-row">
-                <?php thePrev($this); ?>
-                <?php theNext($this); ?>
-            </div>
-        </div>
+
+    <br/>
+    <br/>
+</div>
+<style>
+.doc-footer-nav-left {
+    text-align: left;
+}
+.doc-footer-nav-right {
+    text-align: right;
+}
+.doc-footer-nav {
+    height: 96px;
+}
+.doc-footer-nav-left .doc-footer-nav-chapter {
+    margin-left: 34px;
+}
+.doc-footer-nav-text .doc-footer-nav-direction {
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 1px;
+    opacity: 0.55;
+}
+.doc-footer-nav-text {
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+    line-height: 24px;
+    padding-top: 24px;
+    width: 100%;
+}
+.doc-footer-nav-left, .doc-footer-nav-right {
+    height: 96px;
+}
+.doc-footer-nav-left .mdui-icon {
+    float: left;
+    margin-right: 10px;
+}
+.doc-footer-nav-right .mdui-icon {
+    float: right;
+    margin-left: 10px;
+}
+
+.doc-footer-nav-text .mdui-icon {
+    padding-top: 23px;
+    width: 24px;
+}
+</style>
+<div class="doc-footer-nav mdui-color-theme">
+<div class="mdui-container">
+    <div class="mdui-row">
+        <?php thePrev($this); ?>
+        <?php theNext($this); ?>
     </div>
+</div>
+</div>
 <?php else: ?>
 
 <?php endif; ?>
 
 
-</div>
+
 
 <!-- end #main-->
 
