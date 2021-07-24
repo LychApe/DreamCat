@@ -9,7 +9,7 @@
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 ?>
-<br/>
+
 <div class="DreamCat-footer">
     <div class="DreamCat-infooter">
         <br/>
