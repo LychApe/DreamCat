@@ -38,8 +38,11 @@ function themeConfig($form) {
     $options = Typecho_Widget::widget('Widget_Options');
     $Html = <<<HTML
 <!-- CSS -->
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//cdn.bootcss.com" />
 <link
-  rel="stylesheet"
+  rel="stylesheet preload"
   href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
   integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
   crossorigin="anonymous"
@@ -62,7 +65,6 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
 .0625rem .1875rem .5rem transparent
 }
 </style>
-<!-- JavaScript -->
       <div class="mdui-card">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
@@ -372,9 +374,8 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
     cursor: default;
 }
 </style>
-  	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-			<script
-  src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
+  	<script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script rel="preload" src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
 <script>
 	//同步input值
 			//同步input值

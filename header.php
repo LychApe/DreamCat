@@ -29,12 +29,12 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         ),'',' - '); ?><?php $this->options->title(); ?></title>
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
     <link rel="dns-prefetch" href="//cdn.bootcss.com" />
-    <link rel="stylesheet" href="https://cdn.bootcss.com/mdui/1.0.1/css/mdui.min.css">
-    <link rel="stylesheet" href="<?php CustomCDN_url('css/style.css');?>" />
-    <link rel="stylesheet" href="<?php CustomCDN_url('css/md2.css');?>" />
-    <script src="https://cdn.bootcss.com/mdui/1.0.1/js/mdui.min.js"></script>
-    <script src="https://at.alicdn.com/t/font_2359325_loysvemas8m.js"></script>
-    <script src='https://cdnjs.loli.net/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js'></script>
+    <link rel="stylesheet preload" href="https://cdn.bootcss.com/mdui/1.0.1/css/mdui.min.css">
+    <link rel="stylesheet preload" href="<?php CustomCDN_url('css/style.css');?>" />
+    <link rel="stylesheet preload" href="<?php CustomCDN_url('css/md2.css');?>" />
+    <script rel="preload" src="https://cdn.bootcss.com/mdui/1.0.1/js/mdui.min.js"></script>
+    <script rel="preload" src="https://at.alicdn.com/t/font_2359325_loysvemas8m.js"></script>
+    <script rel="preload" src='https://cdnjs.loli.net/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js'></script>
     <!--[if lt IE 9]>
     <script src="https://cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdnjscn.b0.upaiyun.com/libs/respond.js/1.3.0/respond.min.js"></script>

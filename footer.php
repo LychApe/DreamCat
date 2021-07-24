@@ -184,8 +184,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
   src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
   integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
   crossorigin="anonymous"
+  rel="preload"
 ></script>
-<script src='https://cdnjs.loli.net/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js'></script>
+<script rel="preload" src='https://cdnjs.loli.net/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js'></script>
 <script>
 var scroll = new SmoothScroll("a[href*='#']");
 var $$ = mdui.JQ;
