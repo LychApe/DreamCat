@@ -164,7 +164,7 @@ $this->need('header.php');
                         <?php if (!empty($this->options->logoUrl)): ?>
                             <img class="mdui-card-header-avatar" src="<?php $this->options->logoUrl() ?>"/>
                         <?php else: ?>
-                            <img class="mdui-card-header-avatar"
+                            <img rel="preload" class="mdui-card-header-avatar"
                                  src="<?php CustomCDN_url('img/default-avatar.png'); ?>"/>
                         <?php endif; ?>
                       <div class="mdui-card-header-title"><?php $this->author(); ?></div>
@@ -176,10 +176,10 @@ $this->need('header.php');
                                                             <div class="mdui-card-media">
                                                             <?php $t = thumb($this); ?>
                                                             <?php if ($t[0] == 0):?>
-                                                                <img class="moe-post-wzimg" style="object-fit: cover;" src="<?php echo $t[1]; ?>"/>
+                                                                <img rel="preload" class="moe-post-wzimg" style="object-fit: cover;" src="<?php echo $t[1]; ?>"/>
                                                             <?php endif; ?>
                                                             <?php if ($t[0] == 1) : ?>
-                                                                 <img class="moe-post-wzimg" style="object-fit: cover;" src="<?php echo $t[1]; ?>"/>
+                                                                 <img rel="preload" class="moe-post-wzimg" style="object-fit: cover;" src="<?php echo $t[1]; ?>"/>
                                                             <?php endif; ?>
                                                                 <div class="mdui-card-media-covered">
                                                                     <div class="mdui-card-primary">
