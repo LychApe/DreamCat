@@ -44,9 +44,6 @@ function showhidediv(id){var sbtitle=document.getElementById(id);if(sbtitle){if(
     </div>
     <?php if($this->allow('comment')): ?>
     <div id="<?php $this->respondId(); ?>" class="respond">
-        <div class="cancel-comment-reply">
-        <?php $comments->cancelReply(); ?>
-        </div>
     <br/>
     <br/>
     <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
@@ -179,11 +176,11 @@ echo $commentClass;
               <div class="mdui-card-content" id="<?php echo $identity; ?>"><?php $comments->content(); ?></div>
 
   <div class="mdui-card-actions" style="padding: 0px;">
-                  <div class="mdui-float-left">
-                      <div class="mdui-row mdui-row-gapless">
-                        <span class="comment-reply cp-<?php $comments->theId(); ?> text-muted comment-reply-link"><?php $comments->reply('<button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-left: -12px; background-color: rgb(236 236 236);">回复</button>'); ?></span><span id="cancel-comment-reply" class="cancel-comment-reply cl-<?php $comments->theId(); ?> text-muted comment-reply-link" style="display:none" ><?php $comments->cancelReply('<button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-left: -12px; background-color: rgb(236 236 236);">取消</button>'); ?></span>
-                      </div>
-                  </div>
+      <div class="mdui-float-left">
+          <div class="mdui-row mdui-row-gapless">
+            <span class="comment-reply cp-<?php $comments->theId(); ?> text-muted comment-reply-link"><?php $comments->reply('<button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-left: -12px; background-color: rgb(236 236 236);">回复</button>'); ?></span><span id="cancel-comment-reply" class="cancel-comment-reply cl-<?php $comments->theId(); ?> text-muted comment-reply-link" style="display:none" ><?php $comments->cancelReply('<button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-left: -12px; background-color: rgb(236 236 236);">取消</button>'); ?></span>
+          </div>
+      </div>
                   
     <button class="mdui-btn mdui-btn-icon mdui-float-right" onclick="playAudio(<?php echo $identity ?>)" ><i class="mdui-icon material-icons">settings_voice</i></button>
   </div>
