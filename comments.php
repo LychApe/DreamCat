@@ -26,10 +26,18 @@ a{
     text-decoration: none;
     color: black;
 }
+#cancel-comment-reply-link {
+    display: inline !important;
+}
 </style>
 
 <div id="comments">
     <?php $this->comments()->to($comments); ?>
+<script type="text/javascript">
+function showhidediv(id){var sbtitle=document.getElementById(id);if(sbtitle){if(sbtitle.style.display=='flex'){sbtitle.style.display='none';}else{sbtitle.style.display='flex';}}}
+(function(){window.TypechoComment={dom:function(id){return document.getElementById(id)},pom:function(id){return document.getElementsByClassName(id)[0]},iom:function(id,dis){var alist=document.getElementsByClassName(id);if(alist){for(var idx=0;idx<alist.length;idx++){var mya=alist[idx];mya.style.display=dis}}},create:function(tag,attr){var el=document.createElement(tag);for(var key in attr){el.setAttribute(key,attr[key])}return el},reply:function(cid,coid){var comment=this.dom(cid),parent=comment.parentNode,response=this.dom("<?php echo $this->respondId(); ?>"),input=this.dom("comment-parent"),form="form"==response.tagName?response:response.getElementsByTagName("form")[0],textarea=response.getElementsByTagName("textarea")[0];if(null==input){input=this.create("input",{"type":"hidden","name":"parent","id":"comment-parent"});form.appendChild(input)}input.setAttribute("value",coid);if(null==this.dom("comment-form-place-holder")){var holder=this.create("div",{"id":"comment-form-place-holder"});response.parentNode.insertBefore(holder,response)}comment.appendChild(response);this.iom("comment-reply","");this.pom("cp-"+cid).style.display="none";this.iom("cancel-comment-reply","none");this.pom("cl-"+cid).style.display="";if(null!=textarea&&"text"==textarea.name){textarea.focus()}return false},cancelReply:function(){var response=this.dom("<?php echo $this->respondId(); ?>"),holder=this.dom("comment-form-place-holder"),input=this.dom("comment-parent");if(null!=input){input.parentNode.removeChild(input)}if(null==holder){return true}this.iom("comment-reply","");this.iom("cancel-comment-reply","none");holder.parentNode.insertBefore(response,holder);return false}}})();
+</script>
+
     <div class="mdui-chip shadow-A1" style="background-color: #ececec;">
       <span class="mdui-chip-icon"><i class="mdui-icon material-icons">create</i></span>
       <span class="mdui-chip-title"><?php _e('添加新评论'); ?></span>
@@ -114,16 +122,7 @@ a{
     <?php endif; ?>
     
     
-
-    
-    
-
-
-    
 </div>
-
-
-
 
 
 
@@ -182,20 +181,15 @@ echo $commentClass;
   <div class="mdui-card-actions" style="padding: 0px;">
                   <div class="mdui-float-left">
                       <div class="mdui-row mdui-row-gapless">
-                          <button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-left: -12px; background-color: rgb(236 236 236);"> <?php $comments->reply(); ?> </button>
+                        <span class="comment-reply cp-<?php $comments->theId(); ?> text-muted comment-reply-link"><?php $comments->reply('<button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-left: -12px; background-color: rgb(236 236 236);">回复</button>'); ?></span><span id="cancel-comment-reply" class="cancel-comment-reply cl-<?php $comments->theId(); ?> text-muted comment-reply-link" style="display:none" ><?php $comments->cancelReply('<button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-left: -12px; background-color: rgb(236 236 236);">取消</button>'); ?></span>
                       </div>
                   </div>
-
-<?php $comments->cancelReply('
-  <div class="mdui-float-left" style="margin-left: -80px;">
-          <button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style=" background-color: rgb(236 236 236);">取消回复</button>
-  </div>'); ?>
-
+                  
     <button class="mdui-btn mdui-btn-icon mdui-float-right" onclick="playAudio(<?php echo $identity ?>)" ><i class="mdui-icon material-icons">settings_voice</i></button>
   </div>
         </div>
         <br/>
-    <script type="text/javascript"> 
+<script type="text/javascript"> 
 		function playAudio(commentID){
 		    //commendID: The identity of every comment.
 		    var audioID = "audioPlayer";
@@ -216,6 +210,7 @@ echo $commentClass;
 		if(typeof(publiced)=="undefined") console.log("使用此控制台可能会让攻击者利用 Self-XSS（自跨站脚本）攻击来冒充你，并窃取你的信息。请勿输入或粘贴你不明白的代码。");
 		var publiced = true;
 </script>
+
 
 
 <?php if ($comments->children) { ?>

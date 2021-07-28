@@ -39,7 +39,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     <script src="https://cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdnjscn.b0.upaiyun.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <?php $this->header(); // 通过自有函数输出HTML头部信息 ?>
+    <?php $this->header('commentReply=');// 通过自有函数输出HTML头部信息 ?>
     <style>
         @font-face {
           font-family: CustomFont;
