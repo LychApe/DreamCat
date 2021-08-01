@@ -79,30 +79,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
     </div>
 </div>
-<div class="mdui-fab-wrapper">
-    <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink" id="myBtn">
-        <i class="mdui-icon material-icons">&#xe5d8;</i>
-    </a>
-</div>
+
 
 <script>
-    var scroll = new SmoothScroll("a[href*='#']");
-    var $$ = mdui.JQ;
-    $$('#myBtn').on('click', function () {
-        mdui.snackbar({message: '啊！撞到头辣！(๑╹っ╹๑)', position: 'right-top'});
-    });
-    var $$ = mdui.JQ;
-    $$('#ERRO-404').on('click', function () {
-        mdui.snackbar({message: '当前状态不支持辣！(๑╹っ╹๑)', position: 'right-top'});
-    });/* 当网页向下滑动 30px 出现"返回顶部" 按钮*/
-    function scrollFunction() {
-        console.log(121);
-        if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-            document.getElementById("myBtn").style.display = "block";
-        } else {
-            document.getElementById("myBtn").style.display = "none";
-        }
-    }
 	!function (e, t, a) {
 		function r() {
 			for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
@@ -174,41 +153,44 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
   </div>
 </div>
-<!--右下悬浮按钮-->
-  <div class="mdui-fab-wrapper">
-		<a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink" id="myBtn">
-		  <i class="mdui-icon material-icons">&#xe5d8;</i></a>
-  </div>
+<!--右下返回顶部按钮-->
+<style>
+    .scrollTop{
+        display: none; /* 默认隐藏 */
+        position: fixed; 
+        bottom: 20px; 
+        right: 10px; 
+        z-index: 99; 
+        border: none;
+        outline: none; 
+        cursor: pointer; 
+        padding: 10px; 
+        border-radius: 10px; /* 圆角 */
+    }
+</style>
+<div class="mdui-fab-wrapper">
+	<a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink scrollTop" id="back-top" onclick="scrollFunction()" >
+	  <i class="mdui-icon material-icons">&#xe5d8;</i></a>
+</div>
 <!-- 返回顶部js -->
-<script
-  src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
-  integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
-  crossorigin="anonymous"
-  rel="preload"
-></script>
-<script rel="preload" src='https://cdnjs.loli.net/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js'></script>
 <script>
+window.onscroll = function() {scrollFunction()};
+
 var scroll = new SmoothScroll("a[href*='#']");
-var $$ = mdui.JQ;
-$$('#myBtn').on('click', function () {
+
+var $ = mdui.$;
+$('#back-top').on('click', function () {
   mdui.snackbar({
 	message: '啊！撞到头辣！(๑╹っ╹๑)',
-	position: 'right-top'
-  });
-});
-var $$ = mdui.JQ;
-$$('#ERRO-404').on('click', function () {
-  mdui.snackbar({
-	message: '当前状态不支持辣！(๑╹っ╹๑)',
 	position: 'right-top'
   });
 });
 // 当网页向下滑动 30px 出现"返回顶部" 按钮
 function scrollFunction() {console.log(121);
 	if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-		document.getElementById("myBtn").style.display = "block";
+		document.getElementById("back-top").style.display = "block";
 	} else {
-		document.getElementById("myBtn").style.display = "none";
+		document.getElementById("back-top").style.display = "none";
 	}
 }
 </script>
