@@ -764,7 +764,7 @@ function CustomCDN_url($agent)
         echo "$CustomCDN";
         #var_dump(Helper::options()->CustomCdn);
     }elseif ($options->CustomCdn == 'LocalMode') {
-        $options->themeUrl("/DreamCat_StaticResources/"."$agent");
+        $options->themeUrl("/Static/"."$agent");
     }else{
         $CustomCDN = $options->CustomCdn . "$agent";
         echo "$CustomCDN";
