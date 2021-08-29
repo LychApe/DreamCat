@@ -4,7 +4,7 @@
  *
  * @package DreamCat
  * @author LychApe
- * @version 2.0-20210711
+ * @version 2.2-20210830
  * @link https://github.com/LychApe/DreamCat
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
@@ -15,10 +15,12 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         <br/>
         <div class="mdui-typo">
             <p>Copyright © <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
+            <p><? $this->options->CustomFooter() ?></p>
         </div>
         <br/>
     </div>
 </div>
+
 <div class="mdui-dialog" id="About_DreamCat">
     <div class="mdui-dialog-title">关于 DreamCat</div>
     <div class="mdui-dialog-content" style="height: 219px;">
@@ -40,8 +42,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         </div>
     </div>
 </div>
-
-<?php $this->footer(); ?>
 
 <div class="mdui-dialog" id="qq">
     <div class="mdui-dialog-title">加我的QQ</div>
@@ -198,6 +198,5 @@ function scrollFunction() {console.log(121);
 </script>
 
 </div>
-<?php $this->footer(); ?>
 </body>
 </html>

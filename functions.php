@@ -46,12 +46,7 @@ function themeConfig($form) {
     <meta http-equiv="x-dns-prefetch-control" content="on" />
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
     <link rel="dns-prefetch" href="//cdn.bootcss.com" />
-<link
-  rel="stylesheet preload"
-  href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
-  integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
-  crossorigin="anonymous"
-/>
+    <link rel="stylesheet preload" href="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" as="style">
 <style>
 .mdui-tab .mdui-tab-active {
     color: rgb(74 69 62 / 70%);
@@ -216,6 +211,15 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
           <div class="mdui-textfield-helper">填写您的Linkedin地址,它将在首页以及其他地方显示，不填则不显示</div>
         </div>
         
+    <br/>
+    <div class="mdui-chip">
+      <span class="mdui-chip-title">自定义页脚内容</span>
+    </div>
+        <div class="mdui-textfield">
+        <textarea type="text" id="CustomFooter" class="mdui-textfield-input" rows="4" name="dreamcat_CustomFooter" value="{$options->CustomFooter}" placeholder="自定义页脚内容"></textarea>
+        <script>document.getElementById("CustomFooter").value="{$options->CustomFooter}"</script> 
+        </div>
+        
         </div>
         
         <div id="example3-tab3" class="mdui-p-a-2">
@@ -275,7 +279,6 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
           <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
           </div>
         </div>
-        
         
         
 <div class="mdui-chip">
@@ -400,8 +403,8 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
     cursor: default;
 }
 </style>
-  	<script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script rel="preload" src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
+  	<script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script"></script>
+    <script rel="preload" src="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js" as="script"></script>
 <script>
 		//同步input值
 			$('input').bind('input propertychange blur', function(){
