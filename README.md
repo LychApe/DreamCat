@@ -80,4 +80,4 @@ QQ交流群: `1034830519`
 - [TeddyNight](https://github.com/TeddyNight)
 - [Dev-Leo](https://github.com/Dev-Leo)
 - [CornWorld](https://github.com/CornWorld)
-- [WBStudio](https://www.wbstudio.org/)
+- [WhiteBearcn](https://github.com/whitebearcn)

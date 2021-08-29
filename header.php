@@ -4,13 +4,13 @@
  *
  * @package DreamCat
  * @author LychApe
- * @version 1.9-20210201
+ * @version X2.2.210830
  * @link https://github.com/LychApe/DreamCat
  */
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 #ini_set("error_reporting","E_ALL & ~E_NOTICE");
-
+header("Content-Security-Policy: upgrade-insecure-requests");
 ?>
 <!DOCTYPE HTML>
 <html class="no-js" lang="zh">
@@ -27,14 +27,19 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             'tag' => _t('标签 %s 下的文章'),
             'author' => _t('%s 发布的文章')
         ),'',' - '); ?><?php $this->options->title(); ?></title>
+        
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
     <link rel="dns-prefetch" href="//cdn.bootcss.com" />
-    <link rel="stylesheet preload" href="https://cdn.bootcss.com/mdui/1.0.1/css/mdui.min.css">
-    <link rel="stylesheet preload" href="<?php CustomCDN_url('css/style.css');?>" />
-    <link rel="stylesheet preload" href="<?php CustomCDN_url('css/md2.css');?>" />
-    <script rel="preload" src="https://cdn.bootcss.com/mdui/1.0.1/js/mdui.min.js"></script>
-    <script rel="preload" src="https://at.alicdn.com/t/font_2359325_loysvemas8m.js"></script>
-    <script rel="preload" src='https://cdnjs.loli.net/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js'></script>
+    
+    <link rel="stylesheet preload" href="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" as="style">
+    <link rel="stylesheet preload" href="<?php CustomCDN_url('css/style.css');?>" as="style"/>
+    <link rel="stylesheet preload" href="<?php CustomCDN_url('css/md2.css');?>" as="style"/>
+    
+    <script rel="preload" src="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js" as="script"></script>
+    <script rel="preload" src="//cdn.bootcdn.net/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.min.js" as="script"></script>
+    <script rel="preload" src="//at.alicdn.com/t/font_2359325_loysvemas8m.js" as="script"></script>
+    <script src="//cdn.bootcdn.net/ajax/libs/PreloadJS/1.0.1/preloadjs.min.js"></script>
+    
     <!--[if lt IE 9]>
     <script src="https://cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdnjscn.b0.upaiyun.com/libs/respond.js/1.3.0/respond.min.js"></script>
