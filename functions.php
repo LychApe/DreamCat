@@ -244,7 +244,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
           <div>
           <p>CDN加速模式: 填写"AccelerationMode"或留空</p>
           <p>自定义CDN加速模式: 填写CDN静态资源链接</p>
-          <p>本地资源: 填写LocalMode (需要在终端手动输入git submodule init && git submodule update)</p>
+          <p>本地资源: 填写LocalMode <br/>(需在终端输入git clone https://github.com/LychApe/DreamCat_StaticResources.git )</p>
           <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
           </div>
         </div>
@@ -764,7 +764,7 @@ function CustomCDN_url($agent)
         echo "$CustomCDN";
         #var_dump(Helper::options()->CustomCdn);
     }elseif ($options->CustomCdn == 'LocalMode') {
-        $options->themeUrl("/Static/"."$agent");
+        $options->themeUrl("/DreamCat_StaticResources/"."$agent");
     }else{
         $CustomCDN = $options->CustomCdn . "$agent";
         echo "$CustomCDN";
