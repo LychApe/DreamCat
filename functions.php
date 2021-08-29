@@ -760,7 +760,7 @@ function CustomCDN_url($agent)
 {   
     $options = Helper::options();
     if (empty($options->CustomCdn) || $options->CustomCdn == 'AccelerationMode') {
-        $CustomCDN = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@main/"."$agent";
+        $CustomCDN = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@X2.2.210830/"."$agent";
         echo "$CustomCDN";
         #var_dump(Helper::options()->CustomCdn);
     }elseif ($options->CustomCdn == 'LocalMode') {
@@ -771,13 +771,12 @@ function CustomCDN_url($agent)
     }
 }
 
-
 #自定义字体
 function CustomFont_url()
 {   
     $options = Helper::options();
     if($options->CustomFont == ''){
-        $CustomFont = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@main/SourceHanSansHWSC-VF.otf.woff2";
+        $CustomFont = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@X2.2.210830/SourceHanSansHWSC-VF.otf.woff2";
         echo ($CustomFont);
     }else{
         $CustomFont = $options->CustomFont;
