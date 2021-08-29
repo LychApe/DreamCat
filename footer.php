@@ -123,7 +123,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 		}, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
 	}(window, document);
 </script>
-
+<script>
+    <? $this->options->CustomizeGlobalJs() ?>
+</script>
 
  <div class="mdui-dialog" id="qq">
   <div class="mdui-dialog-title">加我的QQ</div>

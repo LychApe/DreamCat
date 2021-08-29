@@ -59,6 +59,9 @@ header("Content-Security-Policy: upgrade-insecure-requests");
 <!--[if lt IE 8]>
 <div class="browsehappy" role="dialog">'当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a></div>
 <![endif]-->
+<style>
+    <? $this->options->CustomizeGlobalCss(); ?>
+</style>
 <header>
     <div class="mc-drawer mdui-drawer mdui-color-grey-50" style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">
         <div class="mdui-list DreamCat-List-01" mdui-collapse="{accordion: true}" style="margin-bottom: 50%;">

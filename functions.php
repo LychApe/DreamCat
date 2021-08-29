@@ -35,6 +35,11 @@ function themeConfig($form) {
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomCdn'));
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomFont'));
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomRandomPictures'));
+    $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomizeGlobalCss'));
+    $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomizeGlobalJs'));
+    $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomFooter'));
+    $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomPicture_1'));
+    
     $options = Typecho_Widget::widget('Widget_Options');
     $Html = <<<HTML
 <!-- CSS -->
@@ -270,6 +275,27 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
           <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
           </div>
         </div>
+        
+        
+        
+<div class="mdui-chip">
+  <span class="mdui-chip-title">自定义全局CSS</span>
+</div>
+<div class="mdui-textfield">
+  <textarea type="text" id="CustomizeGlobalCss" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalCss" value="{$options->CustomizeGlobalCss}" placeholder="填入CSS样式"></textarea>
+  <script>document.getElementById("CustomizeGlobalCss").value="{$options->CustomizeGlobalCss}"</script> 
+</div>
+
+<div class="mdui-chip">
+  <span class="mdui-chip-title">自定义全局JS</span>
+</div>
+<div class="mdui-textfield">
+  <textarea  type="text" id="CustomizeGlobalJs" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalJs" placeholder="填入JS"></textarea>
+  <script>document.getElementById("CustomizeGlobalJs").value="{$options->CustomizeGlobalJs}"</script>
+</div>
+        
+        
+        
     </div>
 </div>
         
@@ -377,11 +403,18 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
   	<script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script rel="preload" src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
 <script>
-	//同步input值
-			//同步input值
+		//同步input值
 			$('input').bind('input propertychange blur', function(){
 				var name = $(this).attr("name").split('_')[1];
 				$("input[name='"+name+"']").val($(this).val());
+			});
+		
+		//同步textarea值
+			$('textarea').bind('input propertychange blur', function(){
+                //var length = $("textarea").val();
+                var name = $(this).attr("name").split('_')[1];
+                $("input[name='"+name+"']").val($(this).val());
+                //console.log(name);
 			});
 		
 			//$('checkbox', function(){
