@@ -71,9 +71,13 @@ $this->need('header.php');
                                             <?php endif; ?>
                                         </div>
                                         <?php if(!empty($this->options->logoUrl)): ?>
-                                            <img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->logoUrl() ?>" style="margin-top: -50px;position: relative;left: 10%;/* margin-right: -20px; */" />
+                                        <div class="Logo_centered">                                       
+                                        <img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->logoUrl() ?>" style="margin-top: -50px;position: relative;" />
+                                        </div> 
                                         <?php else: ?>
-                                            <img class="DreamCat-List-headimg mdui-shadow-6" src="<?php CustomCDN_url('img/default-avatar.png'); ?>" style="margin-top: -50px;position: relative;left: 10%;/* margin-right: -20px; */" />
+                                        <div class="Logo_centered"> 
+                                        <img class="DreamCat-List-headimg mdui-shadow-6" src="<?php CustomCDN_url('img/default-avatar.png'); ?>" style="margin-top: -50px;position: relative;" />
+                                        </div> 
                                         <?php endif; ?>
                                         <div class="number" style="color: #999;font-size: 15px;display: flex;justify-content: center;margin: 1%;">
                                             <?php if(!empty($this->options->Decc)): ?>
