@@ -5,7 +5,7 @@ ini_set("error_reporting","E_ALL & ~E_NOTICE");
  *
  * @package DreamCat
  * @author LychApe
- * @version X2.1 [20210716]
+ * @version X2.2.210830
  * @link https://github.com/LychApe/DreamCat
  */
 error_reporting(E_ALL^E_NOTICE);
@@ -38,7 +38,7 @@ function themeConfig($form) {
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomizeGlobalCss'));
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomizeGlobalJs'));
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomFooter'));
-    $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomPicture_1'));
+    $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomPicture1'));
     
     $options = Typecho_Widget::widget('Widget_Options');
     $Html = <<<HTML
@@ -137,6 +137,10 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
         <div class="mdui-textfield">
           <input type="text" class="mdui-textfield-input" name="dreamcat_logoUrl" value="{$options->logoUrl}" placeholder="头像地址"/>
           <div class="mdui-textfield-helper">在这里填入一个图片 URL 地址, 以在网站前台显示头像，留空则显示默认头像</div>
+        </div>
+        <div class="mdui-textfield">
+          <input type="text" class="mdui-textfield-input" name="dreamcat_CustomPicture1" value="{$options->CustomPicture1}" placeholder="侧边栏图片地址"/>
+          <div class="mdui-textfield-helper">在这里填入一个图片 URL 地址, 以在侧边栏显示背景图片，留空则显示默认背景图片</div>
         </div>
         <div class="mdui-textfield">
           <input type="text" class="mdui-textfield-input" name="dreamcat_title" value="{$options->title}" placeholder="网站标题"/>

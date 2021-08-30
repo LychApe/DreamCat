@@ -66,7 +66,11 @@ header("Content-Security-Policy: upgrade-insecure-requests");
     <div class="mc-drawer mdui-drawer mdui-color-grey-50" style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">
         <div class="mdui-list DreamCat-List-01" mdui-collapse="{accordion: true}" style="margin-bottom: 50%;">
             <div class="mdui-card DreamCat-List-02" style="overflow: inherit;">
+                <? if(!empty($this->options->CustomPicture1)):?>
+                <div class="DreamCat-menu-bg" style="background: url(<?php $this->options->CustomPicture1(); ?>);">
+                <?php else: ?>
                 <div class="DreamCat-menu-bg" style="background: url(<?php CustomCDN_url('img/brand.jpg'); ?>);">
+                <?php endif; ?>
                     <?php if(!empty($this->options->logoUrl)): ?>
                         <div class="Logo_centered">
                         <img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->logoUrl() ?>" style="margin-top: 40px;">
