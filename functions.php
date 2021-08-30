@@ -68,7 +68,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
       <div class="mdui-card">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-          <div class="mdui-card-primary-subtitle">Version: X2.1.210716</div>
+          <div class="mdui-card-primary-subtitle">Version: X2.2.210830</div>
         </div>
         
         <div class="mdui-tab mdui-tab-centered" mdui-tab>
@@ -84,7 +84,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
                         <div class="mdui-card-header">
                           <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png"/>
                           <div class="mdui-card-header-title">DreamCat</div>
-                          <div class="mdui-card-header-subtitle">X2.1.210716</div>
+                          <div class="mdui-card-header-subtitle">X2.2.210830</div>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
                 <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
                     <div class="mdui-card-content">
                     最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-                    <div class="mdui-float-right">当前版本：X2.1.210716</div>
+                    <div class="mdui-float-right">当前版本：X2.2.210830</div>
                     </div>
                 </div>
                 <br/>
@@ -284,24 +284,21 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
           </div>
         </div>
         
+        <div class="mdui-chip">
+          <span class="mdui-chip-title">自定义全局CSS</span>
+        </div>
+        <div class="mdui-textfield">
+          <textarea type="text" id="CustomizeGlobalCss" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalCss" value="{$options->CustomizeGlobalCss}" placeholder="填入CSS样式"></textarea>
+          <script>document.getElementById("CustomizeGlobalCss").value="{$options->CustomizeGlobalCss}"</script> 
+        </div>
         
-<div class="mdui-chip">
-  <span class="mdui-chip-title">自定义全局CSS</span>
-</div>
-<div class="mdui-textfield">
-  <textarea type="text" id="CustomizeGlobalCss" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalCss" value="{$options->CustomizeGlobalCss}" placeholder="填入CSS样式"></textarea>
-  <script>document.getElementById("CustomizeGlobalCss").value="{$options->CustomizeGlobalCss}"</script> 
-</div>
-
-<div class="mdui-chip">
-  <span class="mdui-chip-title">自定义全局JS</span>
-</div>
-<div class="mdui-textfield">
-  <textarea  type="text" id="CustomizeGlobalJs" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalJs" placeholder="填入JS"></textarea>
-  <script>document.getElementById("CustomizeGlobalJs").value="{$options->CustomizeGlobalJs}"</script>
-</div>
-        
-        
+        <div class="mdui-chip">
+          <span class="mdui-chip-title">自定义全局JS</span>
+        </div>
+        <div class="mdui-textfield">
+          <textarea  type="text" id="CustomizeGlobalJs" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalJs" placeholder="填入JS"></textarea>
+          <script>document.getElementById("CustomizeGlobalJs").value="{$options->CustomizeGlobalJs}"</script>
+        </div>
         
     </div>
 </div>
