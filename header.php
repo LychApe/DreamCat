@@ -10,7 +10,7 @@
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 #ini_set("error_reporting","E_ALL & ~E_NOTICE");
-header("Content-Security-Policy: upgrade-insecure-requests");
+#header("Content-Security-Policy: upgrade-insecure-requests");
 ?>
 <!DOCTYPE HTML>
 <html class="no-js" lang="zh">
