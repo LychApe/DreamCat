@@ -60,13 +60,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 <div class="browsehappy" role="dialog">'当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a></div>
 <![endif]-->
 <style>
-    <? $this->options->CustomizeGlobalCss(); ?>
+    <?php $this->options->CustomizeGlobalCss(); ?>
 </style>
 <header>
     <div class="mc-drawer mdui-drawer mdui-color-grey-50" style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">
         <div class="mdui-list DreamCat-List-01" mdui-collapse="{accordion: true}" style="margin-bottom: 50%;">
             <div class="mdui-card DreamCat-List-02" style="overflow: inherit;">
-                <? if(!empty($this->options->CustomPicture1)):?>
+                <?php if(!empty($this->options->CustomPicture1)):?>
                 <div class="DreamCat-menu-bg" style="background: url(<?php $this->options->CustomPicture1(); ?>);">
                 <?php else: ?>
                 <div class="DreamCat-menu-bg" style="background: url(<?php CustomCDN_url('img/brand.jpg'); ?>);">
