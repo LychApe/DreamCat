@@ -18,22 +18,19 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
             <div class="mdui-card shadow-A1" style="margin-top: -15%; border-radius:9px;">
                 <div class="mdui-card-header mdui-color-grey-50">
                     <?php if (!empty($this->options->logoUrl)): ?>
-                        <img class="mdui-card-header-avatar" src="<?php $this->options->logoUrl() ?>"/>
+                    <img class="mdui-card-header-avatar" src="<?php $this->options->logoUrl() ?>"/>
                     <?php else: ?>
-                        <img class="mdui-card-header-avatar"
-                             src="<?php CustomCDN_url('img/default-avatar.png'); ?>"/>
+                    <img class="mdui-card-header-avatar"
+                        src="<?php CustomCDN_url('img/default-avatar.png'); ?>"/>
                     <?php endif; ?>
                     <div class="mdui-card-header-title"><?php $this->author(); ?></div>
                     <div class="mdui-card-header-subtitle"><?php $this->options->description(); ?></div>
-                
-<?php if ($this->user->hasLogin()): ?> 
-    <div class="mdui-card-menu">
-      <a href="/admin/write-post.php?cid=<?php echo $this->cid;?>" target="_blank" class="mdui-btn mdui-btn-icon mdui-text-color-black-icon"><i class="mdui-icon material-icons ">mode_edit</i></a>
-    </div>
-<?php else: ?> 
-<?php endif;?>              
-
-
+                    <div class="mdui-card-menu">                
+                        <?php if ($this->user->hasLogin()): ?> 
+                        <a href="/admin/write-post.php?cid=<?php echo $this->cid;?>" target="_blank" class="mdui-btn mdui-btn-icon mdui-text-color-black-icon"><i class="mdui-icon material-icons">mode_edit</i></a>
+                        <?php endif;?>
+                        <a class="mdui-btn mdui-btn-icon mdui-text-color-black-icon" mdui-dialog="{target: '#search-1'}"><i class="mdui-icon material-icons">search</i></a>
+                    </div>
                 </div>
                 <div class="di-color cl">
                     <div class="di-color-a"></div>

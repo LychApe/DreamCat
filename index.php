@@ -29,17 +29,6 @@ $this->need('header.php');
                             <div class="mdui-col-xs-6 mdui-float-right" style="transform: translateY(-50%);width: 95px;">
                                 <button class="mdui-shadow-0 mdui-fab mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#search-1'}" style="background-color: #3f51b5!important;"><i class="mdui-icon material-icons">search</i></button>
                             </div>
-                            <div class="mdui-container">
-                                <div class="mdui-dialog" id="search-1">
-                                    <div class="mdui-dialog-content">
-                                        <form method="post" action="">
-                                            <div class="mdui-textfield">
-                                                <input class="mdui-textfield-input" type="text" name="s" placeholder="输入关键词进行搜索" />
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="mdui-container">

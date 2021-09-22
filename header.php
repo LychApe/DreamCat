@@ -208,3 +208,14 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         </div>
     </div>
 </div>
+<div class="mdui-container">
+    <div class="mdui-dialog" id="search-1">
+        <div class="mdui-dialog-content">
+            <form method="post" action="">
+                <div class="mdui-textfield">
+                    <input class="mdui-textfield-input" type="text" name="s" placeholder="输入关键词进行搜索" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
