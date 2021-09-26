@@ -20,48 +20,36 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <?php if(Helper::options()->CustomCdn!='LocalMode'): ?>
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//cdn.bootcss.com" />
+    <?php endif; ?>
     <title><?php $this->archiveTitle(array(
             'category' => _t('分类 %s 下的文章'),
             'search' => _t('包含关键字 %s 的文章'),
             'tag' => _t('标签 %s 下的文章'),
             'author' => _t('%s 发布的文章')
         ),'',' - '); ?><?php $this->options->title(); ?></title>
-        
-    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
-    <link rel="dns-prefetch" href="//cdn.bootcss.com" />
     
-    <link rel="stylesheet preload" href="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" as="style">
+    <link rel="stylesheet preload" href="<?php CustomCDN_url('css/mdui.min.css');?>" as="style">
     <link rel="stylesheet preload" href="<?php CustomCDN_url('css/style.css');?>" as="style"/>
     <link rel="stylesheet preload" href="<?php CustomCDN_url('css/md2.css');?>" as="style"/>
     
-    <script rel="preload" src="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js" as="script"></script>
-    <script rel="preload" src="//cdn.bootcdn.net/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.min.js" as="script"></script>
-    <script rel="preload" src="//at.alicdn.com/t/font_2359325_loysvemas8m.js" as="script"></script>
-    <script src="//cdn.bootcdn.net/ajax/libs/PreloadJS/1.0.1/preloadjs.min.js"></script>
-    
-    <!--[if lt IE 9]>
-    <script src="https://cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>
-    <script src="https://cdnjscn.b0.upaiyun.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-    <?php $this->header('commentReply=');// 通过自有函数输出HTML头部信息 ?>
+    <script rel="preload" src="<?php CustomCDN_url('js/mdui.min.js');?>" is="script"></script>
+    <script rel="preload" src="<?php CustomCDN_url('js/smooth-scroll.min.js');?>" is="script"></script>
+    <script rel="preload" src="<?php CustomCDN_url('js/alifont_2359325_loysvemas8m.js');?>" is="script"></script>
+    <script src="<?php CustomCDN_url('js/preloadjs.min.js');?>"></script>
+    <!--[if IE]><script src="<?php CustomCDN_url('js/html5.min.js');?>"></script><![endif]-->
+    <?php $this->header('commentReply=');?>
     <style>
-        @font-face {
-          font-family: CustomFont;
-          src: url(<?php CustomFont_url(); ?>);
-        }
-        body {
-          font-family: CustomFont;
-        }
+        @font-face { font-family: CustomFont; src: url(<?php CustomFont_url(); ?>); }
+        body { font-family: CustomFont, serif; }
+        <?php $this->options->CustomizeGlobalCss(); ?>
     </style>
 </head>
 <body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
-<!--[if lt IE 8]>
-<div class="browsehappy" role="dialog">'当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a></div>
-<![endif]-->
-<style>
-    <?php $this->options->CustomizeGlobalCss(); ?>
-</style>
+
 <header>
     <div class="mc-drawer mdui-drawer mdui-color-grey-50" style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">
         <div class="mdui-list DreamCat-List-01" mdui-collapse="{accordion: true}" style="margin-bottom: 50%;">
@@ -73,17 +61,17 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 <?php endif; ?>
                     <?php if(!empty($this->options->logoUrl)): ?>
                         <div class="Logo_centered">
-                        <img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->logoUrl() ?>" style="margin-top: 40px;">
+                            <img class="DreamCat-List-headimg mdui-shadow-6" src="<?php $this->options->logoUrl() ?>" style="margin-top: 40px;">
                         </div>
                     <?php else: ?>
                         <div class="Logo_centered">
-                        <img class="DreamCat-List-headimg mdui-shadow-6" src="<?php CustomCDN_url('img/default-avatar.png') ?>" style="margin-top: 40px;">
+                            <img class="DreamCat-List-headimg mdui-shadow-6" src="<?php CustomCDN_url('img/default-avatar.png') ?>" style="margin-top: 40px;" alt="">
                         </div>
                     <?php endif; ?>
                     <div class="mdui-card-media-covered">
                         <div class="mdui-card-primary">
                             <div class="mdui-valig">
-                                <div class="DreamCat-menu-author nmdui-center" style="font-weight: 400;text-align: center;">
+                                <div class="DreamCat-menu-author mdui-center" style="font-weight: 400;text-align: center;">
                                     <?php $this->options->title(); ?>
                                 </div>
                             </div>
@@ -195,7 +183,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         </div>
     </div>
 </header>
-<div class="mdui-container-fluid" style="padding-left: 0px; padding-right: 0px;" >
+<div class="mdui-container-fluid" style="padding-left: 0; padding-right: 0;" >
     <div class="mdui-appbar mdui-shadow-0">
         <div class="mdui-toolbar mdui-color-indigo">
             <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
@@ -213,7 +201,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         <div class="mdui-dialog-content">
             <form method="post" action="">
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="s" placeholder="输入关键词进行搜索" />
+                    <label>
+                        <input class="mdui-textfield-input" type="text" name="s" placeholder="输入关键词进行搜索" />
+                    </label>
                 </div>
             </form>
         </div>

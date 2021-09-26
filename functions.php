@@ -813,8 +813,7 @@ function CustomFont_url()
 {   
     $options = Helper::options();
     if($options->CustomFont == ''){
-        $CustomFont = CustomCDN_url("SourceHanSansHWSC-VF.otf.woff2");
-        echo ($CustomFont);
+        CustomCDN_url("fonts/SourceHanSansHWSC-VF.otf.woff2");
     }else{
         $CustomFont = $options->CustomFont;
         echo ($CustomFont);
