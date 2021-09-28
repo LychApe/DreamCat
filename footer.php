@@ -15,7 +15,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         <br/>
         <div class="mdui-typo">
             <p>Copyright © <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
-            <p><? $this->options->CustomFooter() ?></p>
+            <p><?php $this->options->CustomFooter() ?></p>
         </div>
         <br/>
     </div>
@@ -124,7 +124,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 	}(window, document);
 </script>
 <script>
-    <? $this->options->CustomizeGlobalJs() ?>
+    <?php $this->options->CustomizeGlobalJs() ?>
 </script>
 
  <div class="mdui-dialog" id="qq">
