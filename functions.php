@@ -79,7 +79,7 @@
       <div class="mdui-card">
 		  <div class="mdui-card-primary">
 			  <div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-			  <div class="mdui-card-primary-subtitle">Version: X2.2.210830</div>
+			  <div class="mdui-card-primary-subtitle">Version: X2.3.211003</div>
 		  </div>
         <div class="mdui-tab mdui-tab-centered" mdui-tab>
           <a href="#example3-tab1" class="mdui-ripple">模板信息</a>
@@ -94,7 +94,7 @@
                         <div class="mdui-card-header">
                           <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
                           <div class="mdui-card-header-title">DreamCat</div>
-                          <div class="mdui-card-header-subtitle">X2.2.210830</div>
+                          <div class="mdui-card-header-subtitle">X2.3.211003</div>
                         </div>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                 <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
                     <div class="mdui-card-content">
                     最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-                    <div class="mdui-float-right">当前版本：X2.2.210830</div>
+                    <div class="mdui-float-right">当前版本：X2.3.211003</div>
                     </div>
                 </div>
                 <br/>
