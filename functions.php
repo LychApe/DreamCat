@@ -39,6 +39,7 @@
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomizeGlobalJs'));
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomFooter'));
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomPicture1'));
+		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('ClickEffects'));
 		
 		$options = Typecho_Widget::widget('Widget_Options');
 		$Html = <<<HTML
@@ -240,6 +241,11 @@
 <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
     <div class="mdui-card-content">
     <div class="mdui-textfield">
+      <input type="text" class="mdui-textfield-input" name="dreamcat_ClickEffects" value="{$options->ClickEffects}" placeholder="填入disabled/checked"/>
+      <div class="mdui-textfield-helper">开启则全局有点击特效（开启：checked 关闭：disabled）</div>
+    </div>
+    <br/>
+    <div class="mdui-textfield">
       <input type="text" class="mdui-textfield-input" name="dreamcat_articletime" value="{$options->articletime}" placeholder="填入disabled/checked"/>
       <div class="mdui-textfield-helper">开启则首页文章显示发表时间 （开启：checked 关闭：disabled）</div>
     </div>
@@ -259,6 +265,8 @@
           <div class="mdui-textfield-helper">文章可评论的字数</div>
         </div>
     <br/>
+
+
     <div class="mdui-chip">
       <span class="mdui-chip-title">自定义CDN设置</span>
     </div>

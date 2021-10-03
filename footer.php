@@ -83,7 +83,7 @@
     </div>
 </div>
 
-
+<?php if ($this->options->ClickEffects == 'checked'): ?>
 <script>
     !function (e, t, a) {
 		function r() {
@@ -131,6 +131,8 @@
 		}, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
 	}(window, document);
 </script>
+<?php endif; ?>
+
 <script>
 	<?php $this->options->CustomizeGlobalJs() ?>
 </script>
