@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	ini_set("error_reporting", "E_ALL & ~E_NOTICE");
 	/**
 	 * DreamCat   是一个极简自适应博客主题,年轻人追梦的必备良品!
@@ -1082,10 +1082,10 @@ HTML;
 			#var_dump(Helper::options()->CustomCdn);
 		}
 		elseif ($options->CustomCdn == 'LocalMode') {
-			$options->themeUrl("/DreamCat_StaticResources/" . "$agent");
+			$options->themeUrl("/DreamCat_StaticResources/"."$agent");
 		}
 		else {
-			$CustomCDN = $options->CustomCdn . "$agent";
+			$CustomCDN = $options->CustomCdn."$agent";
 			echo "$CustomCDN";
 		}
 	}

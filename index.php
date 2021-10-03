@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	/**
 	 * DreamCat   是一个极简自适应博客主题,年轻人追梦的必备良品!
 	 *
@@ -64,8 +64,7 @@
                                     <div class="mdui-card DreamCat-top-card shadow-A1" style="border-radius:18px;">
                                         <div class="mdui-card-media">
 											<?php if (!empty($this->options->headbj2)): ?><img class="DreamCat-main-pic"
-																							   src="<?php $this->options->headbj2(
-																							   ) ?>"
+																							   src="<?php $this->options->headbj2() ?>"
 																							   style="height: 100px;position: relative;background-size: cover;background-position: center;border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;"
 																							   alt=""/>
 											<?php else: ?><img class="DreamCat-main-pic"
