@@ -1,10 +1,10 @@
-<?php
+﻿<?php
 	/**
 	 * DreamCat   是一个极简自适应博客主题,年轻人追梦的必备良品!
 	 *
 	 * @package DreamCat
 	 * @author LychApe
-	 * @version X2.2.210830
+	 * @version X2.3.211003
 	 * @link https://github.com/LychApe/DreamCat
 	 */
 	

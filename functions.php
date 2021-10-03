@@ -1,11 +1,11 @@
-<?php
+﻿<?php
 	ini_set("error_reporting", "E_ALL & ~E_NOTICE");
 	/**
 	 * DreamCat   是一个极简自适应博客主题,年轻人追梦的必备良品!
 	 *
 	 * @package DreamCat
 	 * @author LychApe
-	 * @version X2.2.210830
+	 * @version X2.3.211003
 	 * @link https://github.com/LychApe/DreamCat
 	 */
 	error_reporting(E_ALL ^ E_NOTICE);
@@ -1077,7 +1077,7 @@ HTML;
 	function CustomCDN_url($agent) {
 		$options = Helper::options();
 		if (empty($options->CustomCdn) || $options->CustomCdn == 'AccelerationMode') {
-			$CustomCDN = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@X2.2.210830/" . "$agent";
+			$CustomCDN = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@X2.3.211003/" . "$agent";
 			echo "$CustomCDN";
 			#var_dump(Helper::options()->CustomCdn);
 		}
@@ -1094,7 +1094,7 @@ HTML;
 	function CustomFont_url() {
 		$options = Helper::options();
 		if ($options->CustomFont == '') {
-			CustomCDN_url("fonts/SourceHanSansHWSC-VF.otf.woff2");
+			CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
 		}
 		else {
 			$CustomFont = $options->CustomFont;

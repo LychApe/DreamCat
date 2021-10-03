@@ -1,4 +1,4 @@
-# DreamCat
+﻿# DreamCat
 
 QQ交流群: `1034830519`   
 祝您使用愉快:-)
@@ -9,7 +9,8 @@ QQ交流群: `1034830519`
 ## 鸣谢
 
 `JetBrains` 提供优秀的IDE。  
-`JetBrains` 工具极大地提高了DreamCat的创造力和效率。
+`JetBrains` 工具极大地提高了DreamCat的创造力和效率。  
+`JetBrains` 提供了轻便的字体(Jetbrains Mono)。
 
 <a href="https://www.jetbrains.com/?from=DreamCat" target="_blank">
 <img src = 'https://ftp.bmp.ovh/imgs/2021/07/7883cb70a96b6ccd.png' width="145" alt=""/>
@@ -34,17 +35,16 @@ QQ交流群: `1034830519`
 
 ### 最新版本
 
-> DreamCat(X2.2.210830) [稳定版已重新打包]
-> 1. 修复 DNS预加载问题
-> 2. 修复 头像自适应问题
-> 3. 增加 后台自定义全局css/js
-> 4. 增加 侧边栏图片修改
-> 5. 增加 自定义页脚内容
-> 6. 重构 404页面
-> 7. 远程静态资源版本号锁定
-> 8. 移除[gitmodules]引入,改用[git clone]引入本地静态资源
-> 9. 格式化代码,提高可读性
-> 10. 修复 http默认强制变成https (20210904)
+> DreamCat(X2.3.211001)
+1.格式 代码风格
+2.更换 Jetbrains Mono字体
+3.新增 点击爱心特效开关
+4.新增 每页搜索按钮
+5.新增 对后台外所有页面支持本地模式
+6.修复 PHP短标记兼容问题
+7.修复s.w.中未使用自定义cdn的问题
+8.优化 文章页
+
 
 ------
 
