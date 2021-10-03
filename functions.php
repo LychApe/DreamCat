@@ -40,6 +40,7 @@
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomFooter'));
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomPicture1'));
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('ClickEffects'));
+		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('Favicon'));
 		
 		$options = Typecho_Widget::widget('Widget_Options');
 		$Html = <<<HTML
@@ -167,6 +168,10 @@
         </div>
         <br/>
         
+       <div class="mdui-textfield">
+          <input type="text" class="mdui-textfield-input" name="dreamcat_Favicon" value="{$options->Favicon}" placeholder="网站Favicon链接"/>
+          <div class="mdui-textfield-helper">网站Favicon将显示在网页标签的头部,留空则不显示</div>
+       </div>
        <div class="mdui-textfield">
           <input type="text" class="mdui-textfield-input" name="dreamcat_description" value="{$options->description}" placeholder="网站SEO描述"/>
           <div class="mdui-textfield-helper">网站描述将显示在网页代码的头部,留空则不显示</div>

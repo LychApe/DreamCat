@@ -32,6 +32,8 @@
 											 'author' => _t('%s 发布的文章')
 									 ), '', ' - '); ?><?php $this->options->title(); ?></title>
 
+    <link rel="shortcut icon" href="<?php $this->options->Favicon(); ?>" type="image/x-icon" />
+    
     <link rel="stylesheet preload" href="<?php CustomCDN_url('css/mdui.min.css'); ?>" as="style">
     <link rel="stylesheet preload" href="<?php CustomCDN_url('css/style.css'); ?>" as="style"/>
     <link rel="stylesheet preload" href="<?php CustomCDN_url('css/md2.css'); ?>" as="style"/>
