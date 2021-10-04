@@ -45,10 +45,10 @@
 		$options = Typecho_Widget::widget('Widget_Options');
 		$Html = <<<HTML
 <!-- CSS -->
-    <meta http-equiv="x-dns-prefetch-control" content="on"/>
-    <link rel="dns-prefetch" href="//cdn.jsdelivr.net"/>
-    <link rel="dns-prefetch" href="//cdn.bootcss.com"/>
-    <link rel="stylesheet preload" href="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" as="style">
+	<meta http-equiv="x-dns-prefetch-control" content="on"/>
+	<link rel="dns-prefetch" href="//cdn.jsdelivr.net"/>
+	<link rel="dns-prefetch" href="//cdn.bootcss.com"/>
+	<link rel="stylesheet preload" href="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" as="style">
 <style>
 .mdui-tab .mdui-tab-active {
 	color: rgb(74 69 62 / 70%);
@@ -78,338 +78,338 @@
 	.0625rem .1875rem .5rem transparent
 }
 </style>
-      <div class="mdui-card">
+	  <div class="mdui-card">
 		  <div class="mdui-card-primary">
 			  <div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
 			  <div class="mdui-card-primary-subtitle">Version: X2.3.211003</div>
 		  </div>
-        <div class="mdui-tab mdui-tab-centered" mdui-tab>
-          <a href="#example3-tab1" class="mdui-ripple">模板信息</a>
-          <a href="#example3-tab2" class="mdui-ripple">全局设置</a>
-          <a href="#example3-tab3" class="mdui-ripple">高级设置</a>
-        </div>
-        <div id="example3-tab1" class="mdui-p-a-2">
-            <div class="mdui-card-content">
-            <div class="mdui-row-xs-2">
-                <div class="mdui-col">
-                    <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-                        <div class="mdui-card-header">
-                          <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
-                          <div class="mdui-card-header-title">DreamCat</div>
-                          <div class="mdui-card-header-subtitle">X2.3.211003</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mdui-col">
-                    <div class="mdui-card shadow-A1 button-ts" mdui-dialog="{target: '#exampleDialog'}" style="background-color: rgb(130 123 123 / 14%);">
-                        <div class="mdui-card-header">
-                          <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
-                          <div class="mdui-card-header-title">开发者</div>
-                          <div class="mdui-card-header-subtitle">简单不先于复杂,而是在复杂之后</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br/>
-                <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
-                <div class="mdui-card-content">
-                    <img alt="GitHub " src="https://img.shields.io/github/stars/LychApe/DreamCat?style=for-the-badge" alt="">
-                    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/LychApe/DreamCat/total?style=for-the-badge" alt="">
-                    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/LychApe/DreamCat?style=for-the-badge" alt="">
-                    <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/LychApe/DreamCat?style=for-the-badge" alt="">
-                </div>
-                </div>
-                <br/>
-                
-                <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
-                    <div class="mdui-card-content">
-                    最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-                    <div class="mdui-float-right">当前版本：X2.3.211003</div>
-                    </div>
-                </div>
-                <br/>
-                <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
-                    <div class="mdui-card-content">
-                    <div class="mdui-typo">
-                    <p>QQ交流群:1034830519</p>
-                    <p>最后，祝您使用愉快:)</p>
-                    </div>
-                    </div>
-                </div>
-                </div>
-        </div>
-        
-        <div id="example3-tab2" class="mdui-p-a-2">
-        <br/>
-        <div class="mdui-chip">
-          <span class="mdui-chip-title">首页设置</span>
-        </div>
-        <br/>
-        
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_logoUrl" value="{$options->logoUrl}" placeholder="头像地址"/>
-          <div class="mdui-textfield-helper">在这里填入一个图片 URL 地址, 以在网站前台显示头像，留空则显示默认头像</div>
-        </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_CustomPicture1" value="{$options->CustomPicture1}" placeholder="侧边栏图片地址"/>
-          <div class="mdui-textfield-helper">在这里填入一个图片 URL 地址, 以在侧边栏显示背景图片，留空则显示默认背景图片</div>
-        </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_title" value="{$options->title}" placeholder="网站标题"/>
-          <div class="mdui-textfield-helper">在这里填入一个网站标题, 以在网站前台显示网站标题，留空则不显示</div>
-        </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_Dec" value="{$options->Dec}" placeholder="填入首页标语"/>
-          <div class="mdui-textfield-helper">在这里填入一个首页标语, 以在网站前台显示首页标语，留空则不显示</div>
-        </div>
-        <br/>
-        <div class="mdui-chip">
-          <span class="mdui-chip-title">SEO设置</span>
-        </div>
-        <br/>
-        
-       <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_Favicon" value="{$options->Favicon}" placeholder="网站Favicon链接"/>
-          <div class="mdui-textfield-helper">网站Favicon将显示在网页标签的头部,留空则不显示</div>
-       </div>
-       <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_description" value="{$options->description}" placeholder="网站SEO描述"/>
-          <div class="mdui-textfield-helper">网站描述将显示在网页代码的头部,留空则不显示</div>
-        </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_keywords" value="{$options->keywords}" placeholder="网站SEO关键字"/>
-          <div class="mdui-textfield-helper">请以半角逗号 "," 分割多个关键字</div>
-        </div>
-        
-        <br/>
-        <div class="mdui-chip">
-          <span class="mdui-chip-title">博主栏设置</span>
-        </div>
-        <br/>
-        
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_headbj1" value="{$options->headbj1}" placeholder="填入一个首页公告背景地址"/>
-          <div class="mdui-textfield-helper">填入一个图片地址，不填则显示默认背景(地球)</div>
-        </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_headbj2" value="{$options->headbj2}" placeholder="填入一个首页博主栏背景地址"/>
-          <div class="mdui-textfield-helper">填入一个图片地址，不填则显示默认背景(地球)</div>
-        </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_Decc" value="{$options->Decc}" placeholder="填入一个具有逼格的首页博主栏简介或者说明"/>
-          <div class="mdui-textfield-helper">在这里填入一个具有逼格的首页博主栏简介或者说明，留空则不显示</div>
-        </div>
-        
-        <br/>
-        <div class="mdui-chip">
-          <span class="mdui-chip-title">联系方式设置</span>
-        </div>
-        <br/>
-        
-       <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_qq" value="{$options->qq}" placeholder="填写QQ二维码图片地址"/>
-          <div class="mdui-textfield-helper">填写您的QQ二维码图片地址,它将在首页以及其他地方显示，不填则不显示</div>
-        </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_weixin" value="{$options->weixin}" placeholder="填写微信二维码图片地址"/>
-          <div class="mdui-textfield-helper">填写您的微信二维码图片地址,它将在首页以及其他地方显示，不填则不显示</div>
-        </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_zfb" value="{$options->zfb}" placeholder="填写支付宝二维码图片地址"/>
-          <div class="mdui-textfield-helper">填写您的支付宝二维码图片地址,它将在首页以及其他地方显示，不填则不显示</div>
-        </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_weibo" value="{$options->weibo}" placeholder="填写微博二维码图片地址"/>
-          <div class="mdui-textfield-helper">填写您的微博二维码图片地址,它将在首页以及其他地方显示，不填则不显示</div>
-        </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_github" value="{$options->github}" placeholder="填写Github地址"/>
-          <div class="mdui-textfield-helper">填写您的Github地址,它将在首页以及其他地方显示，不填则不显示</div>
-        </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_linkedin" value="{$options->linkedin}" placeholder="填写Linkedin地址"/>
-          <div class="mdui-textfield-helper">填写您的Linkedin地址,它将在首页以及其他地方显示，不填则不显示</div>
-        </div>
-        
-    <br/>
-    <div class="mdui-chip">
-      <span class="mdui-chip-title">自定义页脚内容</span>
-    </div>
-        <div class="mdui-textfield">
-        <textarea type="text" id="CustomFooter" class="mdui-textfield-input" rows="4" name="dreamcat_CustomFooter" value="{$options->CustomFooter}" placeholder="自定义页脚内容"></textarea>
-        <script>document.getElementById("CustomFooter").value = "{$options->CustomFooter}"</script>
-        </div>
-        
-        </div>
-        
-        <div id="example3-tab3" class="mdui-p-a-2">
+		<div class="mdui-tab mdui-tab-centered" mdui-tab>
+		  <a href="#example3-tab1" class="mdui-ripple">模板信息</a>
+		  <a href="#example3-tab2" class="mdui-ripple">全局设置</a>
+		  <a href="#example3-tab3" class="mdui-ripple">高级设置</a>
+		</div>
+		<div id="example3-tab1" class="mdui-p-a-2">
+			<div class="mdui-card-content">
+			<div class="mdui-row-xs-2">
+				<div class="mdui-col">
+					<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+						<div class="mdui-card-header">
+						  <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
+						  <div class="mdui-card-header-title">DreamCat</div>
+						  <div class="mdui-card-header-subtitle">X2.3.211003</div>
+						</div>
+					</div>
+				</div>
+				<div class="mdui-col">
+					<div class="mdui-card shadow-A1 button-ts" mdui-dialog="{target: '#exampleDialog'}" style="background-color: rgb(130 123 123 / 14%);">
+						<div class="mdui-card-header">
+						  <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
+						  <div class="mdui-card-header-title">开发者</div>
+						  <div class="mdui-card-header-subtitle">简单不先于复杂,而是在复杂之后</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br/>
+				<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
+				<div class="mdui-card-content">
+					<img alt="GitHub " src="https://img.shields.io/github/stars/LychApe/DreamCat?style=for-the-badge" alt="">
+					<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/LychApe/DreamCat/total?style=for-the-badge" alt="">
+					<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/LychApe/DreamCat?style=for-the-badge" alt="">
+					<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/LychApe/DreamCat?style=for-the-badge" alt="">
+				</div>
+				</div>
+				<br/>
+				
+				<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
+					<div class="mdui-card-content">
+					最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
+					<div class="mdui-float-right">当前版本：X2.3.211003</div>
+					</div>
+				</div>
+				<br/>
+				<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
+					<div class="mdui-card-content">
+					<div class="mdui-typo">
+					<p>QQ交流群:1034830519</p>
+					<p>最后，祝您使用愉快:)</p>
+					</div>
+					</div>
+				</div>
+				</div>
+		</div>
+		
+		<div id="example3-tab2" class="mdui-p-a-2">
+		<br/>
+		<div class="mdui-chip">
+		  <span class="mdui-chip-title">首页设置</span>
+		</div>
+		<br/>
+		
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_logoUrl" value="{$options->logoUrl}" placeholder="头像地址"/>
+		  <div class="mdui-textfield-helper">在这里填入一个图片 URL 地址, 以在网站前台显示头像，留空则显示默认头像</div>
+		</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_CustomPicture1" value="{$options->CustomPicture1}" placeholder="侧边栏图片地址"/>
+		  <div class="mdui-textfield-helper">在这里填入一个图片 URL 地址, 以在侧边栏显示背景图片，留空则显示默认背景图片</div>
+		</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_title" value="{$options->title}" placeholder="网站标题"/>
+		  <div class="mdui-textfield-helper">在这里填入一个网站标题, 以在网站前台显示网站标题，留空则不显示</div>
+		</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_Dec" value="{$options->Dec}" placeholder="填入首页标语"/>
+		  <div class="mdui-textfield-helper">在这里填入一个首页标语, 以在网站前台显示首页标语，留空则不显示</div>
+		</div>
+		<br/>
+		<div class="mdui-chip">
+		  <span class="mdui-chip-title">SEO设置</span>
+		</div>
+		<br/>
+		
+	   <div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_Favicon" value="{$options->Favicon}" placeholder="网站Favicon链接"/>
+		  <div class="mdui-textfield-helper">网站Favicon将显示在网页标签的头部,留空则不显示</div>
+	   </div>
+	   <div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_description" value="{$options->description}" placeholder="网站SEO描述"/>
+		  <div class="mdui-textfield-helper">网站描述将显示在网页代码的头部,留空则不显示</div>
+		</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_keywords" value="{$options->keywords}" placeholder="网站SEO关键字"/>
+		  <div class="mdui-textfield-helper">请以半角逗号 "," 分割多个关键字</div>
+		</div>
+		
+		<br/>
+		<div class="mdui-chip">
+		  <span class="mdui-chip-title">博主栏设置</span>
+		</div>
+		<br/>
+		
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_headbj1" value="{$options->headbj1}" placeholder="填入一个首页公告背景地址"/>
+		  <div class="mdui-textfield-helper">填入一个图片地址，不填则显示默认背景(地球)</div>
+		</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_headbj2" value="{$options->headbj2}" placeholder="填入一个首页博主栏背景地址"/>
+		  <div class="mdui-textfield-helper">填入一个图片地址，不填则显示默认背景(地球)</div>
+		</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_Decc" value="{$options->Decc}" placeholder="填入一个具有逼格的首页博主栏简介或者说明"/>
+		  <div class="mdui-textfield-helper">在这里填入一个具有逼格的首页博主栏简介或者说明，留空则不显示</div>
+		</div>
+		
+		<br/>
+		<div class="mdui-chip">
+		  <span class="mdui-chip-title">联系方式设置</span>
+		</div>
+		<br/>
+		
+	   <div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_qq" value="{$options->qq}" placeholder="填写QQ二维码图片地址"/>
+		  <div class="mdui-textfield-helper">填写您的QQ二维码图片地址,它将在首页以及其他地方显示，不填则不显示</div>
+		</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_weixin" value="{$options->weixin}" placeholder="填写微信二维码图片地址"/>
+		  <div class="mdui-textfield-helper">填写您的微信二维码图片地址,它将在首页以及其他地方显示，不填则不显示</div>
+		</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_zfb" value="{$options->zfb}" placeholder="填写支付宝二维码图片地址"/>
+		  <div class="mdui-textfield-helper">填写您的支付宝二维码图片地址,它将在首页以及其他地方显示，不填则不显示</div>
+		</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_weibo" value="{$options->weibo}" placeholder="填写微博二维码图片地址"/>
+		  <div class="mdui-textfield-helper">填写您的微博二维码图片地址,它将在首页以及其他地方显示，不填则不显示</div>
+		</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_github" value="{$options->github}" placeholder="填写Github地址"/>
+		  <div class="mdui-textfield-helper">填写您的Github地址,它将在首页以及其他地方显示，不填则不显示</div>
+		</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_linkedin" value="{$options->linkedin}" placeholder="填写Linkedin地址"/>
+		  <div class="mdui-textfield-helper">填写您的Linkedin地址,它将在首页以及其他地方显示，不填则不显示</div>
+		</div>
+		
+	<br/>
+	<div class="mdui-chip">
+	  <span class="mdui-chip-title">自定义页脚内容</span>
+	</div>
+		<div class="mdui-textfield">
+		<textarea type="text" id="CustomFooter" class="mdui-textfield-input" rows="4" name="dreamcat_CustomFooter" value="{$options->CustomFooter}" placeholder="自定义页脚内容"></textarea>
+		<script>document.getElementById("CustomFooter").value = "{$options->CustomFooter}"</script>
+		</div>
+		
+		</div>
+		
+		<div id="example3-tab3" class="mdui-p-a-2">
 <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
-    <div class="mdui-card-content">
-    <div class="mdui-textfield">
-      <input type="text" class="mdui-textfield-input" name="dreamcat_ClickEffects" value="{$options->ClickEffects}" placeholder="填入disabled/checked"/>
-      <div class="mdui-textfield-helper">开启则全局有点击特效（开启：checked 关闭：disabled）</div>
-    </div>
-    <br/>
-    <div class="mdui-textfield">
-      <input type="text" class="mdui-textfield-input" name="dreamcat_articletime" value="{$options->articletime}" placeholder="填入disabled/checked"/>
-      <div class="mdui-textfield-helper">开启则首页文章显示发表时间 （开启：checked 关闭：disabled）</div>
-    </div>
-    <br/>
-    <div class="mdui-textfield">
-      <input type="text" class="mdui-textfield-input" name="dreamcat_listtc" value="{$options->listtc}" placeholder="填入disabled/checked"/>
-      <div class="mdui-textfield-helper">开启则首页时间线的文章不在以 图片+标题的方式展示，而是改为 标题+内容 的方式展示（开启：checked 关闭：disabled）</div>
-    </div>
-    <br/>
-    <div class="mdui-textfield">
-      <input type="text" class="mdui-textfield-input" name="dreamcat_baidusl" value="{$options->baidusl}" placeholder="填入disabled/checked"/>
-      <div class="mdui-textfield-helper">开启则文章内显示百度是否收录 （开启：checked 关闭：disabled）</div>
-    </div>
-    <br/>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_commentszs" value="{$options->commentszs}" placeholder="填入一个数字限制评论的字数"/>
-          <div class="mdui-textfield-helper">文章可评论的字数</div>
-        </div>
-    <br/>
+	<div class="mdui-card-content">
+	<div class="mdui-textfield">
+	  <input type="text" class="mdui-textfield-input" name="dreamcat_ClickEffects" value="{$options->ClickEffects}" placeholder="填入disabled/checked"/>
+	  <div class="mdui-textfield-helper">开启则全局有点击特效（开启：checked 关闭：disabled）</div>
+	</div>
+	<br/>
+	<div class="mdui-textfield">
+	  <input type="text" class="mdui-textfield-input" name="dreamcat_articletime" value="{$options->articletime}" placeholder="填入disabled/checked"/>
+	  <div class="mdui-textfield-helper">开启则首页文章显示发表时间 （开启：checked 关闭：disabled）</div>
+	</div>
+	<br/>
+	<div class="mdui-textfield">
+	  <input type="text" class="mdui-textfield-input" name="dreamcat_listtc" value="{$options->listtc}" placeholder="填入disabled/checked"/>
+	  <div class="mdui-textfield-helper">开启则首页时间线的文章不在以 图片+标题的方式展示，而是改为 标题+内容 的方式展示（开启：checked 关闭：disabled）</div>
+	</div>
+	<br/>
+	<div class="mdui-textfield">
+	  <input type="text" class="mdui-textfield-input" name="dreamcat_baidusl" value="{$options->baidusl}" placeholder="填入disabled/checked"/>
+	  <div class="mdui-textfield-helper">开启则文章内显示百度是否收录 （开启：checked 关闭：disabled）</div>
+	</div>
+	<br/>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_commentszs" value="{$options->commentszs}" placeholder="填入一个数字限制评论的字数"/>
+		  <div class="mdui-textfield-helper">文章可评论的字数</div>
+		</div>
+	<br/>
 
 
-    <div class="mdui-chip">
-      <span class="mdui-chip-title">自定义CDN设置</span>
-    </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_CustomCdn" value="{$options->CustomCdn}" placeholder="自定义CDN"/>
-          <div>
-          <p>CDN加速模式: 填写"AccelerationMode"或留空</p>
-          <p>自定义CDN加速模式: 填写CDN静态资源链接</p>
-          <p>本地资源: 填写LocalMode <br/>(需在终端输入git clone https://github.com/LychApe/DreamCat_StaticResources.git )</p>
-          <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
-          </div>
-        </div>
+	<div class="mdui-chip">
+	  <span class="mdui-chip-title">自定义CDN设置</span>
+	</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_CustomCdn" value="{$options->CustomCdn}" placeholder="自定义CDN"/>
+		  <div>
+		  <p>CDN加速模式: 填写"AccelerationMode"或留空</p>
+		  <p>自定义CDN加速模式: 填写CDN静态资源链接</p>
+		  <p>本地资源: 填写LocalMode <br/>(需在终端输入git clone https://github.com/LychApe/DreamCat_StaticResources.git )</p>
+		  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
+		  </div>
+		</div>
 		<?php var_dump($options->CustomCdn); ?>
 		<div class="mdui-chip">
-      <span class="mdui-chip-title">随机图片设置</span>
-    </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_CustomRandomPictures" value="{$options->CustomRandomPictures}" placeholder="填入自定义随机图片链接或留空"/>
-          <div>
-          <p>自定义随机图片：填入一个自定义随机图片接链或留空</p>
-          <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
-          </div>
-        </div>
+	  <span class="mdui-chip-title">随机图片设置</span>
+	</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_CustomRandomPictures" value="{$options->CustomRandomPictures}" placeholder="填入自定义随机图片链接或留空"/>
+		  <div>
+		  <p>自定义随机图片：填入一个自定义随机图片接链或留空</p>
+		  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
+		  </div>
+		</div>
 
-    <div class="mdui-chip">
-      <span class="mdui-chip-title">字体设置</span>
-    </div>
-        <div class="mdui-textfield">
-          <input type="text" class="mdui-textfield-input" name="dreamcat_CustomFont" value="{$options->CustomFont}" placeholder="填入字体链接或留空"/>
-          <div>
-          <p>自定义字体：填入一个字体接链或留空</p>
-          <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
-          </div>
-        </div>
-        
-        <div class="mdui-chip">
-          <span class="mdui-chip-title">自定义全局CSS</span>
-        </div>
-        <div class="mdui-textfield">
-          <textarea type="text" id="CustomizeGlobalCss" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalCss" value="{$options->CustomizeGlobalCss}" placeholder="填入CSS样式"></textarea>
-          <script>document.getElementById("CustomizeGlobalCss").value = "{$options->CustomizeGlobalCss}"</script>
-        </div>
-        
-        <div class="mdui-chip">
-          <span class="mdui-chip-title">自定义全局JS</span>
-        </div>
-        <div class="mdui-textfield">
-          <textarea type="text" id="CustomizeGlobalJs" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalJs" placeholder="填入JS"></textarea>
-          <script>document.getElementById("CustomizeGlobalJs").value = "{$options->CustomizeGlobalJs}"</script>
-        </div>
-        
-    </div>
+	<div class="mdui-chip">
+	  <span class="mdui-chip-title">字体设置</span>
+	</div>
+		<div class="mdui-textfield">
+		  <input type="text" class="mdui-textfield-input" name="dreamcat_CustomFont" value="{$options->CustomFont}" placeholder="填入字体链接或留空"/>
+		  <div>
+		  <p>自定义字体：填入一个字体接链或留空</p>
+		  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
+		  </div>
+		</div>
+		
+		<div class="mdui-chip">
+		  <span class="mdui-chip-title">自定义全局CSS</span>
+		</div>
+		<div class="mdui-textfield">
+		  <textarea type="text" id="CustomizeGlobalCss" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalCss" value="{$options->CustomizeGlobalCss}" placeholder="填入CSS样式"></textarea>
+		  <script>document.getElementById("CustomizeGlobalCss").value = "{$options->CustomizeGlobalCss}"</script>
+		</div>
+		
+		<div class="mdui-chip">
+		  <span class="mdui-chip-title">自定义全局JS</span>
+		</div>
+		<div class="mdui-textfield">
+		  <textarea type="text" id="CustomizeGlobalJs" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalJs" placeholder="填入JS"></textarea>
+		  <script>document.getElementById("CustomizeGlobalJs").value = "{$options->CustomizeGlobalJs}"</script>
+		</div>
+		
+	</div>
 </div>
-        
-        </div>
-        
+		
+		</div>
+		
 <div class="mdui-dialog" id="exampleDialog">
   <div class="mdui-dialog-title">开发者列表</div>
   <div class="mdui-dialog-content">
   
 <div class="mdui-row-xs-2">
-    <div class="mdui-col">
-        <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-            <div class="mdui-card-header">
-              <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=1091044631@qq.com&spec=640"/>
-              <div class="mdui-card-header-title">HanFengA7</div>
-              <div class="mdui-card-header-subtitle">所幸抬头仰望,总有星辰相伴!</div>
-            </div>
-        </div>
-        <br/>
-    </div>
-    <div class="mdui-col">
-        <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-            <div class="mdui-card-header">
-              <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2206645368@qq.com&spec=640"/>
-              <div class="mdui-card-header-title">TeddyNight</div>
-              <div class="mdui-card-header-subtitle">自由和未来不可以被妥协</div>
-            </div>
-        </div>
-        <br/>
-    </div>
-    
-    <div class="mdui-col">
-        <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-            <div class="mdui-card-header">
-              <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=1906944165@qq.com&spec=640"/>
-              <div class="mdui-card-header-title">Dev-Leo</div>
-              <div class="mdui-card-header-subtitle">不忘初心,牢记使命！</div>
-            </div>
-        </div>
-        <br/>
-    </div>
-    <div class="mdui-col">
-        <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-            <div class="mdui-card-header">
-              <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2135620856@qq.com&spec=640"/>
-              <div class="mdui-card-header-title">CornWorld</div>
-              <div class="mdui-card-header-subtitle">"希望人没事"</div>
-            </div>
-        </div>
-        <br/>
-    </div>
-    
-    <div class="mdui-col">
-        <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-            <div class="mdui-card-header">
-              <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=1846405136@qq.com&spec=640"/>
-              <div class="mdui-card-header-title">WhiteBearcn</div>
-              <div class="mdui-card-header-subtitle"></div>
-            </div>
-        </div>
-        <br/>
-    </div>
-    
-    <div class="mdui-col">
-        <div class="mdui-card shadow-A1 button-ts" mdui-dialog="{target: '#exampleDialog'}" style="background-color: rgb(130 123 123 / 14%);">
-            <div class="mdui-card-header">
-              <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2477819731@qq.com&spec=640"/>
-              <div class="mdui-card-header-title">学神之女</div>
-              <div class="mdui-card-header-subtitle">举头望涵涵，低头思第一。</div>
-            </div>
-        </div>
-        <br/>
-    </div>
+	<div class="mdui-col">
+		<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+			<div class="mdui-card-header">
+			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=1091044631@qq.com&spec=640"/>
+			  <div class="mdui-card-header-title">HanFengA7</div>
+			  <div class="mdui-card-header-subtitle">所幸抬头仰望,总有星辰相伴!</div>
+			</div>
+		</div>
+		<br/>
+	</div>
+	<div class="mdui-col">
+		<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+			<div class="mdui-card-header">
+			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2206645368@qq.com&spec=640"/>
+			  <div class="mdui-card-header-title">TeddyNight</div>
+			  <div class="mdui-card-header-subtitle">自由和未来不可以被妥协</div>
+			</div>
+		</div>
+		<br/>
+	</div>
+	
+	<div class="mdui-col">
+		<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+			<div class="mdui-card-header">
+			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=1906944165@qq.com&spec=640"/>
+			  <div class="mdui-card-header-title">Dev-Leo</div>
+			  <div class="mdui-card-header-subtitle">不忘初心,牢记使命！</div>
+			</div>
+		</div>
+		<br/>
+	</div>
+	<div class="mdui-col">
+		<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+			<div class="mdui-card-header">
+			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2135620856@qq.com&spec=640"/>
+			  <div class="mdui-card-header-title">CornWorld</div>
+			  <div class="mdui-card-header-subtitle">"希望人没事"</div>
+			</div>
+		</div>
+		<br/>
+	</div>
+	
+	<div class="mdui-col">
+		<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+			<div class="mdui-card-header">
+			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=1846405136@qq.com&spec=640"/>
+			  <div class="mdui-card-header-title">WhiteBearcn</div>
+			  <div class="mdui-card-header-subtitle"></div>
+			</div>
+		</div>
+		<br/>
+	</div>
+	
+	<div class="mdui-col">
+		<div class="mdui-card shadow-A1 button-ts" mdui-dialog="{target: '#exampleDialog'}" style="background-color: rgb(130 123 123 / 14%);">
+			<div class="mdui-card-header">
+			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2477819731@qq.com&spec=640"/>
+			  <div class="mdui-card-header-title">学神之女</div>
+			  <div class="mdui-card-header-subtitle">举头望涵涵，低头思第一。</div>
+			</div>
+		</div>
+		<br/>
+	</div>
 </div>
   <br/>
   除此之外，还有很多来自全世界的开发者正通过 GitHub 向我们提交贡献。
   </div>
   <div class="mdui-dialog-actions">
-    <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
+	<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
   </div>
 </div>
-        
-        <div class="mdui-card-actions">
-        </div>
-      </div>
-      
-      
+		
+		<div class="mdui-card-actions">
+		</div>
+	  </div>
+	  
+	  
 <style>
 .primary {
 	border: none;
@@ -430,7 +430,7 @@
 }
 </style>
   	<script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script"></script>
-    <script rel="preload" src="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js" as="script"></script>
+	<script rel="preload" src="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js" as="script"></script>
 <script>
 		//同步input值
 		$('input').bind('input propertychange blur', function () {
@@ -651,8 +651,8 @@ HTML;
 		$num2 = rand(1, 9);
 		echo "$num1 + $num2 = ";
 		echo '<input type="text" name="sum\" class="vnick vinput" value=""
-    size="25" tabindex="4" style=" background: 0 0; width:70px; border: none; resize: none; outline: none; padding:
-    10px 5px; max-width: 100%; font-size: .775rem;" placeholder="计算结果">';
+	size="25" tabindex="4" style=" background: 0 0; width:70px; border: none; resize: none; outline: none; padding:
+	10px 5px; max-width: 100%; font-size: .775rem;" placeholder="计算结果">';
 		echo '<input type="hidden" name="num1" value="$num1">';
 		echo '<input type="hidden" name="num2" value="$num2">';
 	}
