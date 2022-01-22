@@ -27,14 +27,14 @@
 	<div class="mdui-dialog-content" style="height: 219px;">
 		<blockquote>
 			<div class="mdui-typo"><p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a
-							href="https://github.com/LychApe/DreamCat" target="_blank">X2.3.211003</a></p>
+							href="https://github.com/LychApe/DreamCat" target="_blank">X2.4.220122</a></p>
 				<p>主题开发：<a
 							href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a
 							href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a
 							href="https://github.com/Dev-Leo" target="_blank">Dev-Leo</a> | <a
 							href="https://github.com/CornWorld" target="_blank">CornWorld</a> | <a
 							href="https://github.com/whitebearcn" target="_blank">WhiteBearcn</a> | <a
-							href="https://github.com/DFFZMXJ" target="_blank">学神之女</a>
+							href="https://github.com/DFFZMXJ" target="_blank">DFFZMXJ</a>
 				</p>
 				<p>Designed by <a href="https://www.hanfenga7.cn/" style="text-decoration: none">HanFengA7</a> Power by
 					<a href="http://typecho.org/" style="text-decoration: none">Typecho</a></p>

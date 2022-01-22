@@ -46,7 +46,6 @@
 		$Html = <<<HTML
 <!-- CSS -->
 	<meta http-equiv="x-dns-prefetch-control" content="on"/>
-	<link rel="dns-prefetch" href="//cdn.jsdelivr.net"/>
 	<link rel="dns-prefetch" href="//cdn.bootcss.com"/>
 	<link rel="stylesheet preload" href="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" as="style">
 <style>
@@ -81,7 +80,7 @@
 	  <div class="mdui-card">
 		  <div class="mdui-card-primary">
 			  <div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-			  <div class="mdui-card-primary-subtitle">Version: X2.3.211003</div>
+			  <div class="mdui-card-primary-subtitle">Version: X2.4.220122</div>
 		  </div>
 		<div class="mdui-tab mdui-tab-centered" mdui-tab>
 		  <a href="#example3-tab1" class="mdui-ripple">模板信息</a>
@@ -96,7 +95,7 @@
 						<div class="mdui-card-header">
 						  <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
 						  <div class="mdui-card-header-title">DreamCat</div>
-						  <div class="mdui-card-header-subtitle">X2.3.211003</div>
+						  <div class="mdui-card-header-subtitle">X2.4.220122</div>
 						</div>
 					</div>
 				</div>
@@ -124,7 +123,7 @@
 				<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
 					<div class="mdui-card-content">
 					最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-					<div class="mdui-float-right">当前版本：X2.3.211003</div>
+					<div class="mdui-float-right">当前版本：X2.4.220122</div>
 					</div>
 				</div>
 				<br/>
@@ -278,10 +277,10 @@
 		<div class="mdui-textfield">
 		  <input type="text" class="mdui-textfield-input" name="dreamcat_CustomCdn" value="{$options->CustomCdn}" placeholder="自定义CDN"/>
 		  <div>
-		  <p>CDN加速模式: 填写"AccelerationMode"或留空</p>
+		  <p>本地资源: 填写"LocalMode"或留空</p>
+		  <p>CDN加速模式: 填写"AccelerationMode" (jsdelivr) </p>
 		  <p>自定义CDN加速模式: 填写CDN静态资源链接</p>
-		  <p>本地资源: 填写LocalMode <br/>(需在终端输入git clone https://github.com/LychApe/DreamCat_StaticResources.git )</p>
-		  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
+		  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用本地资源</p>
 		  </div>
 		</div>
 		<?php var_dump($options->CustomCdn); ?>
@@ -292,7 +291,7 @@
 		  <input type="text" class="mdui-textfield-input" name="dreamcat_CustomRandomPictures" value="{$options->CustomRandomPictures}" placeholder="填入自定义随机图片链接或留空"/>
 		  <div>
 		  <p>自定义随机图片：填入一个自定义随机图片接链或留空</p>
-		  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
+		  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用本地随机图片源</p>
 		  </div>
 		</div>
 
@@ -303,7 +302,7 @@
 		  <input type="text" class="mdui-textfield-input" name="dreamcat_CustomFont" value="{$options->CustomFont}" placeholder="填入字体链接或留空"/>
 		  <div>
 		  <p>自定义字体：填入一个字体接链或留空</p>
-		  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用DreamCat源</p>
+		  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用本地字体源</p>
 		  </div>
 		</div>
 		
@@ -471,7 +470,7 @@ HTML;
 		$rand_num = 10;
 		$options = Helper::options();
 		if ($options->CustomRandomPictures == '') {
-			$imgcdn = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@main";
+			$imgcdn = "$options->themeUrl"."/DreamCat_StaticResources";
 		}
 		else {
 			$imgcdn = $options->CustomRandomPictures;
@@ -1089,15 +1088,13 @@ HTML;
 #自定义CDN
 	function CustomCDN_url($agent) {
 		$options = Helper::options();
-		if (empty($options->CustomCdn) || $options->CustomCdn == 'AccelerationMode') {
+		if (empty($options->CustomCdn) || $options->CustomCdn == 'LocalMode') {
+		    $options->themeUrl("/DreamCat_StaticResources/"."$agent");
+		} elseif ($options->CustomCdn == 'AccelerationMode') {
 			$CustomCDN = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@X2.3.211003/" . "$agent";
 			echo "$CustomCDN";
 			#var_dump(Helper::options()->CustomCdn);
-		}
-		elseif ($options->CustomCdn == 'LocalMode') {
-			$options->themeUrl("/DreamCat_StaticResources/"."$agent");
-		}
-		else {
+		} else {
 			$CustomCDN = $options->CustomCdn."$agent";
 			echo "$CustomCDN";
 		}
