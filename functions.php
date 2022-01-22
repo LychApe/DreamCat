@@ -470,7 +470,7 @@ HTML;
 		$rand_num = 10;
 		$options = Helper::options();
 		if ($options->CustomRandomPictures == '') {
-			$imgcdn = "$options->themeUrl"."/DreamCat_StaticResources";
+			$imgcdn = "https://api.ixiaowai.cn/gqapi/gqapi.php?lx=fengjing&sj=";
 		}
 		else {
 			$imgcdn = $options->CustomRandomPictures;
