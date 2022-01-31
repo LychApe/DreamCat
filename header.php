@@ -4,7 +4,7 @@
 	 *
 	 * @package DreamCat
 	 * @author LychApe
-	 * @version X2.3.211003
+	 * @version X2.5.220131
 	 * @link https://github.com/LychApe/DreamCat
 	 */
 	
@@ -21,9 +21,9 @@
 	<meta name="renderer" content="webkit">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="x-dns-prefetch-control" content="on">
-	<?php if (Helper::options()->CustomCdn != 'LocalMode'): ?>
+	<?php if (Helper::options()->CustomCdn != 'LocalMode' or ''): ?>
 		<link rel="dns-prefetch" href="//cdn.jsdelivr.net"/>
-		<link rel="dns-prefetch" href="//cdn.bootcss.com"/>
+		<link rel="dns-prefetch" href="//npm.sourcegcdn.com"/>
 	<?php endif; ?>
 	<title><?php $this->archiveTitle(array(
 											 'category' => _t('分类 %s 下的文章'),
@@ -34,12 +34,11 @@
 
 	<link rel="shortcut icon" href="<?php $this->options->Favicon(); ?>" type="image/x-icon" />
 	
-	<link rel="stylesheet preload" href="<?php CustomCDN_url('css/mdui.min.css'); ?>" as="style">
+	<link rel="stylesheet preload" href="<?php CustomCDN_FAM('mdui@1.0.2/dist/','mdui/1.0.2/','css/mdui.min.css','css/mdui.min.css'); ?>" as="style">
 	<link rel="stylesheet preload" href="<?php CustomCDN_url('css/style.css'); ?>" as="style"/>
 	<link rel="stylesheet preload" href="<?php CustomCDN_url('css/md2.css'); ?>" as="style"/>
-
-	<script rel="preload" src="<?php CustomCDN_url('js/mdui.min.js'); ?>" is="script"></script>
-	<script rel="preload" src="<?php CustomCDN_url('js/smooth-scroll.min.js'); ?>" is="script"></script>
+	<script rel="preload" src="<?php CustomCDN_FAM('mdui@1.0.2/dist/','mdui/1.0.2/','js/mdui.min.js','js/mdui.min.js'); ?>" is="script"></script>
+	<script rel="preload" src="<?php CustomCDN_FAM('smooth-scroll@16.1.2/dist/','smooth-scroll/16.1.2','js/smooth-scroll.min.js','smooth-scroll.min.js'); ?>" is="script"></script>
 	<script rel="preload" src="<?php CustomCDN_url('js/alifont_2359325_loysvemas8m.js'); ?>" is="script"></script>
 	<script src="<?php CustomCDN_url('js/preloadjs.min.js'); ?>"></script>
 	<!--[if IE]><script src="<?php CustomCDN_url('js/html5.min.js'); ?>"></script><![endif]-->
