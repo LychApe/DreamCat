@@ -10,7 +10,7 @@ QQ交流群: `1034830519`
 
 `JetBrains` 提供优秀的IDE。  
 `JetBrains` 工具极大地提高了DreamCat的创造力和效率。  
-`JetBrains` 提供了轻便的字体(Jetbrains Mono)。
+`JetBrains` 提供了轻便的字体(Jetbrains Mono)。  
 `Sourcegcdn` 提供了高速的静态资源加速。
 
 <a href="https://www.jetbrains.com/?from=DreamCat" target="_blank">
