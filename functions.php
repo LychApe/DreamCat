@@ -5,7 +5,7 @@
 	 *
 	 * @package DreamCat
 	 * @author LychApe
-	 * @version X2.5.220130
+	 * @version X2.6.220211
 	 * @link https://github.com/LychApe/DreamCat
 	 */
 	error_reporting(E_ALL ^ E_NOTICE);
@@ -97,7 +97,7 @@
     <!-- 配置中心=>头部 [Start]-->
     <div class="mdui-card-primary">
     	<div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-    	<div class="mdui-card-primary-subtitle">Version: X2.5.220131</div>
+    	<div class="mdui-card-primary-subtitle">Version: X2.6.220211</div>
     </div>
     <!-- 配置中心=>头部 [End]-->
     
@@ -118,7 +118,7 @@
         				<div class="mdui-card-header">
         				  <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
         				  <div class="mdui-card-header-title">DreamCat</div>
-        				  <div class="mdui-card-header-subtitle">X2.5.220131</div>
+        				  <div class="mdui-card-header-subtitle">X2.6.220211</div>
         				</div>
         			</div>
                 </div>
@@ -147,7 +147,7 @@
     		<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
     			<div class="mdui-card-content">
     			最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-    			<div class="mdui-float-right">当前版本：X2.5.220131</div>
+    			<div class="mdui-float-right">当前版本：X2.6.220211</div>
     			</div>
     		</div>
     		<br/>
@@ -260,8 +260,8 @@
         	</div>
         	<br/>
         		<div class="mdui-textfield">
-        		<textarea type="text" id="CustomFooter" class="mdui-textfield-input" rows="4" name="dreamcat_CustomFooter" value="{$options->CustomFooter}" placeholder="自定义页脚内容"></textarea>
-        		<script>document.getElementById("CustomFooter").value = "{$options->CustomFooter}"</script>
+        		<textarea type="text" id="CustomFooter" class="mdui-textfield-input" rows="4" name="dreamcat_CustomFooter" value='{$options->CustomFooter}' placeholder='自定义页脚内容'></textarea>
+        		<script>document.getElementById("CustomFooter").value = '{$options->CustomFooter}'</script>
         		</div>
     </div>
     <!-- 配置中心=>全局设置 [End]-->
@@ -321,7 +321,7 @@
         	  <span class="mdui-chip-title">随机图片设置</span>
         	</div>
         	<div class="mdui-textfield">
-        	  <input type="text" class="mdui-textfield-input" name="dreamcat_CustomRandomPictures" value="{$options->CustomRandomPictures}" placeholder="填入自定义随机图片链接或留空"/>
+        	  <input type="text" class="mdui-textfield-input" name="dreamcat_CustomRandomPictures" value="{$options->CustomRandomPictures}" placeholder='填入自定义随机图片链接或留空'/>
         	  <div>
         	  <p>自定义随机图片：填入一个自定义随机图片接链或留空</p>
         	  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用在线随机图片</p>
@@ -345,8 +345,8 @@
         	  <span class="mdui-chip-title">自定义全局CSS</span>
         	</div>
         	<div class="mdui-textfield">
-        	  <textarea type="text" id="CustomizeGlobalCss" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalCss" value="{$options->CustomizeGlobalCss}" placeholder="填入CSS"></textarea>
-        	  <script>document.getElementById("CustomizeGlobalCss").value = "{$options->CustomizeGlobalCss}"</script>
+        	  <textarea type="text" id="CustomizeGlobalCss" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalCss" value='{$options->CustomizeGlobalCss}' placeholder='填入CSS'></textarea>
+        	  <script>document.getElementById("CustomizeGlobalCss").value = '{$options->CustomizeGlobalCss}'</script>
         	</div>
     		
         	<br/>
@@ -354,8 +354,8 @@
         	  <span class="mdui-chip-title">自定义全局JS</span>
         	</div>
         	<div class="mdui-textfield">
-        	  <textarea type="text" id="CustomizeGlobalJs" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalJs" placeholder="填入JS"></textarea>
-        	  <script>document.getElementById("CustomizeGlobalJs").value = "{$options->CustomizeGlobalJs}"</script>
+        	  <textarea type="text" id="CustomizeGlobalJs" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalJs" placeholder='填入JS'></textarea>
+        	  <script>document.getElementById("CustomizeGlobalJs").value = '{$options->CustomizeGlobalJs}'</script>
         	</div>
     		
     	</div>
@@ -438,7 +438,6 @@
     	<div class="mdui-card-actions"></div>
     </div>
     <!-- 配置中心=>弹窗:开发者列表 [End]-->
-
     <!-- 配置中心=>JS [Start] -->
     <script rel="preload" src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js" as="script"></script>
     <script rel="preload" src="//npm.sourcegcdn.com/jquery@3.6.0/dist/jquery.min.js" as="script"></script>

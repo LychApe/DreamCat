@@ -293,48 +293,26 @@
 			<div class="mdui-card-content" id="<?php echo $identity; ?>"><?php $comments->content(); ?></div>
 
 			<div class="mdui-card-actions" style="padding: 0px;">
-				<div class="mdui-float-left">
+				<div class="mdui-float-right">
 					<div class="mdui-row mdui-row-gapless">
 						<span class="comment-reply cp-<?php $comments->theId(
 						); ?> text-muted comment-reply-link"><?php $comments->reply(
-									'<button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-left: -12px; background-color: rgb(236 236 236);">回复</button>'
+									'<button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-right: -12px; background-color: rgb(236 236 236);">回复</button>'
 							); ?></span><span
 								id="cancel-comment-reply"
 								class="cancel-comment-reply cl-<?php $comments->theId(
 								); ?> text-muted comment-reply-link"
 								style="display:none"><?php $comments->cancelReply(
-									'<button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-left: -12px; background-color: rgb(236 236 236);">取消</button>'
+									'<button class="mdui-btn mdui-btn-raised border-comm-3 shadow-A1" style="margin-right: -12px; background-color: rgb(236 236 236);">取消</button>'
 							); ?></span>
 					</div>
 				</div>
 
-				<button class="mdui-btn mdui-btn-icon mdui-float-right" onclick="playAudio(<?php echo $identity ?>)"><i
-							class="mdui-icon material-icons">settings_voice</i></button>
+
+
 			</div>
 		</div>
 		<br/>
-		<script type="text/javascript">
-			function playAudio(commentID) {
-				//commendID: The identity of every comment.
-				var audioID = "audioPlayer";
-				if (document.getElementById(audioID)) document.getElementById(audioID).remove();
-				var content = document.getElementById(commentID).innerHTML.replace(/\&/g, "和");
-				var audio = document.createElement("audio");
-				audio.setAttribute("autoplay", "autoplay");
-				audio.setAttribute("id", "audioPlayer");
-				var source = document.createElement("source");
-				source.src = "https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=6&text=" + content;
-				source.setAttribute("type", "audio/mpeg");
-				var embed = document.createElement("embed");
-				embed.style.display = "none";
-				audio.appendChild(source);
-				audio.appendChild(embed);
-				document.body.appendChild(audio);
-			}
-
-			if (typeof (publiced) == "undefined") console.log("使用此控制台可能会让攻击者利用 Self-XSS（自跨站脚本）攻击来冒充你，并窃取你的信息。请勿输入或粘贴你不明白的代码。");
-			var publiced = true;
-		</script>
 		
 		
 		<?php if ($comments->children) { ?>

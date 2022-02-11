@@ -4,7 +4,7 @@
 	 *
 	 * @package DreamCat
 	 * @author LychApe
-	 * @version X2.5.220131
+	 * @version X2.6.220211
 	 * @link https://github.com/LychApe/DreamCat
 	 */
 	
@@ -15,10 +15,12 @@
 <!DOCTYPE HTML>
 <html class="no-js" lang="zh">
 <head>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta charset="<?php $this->options->charset(); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="renderer" content="webkit">
+	<meta name="force-rendering" content="webkit"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="x-dns-prefetch-control" content="on">
 	<?php if (Helper::options()->CustomCdn != 'LocalMode' or ''): ?>
@@ -57,7 +59,7 @@
 	</style>
 </head>
 <body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
-
+<script src="<?php $this->options->themeUrl('/DreamCat_StaticResources/js/fly-engine.js');?>" type="module"></script>
 <header>
 	<div class="mc-drawer mdui-drawer mdui-color-grey-50"
 		 style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">
