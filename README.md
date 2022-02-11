@@ -11,6 +11,7 @@ QQ交流群: `1034830519`
 `JetBrains` 提供优秀的IDE。  
 `JetBrains` 工具极大地提高了DreamCat的创造力和效率。  
 `JetBrains` 提供了轻便的字体(Jetbrains Mono)。
+`Sourcegcdn` 提供了高速的静态资源加速。
 
 <a href="https://www.jetbrains.com/?from=DreamCat" target="_blank">
 <img src = 'https://ftp.bmp.ovh/imgs/2021/07/7883cb70a96b6ccd.png' width="145" alt=""/>
@@ -36,7 +37,7 @@ QQ交流群: `1034830519`
 ### 最新版本
   
 > DreamCat(X2.6.220211)  
-1.修复 自定义页脚错误
+1.修复 自定义页脚错误  
 2.新增 fly-engine.js  
 3.去除 评论文字转语音功能  
   
