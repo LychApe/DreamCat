@@ -174,7 +174,6 @@
 
 	// 当网页向下滑动 30px 出现"返回顶部" 按钮
 	function scrollFunction() {
-		console.log(121);
 		if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
 			document.getElementById("back-top").style.display = "block";
 		} else {
