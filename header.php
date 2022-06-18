@@ -15,51 +15,50 @@
 <!DOCTYPE HTML>
 <html class="no-js" lang="zh">
 <head>
-
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta charset="<?php $this->options->charset(); ?>">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="renderer" content="webkit">
-	<meta name="force-rendering" content="webkit"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta http-equiv="x-dns-prefetch-control" content="on">
-	<?php if (Helper::options()->CustomCdn != 'LocalMode' or ''): ?>
-		<link rel="dns-prefetch" href="//cdn.jsdelivr.net"/>
-		<link rel="dns-prefetch" href="//npm.sourcegcdn.com"/>
-	<?php endif; ?>
-	<title><?php $this->archiveTitle(array(
-											 'category' => _t('分类 %s 下的文章'),
-											 'search' => _t('包含关键字 %s 的文章'),
-											 'tag' => _t('标签 %s 下的文章'),
-											 'author' => _t('%s 发布的文章')
-									 ), '', ' - '); ?><?php $this->options->title(); ?></title>
-
-	<link rel="shortcut icon" href="<?php $this->options->Favicon(); ?>" type="image/x-icon" />
-	
-	<link rel="stylesheet preload" href="<?php CustomCDN_FAM('mdui@1.0.2/dist/','mdui/1.0.2/','css/mdui.min.css','css/mdui.min.css'); ?>" as="style">
-	<link rel="stylesheet preload" href="<?php CustomCDN_url('css/style.css'); ?>" as="style"/>
-	<link rel="stylesheet preload" href="<?php CustomCDN_url('css/md2.css'); ?>" as="style"/>
-	<script rel="preload" src="<?php CustomCDN_FAM('mdui@1.0.2/dist/','mdui/1.0.2/','js/mdui.min.js','js/mdui.min.js'); ?>" is="script"></script>
-	<script rel="preload" src="<?php CustomCDN_FAM('smooth-scroll@16.1.2/dist/','smooth-scroll/16.1.2','js/smooth-scroll.min.js','smooth-scroll.min.js'); ?>" is="script"></script>
-	<script rel="preload" src="<?php CustomCDN_url('js/alifont_2359325_loysvemas8m.js'); ?>" is="script"></script>
-	<script src="<?php CustomCDN_url('js/preloadjs.min.js'); ?>"></script>
-	<!--[if IE]><script src="<?php CustomCDN_url('js/html5.min.js'); ?>"></script><![endif]-->
-	<?php $this->header('commentReply='); ?>
-	<style>
-		@font-face {
-			font-family: CustomFont;
-			src: url(<?php CustomFont_url(); ?>);
-		}
-
-		body {
-			font-family: CustomFont, serif;
-		}
-
-		<?php $this->options->CustomizeGlobalCss(); ?>
-	</style>
+<title><?php $this->archiveTitle(array(
+								'category' => _t('分类 %s 下的文章'),
+								'search' => _t('包含关键字 %s 的文章'),
+								'tag' => _t('标签 %s 下的文章'),
+								'author' => _t('%s 发布的文章')
+						), '', ' - '); ?><?php $this->options->title(); ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta charset="<?php $this->options->charset(); ?>">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="force-rendering" content="webkit"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<?php $this->header('commentReply='); ?>
+<?php if (Helper::options()->CustomCdn != 'LocalMode' or ''): ?>
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net"/>
+<link rel="dns-prefetch" href="//npm.sourcegcdn.com"/>
+<?php endif; ?>
+<link rel="shortcut icon" href="<?php $this->options->Favicon(); ?>" type="image/x-icon" />
+<link rel="stylesheet preload" href="<?php CustomCDN_FAM('mdui@1.0.2/dist/','mdui/1.0.2/','css/mdui.min.css','css/mdui.min.css'); ?>" as="style">
+<link rel="stylesheet preload" href="<?php CustomCDN_url('css/style.css'); ?>" as="style"/>
+<link rel="stylesheet preload" href="<?php CustomCDN_url('css/md2.css'); ?>" as="style"/>
+<script rel="preload" src="<?php CustomCDN_FAM('mdui@1.0.2/dist/','mdui/1.0.2/','js/mdui.min.js','js/mdui.min.js'); ?>" is="script"></script>
+<script rel="preload" src="<?php CustomCDN_FAM('smooth-scroll@16.1.2/dist/','smooth-scroll/16.1.2','js/smooth-scroll.min.js','smooth-scroll.min.js'); ?>" is="script"></script>
+<script rel="preload" src="<?php CustomCDN_url('js/alifont_2359325_loysvemas8m.js'); ?>" is="script"></script>
+<script src="<?php CustomCDN_url('js/preloadjs.min.js'); ?>"></script>
+<!--[if IE]><script src="<?php CustomCDN_url('js/html5.min.js'); ?>"></script><![endif]-->
+<style>
+@font-face {
+	font-family: CustomFont;
+	src: url(<?php CustomFont_url(); ?>);
+}
+body {
+	font-family: CustomFont, serif;
+}
+<?php $this->options->CustomizeGlobalCss(); ?>
+</style>
 </head>
+
+
 <body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
 <script src="<?php $this->options->rootUrl('/usr/themes/DreamCat/DreamCat_StaticResources/js/fly-engine.js');?>" type="module"></script>
+
+
 <header>
 	<div class="mc-drawer mdui-drawer mdui-color-grey-50"
 		 style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">
@@ -73,7 +72,8 @@
 						<?php if (!empty($this->options->logoUrl)): ?>
 							<div class="Logo_centered">
 								<img class="DreamCat-List-headimg mdui-shadow-6"
-									 src="<?php $this->options->logoUrl() ?>" style="margin-top: 40px;">
+									 src="<?php $this->options->logoUrl() ?>" 
+									 style="margin-top: 40px;">
 							</div>
 						<?php else: ?>
 							<div class="Logo_centered">
@@ -173,7 +173,7 @@
 				<div class="mdui-divider"></div>
 				<div>
 					<a>
-						<li class="mdui-list-item mdui-ripple">
+						<li class="mdui-list-item">
 							<i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">description</i>
 							<span class="mdui-list-item-content mdui-text-color-theme-text">文&nbsp;&nbsp;章</span>
 							<div class="mdui-chip">
@@ -186,7 +186,7 @@
 				</div>
 				<div>
 					<a>
-						<li class="mdui-list-item mdui-ripple">
+						<li class="mdui-list-item">
 							<i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">textsms</i>
 							<span class="mdui-list-item-content mdui-text-color-theme-text">评&nbsp;&nbsp;论</span>
 							<div class="mdui-chip">
@@ -208,6 +208,8 @@
 			</div>
 		</div>
 </header>
+
+
 <div class="mdui-container-fluid" style="padding-left: 0; padding-right: 0;">
 	<div class="mdui-appbar mdui-shadow-0">
 		<div class="mdui-toolbar mdui-color-indigo">

@@ -5,7 +5,7 @@
 	 *
 	 * @package DreamCat
 	 * @author LychApe
-	 * @version X2.6.220211
+	 * @version X3.0.220618
 	 * @link https://github.com/LychApe/DreamCat
 	 */
 	error_reporting(E_ALL ^ E_NOTICE);
@@ -473,7 +473,9 @@ HTML;
 		$layout->html(_t($Html));
 		$form->addItem($layout);
 	}
-	
+
+
+
 	/** 随机图片
 	 *
 	 * @return Array
@@ -505,7 +507,9 @@ HTML;
 		}
 		return $thu;
 	}
-	
+
+
+
 	/** 显示下一篇
 	 *
 	 * @access public
@@ -534,7 +538,9 @@ HTML;
 			echo $link2;
 		}
 	}
-	
+
+
+
 	/** 显示上一篇
 	 *
 	 * @access public
@@ -564,7 +570,9 @@ HTML;
 			echo $link2;
 		}
 	}
-	
+
+
+
 	/**  判断内容页是否百度收录 */
 	function baidu_record() {
 		$url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -581,7 +589,6 @@ HTML;
 			}
 		}
 	}
-	
 	function checkBaidu($url) {
 		if (function_exists('curl_version') && function_exists('curl_init') && function_exists('curl_close')) {
 			$url = 'http://www.baidu.com/s?wd=' . urlencode($url);
@@ -600,7 +607,6 @@ HTML;
 		}
 		else return -2;
 	}
-	
 	function art_count($cid) {
 		$db = Typecho_Db::get();
 		$rs = $db->fetchRow(
@@ -611,51 +617,9 @@ HTML;
 		$text = preg_replace("/[^\x{4e00}-\x{9fa5}]/u", "", $rs['text']);
 		echo mb_strlen($text, 'UTF-8');
 	}
-	
-	/** 输出评论回复内容，配合 commentAtContent($coid)一起使用
-	 *
-	 * @return String
-	 * @example showCommentContent($comments->coid)
-	 */
-	function showCommentContent($coid) {
-		$db = Typecho_Db::get();
-		$result = $db->fetchRow(
-				$db->select('text')->from('table.comments')->where('coid = ? AND status = ?', $coid, 'approved')
-		);
-		$text = $result['text'];
-		$atStr = commentAtContent($coid);
-		$_content = Markdown::convert($text);
-		if ($atStr !== '') {
-			return substr_replace($_content, $atStr, 0, 3);
-		}
-		else {
-			return $_content;
-		}
-	}
-	
-	/** 评论回复加@
-	 *
-	 * @return String
-	 */
-	function commentAtContent($coid) {
-		$db = Typecho_Db::get();
-		$prow = $db->fetchRow(
-				$db->select('parent')->from('table.comments')->where('coid = ? AND status = ?', $coid, 'approved')
-		);
-		$parent = $prow['parent'];
-		if ($parent != "0") {
-			$arow = $db->fetchRow(
-					$db->select('author')->from('table.comments')->where('coid = ? AND status = ?', $parent, 'approved')
-			);
-			$author = $arow['author'];
-			return "<p><a href=\"#comment-{$parent}\">@{$author}</a>";
-		}
-		else {
-			return '';
-		}
-	}
-	
-	
+
+
+
 	/** 获取浏览次数(改进版) */
 	function getViewsStr($widget, $format = "{views} ℃ ") {
 		$fields = unserialize($widget->fields);
@@ -679,7 +643,9 @@ HTML;
 		}
 		return str_replace("{views}", $views, $format);
 	}
-	
+
+
+
 	/** 获取浏览器信息
 	 *
 	 * @return String
@@ -1132,9 +1098,15 @@ HTML;
         }
         
     }
-    
-    
-#自定义字体
+
+
+
+	#################################
+	#CustomCDN_FuseAccelerationMode #
+	#[自定义字体]                   #
+	#author：HanFengA7              #
+	#version：0.03                  #
+	#################################
 	function CustomFont_url() {
 		$options = Helper::options();
 		if ($options->CustomFont == '') {

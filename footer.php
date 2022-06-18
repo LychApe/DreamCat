@@ -27,7 +27,7 @@
 	<div class="mdui-dialog-content" style="height: 219px;">
 		<blockquote>
 			<div class="mdui-typo"><p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a
-							href="https://github.com/LychApe/DreamCat" target="_blank">X2.6.220211</a></p>
+							href="https://github.com/LychApe/DreamCat" target="_blank">X3.0.220618</a></p>
 				<p>主题开发：<a
 							href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a
 							href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a
@@ -38,7 +38,7 @@
 				</p>
 				<p>Designed by <a href="https://www.hanfenga7.cn/" style="text-decoration: none">HanFengA7</a> Power by
 					<a href="http://typecho.org/" style="text-decoration: none">Typecho</a></p>
-				<p>Copyright © 2015-2022 by LychApe All rights reserved!</p></div>
+				<p>Copyright © 2015-2023 by LychApe All rights reserved!</p></div>
 		</blockquote>
 		<div class="mdui-dialog-actions">
 			<button class="mdui-btn mdui-ripple" mdui-dialog-close>知 道 啦 !</button>

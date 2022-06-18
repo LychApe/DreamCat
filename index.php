@@ -4,7 +4,7 @@
 	 *
 	 * @package DreamCat
 	 * @author LychApe
-	 * @version X2.6.220211
+	 * @version X3.0.220618
 	 * @link https://github.com/LychApe/DreamCat
 	 */
 	
@@ -153,8 +153,6 @@
 
 					<div class="mdui-container mdui-center">
 						<?php while ($this->next()): ?>
-							<a href="<?php $this->permalink() ?>" title="<?php $this->title(); ?>"
-							   style="text-decoration: none;">
 								<article class="post" itemscope="" itemtype="//schema.org/BlogPosting">
 									<div class="mdui-row">
 										<div id="main">
@@ -165,7 +163,8 @@
 													<div class="lis">
 														<div class="spot"></div>
 														<div class="g-lin mdui-hidden-xs"></div>
-	
+												        <a href="<?php $this->permalink() ?>" title="<?php $this->title(); ?>"
+						                                    style="text-decoration: none;">
 														<?php if ($this->options->listtc == 'checked'): ?>
 															<div class="mdui-card mdui-hoverable shadow-A1" id="main"
 																 role="main"
@@ -233,7 +232,7 @@
 																</div>
 															</div>
 														<?php endif; ?>
-
+                                                        </a>
 													</div>
 												</div>
 											</div>
@@ -241,7 +240,6 @@
 										</div>
 									</div>
 								</article>
-							</a>
 						<?php endwhile; ?>
 					</div>
 
