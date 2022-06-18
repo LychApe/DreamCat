@@ -59,7 +59,7 @@
 	</style>
 </head>
 <body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
-<script src="<?php $this->options->themeUrl('/DreamCat_StaticResources/js/fly-engine.js');?>" type="module"></script>
+<script src="<?php $this->options->rootUrl('/usr/themes/DreamCat/DreamCat_StaticResources/js/fly-engine.js');?>" type="module"></script>
 <header>
 	<div class="mc-drawer mdui-drawer mdui-color-grey-50"
 		 style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">

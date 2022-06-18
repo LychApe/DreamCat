@@ -97,7 +97,7 @@
     <!-- 配置中心=>头部 [Start]-->
     <div class="mdui-card-primary">
     	<div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-    	<div class="mdui-card-primary-subtitle">Version: X2.6.220211</div>
+    	<div class="mdui-card-primary-subtitle">Version: X3.0.220618</div>
     </div>
     <!-- 配置中心=>头部 [End]-->
     
@@ -118,7 +118,7 @@
         				<div class="mdui-card-header">
         				  <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
         				  <div class="mdui-card-header-title">DreamCat</div>
-        				  <div class="mdui-card-header-subtitle">X2.6.220211</div>
+        				  <div class="mdui-card-header-subtitle">X3.0.220618</div>
         				</div>
         			</div>
                 </div>
@@ -147,7 +147,7 @@
     		<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
     			<div class="mdui-card-content">
     			最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-    			<div class="mdui-float-right">当前版本：X2.6.220211</div>
+    			<div class="mdui-float-right">当前版本：X3.0.220618</div>
     			</div>
     		</div>
     		<br/>
@@ -310,8 +310,7 @@
         	  <div>
         	  <p>1.本地资源模式: 填写"LocalMode"或留空</p>
         	  <p>2.融合CDN加速模式: 填写"FuseAccelerationMode"</p>
-        	  <p>3.CDN加速模式: 填写"AccelerationMode" (jsdelivr) </p>
-        	  <p>4.自定义CDN加速模式: 填写CDN静态资源链接</p>
+        	  <p>3.自定义CDN加速模式: 填写CDN静态资源链接</p>
         	  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用本地资源</p>
         	  </div>
         	</div>
@@ -656,40 +655,6 @@ HTML;
 		}
 	}
 	
-	/**  算术验证评论 前端
-	 *
-	 * @return Void
-	 */
-	function spam_protection_math() {
-		$num1 = 1;
-		$num2 = rand(1, 9);
-		echo "$num1 + $num2 = ";
-		echo '<input type="text" name="sum\" class="vnick vinput" value=""
-	size="25" tabindex="4" style=" background: 0 0; width:70px; border: none; resize: none; outline: none; padding:
-	10px 5px; max-width: 100%; font-size: .775rem;" placeholder="计算结果">';
-		echo '<input type="hidden" name="num1" value="$num1">';
-		echo '<input type="hidden" name="num2" value="$num2">';
-	}
-	
-	/**  算术验证评论 后端
-	 *
-	 * @return Void
-	 */
-	function spam_protection_pre($comment) {
-		$sum = "";
-		if (isset($_POST['sum'])) {
-			$sum = $_POST['sum'];
-		}
-		switch ($sum) {
-			case $_POST['num1'] + $_POST['num2']:
-				break;
-			case null:
-				throw new Typecho_Widget_Exception(_t('抱歉：请输入验证码', '评论失败'));
-			default:
-				throw new Typecho_Widget_Exception(_t('抱歉：验证码错误，请返回重试', '评论失败'));
-		}
-		return $comment;
-	}
 	
 	/** 获取浏览次数(改进版) */
 	function getViewsStr($widget, $format = "{views} ℃ ") {
@@ -1100,7 +1065,11 @@ HTML;
 	}
 
 
-#自定义CDN
+	#################################
+	#CustomCDN_url                  #
+	#author：HanFengA7              #
+	#version：0.12                  #
+	#################################
 	function CustomCDN_url($agent) {
 		$options = Helper::options();
 		switch (true) {
@@ -1108,11 +1077,7 @@ HTML;
                 echo ($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$agent");
 		        break;
 		    case ($options->CustomCdn == 'FuseAccelerationMode'):
-		        $options->themeUrl("/DreamCat_StaticResources/"."$agent");
-		        break;
-		    case ($options->CustomCdn == 'AccelerationMode'):
-		        $CustomCDN = "https://cdn.jsdelivr.net/gh/LychApe/DreamCat_StaticResources@X2.3.211003/" . "$agent";
-		        echo "$CustomCDN";
+		        echo ($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$agent");
 		        break;
 		    default:
 		        $CustomCDN = $options->CustomCdn."$agent";
@@ -1120,11 +1085,12 @@ HTML;
 		        break;
 		}
 	}
-	
+
+
 	#################################
 	#CustomCDN_FuseAccelerationMode #
 	#author：HanFengA7              #
-	#version：0.11                  #
+	#version：0.12                  #
 	#################################
     function CustomCDN_FAM($URL_1,$URL_2,$Path_L,$Path_C){
         $options = Helper::options();
