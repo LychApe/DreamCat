@@ -1105,7 +1105,7 @@ HTML;
 		$options = Helper::options();
 		switch (true) {
 		    case (empty($options->CustomCdn) || $options->CustomCdn == 'LocalMode'):
-		        $options->themeUrl("/DreamCat_StaticResources/"."$agent");
+                echo ($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$agent");
 		        break;
 		    case ($options->CustomCdn == 'FuseAccelerationMode'):
 		        $options->themeUrl("/DreamCat_StaticResources/"."$agent");
@@ -1162,7 +1162,7 @@ HTML;
                     }
                 }
         } else {
-            $options->themeUrl("/DreamCat_StaticResources/"."$Path_L");
+            echo ($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$Path_L");
         }
         
     }
