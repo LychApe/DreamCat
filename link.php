@@ -29,7 +29,7 @@
 					<br/>
 					<div class="mdui-typo mdui-container">
 						<br/>
-						<div class="mdui-row-xs-3">
+						<div class="mdui-col-sm-3">
 							<?php $this->content(); ?>
 						</div>
 						<br/>
