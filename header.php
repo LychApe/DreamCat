@@ -56,7 +56,7 @@ body {
 
 
 <body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
-<script src="<?php $this->options->rootUrl('/usr/themes/DreamCat/DreamCat_StaticResources/js/fly-engine.js');?>" type="module"></script>
+<script src="<?php echo($this->options->rootUrl . '/usr/themes/DreamCat/DreamCat_StaticResources/js/fly-engine.js');?>" type="module"></script>
 
 
 <header>
