@@ -476,37 +476,6 @@ HTML;
 
 
 
-	/** 随机图片
-	 *
-	 * @return Array
-	 */
-	function thumb($obj) {
-		$rand_num = 10;
-		$options = Helper::options();
-		if ($options->CustomRandomPictures == '') {
-			$imgcdn = 'https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=';
-			#https://api.ixiaowai.cn/gqapi/gqapi.php?lx=fengjing&sj=
-			#https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=
-		}
-		else {
-			$imgcdn = $options->CustomRandomPictures;
-		}
-		
-		if ($rand_num == 0) {
-			$imgurl = $imgcdn . "/img/OER/0.jpg"; //如果$rand_num = 0,则显示默认图片，须命名为"0.jpg"
-		}
-		else {
-			$imgurl = $imgcdn . "/img/OER/" . rand(1, $rand_num) . ".jpg"; // 须按"1.jpg","2.jpg","3.jpg"，一定要安装顺序
-		}
-		$attach = $obj->attachments(1)->attachment;
-		if (isset($attach->isImage) && $attach->isImage == 1) {
-			$thu = [0, $attach->url];
-		}
-		else {
-			$thu = [1, $imgurl];
-		}
-		return $thu;
-	}
 
 
 
@@ -1116,4 +1085,40 @@ HTML;
 			$CustomFont = $options->CustomFont;
 			echo($CustomFont);
 		}
+	}
+
+
+
+	#################################
+	#thumb                          #
+	#[随机图片]                     #
+	#author：HanFengA7              #
+	#version：0.15                  #
+	#################################
+	function thumb($obj) {
+		$rand_num = 10;
+		$options = Helper::options();
+		if ($options->CustomRandomPictures == '') {
+			$imgcdn = 'https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=';
+			#https://api.ixiaowai.cn/gqapi/gqapi.php?lx=fengjing&sj=
+			#https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=
+		}
+		else {
+			$imgcdn = $options->CustomRandomPictures;
+		}
+		
+		if ($rand_num == 0) {
+			$imgurl = $imgcdn . "/img/OER/0.jpg"; //如果$rand_num = 0,则显示默认图片，须命名为"0.jpg"
+		}
+		else {
+			$imgurl = $imgcdn . "/img/OER/" . rand(1, $rand_num) . ".jpg"; // 须按"1.jpg","2.jpg","3.jpg"，一定要安装顺序
+		}
+		$attach = $obj->attachments(1)->attachment;
+		if (isset($attach->isImage) && $attach->isImage == 1) {
+			$thu = [0, $attach->url];
+		}
+		else {
+			$thu = [1, $imgurl];
+		}
+		return $thu;
 	}

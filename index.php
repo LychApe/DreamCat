@@ -200,16 +200,30 @@
 																 role="main"
 																 style="border-radius:9px; transform: translateY(-15%);">
 																<div class="mdui-card-media">
-																	<?php $t = thumb($this); ?>
+																	<?php $t = thumb($this);
+																	      $postimgurl = $this->fields->postimgurl;
+																	        ?>
 																	<?php if ($t[0] == 0): ?>
 																		<img class="moe-post-wzimg"
 																			 style="object-fit: cover;"
-																			 src="<?php echo $t[1]; ?>" alt=""/>
+																			 src="<?php 
+                                                                                    if(isset($postimgurl)){
+                                                                                      echo $postimgurl;
+                                                                                    }else{
+                                                                                      echo $t[1];
+                                                                                    }
+																			    ?>" alt=""/>
 																	<?php endif; ?>
 																	<?php if ($t[0] == 1) : ?>
 																		<img class="moe-post-wzimg"
 																			 style="object-fit: cover;"
-																			 src="<?php echo $t[1]; ?>" alt=""/>
+																			 src="<?php 
+                                                                                    if(isset($postimgurl)){
+                                                                                      echo $postimgurl;
+                                                                                    }else{
+                                                                                      echo $t[1];
+                                                                                    }
+																			    ?>" alt=""/>
 																	<?php endif; ?>
 																	<div class="mdui-card-media-covered">
 																		<div class="mdui-card-primary">
