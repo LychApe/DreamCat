@@ -1030,7 +1030,7 @@ HTML;
     function CustomCDN_FAM($URL_1,$URL_2,$Path_L,$Path_C){
         $options = Helper::options();
         $CDN_1 = '//npm.sourcegcdn.com/';
-        $CDN_2 = '//cdn.static1file.org/';
+        $CDN_2 = '//cdn.staticfile.org/';
         $CDN_HTTP = 'http:';
         if ($options->CustomCdn == 'FuseAccelerationMode') {
             #CDN:[SourcegCdn][1]
