@@ -1025,12 +1025,12 @@ HTML;
 	#################################
 	#CustomCDN_FuseAccelerationMode #
 	#author：HanFengA7              #
-	#version：0.12                  #
+	#version：0.13                  #
 	#################################
     function CustomCDN_FAM($URL_1,$URL_2,$Path_L,$Path_C){
         $options = Helper::options();
         $CDN_1 = '//npm.sourcegcdn.com/';
-        $CDN_2 = '//cdn.staticfile.org/';
+        $CDN_2 = '//cdn.static1file.org/';
         $CDN_HTTP = 'http:';
         if ($options->CustomCdn == 'FuseAccelerationMode') {
             #CDN:[SourcegCdn][1]
@@ -1042,9 +1042,12 @@ HTML;
             curl_setopt($ch1, CURLOPT_FAILONERROR, 1);
             curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
             $result_1 = ((curl_exec($ch1)!==false) ? true : false );
-            if ($result_1 == true){
-                echo($CDN_1.$URL_1.$Path_C);
-                curl_close($ch1);
+            $result_1_httpcode = curl_getinfo($ch1, CURLINFO_HTTP_CODE);
+            if ($result_1_httpcode == "200"){
+                if ($result_1 == true) {
+                    echo($CDN_1.$URL_1.$Path_C);
+                    curl_close($ch1);
+                }
             }else{
                 #CDN:[StaticFile][2]
                 $ch2 = curl_init();
@@ -1055,11 +1058,14 @@ HTML;
                 curl_setopt($ch2, CURLOPT_FAILONERROR, 1);
                 curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
                 $result_2 = ((curl_exec($ch2)!==false) ? true : false );
-                if ($result_2 == true) {
-                    echo($CDN_2.$URL_2.$Path_C);
-                    curl_close($ch2);
+                $result_2_httpcode = curl_getinfo($ch2, CURLINFO_HTTP_CODE);
+                if ($result_2_httpcode == "200") {
+                    if ($result_2 == true) {
+                        echo($CDN_2.$URL_2.$Path_C);
+                        curl_close($ch2);
+                    }
                 }else{
-                        $options->themeUrl("/DreamCat_StaticResources/"."$Path_L");
+                        echo ($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$Path_L");
                     }
                 }
         } else {
