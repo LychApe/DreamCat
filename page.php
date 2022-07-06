@@ -1,26 +1,18 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
-<div class="mdui-container-fluid" style="padding-left: 0px; padding-right: 0px;">
-	<div id="body">
-		<div class="container">
-			<div class="row">
-				<div class="mdui-container">
-					<div class="mdui-valign mdui-typo" itemprop="name headline">
-						<h1 itemprop="url" href="<?php $this->permalink() ?>" class="mdui-center">
-							<?php $this->title() ?>
-						</h1>
-					</div>
-					<br/>
-					<div class="mdui-typo mdui-container">
-						<?php $this->content(); ?>
-					</div>
-					<br/>
-					<?php $this->need('comments.php'); ?>
-					<br/>
-					<br/>
-				</div>
-				<?php #$this->need('sidebar.php'); ?>
-				<?php $this->need('footer.php'); ?>
-			</div><!-- end .row -->
-		</div>
-	</div><!-- end #body -->
+
+<div class="col-mb-12 col-8" id="main" role="main">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="post-title" itemprop="name headline">
+            <a itemprop="url"
+               href="<?php $this->permalink() ?>"><?php $this->title() ?></a>
+        </h1>
+        <div class="post-content" itemprop="articleBody">
+            <?php $this->content(); ?>
+        </div>
+    </article>
+    <?php $this->need('comments.php'); ?>
+</div><!-- end #main-->
+
+<?php $this->need('sidebar.php'); ?>
+<?php $this->need('footer.php'); ?>
