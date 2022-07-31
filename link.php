@@ -141,5 +141,4 @@
 	<?php endif; ?>
 
 
-<?php $this->need('sidebar.php'); ?>
 <?php $this->need('footer.php'); ?>
