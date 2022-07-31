@@ -1,0 +1,196 @@
+.Dreamcat-search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 260px;
+    height: 40px;
+    background-color: #eef2f5;
+    border-radius: 8px;
+    transition-duration: .18s;
+    transition-property: background-color,box-shadow;
+}
+.Dreamcat-search-input {
+	flex: 1;
+	height: 46px;
+	background-color: transparent;
+	border: none;
+	outline: none;
+}
+.Dreamcat-appimgbar {
+    height: 450px;
+    background-image: url(https://tva3.sinaimg.cn/large/0072Vf1pgy1foxkfdxnnqj31hc0u0h5j.jpg);
+    background-size: cover;
+}
+
+
+.Dreamcat-copyright {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px 16px;
+}
+
+
+.DreamCat-ListM-01 {
+    padding: 0px 0!important;
+    margin: 0;
+    list-style: none;
+    background-color: transparent;
+    margin-bottom: 50%;
+}
+.DreamCat-ListM-02 {
+    border-radius: 0px;
+}
+.DreamCat-ListM-03 {
+    width: 100%;
+    height: 185px;
+    position: relative!important;
+    background-size: cover!important;
+    background-position: 50% 50%!important;
+    background-repeat: no-repeat!important;
+}
+.DreamCat-ListM-04 {
+    display: flex;
+    justify-content: center;
+}
+.DreamCat-ListM-05{
+    width: 75px;
+    height: 75px;
+    margin-top: 40px;
+    border-radius: 50%;
+    background-size: cover!important;
+    background-position: center center!important;
+    margin: 0;
+    left: 0;
+}
+.DreamCat-ListM-06{
+    font-weight: 400;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    line-height: 15px;
+}
+
+
+.DreamCat-Logo-centered {
+    display: flex;
+    justify-content: center;
+}
+.DreamCat-Logo-centered > img {
+  margin: 0;
+  margin-top: -50px;
+  left: 0;
+}
+
+.DreamCat-card-1 {
+    border-width: 0;
+    box-shadow: 0 12px 15px rgb(140 152 164 / 10%);
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: .75rem;
+}
+.DreamCat-card-post-wzimg {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.Dreamcat-detail-info {
+    overflow: hidden;
+    padding: 10px 20px;
+    margin: 0;
+    border-top: 1px dashed #e0e0e0;
+    color: #626262;
+    font-size: 14px;
+    line-height: 19px;
+    background-color: #f6f6f6;
+}
+
+.Dreamcat-post-copyright.mdui-card {
+    background-color: #f5f5f5;
+    border-radius: 0!important;
+    margin-bottom: 0;
+}
+.Dreamcat-post-copyright.mdui-card>svg {
+    height: 120px;
+    opacity: .05;
+    pointer-events: none;
+    position: absolute;
+    right: -37px;
+    top: -32px;
+    width: 120px;
+}
+.Dreamcat-post-copyright>div {
+    border-left: 5px solid #f5f5f5;
+        padding: 16px;
+}
+
+.Dreamcat-post-btn {
+    padding: 0 0 20px;
+    text-align: center;
+    width: 100%;
+}
+.Dreamcat-post-btn>button {
+    height: 60px;
+    width: 60px;
+}
+.Dreamcat-post-btn-center {
+    background-color: #fff!important;
+    height: 200px;
+    min-width: 200px;
+    overflow: hidden;
+    padding: 7px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.DreamCat-card-ts-1{
+	transition: all 0.6s .3s ease-in-out;
+}
+.DreamCat-card-ts-1:hover {
+	box-shadow: 0 12px 15px rgb(140 152 164 / 10%);
+	transform: translate(0, -5px);
+}
+.DreamCat-card-post-wzimg-ts{
+    object-fit: cover;
+    transition: all 0.6s .3s ease-in-out;
+}
+.DreamCat-card-post-wzimg-ts:hover{
+    transform:scale(1.1);
+    transition: all 0.6s .3s ease-in-out;
+}
+
+.DreamCat-margin-card-top {
+    margin-top: 30px;
+}
+.DreamCat-page-div {
+    margin-top: 30px;
+    max-width: 250px;
+    margin-left: auto;
+    position: relative;
+    margin-right: auto;
+    margin-bottom: 80px;
+}
+.DreamCat-page-div .DreamCat-number {
+    left: 37%;
+    position: absolute;
+}
+.DreamCat-page-div .DreamCat-next {
+    right: 0;
+    position: absolute;
+}
+
+.mdui-chip-title a{
+    text-decoration: none;
+    color: black;
+}
+pre{
+    background-color: #fafafa!important;
+    border-radius: 16px!important;
+    padding: 12px 16px!important;
+    border: none!important;
+    box-shadow: inset -4px 20px 20px 20px rgb(140 152 164 / 10%)!important;
+}
