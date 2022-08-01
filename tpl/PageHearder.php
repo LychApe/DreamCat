@@ -1,4 +1,28 @@
-<div class="mdui-container-fluid Dreamcat-appimgbar">
+<div class="mdui-container-fluid Dreamcat-appimgbar"
+    style="
+     <?php
+        #导航栏高度
+        if (!empty($this->options->DC_AppImgBarHeight)) {
+            echo('height:'.$this->options->DC_AppImgBarHeight().'px;');
+        }else{
+            echo('height:450px;');
+        }
+        #图片模式和单色模式
+        if (!empty($this->options->DC_NavigationBarModeRadio) && $this->options->DC_NavigationBarModeRadio == 'ImgMode') {
+            if (!empty($this->options->DC_AppImgBarUrl)) {
+                echo 'background-image: url('.$this->options->DC_AppImgBarUrl.')!important;';
+            }else{
+                echo('background-image: url(https://tva3.sinaimg.cn/large/0072Vf1pgy1foxkfdxnnqj31hc0u0h5j.jpg)!important;');
+            }
+        }else{
+            if (!empty($this->options->DC_AppImgBarColor)) {
+                echo('background-color: '.$this->options->DC_AppImgBarColor.'!important;');
+            }else{
+                echo('background-color: #3f51b5!important;');
+            }
+        }
+    ?>
+">
 <div class="mdui-appbar mdui-shadow-0">
 <div class="mdui-toolbar">
         <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white " mdui-drawer="{target: '#main-drawer', swipe: true}">
