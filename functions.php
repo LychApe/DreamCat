@@ -1,11 +1,9 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
-
 function themeVersion()
     {
         return 'DreamCat X3.0 InsiderPreview 评估副本 Build 220731';
     }
-
 
 function themeConfig($form)
 {
@@ -212,68 +210,218 @@ function themeConfig($form)
     
     
     
-//备份开始
-$db = Typecho_Db::get();
-$sjdq=$db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'theme:DreamCat'));
-$ysj = $sjdq['value'];
-if(isset($_POST['type']))
-{ 
-if($_POST["type"]=="备份模板数据"){
-if($db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'theme:DreamCatbf'))){
-$update = $db->update('table.options')->rows(array('value'=>$ysj))->where('name = ?', 'theme:DreamCatbf');
-$updateRows= $db->query($update);
-echo '<div class="tongzhi">备份已更新，请等待自动刷新！如果等不到请点击';
-?>    
-<a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
-<script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);</script>
-<?php
-}else{
-if($ysj){
-     $insert = $db->insert('table.options')
-    ->rows(array('name' => 'theme:DreamCatbf','user' => '0','value' => $ysj));
-     $insertId = $db->query($insert);
-echo '<div class="tongzhi">备份完成，请等待自动刷新！如果等不到请点击';
-?>    
-<a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
-<script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);</script>
-<?php
-}
-}
-        }
-if($_POST["type"]=="还原模板数据"){
-if($db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'theme:DreamCatbf'))){
-$sjdub=$db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'theme:DreamCatbf'));
-$bsj = $sjdub['value'];
-$update = $db->update('table.options')->rows(array('value'=>$bsj))->where('name = ?', 'theme:DreamCat');
-$updateRows= $db->query($update);
-echo '<div class="tongzhi">检测到模板备份数据，恢复完成，请等待自动刷新！如果等不到请点击';
-?>    
-<a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
-<script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2000);</script>
-<?php
-}else{
-echo '<div class="tongzhi">没有模板备份数据，恢复不了哦！</div>';
-}
-}
-if($_POST["type"]=="删除备份数据"){
-if($db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'theme:DreamCatbf'))){
-$delete = $db->delete('table.options')->where ('name = ?', 'theme:DreamCatbf');
-$deletedRows = $db->query($delete);
-echo '<div class="tongzhi">删除成功，请等待自动刷新，如果等不到请点击';
-?>    
-<a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
-<script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);</script>
-<?php
-}else{
-echo '<div class="tongzhi">不用删了！备份不存在！！！</div>';
-}
-}
+    //备份开始
+    $db = Typecho_Db::get();
+    $sjdq=$db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'theme:DreamCat'));
+    $ysj = $sjdq['value'];
+    if(isset($_POST['type']))
+    { 
+    if($_POST["type"]=="备份模板数据"){
+    if($db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'theme:DreamCatbf'))){
+    $update = $db->update('table.options')->rows(array('value'=>$ysj))->where('name = ?', 'theme:DreamCatbf');
+    $updateRows= $db->query($update);
+    echo '<div class="tongzhi">备份已更新，请等待自动刷新！如果等不到请点击';
+    ?>    
+    <a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
+    <script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);</script>
+    <?php
+    }else{
+    if($ysj){
+         $insert = $db->insert('table.options')
+        ->rows(array('name' => 'theme:DreamCatbf','user' => '0','value' => $ysj));
+         $insertId = $db->query($insert);
+    echo '<div class="tongzhi">备份完成，请等待自动刷新！如果等不到请点击';
+    ?>    
+    <a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
+    <script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);</script>
+    <?php
     }
-echo '<form class="protected" action="?DreamCatbf" method="post">
-<input type="submit" name="type" class="btn btn-s" value="备份模板数据" />&nbsp;&nbsp;<input type="submit" name="type" class="btn btn-s" value="还原模板数据" />&nbsp;&nbsp;<input type="submit" name="type" class="btn btn-s" value="删除备份数据" /></form>';
-//备份结束
+    }
+            }
+    if($_POST["type"]=="还原模板数据"){
+    if($db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'theme:DreamCatbf'))){
+    $sjdub=$db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'theme:DreamCatbf'));
+    $bsj = $sjdub['value'];
+    $update = $db->update('table.options')->rows(array('value'=>$bsj))->where('name = ?', 'theme:DreamCat');
+    $updateRows= $db->query($update);
+    echo '<div class="tongzhi">检测到模板备份数据，恢复完成，请等待自动刷新！如果等不到请点击';
+    ?>    
+    <a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
+    <script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2000);</script>
+    <?php
+    }else{
+    echo '<div class="tongzhi">没有模板备份数据，恢复不了哦！</div>';
+    }
+    }
+    if($_POST["type"]=="删除备份数据"){
+    if($db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'theme:DreamCatbf'))){
+    $delete = $db->delete('table.options')->where ('name = ?', 'theme:DreamCatbf');
+    $deletedRows = $db->query($delete);
+    echo '<div class="tongzhi">删除成功，请等待自动刷新，如果等不到请点击';
+    ?>    
+    <a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
+    <script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);</script>
+    <?php
+    }else{
+    echo '<div class="tongzhi">不用删了！备份不存在！！！</div>';
+    }
+    }
+        }
+    echo '<form class="protected" action="?DreamCatbf" method="post">
+    <input type="submit" name="type" class="btn btn-s" value="备份模板数据" />&nbsp;&nbsp;<input type="submit" name="type" class="btn btn-s" value="还原模板数据" />&nbsp;&nbsp;<input type="submit" name="type" class="btn btn-s" value="删除备份数据" /></form>';
+    //备份结束
 
 }
+
+function themeFields($layout) {
+    $User_ImageUrl_TF = new Typecho_Widget_Helper_Form_Element_Text(
+        'User_ImageUrl_TF', 
+        null, 
+        null, 
+        _t('文章头图'), 
+        _t('文章头图会显示在文章的顶部及首页展示图片'));
+    $layout->addItem($User_ImageUrl_TF); 
+}
+
+#################################
+#CustomCDN_url                  #
+#author：HanFengA7              #
+#version：0.13                  #
+#################################
+function CustomCDN_url($agent) {
+	$options = Helper::options();
+	switch (true) {
+	    case (empty($options->DC_WebCdnRadio) || $options->DC_WebCdnRadio == 'LocalMode'):
+            echo ($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$agent");
+	        break;
+	    case ($options->DC_WebCdnRadio == 'FuseAccelerationMode'):
+	        echo ($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$agent");
+	        break;
+	    default:
+	        $CustomCDN = $options->DC_CustomCdnUrl_User."$agent";
+		    echo "$CustomCDN";
+	        break;
+	}
+}
+
+
+#################################
+#CustomCDN_FuseAccelerationMode #
+#author：HanFengA7              #
+#version：0.14                  #
+#################################
+function CustomCDN_FAM($URL_1,$URL_2,$Path_L,$Path_C){
+    $options = Helper::options();
+    $CDN_1 = '//cdnjs.sourcegcdn.com/';
+    $CDN_2 = '//cdnjs.cloudflare.com/';
+    $CDN_HTTP = 'http:';
+    if ($options->DC_WebCdnRadio == 'FuseAccelerationMode') {
+        #CDN:[SourcegCdn][1]
+        $ch1 = curl_init();
+        curl_setopt($ch1, CURLOPT_URL,$CDN_HTTP.$CDN_1.$URL_1.$Path_C);
+        curl_setopt($ch1, CURLOPT_TIMEOUT, 0.1); #整个cURL函数执行过程的最长等待时间
+        curl_setopt($ch1, CURLOPT_CONNECTTIMEOUT, 0.05); #连接对方最长等待时间
+        curl_setopt($ch1, CURLOPT_NOBODY, 1);
+        curl_setopt($ch1, CURLOPT_FAILONERROR, 1);
+        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
+        $result_1 = ((curl_exec($ch1)!==false) ? true : false );
+        $result_1_httpcode = curl_getinfo($ch1, CURLINFO_HTTP_CODE);
+        if ($result_1_httpcode == "200"){
+            if ($result_1 == true) {
+                echo($CDN_1.$URL_1.$Path_C);
+                curl_close($ch1);
+            }
+        }else{
+            #CDN:[cloudflare][2]
+            $ch2 = curl_init();
+            curl_setopt($ch2, CURLOPT_URL,$CDN_HTTP.$CDN_2.$URL_2.$Path_C);
+            curl_setopt($ch2, CURLOPT_TIMEOUT, 0.1); #整个cURL函数执行过程的最长等待时间
+            curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, 0.05); #连接对方最长等待时间
+            curl_setopt($ch2, CURLOPT_NOBODY, 1);
+            curl_setopt($ch2, CURLOPT_FAILONERROR, 1);
+            curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
+            $result_2 = ((curl_exec($ch2)!==false) ? true : false );
+            $result_2_httpcode = curl_getinfo($ch2, CURLINFO_HTTP_CODE);
+            if ($result_2_httpcode == "200") {
+                if ($result_2 == true) {
+                    echo($CDN_2.$URL_2.$Path_C);
+                    curl_close($ch2);
+                }
+            }else{
+                    echo ($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$Path_L");
+                }
+            }
+    } else {
+        if (!empty($options->DC_CustomCdnUrl_User && $options->DC_WebCdnRadio == 'CustomMode')) {
+	        $CustomCDN = $options->DC_CustomCdnUrl_User."$Path_L";
+		    echo "$CustomCDN";
+        }else{
+            echo ($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$Path_L");
+        }
+    }
+    
+}
+
+
+
+#################################
+#CustomCDN_FuseAccelerationMode #
+#[自定义字体]                   #
+#author：HanFengA7              #
+#version：0.03                  #
+#################################
+function CustomFont_url() {
+	$options = Helper::options();
+	if ($options->CustomFont == '') {
+		CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
+	}
+	else {
+		$CustomFont = $options->CustomFont;
+		echo($CustomFont);
+	}
+}
+
+
+
+#################################
+#thumb                          #
+#[随机图片]                     #
+#author：HanFengA7              #
+#version：0.15                  #
+#################################
+function thumb($obj) {
+	$rand_num = 10;
+	$options = Helper::options();
+	if ($options->CustomRandomPictures == '') {
+		$imgcdn = 'https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=';
+		#https://api.ixiaowai.cn/gqapi/gqapi.php?lx=fengjing&sj=
+		#https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=
+	}
+	else {
+		$imgcdn = $options->CustomRandomPictures;
+	}
+	if ($rand_num == 0) {
+		$imgurl = $imgcdn . "/img/OER/0.jpg"; //如果$rand_num = 0,则显示默认图片，须命名为"0.jpg"
+	}
+	else {
+		$imgurl = $imgcdn . "/img/OER/" . rand(1, $rand_num) . ".jpg"; // 须按"1.jpg","2.jpg","3.jpg"，一定要安装顺序
+	}
+	$attach = $obj->attachments(1)->attachment;
+	if (isset($attach->isImage) && $attach->isImage == 1) {
+		$thu = [0, $attach->url];
+	}
+	else {
+		$thu = [1, $imgurl];
+	}
+	return $thu;
+}
+
+
+
+
+
+
+
 
 
 
@@ -285,11 +433,8 @@ echo '<form class="protected" action="?DreamCatbf" method="post">
 
 
 /** 显示下一篇
- *
  * @access public
- *
  * @param String $default 如果没有上一篇,显示的默认文字
- *
  * @return Void
  */
 function theNext($widget) {
@@ -313,13 +458,9 @@ function theNext($widget) {
 	}
 }
 
-
 /** 显示上一篇
- *
  * @access public
- *
  * @param String $default 如果没有下一篇,显示的默认文字
- *
  * @return Void
  */
 function thePrev($widget) {
@@ -345,7 +486,6 @@ function thePrev($widget) {
 }
 
 	/** 获取浏览器信息
-	 *
 	 * @return String
 	 * @example getBrowser($comments->agent);
 	 */
@@ -622,7 +762,6 @@ function thePrev($widget) {
 	}
 	
 	/** 获取操作系统信息
-	 *
 	 * @return String
 	 * @example getOs($comments->agent);
 	 */
@@ -729,55 +868,7 @@ function thePrev($widget) {
 	}
 
 
-/*
-function themeFields($layout)
-{
-    $logoUrl = new \Typecho\Widget\Helper\Form\Element\Text(
-        'logoUrl',
-        null,
-        null,
-        _t('站点LOGO地址'),
-        _t('在这里填入一个图片URL地址, 以在网站标题前加上一个LOGO')
-    );
-    $layout->addItem($logoUrl);
-}
-*/
-/*
-function themeConfig($form)
-{
-    $logoUrl = new \Typecho\Widget\Helper\Form\Element\Text(
-        'logoUrl',
-        null,
-        null,
-        _t('站点 LOGO 地址'),
-        _t('在这里填入一个图片 URL 地址, 以在网站标题前加上一个 LOGO')
-    );
 
-    $form->addInput($logoUrl);
 
-    $sidebarBlock = new \Typecho\Widget\Helper\Form\Element\Checkbox(
-        'sidebarBlock',
-        [
-            'ShowRecentPosts'    => _t('显示最新文章'),
-            'ShowRecentComments' => _t('显示最近回复'),
-            'ShowCategory'       => _t('显示分类'),
-            'ShowArchive'        => _t('显示归档'),
-            'ShowOther'          => _t('显示其它杂项')
-        ],
-        ['ShowRecentPosts', 'ShowRecentComments', 'ShowCategory', 'ShowArchive', 'ShowOther'],
-        _t('侧边栏显示')
-    );
 
-    $form->addInput($sidebarBlock->multiMode());
-    
-    
-    $navbarColor = new Typecho_Widget_Helper_Form_Element_Radio('navbarColor', array(
-        'white' => '白色',
-        'black' => '黑色'
-    ), 'black', _t('导航栏颜色'));
-    $form->addInput($navbarColor);
-    
-}
-https://www.misterma.com/archives/829/
-*/
 ?>

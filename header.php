@@ -27,11 +27,11 @@
 
     <!-- 使用url函数转换相关路径 -->
     <link rel="shortcut icon" href="<?php echo($this->options->WebFavicon()); ?>" type="image/x-icon" />
-    <link rel="stylesheet" href="<?php echo($this->options->rootUrl.'/usr/themes/DreamCat/DreamCat_StaticResources/css/mdui.min.css');?>">
-    <link rel="stylesheet" href="<?php echo($this->options->rootUrl.'/usr/themes/DreamCat/DreamCat_StaticResources/css/md2.css');?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('DreamCat_StaticResources/css/dreamcat.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('DreamCat_StaticResources/icons/iconfont/iconfont.css'); ?>">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <link rel="stylesheet" href="<?php CustomCDN_FAM('ajax/libs/mdui/1.0.2/','ajax/libs/mdui/1.0.2/','css/mdui.min.css','css/mdui.min.css'); ?>">
+    <link rel="stylesheet" href="<?php CustomCDN_url('css/md2.css'); ?>">
+    <link rel="stylesheet" href="<?php CustomCDN_url('css/dreamcat.css'); ?>">
+    <link rel="stylesheet" href="<?php CustomCDN_url('icons/iconfont/iconfont.css'); ?>">
+    <link rel="stylesheet" href="<?php CustomCDN_FAM('ajax/libs/highlight.js/11.6.0/','ajax/libs/highlight.js/11.6.0/','css/atom-one-light.min.css','styles/atom-one-light.min.css'); ?>">
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header('commentReply='); ?>
 </head>
