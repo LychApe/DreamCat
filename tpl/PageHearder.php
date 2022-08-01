@@ -3,7 +3,7 @@
      <?php
         #导航栏高度
         if (!empty($this->options->DC_AppImgBarHeight)) {
-            echo('height:'.$this->options->DC_AppImgBarHeight().'px;');
+            echo('height:'.$this->options->DC_AppImgBarHeight.'px;');
         }else{
             echo('height:450px;');
         }
