@@ -179,7 +179,7 @@ function themeConfig($form)
     $form->addInput($DC_WebCustomStyle);
     $DC_WebCustomJavascript = new Typecho_Widget_Helper_Form_Element_Textarea('DC_WebCustomJavascript', NULL, NULL, _t('自定义全局Javascript'));
     $form->addInput($DC_WebCustomJavascript);
-    $DC_WebCustomFooter = new Typecho_Widget_Helper_Form_Element_Textarea('WebCustomFooter', NULL, NULL, _t('自定义页脚内容'));
+    $DC_WebCustomFooter = new Typecho_Widget_Helper_Form_Element_Textarea('DC_WebCustomFooter', NULL, NULL, _t('自定义页脚内容'));
     $form->addInput($DC_WebCustomFooter);
     
     $DC_A_qq = new \Typecho\Widget\Helper\Form\Element\Text(
@@ -392,14 +392,14 @@ function CustomFont_url() {
 function thumb($obj) {
 	$rand_num = 10;
 	$options = Helper::options();
-	if ($options->CustomRandomPictures == '') {
+	if (empty($options->DC_CustomRandomPictures)) {
 		$imgcdn = 'https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=';
 		#https://api.ixiaowai.cn/gqapi/gqapi.php?lx=fengjing&sj=
 		#https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=
+	}else {
+		$imgcdn = $options->DC_CustomRandomPictures;
 	}
-	else {
-		$imgcdn = $options->CustomRandomPictures;
-	}
+	
 	if ($rand_num == 0) {
 		$imgurl = $imgcdn . "/img/OER/0.jpg"; //如果$rand_num = 0,则显示默认图片，须命名为"0.jpg"
 	}

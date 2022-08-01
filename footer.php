@@ -13,18 +13,36 @@
         <div style="display: flex; justify-content: space-between;color: #000;padding: 40px 0;">
             
             <div style="display: flex;flex-direction: column;line-height: 2;color: #000;">
-                <a target="_blank" style="color: black;background-color: transparent;text-decoration-line: none;" href="https://beian.miit.gov.cn/">互联网ICP备案：</a>
+                <!--<a target="_blank" style="color: black;background-color: transparent;text-decoration-line: none;" href="https://beian.miit.gov.cn/">互联网ICP备案：</a>-->
+                <span><?php $this->options->DC_WebCustomFooter(); ?></span>
                 <span>Copyright © <?php echo date('Y'); ?> <?php $this->options->DC_WebName(); ?>.</span>
-                <span>Theme: DreamCat X3.0 InsiderPreview 评估副本 Build 220720-008</span>
             </div>
             
             <div class="mdui-hidden-sm-down" style="box-sizing: border-box; display: flex;flex-direction: column;align-items: flex-start;padding: 0 50px;position: relative;">
                 <div  class="footer-top-contact-logos"><img data-v-0f1600f3="" width="173px" height="35px" src="<?php $this->options->DC_FooterLogoUrl(); ?>"></div>
                 <div style="align-items: center;">
                     <div class="mdui-row-xs-3">
-                    <div class="mdui-col"><div class="DreamCat-icon-ts icon iconfont icon-QQ-circle-fill" style="font-size: 35px;"></div></div>
-                    <div class="mdui-col"><div class="DreamCat-icon-ts icon iconfont icon-github" style="font-size: 35px;"></div></div>
-                    <div class="mdui-col"><div class="DreamCat-icon-ts icon iconfont icon-logo-wechat" style="font-size: 35px;"></</div></div>
+                    <div class="mdui-col">
+					<?php if (!empty($this->options->DC_A_qq)): ?>
+						<a mdui-dialog="{target: '#DC_A_qq'}">
+						    <div class="DreamCat-icon-ts icon iconfont icon-QQ-circle-fill" style="font-size: 35px;"></div>
+						</a>
+					<?php endif; ?>
+                    </div>
+                    <div class="mdui-col">
+					<?php if (!empty($this->options->DC_A_github)): ?>
+						<a href="<?php $this->options->DC_A_github() ?>" style="text-decoration: none;color: black;">
+						    <div class="DreamCat-icon-ts icon iconfont icon-github" style="font-size: 35px;"></div>
+						</a>
+					<?php endif; ?>
+                    </div>
+                    <div class="mdui-col">
+					<?php if (!empty($this->options->DC_A_wx)): ?>
+						<a mdui-dialog="{target: '#DC_A_wx'}">
+						    <div class="DreamCat-icon-ts icon iconfont icon-logo-wechat" style="font-size: 35px;"></div>
+						</a>
+					<?php endif; ?>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -32,6 +50,46 @@
         </div>
     </div>
 </footer>
+
+
+<div class="mdui-dialog" id="DC_A_qq">
+	<div class="mdui-dialog-title">加我的QQ</div>
+	<div class="mdui-dialog-content mdui-typo">
+		<img src="<?php $this->options->DC_A_qq(); ?>">
+	</div>
+	<div class="mdui-dialog-actions">
+		<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
+	</div>
+</div> 
+<div class="mdui-dialog" id="DC_A_wb">
+	<div class="mdui-dialog-title">加我的微博</div>
+	<div class="mdui-dialog-content mdui-typo">
+		<img src="<?php $this->options->DC_A_wb() ?>">
+	</div>
+	<div class="mdui-dialog-actions">
+		<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
+	</div>
+</div>
+<div class="mdui-dialog" id="DC_A_zfb">
+	<div class="mdui-dialog-title">加我的支付宝</div>
+	<div class="mdui-dialog-content mdui-typo">
+		<img src="<?php $this->options->DC_A_zfb() ?>">
+	</div>
+	<div class="mdui-dialog-actions">
+		<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
+	</div>
+</div>
+<div class="mdui-dialog" id="DC_A_wx">
+	<div class="mdui-dialog-title">加我的微信</div>
+	<div class="mdui-dialog-content mdui-typo">
+		<img src="<?php $this->options->DC_A_wx() ?>">
+	</div>
+	<div class="mdui-dialog-actions">
+		<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
+	</div>
+</div>
+
+
 
 <script src="<?php CustomCDN_FAM('ajax/libs/mdui/1.0.2/','ajax/libs/mdui/1.0.2/','js/mdui.min.js','js/mdui.min.js'); ?>"></script>
 <script src="<?php CustomCDN_url('js/dreamcat.js'); ?>"></script>
@@ -163,6 +221,11 @@ t = setTimeout(time, 1000); //设定定时器，循环运行
 		}, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
 	}(window, document);
 </script>
+<script>
+	<?php $this->options->DC_WebCustomJavascript() ?>
+</script>
+
+
 <?php endif; ?>
 </body>
 </html>

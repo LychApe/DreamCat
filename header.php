@@ -36,7 +36,16 @@
     <?php $this->header('commentReply='); ?>
 </head>
 <body class="mdui-drawer-body mdui-theme-primary-indigo mdui-theme-accent-pink">
-
+<style>
+@font-face {
+	font-family: CustomFont;
+	src: url(<?php CustomFont_url(); ?>);
+}
+body {
+	font-family: CustomFont, serif;
+}
+<?php $this->options->DC_WebCustomStyle(); ?>
+</style>
 
 
 <header>

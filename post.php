@@ -3,7 +3,13 @@
 $this->need('header.php'); 
 ?>
 
-<div class="mdui-container-fluid Dreamcat-appimgbar" style="height: 285px; background-image: url(https://tva3.sinaimg.cn/large/87c01ec7gy1frmmnrncphj21hc0u07wj.jpg);">
+<div class="mdui-container-fluid Dreamcat-appimgbar" style="height: 285px; background-image: url(<?php  
+    $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF;
+    if(isset($User_ImageUrl_TF)){
+        echo $User_ImageUrl_TF;
+    }else{
+      echo 'https://tva3.sinaimg.cn/large/87c01ec7gy1frmmnrncphj21hc0u07wj.jpg';
+    }?>);">
 <div class="mdui-appbar mdui-shadow-0">
 <div class="mdui-toolbar">
         <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white " mdui-drawer="{target: '#main-drawer', swipe: true}">
