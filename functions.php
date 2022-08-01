@@ -132,15 +132,19 @@ function themeConfig($form)
     );
     $form->addInput($DC_AdmireQCode);
     
-    $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', 
-        array('ShowRecentPosts' => _t('点击特效'),
-        'ShowRecentComments' => _t('首页文章显示发表时间'),
-        'ShowCategory' => _t('侧边栏RSS')),
-        array('ShowRecentPosts', 'ShowRecentComments', 'ShowCategory', 'ShowArchive', 'ShowOther'),
-     _t('全局应用'));
-        
-    $form->addInput($sidebarBlock->multiMode());
     
+    $DC_GlobalApp = new \Typecho\Widget\Helper\Form\Element\Checkbox(
+        'DC_GlobalApp',
+        [
+            'DCShowClickEffect'     => _t('点击特效'),
+            'DCShowPublicationTime' => _t('首页文章显示发表时间'),
+            'DCShowRSS'             => _t('侧边栏RSS'),
+        ],
+        ['DCShowClickEffect', 'DCShowPublicationTime', 'DCShowRSS'],
+        _t('全局应用')
+    );
+    $form->addInput($DC_GlobalApp->multiMode());
+
     $DC_WebCdnRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_WebCdnRadio', array(
         'LocalMode' => '本地资源模式',
         'FuseAccelerationMode' => '融合CDN加速模式',

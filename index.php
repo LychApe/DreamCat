@@ -137,7 +137,9 @@ $this->need('header.php');
             	<div class="mdui-card-primary">
             	<div class="mdui-card-primary-title"><?php $this->title() ?>
             	<br>
+            	<?php if (is_array($this->options->DC_GlobalApp) && in_array('DCShowPublicationTime', $this->options->DC_GlobalApp)): ?>
             	<small>发表时间:<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date(); ?></time></small>
+            	<?php endif; ?>
             	</div>
             	</div>
             	</div>

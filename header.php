@@ -114,12 +114,14 @@
 					</div>
 				</div>
 				<!-- RSS -->
+            	<?php if (is_array($this->options->DC_GlobalApp) && in_array('DCShowRSS', $this->options->DC_GlobalApp)): ?>
 				<a href="<?php $this->options->feedUrl(); ?>">
 					<li class="mdui-list-item mdui-ripple">
 						<i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">rss_feed</i>
-						<div class="mdui-list-item-content">RS&S</div>
+						<div class="mdui-list-item-content">RSS</div>
 					</li>
 				</a>
+				<?php endif; ?>
 				<div class="mdui-divider"></div>
 				<div>
 					<a>
