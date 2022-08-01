@@ -72,12 +72,27 @@ function themeConfig($form)
     );
     $form->addInput($keywords);
     
+    $DC_NavigationBarModeRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_NavigationBarModeRadio', array(
+        'ColurMode' => '单色背景模式',
+        'ImgMode' => '图片背景模式',
+    ), 'ColurMode', _t('导航栏模式'));
+    $form->addInput($DC_NavigationBarModeRadio);
+    
+    $DC_AppImgBarColor = new \Typecho\Widget\Helper\Form\Element\Text(
+        'DC_AppImgBarColor',
+        null,
+        null,
+        _t('导航栏颜色值'),
+        _t('选择单色背景模式在这里填入颜色值, 留空则默认')
+    );
+    $form->addInput($DC_AppImgBarColor);
+    
     $DC_AppImgBarUrl = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_AppImgBarUrl',
         null,
         null,
         _t('导航栏图片地址'),
-        _t('在这里填入一个图片 URL 地址, 以在网站导航栏显示，留空则显示默认')
+        _t('选择图片背景模式在这里填入一个图片 URL 地址,留空则显示默认')
     );
     $form->addInput($DC_AppImgBarUrl);
     
@@ -85,8 +100,8 @@ function themeConfig($form)
         'DC_AppImgBarHeight',
         null,
         null,
-        _t('导航栏图片高度'),
-        _t('在这里填入图片高度, 以在网站导航栏显示，留空则显示默认')
+        _t('导航栏高度'),
+        _t('在这里填入导航栏高度, 以在网站导航栏显示，留空则显示默认')
     );
     $form->addInput($DC_AppImgBarHeight);
     
