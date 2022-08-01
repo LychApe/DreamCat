@@ -106,8 +106,8 @@ $this->need('header.php');
             <div class="mdui-card DreamCat-card-1" style="margin-right: 30px;">
                 <img src="<?php $this->options->DC_HeadImageUrl(); ?>" class="card-img-top" style="width: 100%;"alt="...">
                 <div class="mdui-card-primary">
-                    <div class="mdui-card-primary-title">Cosanoxj</div>
-                    <div class="mdui-card-primary-subtitle">雾幻 执行董事</div>
+                    <div class="mdui-card-primary-title"><?php $this->options->DC_ProfileCardName() ?></div>
+                    <div class="mdui-card-primary-subtitle"><?php $this->options->DC_ProfileCardIntroduction() ?></div>
                 </div>
                 <div style="border-top: 1px dashed #e0e0e0; font-size: 14px;"></div>
                 <div class="mdui-card-content">
