@@ -26,7 +26,7 @@
         ], '', ' - '); ?><?php $this->options->DC_WebName(); ?></title>
 
     <!-- 使用url函数转换相关路径 -->
-    <link rel="shortcut icon" href="<?php $this->options->WebFavicon(); ?>" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo($this->options->WebFavicon()); ?>" type="image/x-icon" />
     <link rel="stylesheet" href="<?php echo($this->options->rootUrl.'/usr/themes/DreamCat/DreamCat_StaticResources/css/mdui.min.css');?>">
     <link rel="stylesheet" href="<?php echo($this->options->rootUrl.'/usr/themes/DreamCat/DreamCat_StaticResources/css/md2.css');?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('DreamCat_StaticResources/css/dreamcat.css'); ?>">
