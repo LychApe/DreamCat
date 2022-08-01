@@ -372,11 +372,11 @@ function CustomCDN_FAM($URL_1,$URL_2,$Path_L,$Path_C){
 #################################
 function CustomFont_url() {
 	$options = Helper::options();
-	if ($options->CustomFont == '') {
+	if (empty($options->DC_CustomFont_User)) {
 		CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
 	}
 	else {
-		$CustomFont = $options->CustomFont;
+		$CustomFont = $options->DC_CustomFont_User;
 		echo($CustomFont);
 	}
 }
