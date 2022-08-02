@@ -3,11 +3,11 @@
 QQ交流群: `1034830519`   
 祝您使用愉快:-)
 
-| 版本       | 维护状态   |  最近更新时间  |
-| --------   | -----:  | :----:  |
-| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview)      | **InsiderPreview**   |   Aug 2, 2022     |
-| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat)         |   **Long Time Support**   |   1 Jul 2022   |
-| `DreamCat 1.x`       |    **End of Life**    |  18 Feb 2021  |
+| 版本       | 维护状态   |  最近更新时间  | 版本诞生时间  |
+| --------   | -----:  | :----:  | :----:  |
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview)      | **InsiderPreview**   |   2  Aug  2022     | 6 Jul  2022  |
+| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat)         |   **Long Time Support**   |   1 Jul 2022   | 13 Jul  2021  |
+| `DreamCat 1.x`       |    **End of Life**    |  18 Feb 2021  | 15 Feb  2019 |
 
 ## 鸣谢
 
