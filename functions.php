@@ -221,20 +221,24 @@ function themeConfig($form)
     $update = $db->update('table.options')->rows(array('value'=>$ysj))->where('name = ?', 'theme:DreamCatbf');
     $updateRows= $db->query($update);
     echo '<div class="tongzhi">备份已更新，请等待自动刷新！如果等不到请点击';
-    ?>    
-    <a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
-    <script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);</script>
-    <?php
+    ?>
+<a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
+<script language="JavaScript">
+window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);
+</script>
+<?php
     }else{
     if($ysj){
          $insert = $db->insert('table.options')
         ->rows(array('name' => 'theme:DreamCatbf','user' => '0','value' => $ysj));
          $insertId = $db->query($insert);
     echo '<div class="tongzhi">备份完成，请等待自动刷新！如果等不到请点击';
-    ?>    
-    <a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
-    <script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);</script>
-    <?php
+    ?>
+<a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
+<script language="JavaScript">
+window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);
+</script>
+<?php
     }
     }
             }
@@ -245,10 +249,12 @@ function themeConfig($form)
     $update = $db->update('table.options')->rows(array('value'=>$bsj))->where('name = ?', 'theme:DreamCat');
     $updateRows= $db->query($update);
     echo '<div class="tongzhi">检测到模板备份数据，恢复完成，请等待自动刷新！如果等不到请点击';
-    ?>    
-    <a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
-    <script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2000);</script>
-    <?php
+    ?>
+<a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
+<script language="JavaScript">
+window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2000);
+</script>
+<?php
     }else{
     echo '<div class="tongzhi">没有模板备份数据，恢复不了哦！</div>';
     }
@@ -258,10 +264,12 @@ function themeConfig($form)
     $delete = $db->delete('table.options')->where ('name = ?', 'theme:DreamCatbf');
     $deletedRows = $db->query($delete);
     echo '<div class="tongzhi">删除成功，请等待自动刷新，如果等不到请点击';
-    ?>    
-    <a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
-    <script language="JavaScript">window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);</script>
-    <?php
+    ?>
+<a href="<?php Helper::options()->adminUrl('options-theme.php'); ?>">这里</a></div>
+<script language="JavaScript">
+window.setTimeout("location=\'<?php Helper::options()->adminUrl('options-theme.php'); ?>\'", 2500);
+</script>
+<?php
     }else{
     echo '<div class="tongzhi">不用删了！备份不存在！！！</div>';
     }
