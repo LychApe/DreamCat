@@ -3,9 +3,6 @@
 QQ交流群: `1034830519`   
 祝您使用愉快:-)
 
-[DreamCat静态资源](https://github.com/LychApe/DreamCat_StaticResources)  
-[![](https://data.jsdelivr.com/v1/package/gh/LychApe/DreamCat_StaticResources/badge)](https://www.jsdelivr.com/package/gh/LychApe/DreamCat_StaticResources)
-
 ## 鸣谢
 
 `JetBrains` 提供优秀的IDE。  
