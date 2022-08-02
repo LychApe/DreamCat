@@ -3,6 +3,12 @@
 QQ交流群: `1034830519`   
 祝您使用愉快:-)
 
+| 版本       | 维护状态   |  最近更新时间  |
+| --------   | -----:  | :----:  |
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview)      | **InsiderPreview**   |   Aug 2, 2022     |
+| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat)         |   **Long Time Support**   |   1 Jul 2022   |
+| DreamCat 1.x       |    **End of Life**    |  18 Feb 2021  |
+
 ## 鸣谢
 
 `JetBrains` 提供优秀的IDE。  
