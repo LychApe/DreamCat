@@ -39,7 +39,7 @@ $this->need('header.php');
             
         	<div class="mdui-typo">
         		<?php $this->content(); ?>
-        	</div>
+          </div>
          <br/>
             <div class="mdui-row-xs-2">
               <div class="mdui-col">
