@@ -249,6 +249,9 @@ function scrollFunction() {
 
 
 <?php endif; ?>
+
+<?php $this->footer(); ?>
+
 </body>
 
 </html>
