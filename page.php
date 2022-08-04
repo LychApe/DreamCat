@@ -32,7 +32,7 @@
         <div class="mdui-card DreamCat-card-1" style="margin-top: -6.5%;">
             <div class="mdui-card-content">
 
-                <div class="mdui-typo">
+                <div class="mdui-typo page-content">
                     <?php $this->content(); ?>
                 </div>
                 <br />
