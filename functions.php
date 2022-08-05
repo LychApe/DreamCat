@@ -5,7 +5,7 @@
 	 *
 	 * @package DreamCat
 	 * @author LychApe
-	 * @version X3.0.220618
+	 * @version 2.7.220805(LTS)
 	 * @link https://github.com/LychApe/DreamCat
 	 */
 	error_reporting(E_ALL ^ E_NOTICE);
@@ -97,7 +97,7 @@
     <!-- 配置中心=>头部 [Start]-->
     <div class="mdui-card-primary">
     	<div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-    	<div class="mdui-card-primary-subtitle">Version: X3.0.220618</div>
+    	<div class="mdui-card-primary-subtitle">Version: 2.7.220805(LTS)</div>
     </div>
     <!-- 配置中心=>头部 [End]-->
     
@@ -118,7 +118,7 @@
         				<div class="mdui-card-header">
         				  <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
         				  <div class="mdui-card-header-title">DreamCat</div>
-        				  <div class="mdui-card-header-subtitle">X3.0.220618</div>
+        				  <div class="mdui-card-header-subtitle">2.7.220805(LTS)</div>
         				</div>
         			</div>
                 </div>
@@ -147,7 +147,7 @@
     		<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
     			<div class="mdui-card-content">
     			最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-    			<div class="mdui-float-right">当前版本：X3.0.220618</div>
+    			<div class="mdui-float-right">当前版本：2.7.220805(LTS)</div>
     			</div>
     		</div>
     		<br/>

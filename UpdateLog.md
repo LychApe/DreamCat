@@ -1,13 +1,27 @@
 ### 最新版本
   
+> DreamCat(2.7.220805(LTS))  
+提高主题的稳定性  
+优化主题的流畅度  
+1.[Feat] Add adaptation to plugin TypechoEasyTex  
+2.[FIx] Add footer output  
+3.[Fix]:更新故障CDN检测模块逻辑  
+4.[Fix]:fly-engine.js  
+5.[Perf]:去除jsdelivr  
+6.[Style]: 优化代码结构  
+7.[Perf]: 优化手机端友情链接页面  
+8.[Fix #19] Remove debug code  
+9.[Fix]:跨域问题  
+  
+------
+
+### 历史版本
+  
 > DreamCat(X2.6.220211)  
 1.修复 自定义页脚错误
 2.新增 fly-engine.js  
 3.去除 评论文字转语音功能  
   
-------
-
-### 历史版本
 > DreamCat(X2.5.220131)  
 1.修复若干BUG  
 2.提高主题稳定性  
