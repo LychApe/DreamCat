@@ -164,7 +164,7 @@
                                 class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">textsms</i>
                             <span class="mdui-list-item-content mdui-text-color-theme-text">评论</span>
                             <div class="mdui-chip">
-                                <span class="mdui-chip-title">0</span>
+                                <span class="mdui-chip-title"><?php $stat->publishedCommentsNum() ?></span>
                             </div>
                         </li>
                     </a>

@@ -495,6 +495,21 @@ function themeFields($layout) {
         _t('文章头图会显示在文章的顶部及首页展示图片'));
     $layout->addItem($User_ImageUrl_TF); 
 }
+#################################
+#art_count                      #
+#author：HanFengA7              #
+#version：0.02                  #
+#################################
+function art_count($cid) {
+	$db = Typecho_Db::get();
+	$rs = $db->fetchRow(
+			$db->select('table.contents.text')->from('table.contents')->where('table.contents.cid=?', $cid)->order(
+					'table.contents.cid', Typecho_Db::SORT_ASC
+			)->limit(1)
+	);
+	$text = preg_replace("/[^\x{4e00}-\x{9fa5}]/u", "", $rs['text']);
+	echo mb_strlen($text, 'UTF-8');
+}
 
 #################################
 #CustomCDN_url                  #
