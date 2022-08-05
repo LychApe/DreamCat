@@ -27,7 +27,7 @@
         ], '', ' - '); ?><?php $this->options->DC_WebName(); ?></title>
 
     <!-- 使用url函数转换相关路径 -->
-    <link rel="shortcut icon" href="<?php echo($this->options->WebFavicon()); ?>" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo($this->options->DC_WebFavicon()); ?>" type="image/x-icon" />
     <link rel="stylesheet"
         href="<?php CustomCDN_FAM('ajax/libs/mdui/1.0.2/','ajax/libs/mdui/1.0.2/','css/mdui.min.css','css/mdui.min.css'); ?>">
     <link rel="stylesheet" href="<?php CustomCDN_url('css/md2.css'); ?>">

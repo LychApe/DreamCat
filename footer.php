@@ -12,8 +12,13 @@
 
             <div class="mdui-hidden-sm-down"
                 style="box-sizing: border-box; display: flex;flex-direction: column;align-items: flex-start;padding: 0 50px;position: relative;">
-                <div class="footer-top-contact-logos"><img data-v-0f1600f3="" width="173px" height="35px"
-                        src="<?php $this->options->DC_FooterLogoUrl(); ?>"></div>
+                <div class="footer-top-contact-logos">
+                    <?php 
+                        if (!empty($this->options->DC_FooterLogoUrl)) {
+                            echo('<img width="173px" height="35px" src="'.$this->options->DC_FooterLogoUrl().'">');
+                        }
+                    ?>
+                </div>
                 <div style="align-items: center;">
                     <div class="mdui-row-xs-3">
                         <div class="mdui-col">
