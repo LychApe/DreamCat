@@ -10,13 +10,39 @@
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $this->need('header.php'); ?>
-
+<div class="mdui-container-fluid" style="transform: translateY(100%)">
+    <div class="mdui-appbar mdui-shadow-0" style="height: 0;">
+        <div class="mdui-toolbar">
+            <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+                mdui-drawer="{target: '#main-drawer', swipe: true}">
+                <i class="mdui-icon material-icons" style="color: #f1f3f4">menu</i>
+            </span>
+            <div class="mdui-toolbar-spacer"></div>
+            <button mdui-dialog="{target: '#search-1'}" class="mdui-btn mdui-btn-icon mdui-hidden-md-up">
+                <i class="mdui-icon material-icons" style="color: #f1f3f4">search</i>
+            </button>
+            <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons" style="color: #f1f3f4">refresh</i>
+            </a>
+        </div>
+        <div class="mdui-row DreamCat-content-header">
+            <div class="mdui-container">
+                <h1 class="title" style="color: #ffffffe3">
+                    <?php $this->options->DC_WebName(); ?>
+                </h1>
+                <h5 class="subtitle" style="color: #ffffffe3">
+                    <?php $this->options->DC_WebSlogan(); ?>
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="mdui-container-fluid Dreamcat-appimgbar" style="<?php
         #导航栏高度
         if (!empty($this->options->DC_AppImgBarHeight)) {
-            echo('height:'.$this->options->DC_AppImgBarHeight.'px;');
+            echo('height:'.$this->options->DC_AppImgBarHeight.'px; padding-bottom:30%;  zoom: 0.3;');
         }else{
-            echo('height:450px;');
+            echo('height:900px; padding-bottom:30%; zoom: 0.3;');
         }
         #图片模式和单色模式
         if (!empty($this->options->DC_NavigationBarModeRadio) && $this->options->DC_NavigationBarModeRadio == 'ImgMode') {
@@ -33,33 +59,6 @@ $this->need('header.php'); ?>
             }
         }
     ?>">
-    <div class="mdui-appbar mdui-shadow-0">
-        <div class="mdui-toolbar">
-            <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
-                mdui-drawer="{target: '#main-drawer', swipe: true}">
-                <i class="mdui-icon material-icons" style="color: #f1f3f4">menu</i>
-            </span>
-            <div class="mdui-toolbar-spacer"></div>
-            <button mdui-dialog="{target: '#search-1'}" class="mdui-btn mdui-btn-icon mdui-hidden-md-up">
-                <i class="mdui-icon material-icons" style="color: #f1f3f4">search</i>
-            </button>
-            <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon">
-                <i class="mdui-icon material-icons" style="color: #f1f3f4">refresh</i>
-            </a>
-        </div>
-        <br />
-        <br />
-        <div class="mdui-row DreamCat-content-header">
-            <div class="mdui-container">
-                <h1 class="title" style="color: #ffffffe3">
-                    <?php $this->options->DC_WebName(); ?>
-                </h1>
-                <h5 class="subtitle" style="color: #ffffffe3">
-                    <?php $this->options->DC_WebSlogan(); ?>
-                </h5>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="mdui-container mdui-hidden-sm-down" style="transform: translateY(-50%)">
@@ -172,7 +171,7 @@ $this->need('header.php'); ?>
 $t = thumb($this);
 $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF; if ($t[0] == 0): ?>
                                 <img class="DreamCat-card-post-wzimg DreamCat-card-post-wzimg-ts" src="<?php 
-                if(isset($User_ImageUrl_TF)){
+                if(!empty($User_ImageUrl_TF)){
                   echo $User_ImageUrl_TF;
                 }else{
                   echo $t[1];
@@ -181,7 +180,7 @@ $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF; if ($t[0] == 0): ?>
                                 <?php endif; ?>
                                 <?php if ($t[0] == 1) : ?>
                                 <img class="DreamCat-card-post-wzimg DreamCat-card-post-wzimg-ts" src="<?php 
-                if(isset($User_ImageUrl_TF)){
+                if(!empty($User_ImageUrl_TF)){
                   echo $User_ImageUrl_TF;
                 }else{
                   echo $t[1];

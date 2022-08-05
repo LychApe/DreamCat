@@ -2,41 +2,46 @@
 <?php 
 $this->need('header.php'); 
 ?>
-
-<div class="mdui-container-fluid Dreamcat-appimgbar" style="height: 285px; background-image: url(<?php  
-    $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF;
-    if(isset($User_ImageUrl_TF)){
-        echo $User_ImageUrl_TF;
-    }else{
-      echo 'https://tva3.sinaimg.cn/large/87c01ec7gy1frmmnrncphj21hc0u07wj.jpg';
-    }?>);">
-    <div class="mdui-appbar mdui-shadow-0">
+<div class="mdui-container-fluid" style="transform: translateY(100%)">
+    <div class="mdui-appbar mdui-shadow-0" style="height: 0;">
         <div class="mdui-toolbar">
-            <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white "
+            <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
                 mdui-drawer="{target: '#main-drawer', swipe: true}">
-                <i class="mdui-icon material-icons" style="color: #f1f3f4;">menu</i>
+                <i class="mdui-icon material-icons" style="color: #f1f3f4">menu</i>
             </span>
             <div class="mdui-toolbar-spacer"></div>
             <button mdui-dialog="{target: '#search-1'}" class="mdui-btn mdui-btn-icon">
-                <i class="mdui-icon material-icons" style="color: #f1f3f4;">search</i>
+                <i class="mdui-icon material-icons" style="color: #f1f3f4">search</i>
             </button>
             <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon">
-                <i class="mdui-icon material-icons" style="color: #f1f3f4;">refresh</i>
+                <i class="mdui-icon material-icons" style="color: #f1f3f4">refresh</i>
             </a>
         </div>
+        <div class="mdui-container">
         <div class="mdui-container">
             <h1 class="title" style="color: #ffffffe3;"><?php $this->title() ?></h1>
             <h4 class="subtitle" style="color: #ffffffe3;">作者: <?php $this->author(); ?></h4>
             <h4 class="subtitle" style="color: #ffffffe3;">时间: <time datetime="<?php $this->date('c'); ?>"
                     itemprop="datePublished"><?php $this->date(); ?></time></h4>
         </div>
+        </div>
     </div>
 </div>
+<div class="mdui-container-fluid Dreamcat-appimgbar"
+    style="height: 450px;zoom: 0.65; background-image: url(<?php  
+    $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF;
+    if(!empty($User_ImageUrl_TF)){
+        echo $User_ImageUrl_TF;
+    }else{
+      echo 'https://tva3.sinaimg.cn/large/87c01ec7gy1frmmnrncphj21hc0u07wj.jpg';
+    }?>);">
+</div>
+
 
 
 <div class="mdui-container">
     <div class="mdui-container">
-        <div class="mdui-card DreamCat-card-1" style="margin-top: -6.5%;">
+        <div class="mdui-card DreamCat-card-1" style="margin-top: -90px;">
             <div class="mdui-card-content">
 
                 <div class="mdui-typo page-content">
