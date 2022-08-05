@@ -181,6 +181,14 @@
     position: absolute;
 }
 
+.DreamCat-icon-ts {
+    transition: all 0.6s .3s ease-in-out;
+}
+
+.DreamCat-icon-ts:hover {
+    transform: scale(1.2);
+}
+
 .mdui-chip-title a{
     text-decoration: none;
     color: black;
