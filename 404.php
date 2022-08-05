@@ -1,6 +1,8 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
 <?php $this->need('tpl/PageHearder.php'); ?>
+<br/>
+<br/>
 <div class="mdui-container fade-scale in">
     <div class="mdui-typo-display-3">
         <div class="mdui-center">
@@ -2035,7 +2037,8 @@
     </div>
     <br />
 
-    <div class="mdui-row Logo_centered">
+    <div class="mdui-valign">
+    <div class="mdui-row mdui-center">
         <a href="<?php $this->options->siteUrl(); ?>" style="text-decoration: none;">
             <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple"
                 style="background-color: #3f51b5!important;">返回首页
@@ -2047,10 +2050,12 @@
             </button>
         </a>
     </div>
+    </div>
 
     <br />
     <br />
 </div>
-
+<br/>
+<br/>
 
 <?php $this->need('footer.php'); ?>

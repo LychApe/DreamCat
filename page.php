@@ -1,19 +1,18 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
-<div class="mdui-container-fluid Dreamcat-appimgbar"
-    style="height: 285px; background-image: url(https://s1.328888.xyz/2022/07/20/lirAS.jpg);">
-    <div class="mdui-appbar mdui-shadow-0">
+<div class="mdui-container-fluid" style="transform: translateY(100%)">
+    <div class="mdui-appbar mdui-shadow-0" style="height: 0;">
         <div class="mdui-toolbar">
-            <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white "
+            <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
                 mdui-drawer="{target: '#main-drawer', swipe: true}">
-                <i class="mdui-icon material-icons" style="color: #f1f3f4;">menu</i>
+                <i class="mdui-icon material-icons" style="color: #f1f3f4">menu</i>
             </span>
             <div class="mdui-toolbar-spacer"></div>
-            <button mdui-dialog="{target: '#search-1'}" class="mdui-btn mdui-btn-icon">
-                <i class="mdui-icon material-icons" style="color: #f1f3f4;">search</i>
+            <button mdui-dialog="{target: '#search-1'}" class="mdui-btn mdui-btn-icon mdui-hidden-md-up">
+                <i class="mdui-icon material-icons" style="color: #f1f3f4">search</i>
             </button>
             <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon">
-                <i class="mdui-icon material-icons" style="color: #f1f3f4;">refresh</i>
+                <i class="mdui-icon material-icons" style="color: #f1f3f4">refresh</i>
             </a>
         </div>
         <div class="mdui-container">
@@ -23,12 +22,14 @@
         </div>
     </div>
 </div>
-
+<div class="mdui-container-fluid Dreamcat-appimgbar"
+    style="height: 450px;zoom: 0.65; background-image: url(https://s1.328888.xyz/2022/07/20/lirAS.jpg);">
+</div>
 
 
 <div class="mdui-container">
     <div class="mdui-container">
-        <div class="mdui-card DreamCat-card-1" style="margin-top: -6.5%;">
+        <div class="mdui-card DreamCat-card-1" style="margin-top: -150px;">
             <div class="mdui-card-content">
 
                 <div class="mdui-typo page-content">
