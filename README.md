@@ -5,8 +5,8 @@ QQ交流群: `1034830519`
 
 | 版本       | 维护状态   |  最近更新时间  | 版本诞生时间  |
 | --------   | -----:  | :----:  | :----:  |
-| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview)      | **InsiderPreview**   |   2  Aug  2022     | 6 Jul  2022  |
-| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat)         |   **Long Time Support**   |   1 Jul 2022   | 13 Jul  2021  |
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview)      | **InsiderPreview**   |   5  Aug  2022     | 6 Jul  2022  |
+| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)         |   **Long Time Support**   |   5  Aug 2022   | 13 Jul  2021  |
 | `DreamCat 1.x`       |    **End of Life**    |  18 Feb 2021  | 15 Feb  2019 |
 
 ## 鸣谢
@@ -43,7 +43,20 @@ QQ交流群: `1034830519`
 主题完成全部重构  
 提高主题的稳定性  
 优化主题的流畅度  
-  
+
+> DreamCat(2.7.220805(LTS))  
+提高主题的稳定性  
+优化主题的流畅度  
+1.[Feat] Add adaptation to plugin TypechoEasyTex  
+2.[FIx] Add footer output  
+3.[Fix]:更新故障CDN检测模块逻辑  
+4.[Fix]:fly-engine.js  
+5.[Perf]:去除jsdelivr  
+6.[Style]: 优化代码结构  
+7.[Perf]: 优化手机端友情链接页面  
+8.[Fix #19] Remove debug code  
+9.[Fix]:跨域问题  
+
   
 ------
 

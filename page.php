@@ -1,6 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
-
 <div class="mdui-container-fluid Dreamcat-appimgbar"
     style="height: 285px; background-image: url(https://s1.328888.xyz/2022/07/20/lirAS.jpg);">
     <div class="mdui-appbar mdui-shadow-0">
