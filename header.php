@@ -171,8 +171,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>Theme: <a mdui-dialog="{target:'#About_DreamCat'}">DreamCat</a> X3.0</p>
-                <p>InsiderPreview 评估副本 <br /> Build 220731</p>
+                <p>Theme: <a mdui-dialog="{target:'#About_DreamCat'}">DreamCat</a> <?php echo(themeVersion()); ?></p>
             </div>
         </div>
     </header>
@@ -187,19 +186,15 @@
             <blockquote>
                 <div class="mdui-typo">
                     <p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a
-                            href="https://github.com/LychApe/DreamCat" target="_blank">X3.0.220618</a></p>
+                            href="https://github.com/LychApe/DreamCat" target="_blank"><?php echo(themeVersion()); ?></a></p>
                     <p>主题开发：<a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a
-                            href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a
-                            href="https://github.com/Dev-Leo" target="_blank">Dev-Leo</a> | <a
-                            href="https://github.com/CornWorld" target="_blank">CornWorld</a> | <a
-                            href="https://github.com/whitebearcn" target="_blank">WhiteBearcn</a> | <a
-                            href="https://github.com/DFFZMXJ" target="_blank">DFFZMXJ</a>
+                            href="https://github.com/CornWorld" target="_blank">CornWorld</a>
                     </p>
                     <p>Designed by <a href="https://www.hanfenga7.cn/" style="text-decoration: none">HanFengA7</a> Power
                         by
                         <a href="http://typecho.org/" style="text-decoration: none">Typecho</a>
                     </p>
-                    <p>Copyright © 2015-2023 by LychApe All rights reserved!</p>
+                    <p>Copyright © 2015-<?php echo date('Y'); ?> by LychApe All rights reserved!</p>
                 </div>
             </blockquote>
             <div class="mdui-dialog-actions">

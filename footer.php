@@ -1,14 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
-<style>
-.DreamCat-icon-ts {
-    transition: all 0.6s .3s ease-in-out;
-}
-
-.DreamCat-icon-ts:hover {
-    transform: scale(1.2);
-}
-</style>
 <footer>
     <div style="background-color: #f2f2f2; padding: 0 8%;">
         <div style="display: flex; justify-content: space-between;color: #000;padding: 40px 0;">
