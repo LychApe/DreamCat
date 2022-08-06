@@ -18,17 +18,16 @@ $this->need('header.php');
             </a>
         </div>
         <div class="mdui-container">
-        <div class="mdui-container">
-            <h1 class="title" style="color: #ffffffe3;"><?php $this->title() ?></h1>
-            <h4 class="subtitle" style="color: #ffffffe3;">作者: <?php $this->author(); ?></h4>
-            <h4 class="subtitle" style="color: #ffffffe3;">时间: <time datetime="<?php $this->date('c'); ?>"
-                    itemprop="datePublished"><?php $this->date(); ?></time></h4>
-        </div>
+            <div class="mdui-container">
+                <h1 class="title" style="color: #ffffffe3;"><?php $this->title() ?></h1>
+                <h4 class="subtitle" style="color: #ffffffe3;">作者: <?php $this->author(); ?></h4>
+                <h4 class="subtitle" style="color: #ffffffe3;">时间: <time datetime="<?php $this->date('c'); ?>"
+                        itemprop="datePublished"><?php $this->date(); ?></time></h4>
+            </div>
         </div>
     </div>
 </div>
-<div class="mdui-container-fluid Dreamcat-appimgbar"
-    style="height: 450px;zoom: 0.65; background-image: url(<?php  
+<div class="mdui-container-fluid Dreamcat-appimgbar" style="height: 450px;zoom: 0.65; background-image: url(<?php  
     $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF;
     if(!empty($User_ImageUrl_TF)){
         echo $User_ImageUrl_TF;

@@ -55,12 +55,12 @@
                 </div>
             </div>
         </div>
-        <br/>
-            <?php $this->need('comments.php'); ?>
+        <br />
+        <?php $this->need('comments.php'); ?>
     </div>
 </div>
 
-<br/>
+<br />
 <?php if (Typecho_Widget::widget('Widget_Stat')->publishedPostsNum > 1):?>
 </div>
 <div class="doc-footer-nav mdui-color-grey-50">
