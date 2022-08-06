@@ -211,208 +211,232 @@ function themeConfig($form)
     
 ?>
 <!-- 配置中心=>CSS [Start] -->
-<link rel="dns-prefetch" href="//cdn.staticfile.org"/>
-<link rel="dns-prefetch" href="//npm.sourcegcdn.com"/>
+<link rel="dns-prefetch" href="//cdn.staticfile.org" />
+<link rel="dns-prefetch" href="//npm.sourcegcdn.com" />
 <link rel="stylesheet preload" href="//cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css" as="style">
 <link rel="stylesheet preload" href="//npm.sourcegcdn.com/mdui@1.0.2/dist/css/mdui.min.css" as="style">
 <!-- 配置中心=>CSS [End] -->
-    
+
 <style>
 .mdui-tab .mdui-tab-active {
-	color: rgb(74 69 62 / 70%);
-	opacity: 2;
+    color: rgb(74 69 62 / 70%);
+    opacity: 2;
 }
+
 .mdui-tab-indicator {
-	background-color: rgb(74 69 62 / 70%);
+    background-color: rgb(74 69 62 / 70%);
 }
+
 .fillet-A1 {
-	border-radius: .5rem
+    border-radius: .5rem
 }
+
 .shadow-A1 {
-	box-shadow: .5rem .875rem 2.375rem rgba(39, 44, 49, .06), .0625rem .1875rem .5rem rgba(39, 44, 49, .03)
+    box-shadow: .5rem .875rem 2.375rem rgba(39, 44, 49, .06), .0625rem .1875rem .5rem rgba(39, 44, 49, .03)
 }
+
 .button-ts {
-	position: relative
+    position: relative
 }
+
 .button-ts:active {
-	transform: translateY(2px);
-	-webkit-transition: box-shadow 2.5s;
-	box-shadow: .5rem .875rem 2.375rem rgba(255, 255, 255, .12),
-	.0625rem .1875rem .5rem transparent
+    transform: translateY(2px);
+    -webkit-transition: box-shadow 2.5s;
+    box-shadow: .5rem .875rem 2.375rem rgba(255, 255, 255, .12),
+        .0625rem .1875rem .5rem transparent
 }
+
 .primary {
-	border: none;
-	background-color: #d8d8d8;
-	cursor: pointer;
-	border-radius: 2px;
-	color: #FFF;
+    border: none;
+    background-color: #d8d8d8;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #FFF;
 }
+
 .primary:hover {
-	transition-duration: 1.5s;
-	background-color: rgb(74 69 62 / 70%);
+    transition-duration: 1.5s;
+    background-color: rgb(74 69 62 / 70%);
 }
+
 .primary:disabled {
-	background-color: #edecec;
-	cursor: default;
+    background-color: #edecec;
+    cursor: default;
 }
 </style>
-    
+
 <div class="mdui-card">
-    
+
     <!-- 配置中心=>头部 [Start]-->
     <div class="mdui-card-primary">
-    	<div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-    	<div class="mdui-card-primary-subtitle">Version: <?php echo(themeVersion()); ?></div>
+        <div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
+        <div class="mdui-card-primary-subtitle">Version: <?php echo(themeVersion()); ?></div>
     </div>
     <!-- 配置中心=>头部 [End]-->
-    
+
     <!-- 配置中心=>导航 [Start]-->
     <div class="mdui-tab mdui-tab-centered" mdui-tab>
-      <a href="#example3-tab1" class="mdui-ripple">模板信息</a>
+        <a href="#example3-tab1" class="mdui-ripple">模板信息</a>
     </div>
     <!-- 配置中心导航 [End]-->
-		
+
     <!-- 配置中心=>模板信息 [Start]-->
     <div id="example3-tab1" class="mdui-p-a-2">
-    <div class="mdui-card-content">
+        <div class="mdui-card-content">
             <div class="mdui-row-xs-2">
                 <div class="mdui-col">
-        			<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-        				<div class="mdui-card-header">
-        				  <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
-        				  <div class="mdui-card-header-title">DreamCat</div>
-        				  <div class="mdui-card-header-subtitle"><?php echo(themeVersion()); ?></div>
-        				</div>
-        			</div>
+                    <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+                        <div class="mdui-card-header">
+                            <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png"
+                                alt="" />
+                            <div class="mdui-card-header-title">DreamCat</div>
+                            <div class="mdui-card-header-subtitle"><?php echo(themeVersion()); ?></div>
+                        </div>
+                    </div>
                 </div>
-        		<div class="mdui-col">
-        			<div class="mdui-card shadow-A1 button-ts" mdui-dialog="{target: '#exampleDialog'}" style="background-color: rgb(130 123 123 / 14%);">
-        				<div class="mdui-card-header">
-        				  <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
-        				  <div class="mdui-card-header-title">开发者</div>
-        				  <div class="mdui-card-header-subtitle">简单不先于复杂,而是在复杂之后</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<br/>
-    	
-    		<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
-    		<div class="mdui-card-content">
-    			<img alt="GitHub " src="https://img.shields.io/github/stars/LychApe/DreamCat?style=for-the-badge" alt="">
-    			<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/LychApe/DreamCat/total?style=for-the-badge" alt="">
-    			<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/LychApe/DreamCat?style=for-the-badge" alt="">
-    			<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/LychApe/DreamCat?style=for-the-badge" alt="">
-    		</div>
-    		</div>
-    		<br/>
-    		
-    		<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
-    			<div class="mdui-card-content">
-    			最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-    			<div class="mdui-float-right">当前版本：<?php echo(themeVersion()); ?></div>
-    			</div>
-    		</div>
-    		<br/>
-    		
-    		<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
-    			<div class="mdui-card-content">
-    			<div class="mdui-typo">
-    			<p>QQ交流群:1034830519</p>
-    			<p>最后，祝您使用愉快:)</p>
-    			</div>
-    			</div>
+                <div class="mdui-col">
+                    <div class="mdui-card shadow-A1 button-ts" mdui-dialog="{target: '#exampleDialog'}"
+                        style="background-color: rgb(130 123 123 / 14%);">
+                        <div class="mdui-card-header">
+                            <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png"
+                                alt="" />
+                            <div class="mdui-card-header-title">开发者</div>
+                            <div class="mdui-card-header-subtitle">简单不先于复杂,而是在复杂之后</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
+            <br />
+
+            <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
+                <div class="mdui-card-content">
+                    <img alt="GitHub " src="https://img.shields.io/github/stars/LychApe/DreamCat?style=for-the-badge"
+                        alt="">
+                    <img alt="GitHub all releases"
+                        src="https://img.shields.io/github/downloads/LychApe/DreamCat/total?style=for-the-badge" alt="">
+                    <img alt="GitHub last commit"
+                        src="https://img.shields.io/github/last-commit/LychApe/DreamCat?style=for-the-badge" alt="">
+                    <img alt="GitHub code size in bytes"
+                        src="https://img.shields.io/github/languages/code-size/LychApe/DreamCat?style=for-the-badge"
+                        alt="">
+                </div>
+            </div>
+            <br />
+
+            <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
+                <div class="mdui-card-content">
+                    最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)"
+                            src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
+                    <div class="mdui-float-right">当前版本：<?php echo(themeVersion()); ?></div>
+                </div>
+            </div>
+            <br />
+
+            <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
+                <div class="mdui-card-content">
+                    <div class="mdui-typo">
+                        <p>QQ交流群:1034830519</p>
+                        <p>最后，祝您使用愉快:)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- 配置中心=>模板信息 [End]-->
-    
+
     <!-- 配置中心=>弹窗:开发者列表 [Start]-->
     <div class="mdui-card-content">
-    	<div class="mdui-dialog" id="exampleDialog">
+        <div class="mdui-dialog" id="exampleDialog">
             <div class="mdui-dialog-title">开发者列表</div>
             <div class="mdui-dialog-content">
                 <div class="mdui-row-xs-2">
-        	        <div class="mdui-col">
-                		<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-                			<div class="mdui-card-header">
-                			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=1091044631@qq.com&spec=640"/>
-                			  <div class="mdui-card-header-title">HanFengA7</div>
-                			  <div class="mdui-card-header-subtitle">所幸抬头仰望,总有星辰相伴!</div>
-                			</div>
-                		</div>
-                		<br/>
-        	        </div>
-        	        <div class="mdui-col">
-                		<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-                			<div class="mdui-card-header">
-                			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2206645368@qq.com&spec=640"/>
-                			  <div class="mdui-card-header-title">TeddyNight</div>
-                			  <div class="mdui-card-header-subtitle">自由和未来不可以被妥协</div>
-                			</div>
-                		</div>
-                		<br/>
-                	</div>
-        	        <div class="mdui-col">
-                		<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-                			<div class="mdui-card-header">
-                			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=1906944165@qq.com&spec=640"/>
-                			  <div class="mdui-card-header-title">Dev-Leo</div>
-                			  <div class="mdui-card-header-subtitle">不忘初心,牢记使命！</div>
-                			</div>
-                		</div>
-                		<br/>
-                	</div>
-                	<div class="mdui-col">
-                		<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-                			<div class="mdui-card-header">
-                			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2135620856@qq.com&spec=640"/>
-                			  <div class="mdui-card-header-title">CornWorld</div>
-                			  <div class="mdui-card-header-subtitle">"希望人没事"</div>
-                			</div>
-                		</div>
-                		<br/>
-                	</div>
-                	<div class="mdui-col">
-                		<div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
-                			<div class="mdui-card-header">
-                			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=1846405136@qq.com&spec=640"/>
-                			  <div class="mdui-card-header-title">WhiteBearcn</div>
-                			  <div class="mdui-card-header-subtitle"></div>
-                			</div>
-                		</div>
-                		<br/>
-                	</div>
-                	<div class="mdui-col">
-                		<div class="mdui-card shadow-A1 button-ts" mdui-dialog="{target: '#exampleDialog'}" style="background-color: rgb(130 123 123 / 14%);">
-                			<div class="mdui-card-header">
-                			  <img class="mdui-card-header-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2477819731@qq.com&spec=640"/>
-                			  <div class="mdui-card-header-title">学神之女</div>
-                			  <div class="mdui-card-header-subtitle">举头望涵涵，低头思第一。</div>
-                			</div>
-                		</div>
-                		<br/>
-                	</div>
+                    <div class="mdui-col">
+                        <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+                            <div class="mdui-card-header">
+                                <img class="mdui-card-header-avatar"
+                                    src="https://q2.qlogo.cn/headimg_dl?dst_uin=1091044631@qq.com&spec=640" />
+                                <div class="mdui-card-header-title">HanFengA7</div>
+                                <div class="mdui-card-header-subtitle">所幸抬头仰望,总有星辰相伴!</div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="mdui-col">
+                        <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+                            <div class="mdui-card-header">
+                                <img class="mdui-card-header-avatar"
+                                    src="https://q2.qlogo.cn/headimg_dl?dst_uin=2206645368@qq.com&spec=640" />
+                                <div class="mdui-card-header-title">TeddyNight</div>
+                                <div class="mdui-card-header-subtitle">自由和未来不可以被妥协</div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="mdui-col">
+                        <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+                            <div class="mdui-card-header">
+                                <img class="mdui-card-header-avatar"
+                                    src="https://q2.qlogo.cn/headimg_dl?dst_uin=1906944165@qq.com&spec=640" />
+                                <div class="mdui-card-header-title">Dev-Leo</div>
+                                <div class="mdui-card-header-subtitle">不忘初心,牢记使命！</div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="mdui-col">
+                        <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+                            <div class="mdui-card-header">
+                                <img class="mdui-card-header-avatar"
+                                    src="https://q2.qlogo.cn/headimg_dl?dst_uin=2135620856@qq.com&spec=640" />
+                                <div class="mdui-card-header-title">CornWorld</div>
+                                <div class="mdui-card-header-subtitle">"希望人没事"</div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="mdui-col">
+                        <div class="mdui-card shadow-A1 button-ts" style="background-color: rgb(130 123 123 / 14%);">
+                            <div class="mdui-card-header">
+                                <img class="mdui-card-header-avatar"
+                                    src="https://q2.qlogo.cn/headimg_dl?dst_uin=1846405136@qq.com&spec=640" />
+                                <div class="mdui-card-header-title">WhiteBearcn</div>
+                                <div class="mdui-card-header-subtitle"></div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="mdui-col">
+                        <div class="mdui-card shadow-A1 button-ts" mdui-dialog="{target: '#exampleDialog'}"
+                            style="background-color: rgb(130 123 123 / 14%);">
+                            <div class="mdui-card-header">
+                                <img class="mdui-card-header-avatar"
+                                    src="https://q2.qlogo.cn/headimg_dl?dst_uin=2477819731@qq.com&spec=640" />
+                                <div class="mdui-card-header-title">学神之女</div>
+                                <div class="mdui-card-header-subtitle">举头望涵涵，低头思第一。</div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
                 </div>
-                <br/>
+                <br />
                 除此之外，还有很多来自全世界的开发者正通过 GitHub 向我们提交贡献。
             </div>
             <div class="mdui-dialog-actions">
-            	<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
-              </div>
+                <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
+            </div>
         </div>
     </div>
     <!-- 配置中心=>弹窗:开发者列表 [End]-->
     <!-- 配置中心=>JS [Start] -->
     <script rel="preload" src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js" as="script"></script>
     <script rel="preload" src="//npm.sourcegcdn.com/jquery@3.6.0/dist/jquery.min.js" as="script"></script>
-	<script rel="preload" src="//cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js" as="script"></script>
-	<script rel="preload" src="//npm.sourcegcdn.com/mdui@1.0.2/dist/js/mdui.min.js" as="script"></script>
+    <script rel="preload" src="//cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js" as="script"></script>
+    <script rel="preload" src="//npm.sourcegcdn.com/mdui@1.0.2/dist/js/mdui.min.js" as="script"></script>
     <!-- 配置中心=>JS [End] -->
-    
+
 </div>
-<br/>
-<br/>
+<br />
+<br />
 <?php
 //备份开始
 $db = Typecho_Db::get();
