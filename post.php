@@ -47,7 +47,14 @@ $this->need('header.php');
                     <?php $this->content(); ?>
                 </div>
                 <br />
-                <div class="mdui-row-xs-2">
+                <div class="<?php
+                            if (!empty($this->options->DC_AdmireQCode)) {
+                                echo('mdui-row-xs-2');
+                            }else{
+                                echo('mdui-row-xs-1');
+                            }
+                            ?>">
+                    <?php if(!empty($this->options->DC_AdmireQCode)): ?>
                     <div class="mdui-col">
                         <div class="Dreamcat-post-btn">
                             <button mdui-menu="{target: '#Dreamcat-post-btn',align: 'center'}"
@@ -62,6 +69,7 @@ $this->need('header.php');
                             </div>
                         </div>
                     </div>
+                    <?php endif; ?>
                     <div class="mdui-col">
                         <div class="Dreamcat-post-btn">
                             <button mdui-menu="{target: '#DreamCat-post-share',align: 'center'}"
