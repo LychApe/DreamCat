@@ -28,9 +28,9 @@
 <div class="mdui-container-fluid Dreamcat-appimgbar" style="<?php
         #导航栏高度
         if (!empty($this->options->DC_AppImgBarHeight)) {
-            echo('height:'.$this->options->DC_AppImgBarHeight.'px; padding-bottom:30%;  zoom: 0.3;');
+            echo('height:'.$this->options->DC_AppImgBarHeight.'px; padding-bottom:30%;  zoom: 0.5;');
         }else{
-            echo('height:900px; padding-bottom:30%; zoom: 0.3;');
+            echo('height:520px; padding-bottom:30%; zoom: 0.5;');
         }
         #图片模式和单色模式
         if (!empty($this->options->DC_NavigationBarModeRadio) && $this->options->DC_NavigationBarModeRadio == 'ImgMode') {
@@ -49,38 +49,41 @@
     ?>">
 </div>
 
-<div class="mdui-container mdui-hidden-sm-down" style="transform: translateY(-50%);">
+<div class="mdui-container mdui-hidden-sm-down" style="transform: translateY(-50%)">
     <div class="mdui-card DreamCat-card-1">
         <div class="mdui-card-content">
-
-        <div class="mdui-row">
-          <div class="mdui-col-xs-6 mdui-col-sm-3">
-                <form method="post" action="" class="Dreamcat-search-bar mdui-hidden-sm-down mdui-float-left">
-                    <button type="submit" class="submit mdui-btn mdui-btn-icon">
-                        <i class="mdui-icon material-icons mdui-text-color-theme-icon">search</i>
-                    </button><input type="text" class="Dreamcat-search-input" name="s" placeholder="输入关键词进行搜索">
-                </form>
-          </div>
-          <div class="mdui-col-xs-6 mdui-col-sm-6">
-        
-                <form method="get" class="Dreamcat-search-bar mdui-hidden-sm-down"  style="max-width: 100%;">
-                    <div class="Dreamcat-search-input">
-                    <div class="mdui-card-primary-subtitle mdui-valign"><p id="hitokoto" class="mdui-center"><a href="#" id="hitokoto_text">:D 获取中...</a></p></div>
-                    </div>
-                </form>
-        
-          </div>
-          <div class="mdui-col-xs-6 mdui-col-sm-3">
-                <form method="get" class="Dreamcat-search-bar mdui-hidden-sm-down mdui-float-right">
-                    <button type="submit" class="submit mdui-btn mdui-btn-icon">
-                        <i class="mdui-icon material-icons mdui-text-color-theme-icon">access_time</i>
-                    </button>
-                    <div class="Dreamcat-search-input" style="height: 50%;">
-                    <div class="mdui-card-primary-subtitle"><div class="showTime"></div></div>
-                    </div>
-                </form>
-          </div>
-        </div>
+            <div class="mdui-row">
+                <div class="mdui-col-xs-6 mdui-col-sm-3">
+                    <form method="post" action="" class="Dreamcat-search-bar mdui-hidden-sm-down mdui-float-left">
+                        <button type="submit" class="submit mdui-btn mdui-btn-icon">
+                            <i class="mdui-icon material-icons mdui-text-color-theme-icon">search</i></button><input
+                            type="text" class="Dreamcat-search-input" name="s" placeholder="输入关键词进行搜索" />
+                    </form>
+                </div>
+                <div class="mdui-col-xs-6 mdui-col-sm-6">
+                    <form method="get" class="Dreamcat-search-bar mdui-hidden-sm-down" style="max-width: 100%">
+                        <div class="Dreamcat-search-input">
+                            <div class="mdui-card-primary-subtitle mdui-valign">
+                                <p id="hitokoto" class="mdui-center">
+                                    <a href="#" id="hitokoto_text">:D 获取中...</a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="mdui-col-xs-6 mdui-col-sm-3">
+                    <form method="get" class="Dreamcat-search-bar mdui-hidden-sm-down mdui-float-right">
+                        <button type="submit" class="submit mdui-btn mdui-btn-icon">
+                            <i class="mdui-icon material-icons mdui-text-color-theme-icon">access_time</i>
+                        </button>
+                        <div class="Dreamcat-search-input" style="height: 50%">
+                            <div class="mdui-card-primary-subtitle">
+                                <div class="showTime"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
