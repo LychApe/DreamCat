@@ -39,10 +39,10 @@
     </div>
 </div>
 <div class="mdui-container-fluid Dreamcat-appimgbar"
-    style="height: 450px;zoom: 0.65; background-image: url(https://s1.328888.xyz/2022/07/20/lirAS.jpg);">
+    style="height: 1024px;zoom: 0.5; background-image: url(https://s1.328888.xyz/2022/07/20/lirAS.jpg);">
 </div>
 
-<div style="margin-top: -150px;">
+<div style="margin-top: -250px;">
     <div class="mdui-container">
         <div class="mdui-card DreamCat-card-1">
             <div class="mdui-card-content">

@@ -4,7 +4,7 @@
  *
  * @package DreamCat
  * @author LychApe
- * @version X3.0.220706(InsiderPreview)
+ * @version X3.0.220807
  * @link https://github.com/LychApe/DreamCat
  */
 
@@ -40,9 +40,9 @@ $this->need('header.php'); ?>
 <div class="mdui-container-fluid Dreamcat-appimgbar" style="<?php
         #导航栏高度
         if (!empty($this->options->DC_AppImgBarHeight)) {
-            echo('height:'.$this->options->DC_AppImgBarHeight.'px; padding-bottom:30%;  zoom: 0.3;');
+            echo('height:'.$this->options->DC_AppImgBarHeight.'px; padding-bottom:30%;  zoom: 0.5;');
         }else{
-            echo('height:900px; padding-bottom:30%; zoom: 0.3;');
+            echo('height:520px; padding-bottom:30%; zoom: 0.5;');
         }
         #图片模式和单色模式
         if (!empty($this->options->DC_NavigationBarModeRadio) && $this->options->DC_NavigationBarModeRadio == 'ImgMode') {

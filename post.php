@@ -27,20 +27,19 @@ $this->need('header.php');
         </div>
     </div>
 </div>
-<div class="mdui-container-fluid Dreamcat-appimgbar" style="height: 450px;zoom: 0.65; background-image: url(<?php  
+<div class="mdui-container-fluid Dreamcat-appimgbar" style="height: 1024px;zoom: 0.5; background-image: url(<?php  
     $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF;
     if(!empty($User_ImageUrl_TF)){
         echo $User_ImageUrl_TF;
     }else{
-      echo 'https://tva3.sinaimg.cn/large/87c01ec7gy1frmmnrncphj21hc0u07wj.jpg';
+      echo 'https://s1.328888.xyz/2022/07/20/lirAS.jpg';
     }?>);">
 </div>
 
 
 
 <div class="mdui-container">
-    <div class="mdui-container">
-        <div class="mdui-card DreamCat-card-1" style="margin-top: -90px;">
+        <div class="mdui-card DreamCat-card-1" style="margin-top: -250px;">
             <div class="mdui-card-content">
 
                 <div class="mdui-typo page-content">
@@ -130,11 +129,8 @@ $this->need('header.php');
                 </div>
             </div>
         </div>
-    </div>
     <br />
-    <div class="mdui-container">
         <?php $this->need('comments.php'); ?>
-    </div>
 </div>
 
 <?php if (Typecho_Widget::widget('Widget_Stat')->publishedPostsNum > 1):?>
