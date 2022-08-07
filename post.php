@@ -36,15 +36,14 @@ $this->need('header.php');
     }?>);">
 </div>
 
-
-
 <div class="mdui-container">
         <div class="mdui-card DreamCat-card-1" style="margin-top: -250px;">
             <div class="mdui-card-content">
-
+            <div class="DreamCat-PageContent-A">
                 <div class="mdui-typo page-content">
                     <?php $this->content(); ?>
                 </div>
+            </div>
                 <br />
                 <div class="<?php
                             if (!empty($this->options->DC_AdmireQCode)) {

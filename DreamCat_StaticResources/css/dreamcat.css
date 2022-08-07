@@ -189,6 +189,97 @@
     transform: scale(1.2);
 }
 
+.DreamCat-PageContent-A h1:before {
+    color: #2bbc8a;
+    content: "#";
+    font-weight: bold;
+    font-size: 2rem;
+    margin-right: 5px;
+}
+.DreamCat-PageContent-A h1{
+    margin-bottom: 1rem;
+    color: #383838;
+    letter-spacing: 0.01em;
+    font-weight: 700;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+.DreamCat-PageContent-A h2:before {
+    color: #2bbc8a;
+    content: "##";
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-right: 5px;
+}
+.DreamCat-PageContent-A h2{
+    margin-bottom: 1rem;
+    color: #383838;
+    letter-spacing: 0.01em;
+    font-weight: 600;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+.DreamCat-PageContent-A h3:before {
+    color: #2bbc8a;
+    content: "###";
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin-right: 5px;
+}
+.DreamCat-PageContent-A h3{
+    margin-bottom: 1rem;
+    color: #383838;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+.DreamCat-PageContent-A h4:before {
+    color: #2bbc8a;
+    content: "####";
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-right: 5px;
+}
+.DreamCat-PageContent-A h4{
+    margin-bottom: 1rem;
+    color: #383838;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+.DreamCat-PageContent-A h5:before {
+    color: #2bbc8a;
+    content: "#####";
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+.DreamCat-PageContent-A h5{
+    margin-bottom: 1rem;
+    color: #383838;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+.DreamCat-PageContent-A h6:before {
+    color: #2bbc8a;
+    content: "######";
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-right: 5px;
+}
+.DreamCat-PageContent-A h6{
+    margin-bottom: 1rem;
+    color: #383838;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
 .doc-footer-nav-left {
     text-align: left;
 }
