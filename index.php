@@ -106,8 +106,13 @@ $this->need('header.php'); ?>
         <div class="mdui-row">
             <div class="mdui-col-xs-6 mdui-col-sm-3 mdui-hidden-sm-down">
                 <div class="mdui-card DreamCat-card-1" style="margin-right: 30px">
+                    <?php if (!empty($this->options->DC_HeadImageUrl)){ ?>
                     <img src="<?php $this->options->DC_HeadImageUrl(); ?>" class="card-img-top" style="width: 100%"
                         alt="..." />
+                    <?php }else{ ?>
+                    <img src="http://q1.qlogo.cn/g?b=qq&nk=10001&s=640" class="card-img-top" style="width: 100%"
+                        alt="..." />
+                    <?php } ?>
                     <div class="mdui-card-primary">
                         <div class="mdui-card-primary-title">
                             <?php $this->options->DC_ProfileCardName() ?>
