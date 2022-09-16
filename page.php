@@ -11,7 +11,7 @@
 						</h1>
 					</div>
 					<br/>
-					<div class="mdui-typo mdui-container page-content">
+					<div class=" mdui-container page-content">
 						<?php $this->content(); ?>
 					</div>
 					<br/>

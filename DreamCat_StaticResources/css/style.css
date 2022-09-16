@@ -244,3 +244,54 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
           margin-top: -50px;
           left: 0;
         }
+        
+/*DreamCat_poststyle V1.0*/
+.page-content pre{
+    padding: 1em!important;
+    margin: .5em 0!important;
+    overflow: auto!important;
+    border-radius: .4em!important;
+    background: #282a36;
+}
+.page-content pre code{
+    color: #f8f8f2!important;
+    background: 0 0;
+    text-shadow: 0 1px rgb(0 0 0 / 30%);
+    font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+.page-content table {
+    display: table;
+    margin: 1.8em 0;
+    border: 1pxsolidvar(--border-color);
+    border-collapse: separate;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border-spacing: 0;
+}
+.page-content table th {
+    background-color: #eeeeee;
+    white-space: nowrap;
+}
+.page-content table tr {
+    background-color: #eeeeee1c;
+    white-space: nowrap;
+}
+.page-content table td, table th {
+    padding: 8px 13px;
+    border-top: 1pxsolidvar(--border-color);
+    border-right: 1pxsolidvar(--border-color);
+    border-radius: 0;
+}
