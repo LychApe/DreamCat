@@ -32,7 +32,7 @@ $this->need('header.php');
     if(!empty($User_ImageUrl_TF)){
         echo $User_ImageUrl_TF;
     }else{
-      echo 'https://s1.328888.xyz/2022/07/20/lirAS.jpg';
+      echo(CustomCDN_url('img/post_bj.jpg'));
     }?>);">
 </div>
 

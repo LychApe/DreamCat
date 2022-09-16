@@ -98,10 +98,19 @@ function themeConfig($form)
         'DC_AppImgBarHeight',
         null,
         null,
-        _t('导航栏高度'),
+        _t('导航栏高度(PC)'),
         _t('在这里填入导航栏高度, 以在网站导航栏显示，留空则显示默认')
     );
     $form->addInput($DC_AppImgBarHeight);
+    
+    $DC_AppImgBarHeight_PE = new \Typecho\Widget\Helper\Form\Element\Text(
+        'DC_AppImgBarHeight_PE',
+        null,
+        null,
+        _t('导航栏高度(PE)'),
+        _t('在这里填入导航栏高度, 以在网站导航栏显示，留空则显示默认')
+    );
+    $form->addInput($DC_AppImgBarHeight_PE);
     
     $DC_ProfileCardName = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_ProfileCardName',
