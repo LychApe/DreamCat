@@ -108,31 +108,24 @@
 hljs.initHighlightingOnLoad()
 </script>
 <script>
-var t = null;
-t = setTimeout(time, 1000); //開始运行
+let t = null;
+t = setTimeout(time, 1000);
 function time() {
-    clearTimeout(t); //清除定时器
+    clearTimeout(t);
     dt = new Date();
-    var y = dt.getFullYear();
-    var mt = dt.getMonth() + 1;
-    var day = dt.getDate();
-    var h = dt.getHours(); //获取时
-    var m = dt.getMinutes(); //获取分
-    var s = dt.getSeconds(); //获取秒
-    document.querySelector(".showTime").innerHTML =
-        y +
-        "年" +
-        mt +
-        "月" +
-        day +
-        "日  " +
-        h +
-        ":" +
-        m +
-        ":" +
-        s +
-        "";
-    t = setTimeout(time, 1000); //设定定时器，循环运行
+    let y = dt.getFullYear();
+    let m1 = dt.getMonth() + 1;
+    let d = dt.getDate();
+    let h = dt.getHours();
+    let m2 = dt.getMinutes();
+    let s = dt.getSeconds();
+    if(m1<10){mo ='0'+m1}else{mo = m1}
+    if(d<10){da ='0'+d}else{da = d}
+    if(h<10){ho ='0'+h}else{ho = h}
+    if(m2<10){mi ='0'+m2}else{mi = m2}
+    if(s<10){se ='0'+s}else{se = s}
+    document.querySelector(".showTime").innerHTML = y +"年" +mo +"月" +da +"日  " +ho +":" +mi +":" +se+"";
+    t = setTimeout(time, 1000);
 }
 </script>
 <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
