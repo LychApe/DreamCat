@@ -5,7 +5,7 @@ QQ交流群: `1034830519`
 
 | 版本       | 维护状态   |  最近更新时间  | 版本诞生时间  |
 | --------   | -----:  | :----:  | :----:  |
-| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview)      | **InsiderPreview**   |   7  Aug  2022     | 6 Jul  2022  |
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview)      | **InsiderPreview**   |   16  Sep  2022     | 6 Jul  2022  |
 | [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)         |   **Long Time Support**   |   5  Aug 2022   | 13 Jul  2021  |
 | `DreamCat 1.x`       |    **End of Life**    |  18 Feb 2021  | 15 Feb  2019 |
 
@@ -17,9 +17,9 @@ QQ交流群: `1034830519`
 `Sourcegcdn` 提供了高速的静态资源加速。
 
 <a href="https://www.jetbrains.com/?from=DreamCat" target="_blank">
-<img src = 'https://ftp.bmp.ovh/imgs/2021/07/7883cb70a96b6ccd.png' width="145" alt=""/>
-<img src = 'https://ftp.bmp.ovh/imgs/2021/07/17d8f636fea2c03b.png' width="145" alt=""/>
-</a>  
+<img src="https://i.stay.pub/img/c8121d886f25f02e.jpg" width="145" alt="">
+<img src="https://i.stay.pub/img/e581bb90d697458d.jpg" width="145" alt="">
+</a>
 
 ## 安装(Install)
 
