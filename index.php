@@ -273,9 +273,8 @@ $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF; if ($t[0] == 0): ?>
                     <br />
                 </article>
                 <?php endwhile; ?>
-            </div>
-        </div>
-
+            
+            
         <div class="DreamCat-margin-card-top"></div>
         <div class="DreamCat-page-div DreamCat-card-a">
             <?php $this->pageLink( '<button
@@ -295,6 +294,9 @@ $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF; if ($t[0] == 0): ?>
 			>
 				<i class="mdui-icon material-icons">navigate_next</i></button
 			>', 'next' ); ?>
+        </div>
+            
+            </div>
         </div>
     </div>
 </div>
