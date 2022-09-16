@@ -17,8 +17,8 @@ QQ交流群: `1034830519`
 `Sourcegcdn` 提供了高速的静态资源加速。
 
 <a href="https://www.jetbrains.com/?from=DreamCat" target="_blank">
-<img src="https://ftp.bmp.ovh/imgs/2021/07/7883cb70a96b6ccd.png" width="145" alt="">
-<img src="https://ftp.bmp.ovh/imgs/2021/07/17d8f636fea2c03b.png" width="145" alt="">
+<img src="https://i.stay.pub/img/c8121d886f25f02e.jpg" width="145" alt="">
+<img src="https://i.stay.pub/img/e581bb90d697458d.jpg" width="145" alt="">
 </a>
 
 ## 安装(Install)
