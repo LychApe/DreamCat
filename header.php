@@ -195,17 +195,10 @@ body {
 						</li>
 					</a>
 				</div>
-				<div class="mdui-divider"></div>
-				<div>
-					<a>
-						<li class="mdui-list-item mdui-ripple" mdui-dialog="{target:'#About_DreamCat'}">
-							<i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">info_outline</i>
-							<div class="mdui-list-item-content">DreamCat</div>
-						</li>
-					</a>
-				</div>
-				<div class="copyright"></div>
 			</div>
+            <div class="copyright">
+                <p>Theme: <a mdui-dialog="{target:'#About_DreamCat'}">DreamCat</a></p>
+            </div>
 		</div>
 </header>
 
