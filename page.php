@@ -22,8 +22,13 @@
         </div>
     </div>
 </div>
-<div class="mdui-container-fluid Dreamcat-appimgbar"
-    style="height: 1024px;zoom: 0.5; background-image: url(https://s1.328888.xyz/2022/07/20/lirAS.jpg);">
+<div class="mdui-container-fluid Dreamcat-appimgbar" style="height: 1024px;zoom: 0.5; background-image: url(<?php  
+    $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF;
+    if(!empty($User_ImageUrl_TF)){
+        echo $User_ImageUrl_TF;
+    }else{
+      echo(CustomCDN_url('img/post_bj.jpg'));
+    }?>);">
 </div>
 
 
