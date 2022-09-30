@@ -487,7 +487,11 @@ function themeFields($layout) {
         _t('文章头图会显示在文章的顶部及首页展示图片'));
     $layout->addItem($postimgurl); 
 }
-
+function categeid($slug){  //获取栏目id
+   $db = Typecho_Db::get();
+   $postnum=$db->fetchRow($db->select()->from ('table.metas')->where ('slug=?',$slug)->where('type=?', 'category'));
+   return  $postnum['mid']; 
+}
 	/** 显示下一篇
 	 *
 	 * @access public

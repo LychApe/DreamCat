@@ -128,14 +128,37 @@ body {
 							<?php $category = null;
 								$this->widget('Widget_Metas_Category_List')->to($category); ?>
 							<?php while ($category->next()): ?>
+							<?php $children = $category->getAllChildren($category->mid)?>
+							    <?php if ($category->levels == 0 && !empty($children)):?>
+                                    <ul class="mdui-list" mdui-collapse="{accordion: true}" style="max-width: 360px;">
+                                          <li class="mdui-collapse-item mdui-collapse-item-dense">
+                                            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                                              <div class="mdui-list-item-content"><?php $category->name();?></div>
+                                              <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                                            </div>
+                                            <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                                            
+                                    <?php 
+                                    foreach ($children as $mid){
+                                            $child = $category->getCategory($mid);
+                                            $childCategoryHtml = '<li class="mdui-list-item mdui-ripple"><a href="'.$child['permalink'].'"class="mdui-list-item-content mdui-text-color-theme-text"title="'.$child['name'].'">'.$child['name'].'</a></li>';
+                                            echo $childCategoryHtml;
+                                        }
+                                        
+                                    ?>
+                                            </li>
+                                            </ul>
+                                          </li>
+                                    </ul>
+								<?php elseif($category->levels == 0):?>
 								<li class="mdui-list-item mdui-ripple">
 									<a href="<?php $category->permalink(); ?>"
 									   class="mdui-list-item-content mdui-text-color-theme-text"
 									   title="<?php $category->name(); ?>">
-										<?php $category->name(); ?>
+                                    <?php $category->name(); ?>
 									</a>
 								</li>
-								<br/>
+								<?php endif?>
 							<?php endwhile; ?>
 						</ul>
 					</div>
