@@ -28,52 +28,107 @@
 		<?php if ($this->have()): ?>
 			<?php while ($this->next()): ?>
 				<a href='<?php $this->permalink() ?>'>
-					<article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
-						<div class="mdui-row">
-							<div id="main">
-								<div class="mdui-col-md-1 mdui-col-lg-1"></div>
-								<div class="mdui-col-md-10 mdui-col-lg-10">
-									<div id="line"></div>
-									<div id="coos">
-										<div class="lis">
-											<div class="spot"></div>
-											<div class="g-lin mdui-hidden-xs"></div>
-											<div class="mdui-card mdui-hoverable" id="main" role="main"
-												 style="border-radius:9px; transform: translateY(-15%);">
-												<div class="mdui-card-media">
-													<?php $t = thumb($this); ?>
-													<?php if ($t[0] == 0): ?>
-														<img class="moe-post-wzimg" style="object-fit: cover;"
-															 src="<?php echo $t[1]; ?>"/>
-													<?php endif; ?>
-													<?php if ($t[0] == 1) : ?>
-														<img class="moe-post-wzimg" style="object-fit: cover;"
-															 src="<?php echo $t[1]; ?>"/>
-													<?php endif; ?>
-													<div class="mdui-card-media-covered">
-														<div class="mdui-card-primary">
-															<div class="mdui-card-primary-title">
-																<?php $this->title(); ?>
-																<?php if ($this->options->articletime == 'checked'): ?>
-																	<br>
-																	<small>发表时间:
-																		<time datetime="<?php $this->date('c'); ?>"
-																			  itemprop="datePublished">
-																			<?php $this->date(); ?></time>
-																	</small>
-																<?php endif; ?>
+					<article class="post" itemscope="" itemtype="//schema.org/BlogPosting">
+									<div class="mdui-row">
+										<div id="main">
+											<div class="mdui-col-md-1 mdui-col-lg-1"></div>
+											<div class="mdui-col-md-10 mdui-col-lg-10">
+												<div id="line"></div>
+												<div id="coos">
+													<div class="lis">
+														<div class="spot"></div>
+														<div class="g-lin mdui-hidden-xs"></div>
+												        <a href="<?php $this->permalink() ?>" title="<?php $this->title(); ?>"
+						                                    style="text-decoration: none;">
+														<?php if ($this->options->listtc == 'checked'): ?>
+															<div class="mdui-card mdui-hoverable shadow-A1" id="main"
+																 role="main"
+																 style="border-radius:9px; transform: translateY(-15%);">
+																<div class="mdui-card-primary">
+																	<div class="mdui-card-primary-title"><?php $this->title(
+																		); ?></div>
+																	<div class="mdui-card-primary-subtitle"><?php $this->excerpt(
+																				180, '...'
+																		); ?></div>
+																</div>
+																<div style="border-top: 1px dashed #e0e0e0; font-size: 14px;"></div>
+																<div class="mdui-card-header">
+																	<?php if (!empty($this->options->logoUrl)): ?>
+																		<img class="mdui-card-header-avatar"
+																			 src="<?php $this->options->logoUrl() ?>"
+																			 alt=""/>
+																	<?php else: ?>
+																		<img class="mdui-card-header-avatar"
+																			 src="<?php CustomCDN_url(
+																					 'img/default-avatar.png'
+																			 ); ?>"
+																			 alt=""/>
+																	<?php endif; ?>
+																	<div class="mdui-card-header-title"><?php $this->author(
+																		); ?></div>
+																	<div class="mdui-card-header-subtitle"><?php $this->date(
+																		); ?></div>
+																</div>
 															</div>
-														</div>
+														<?php else: ?>
+															<div class="mdui-card mdui-hoverable shadow-A1" id="main"
+																 role="main"
+																 style="border-radius:9px; transform: translateY(-15%);">
+																<div class="mdui-card-media">
+																	<?php $t = thumb($this);
+																	      $postimgurl = $this->fields->postimgurl;
+																	        ?>
+																	<?php if ($t[0] == 0): ?>
+																		<img class="moe-post-wzimg"
+																			 style="object-fit: cover;"
+																			 src="<?php 
+                                                                                    if(!empty($postimgurl)){
+                                                                                      echo $postimgurl;
+                                                                                    }else{
+                                                                                      echo $t[1];
+                                                                                    }
+																			    ?>" alt=""/>
+																	<?php endif; ?>
+																	<?php if ($t[0] == 1) : ?>
+																		<img class="moe-post-wzimg"
+																			 style="object-fit: cover;"
+																			 src="<?php 
+                                                                                    if(!empty($postimgurl)){
+                                                                                      echo $postimgurl;
+                                                                                    }else{
+                                                                                      echo $t[1];
+                                                                                    }
+																			    ?>" alt=""/>
+																	<?php endif; ?>
+																	<div class="mdui-card-media-covered">
+																		<div class="mdui-card-primary">
+																			<div class="mdui-card-primary-title">
+																				<?php $this->title(); ?>
+																				<?php if ($this->options->articletime == 'checked'): ?>
+																					<br>
+																					<small>发表时间:
+																						<time datetime="<?php $this->date(
+																								'c'
+																						); ?>"
+																							  itemprop="datePublished">
+																							<?php $this->date(
+																							); ?></time>
+																					</small>
+																				<?php endif; ?>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														<?php endif; ?>
+                                                        </a>
 													</div>
 												</div>
 											</div>
+											<div class="mdui-col-md-1 mdui-col-lg-1"></div>
 										</div>
 									</div>
-								</div>
-								<div class="mdui-col-md-1 mdui-col-lg-1"></div>
-							</div>
-						</div>
-					</article>
+								</article>
 				</a>
 			<?php endwhile; ?>
 		<?php else: ?>

@@ -207,7 +207,7 @@
 																		<img class="moe-post-wzimg"
 																			 style="object-fit: cover;"
 																			 src="<?php 
-                                                                                    if(isset($postimgurl)){
+                                                                                    if(!empty($postimgurl)){
                                                                                       echo $postimgurl;
                                                                                     }else{
                                                                                       echo $t[1];
@@ -218,7 +218,7 @@
 																		<img class="moe-post-wzimg"
 																			 style="object-fit: cover;"
 																			 src="<?php 
-                                                                                    if(isset($postimgurl)){
+                                                                                    if(!empty($postimgurl)){
                                                                                       echo $postimgurl;
                                                                                     }else{
                                                                                       echo $t[1];

@@ -478,6 +478,15 @@ HTML;
 
 
 
+function themeFields($layout) {
+    $postimgurl = new Typecho_Widget_Helper_Form_Element_Text(
+        'postimgurl', 
+        null, 
+        null, 
+        _t('文章头图'), 
+        _t('文章头图会显示在文章的顶部及首页展示图片'));
+    $layout->addItem($postimgurl); 
+}
 
 	/** 显示下一篇
 	 *
