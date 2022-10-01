@@ -27,7 +27,7 @@
 	<div class="mdui-dialog-content" style="height: 219px;">
 		<blockquote>
 			<div class="mdui-typo"><p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a
-							href="https://github.com/LychApe/DreamCat" target="_blank">2.7.220805(LTS)</a></p>
+							href="https://github.com/LychApe/DreamCat" target="_blank">2.8.221001(LTS)</a></p>
 				<p>主题开发：<a
 							href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a
 							href="https://github.com/TeddyNight" target="_blank">TeddyNight</a> | <a

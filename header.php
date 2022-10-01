@@ -30,7 +30,6 @@
 <meta http-equiv="x-dns-prefetch-control" content="on">
 <?php $this->header('commentReply='); ?>
 <?php if (Helper::options()->CustomCdn != 'LocalMode' or ''): ?>
-<link rel="dns-prefetch" href="//cdn.jsdelivr.net"/>
 <link rel="dns-prefetch" href="//npm.sourcegcdn.com"/>
 <?php endif; ?>
 <link rel="shortcut icon" href="<?php $this->options->Favicon(); ?>" type="image/x-icon" />
