@@ -36,6 +36,7 @@
 <link rel="stylesheet preload" href="<?php CustomCDN_FAM('mdui@1.0.2/dist/','mdui/1.0.2/','css/mdui.min.css','css/mdui.min.css'); ?>" as="style">
 <link rel="stylesheet preload" href="<?php CustomCDN_url('css/style.css'); ?>" as="style"/>
 <link rel="stylesheet preload" href="<?php CustomCDN_url('css/md2.css'); ?>" as="style"/>
+<link rel="stylesheet" href="//cdnjs.sourcegcdn.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-light.min.css">
 <script rel="preload" src="<?php CustomCDN_FAM('mdui@1.0.2/dist/','mdui/1.0.2/','js/mdui.min.js','js/mdui.min.js'); ?>" is="script"></script>
 <script rel="preload" src="<?php CustomCDN_FAM('smooth-scroll@16.1.2/dist/','smooth-scroll/16.1.2','js/smooth-scroll.min.js','smooth-scroll.min.js'); ?>" is="script"></script>
 <script rel="preload" src="<?php CustomCDN_url('js/alifont_2359325_loysvemas8m.js'); ?>" is="script"></script>

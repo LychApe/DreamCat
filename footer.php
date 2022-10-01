@@ -181,7 +181,10 @@
 		}
 	}
 </script>
-
+<script src="//cdnjs.sourcegcdn.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+<script>
+hljs.initHighlightingOnLoad()
+</script>
 </div>
 <?php $this->footer(); ?>
 </body>
