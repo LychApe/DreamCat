@@ -26,9 +26,12 @@
 	</div>
 	<div class="mdui-container mdui-center">
 		<?php if ($this->have()): ?>
-			<?php while ($this->next()): ?>
-				<a href='<?php $this->permalink() ?>'>
-					<article class="post" itemscope="" itemtype="//schema.org/BlogPosting">
+						<?php while ($this->next()): ?>
+						<?php 
+						$timershaft = $this->fields->timershaft;
+						if($timershaft != 'yes' ):
+						?>
+								<article class="post" itemscope="" itemtype="//schema.org/BlogPosting">
 									<div class="mdui-row">
 										<div id="main">
 											<div class="mdui-col-md-1 mdui-col-lg-1"></div>
@@ -129,8 +132,47 @@
 										</div>
 									</div>
 								</article>
-				</a>
-			<?php endwhile; ?>
+						<?php else:?>
+								<article class="post" itemscope="" itemtype="//schema.org/BlogPosting">
+									<div class="mdui-row">
+										<div id="main">
+											<div class="mdui-col-md-1 mdui-col-lg-1"></div>
+											<div class="mdui-col-md-10 mdui-col-lg-10">
+												<div id="line"></div>
+												<div id="coos">
+													<div class="lis">
+														<div class="spot"></div>
+														<div class="g-lin mdui-hidden-xs"></div>
+												        <div class="mdui-card mdui-hoverable shadow-A1" id="main"role="main"style="background-color: #e8e8e8; border-radius:6px; transform:translateY(-15%);">
+                                                            <div class="mdui-row">
+                                                              <div class="mdui-col-xs-12 mdui-col-sm-4">
+                                                                <div style="    background-color: #dadada;
+                                                                border-radius: 0 0 15px 15px;
+                                                                color: grey;
+                                                                left: 15px;
+                                                                margin-right: 165px;
+                                                                margin-left: 25px;
+                                                                padding: 10px;"><i class="mdui-icon material-icons"></i> 说 说</div>
+                                                              </div>
+                                                              <div class="mdui-col-xs-1 mdui-col-sm-4"></div>
+                                                              <div class="mdui-col-xs-1 mdui-col-sm-4"></div>
+                                                            </div>
+
+                                                          <div class="mdui-card-primary">
+                                                              <div class="mdui-card-primary-title"><?php $this->title(); ?></div>
+                                                            <div class="mdui-card-primary-subtitle"><?php $this->excerpt(520, '...'); ?></div>
+                                                          </div>
+												        <div/>
+													</div>
+												</div>
+											</div>
+											<div class="mdui-col-md-1 mdui-col-lg-1"></div>
+										</div>
+									</div>
+									</div>
+								</article>
+						<?php endif;?>
+						<?php endwhile; ?>
 		<?php else: ?>
 			<article class="post">
 				<h2 class="post-title">没有找到内容</h2>

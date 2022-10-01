@@ -97,7 +97,7 @@
     <!-- 配置中心=>头部 [Start]-->
     <div class="mdui-card-primary">
     	<div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-    	<div class="mdui-card-primary-subtitle">Version: 2.7.220805(LTS)</div>
+    	<div class="mdui-card-primary-subtitle">Version: 2.8.221001(LTS)</div>
     </div>
     <!-- 配置中心=>头部 [End]-->
     
@@ -118,7 +118,7 @@
         				<div class="mdui-card-header">
         				  <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
         				  <div class="mdui-card-header-title">DreamCat</div>
-        				  <div class="mdui-card-header-subtitle">2.7.220805(LTS)</div>
+        				  <div class="mdui-card-header-subtitle">2.8.221001(LTS)</div>
         				</div>
         			</div>
                 </div>
@@ -147,7 +147,7 @@
     		<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
     			<div class="mdui-card-content">
     			最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-    			<div class="mdui-float-right">当前版本：2.7.220805(LTS)</div>
+    			<div class="mdui-float-right">当前版本：2.8.221001(LTS)</div>
     			</div>
     		</div>
     		<br/>
@@ -486,7 +486,16 @@ function themeFields($layout) {
         _t('文章头图'), 
         _t('文章头图会显示在文章的顶部及首页展示图片'));
     $layout->addItem($postimgurl); 
+    
+    $timershaft = new Typecho_Widget_Helper_Form_Element_Text(
+        'timershaft', 
+        null, 
+        null, 
+        _t('时间轴展示内容'), 
+        _t('填写“yes”则此内容在时间轴页面显示不在首页显示.'));
+    $layout->addItem($timershaft); 
 }
+
 function categeid($slug){  //获取栏目id
    $db = Typecho_Db::get();
    $postnum=$db->fetchRow($db->select()->from ('table.metas')->where ('slug=?',$slug)->where('type=?', 'category'));
