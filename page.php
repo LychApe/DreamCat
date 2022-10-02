@@ -14,8 +14,15 @@
 					<div class=" mdui-container page-content">
 						<?php $this->content(); ?>
 					</div>
-					<br/>
-					<?php $this->need('comments.php'); ?>
+			<?php 
+			$CommentSectionSwitch = $this->options->CommentSectionSwitch;
+			if (empty($CommentSectionSwitch || $CommentSectionSwitch == "disabled") ) {
+			     
+			}else{
+			    echo"<br/>";
+			    $this->need('comments.php');
+			}
+			?>
 					<br/>
 					<br/>
 				</div>

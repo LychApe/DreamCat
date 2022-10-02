@@ -41,6 +41,7 @@
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CustomPicture1'));
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('ClickEffects'));
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('Favicon'));
+		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CommentSectionSwitch'));
 		
 		$options = Typecho_Widget::widget('Widget_Options');
 		$Html = <<<HTML
@@ -290,6 +291,11 @@
             	<div class="mdui-textfield">
             	  <input type="text" class="mdui-textfield-input" name="dreamcat_baidusl" value="{$options->baidusl}" placeholder="填入disabled/checked"/>
             	  <div class="mdui-textfield-helper">开启则文章内显示百度是否收录 （开启：checked 关闭：disabled）</div>
+            	</div>
+            	<br/>
+            	<div class="mdui-textfield">
+            	  <input type="text" class="mdui-textfield-input" name="dreamcat_CommentSectionSwitch" value="{$options->CommentSectionSwitch}" placeholder="填入disabled/checked"/>
+            	  <div class="mdui-textfield-helper">评论区开关（开启：checked 关闭：disabled）</div>
             	</div>
             	<br/>
             	<div class="mdui-textfield">
