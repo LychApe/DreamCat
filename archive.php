@@ -28,11 +28,6 @@
 		<?php if ($this->have()): ?>
 						<?php while ($this->next()): ?>
 						<?php 
-						$timershaft = $this->fields->timershaft;
-						if($timershaft != 'yes' ):
-						?>
-						<?php while ($this->next()): ?>
-						<?php 
 						$timershaft_opt = $this->fields->timershaft_opt;
 						if(empty($timershaft_opt)):
 						?>
