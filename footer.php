@@ -14,8 +14,9 @@
 	<div class="DreamCat-infooter">
 		<br/>
 		<div class="mdui-typo">
-			<p>Copyright © <?php echo date('Y'); ?> <a
-						href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
+			<p>Copyright © <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
+			<a target="_blank" style="color: black;background-color: transparent;text-decoration-line: none;" href="https://beian.miit.gov.cn/">互联网ICP备案:
+			<?php echo($this->options->ICPSet); ?></a>
 			<?php $this->options->CustomFooter(); ?>
 		</div>
 		<br/>
