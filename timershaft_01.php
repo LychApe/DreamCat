@@ -1,7 +1,6 @@
 <?php
 	/**
-	 * 时间轴 (公告模式)
-模板
+	 * 时间轴 (所有文章模式)
 	 *
 	 * @package custom
 	 */
@@ -215,7 +214,7 @@
 						<div class="mdui-row-sm-1 mdui-row-md-3 mdui-row-lg-4 mdui-row-xl-5">
 <?php
 $db = Typecho_Db::get();
-$select = $db->select()->from('table.contents','table.fields')
+$select = $db->select()->from('table.contents')
     ->where('type = ?', 'post')
     ->where('table.contents.status = ?', 'publish')
     ->where('table.contents.created < ?', time())
@@ -230,9 +229,9 @@ $timershaft_sql = $db->select()->from('table.fields');
     $posts = $db->fetchAll($select);
     
     foreach ( $posts as $posts_A):
-    foreach ( $timershaft as $timershaft_A):
-    if($timershaft_A["name"] == 'timershaft_opt' && $timershaft_A["str_value"] == 'C' && $timershaft_A["cid"] == $posts_A["cid"]):
+
     ?>
+    
 		<div class="lis">
 			<div class="spot"></div>
 			<div class="ke">
@@ -251,8 +250,6 @@ $timershaft_sql = $db->select()->from('table.fields');
 				</div>
 			</div>
 		</div>
-	<?php endif?>
-	<?php endforeach;?>
     <?php endforeach;?>
 </div>
 </div>

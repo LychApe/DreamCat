@@ -485,7 +485,7 @@ function themeFields($layout) {
         null, 
         _t('文章头图'), 
         _t('文章头图会显示在文章的顶部及首页展示图片'));
-    $layout->addItem($postimgurl); 
+    $layout->addItem($postimgurl);
     
     $timershaft = new Typecho_Widget_Helper_Form_Element_Text(
         'timershaft', 
@@ -494,6 +494,14 @@ function themeFields($layout) {
         _t('时间轴展示内容'), 
         _t('填写“yes”则此内容在时间轴页面显示不在首页显示.'));
     $layout->addItem($timershaft); 
+    $timershaft_opt = new Typecho_Widget_Helper_Form_Element_Text(
+        'timershaft_opt', 
+        null, 
+        null, 
+        _t('文章类型'), 
+        _t('A:说说 B:日志 C:公告 D:状态 (填写字母,留空则默认普通文章)'));
+    $layout->addItem($timershaft_opt); 
+    
 }
 
 function categeid($slug){  //获取栏目id

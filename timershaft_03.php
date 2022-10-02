@@ -1,6 +1,6 @@
 <?php
 	/**
-	 * 时间轴 (公告模式)
+	 * 时间轴 (DIY模式)
 模板
 	 *
 	 * @package custom
@@ -213,47 +213,13 @@
 				<div class="mdui-container">
 					<div class="page-content mdui-container">
 						<div class="mdui-row-sm-1 mdui-row-md-3 mdui-row-lg-4 mdui-row-xl-5">
-<?php
-$db = Typecho_Db::get();
-$select = $db->select()->from('table.contents','table.fields')
-    ->where('type = ?', 'post')
-    ->where('table.contents.status = ?', 'publish')
-    ->where('table.contents.created < ?', time())
-    ->order('table.contents.created', Typecho_Db::SORT_DESC);
-$timershaft_sql = $db->select()->from('table.fields');
-?>
+
 <div id="main">
 <div id="dc_line"></div>
 <div id="coos">
-    <?php
-    $timershaft = $db->fetchAll($timershaft_sql);
-    $posts = $db->fetchAll($select);
-    
-    foreach ( $posts as $posts_A):
-    foreach ( $timershaft as $timershaft_A):
-    if($timershaft_A["name"] == 'timershaft_opt' && $timershaft_A["str_value"] == 'C' && $timershaft_A["cid"] == $posts_A["cid"]):
-    ?>
-		<div class="lis">
-			<div class="spot"></div>
-			<div class="ke">
-				<div class="dc_g-lin"></div>
-				<div class="item pink">
-					<p class="date"><?php echo(date('Y-m-d H:i:s',$posts_A["created"])); ?></p>
-					<h2 class="title"><span class="tag">#</span> 
-					<a href="" target="_blank"><?php echo($posts_A["title"]) ?></a></h2>
-					<div class="mdui-container">
-					<div class="des mdui-typo">
-					    <div class="mdui-text-truncate" style="max-height: 80px;">
-					        <?php echo(nl2br($posts_A["text"]));?>
-					    </div>
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	<?php endif?>
-	<?php endforeach;?>
-    <?php endforeach;?>
+
+    <?php $this->content(); ?>
+
 </div>
 </div>
 

@@ -154,8 +154,8 @@
 					<div class="mdui-container mdui-center">
 						<?php while ($this->next()): ?>
 						<?php 
-						$timershaft = $this->fields->timershaft;
-						if($timershaft != 'yes' ):
+						$timershaft_opt = $this->fields->timershaft_opt;
+						if(empty($timershaft_opt)):
 						?>
 								<article class="post" itemscope="" itemtype="//schema.org/BlogPosting">
 									<div class="mdui-row">
@@ -278,7 +278,19 @@
                                                                 left: 15px;
                                                                 margin-right: 165px;
                                                                 margin-left: 25px;
-                                                                padding: 10px;"><i class="mdui-icon material-icons"></i> 说 说</div>
+                                                                padding: 10px;"><i class="mdui-icon material-icons"></i>
+                                                                <?php
+                                                                if($timershaft_opt == "A"){
+                                                                    echo" 说 说";
+                                                                }elseif($timershaft_opt == "B"){
+                                                                    echo" 日 志";
+                                                                }elseif($timershaft_opt == "C"){
+                                                                    echo" 公 告";
+                                                                }elseif($timershaft_opt == "D"){
+                                                                    echo" 状 态";
+                                                                }
+                                                                ?>
+                                                                </div>
                                                               </div>
                                                               <div class="mdui-col-xs-1 mdui-col-sm-4"></div>
                                                               <div class="mdui-col-xs-1 mdui-col-sm-4"></div>
