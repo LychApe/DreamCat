@@ -1,7 +1,6 @@
 <?php
 	/**
-	 * 时间轴 (公告模式)
-模板
+	 * 时间轴 (自定义文章模式)
 	 *
 	 * @package custom
 	 */
@@ -231,7 +230,7 @@ $timershaft_sql = $db->select()->from('table.fields');
     
     foreach ( $posts as $posts_A):
     foreach ( $timershaft as $timershaft_A):
-    if($timershaft_A["name"] == 'timershaft_opt' && $timershaft_A["str_value"] == 'C' && $timershaft_A["cid"] == $posts_A["cid"]):
+    if($timershaft_A["str_value"] == 'yes' && $timershaft_A["cid"] == $posts_A["cid"]):
     ?>
 		<div class="lis">
 			<div class="spot"></div>
