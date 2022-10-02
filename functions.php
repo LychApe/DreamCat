@@ -42,6 +42,7 @@
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('ClickEffects'));
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('Favicon'));
 		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CommentSectionSwitch'));
+		$form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('ICPSet'));
 		
 		$options = Typecho_Widget::widget('Widget_Options');
 		$Html = <<<HTML
@@ -188,7 +189,10 @@
         		  <input type="text" class="mdui-textfield-input" name="dreamcat_Dec" value="{$options->Dec}" placeholder="填入首页标语"/>
         		  <div class="mdui-textfield-helper">在这里填入一个首页标语, 以在网站前台显示首页标语，留空则不显示</div>
         		</div>
-        		
+        		<div class="mdui-textfield">
+        		  <input type="text" class="mdui-textfield-input" name="dreamcat_ICPSet" value="{$options->ICPSet}" placeholder="填入ICP备案号"/>
+        		  <div class="mdui-textfield-helper">在这里填入一个ICP备案号, 以在网站显示，留空则不显示</div>
+        		</div>
         	<br/>
         	<div class="mdui-chip">
         	  <span class="mdui-chip-title">SEO设置</span>
