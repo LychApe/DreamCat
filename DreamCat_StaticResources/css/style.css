@@ -295,3 +295,6 @@ box-shadow:.5rem .875rem 2.375rem rgba(255,255,255,.12),
     border-right: 1pxsolidvar(--border-color);
     border-radius: 0;
 }
+.page-content img{
+    width: -webkit-fill-available;
+}
