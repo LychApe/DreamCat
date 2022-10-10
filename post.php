@@ -76,7 +76,7 @@
 
 				<div style="border-top: 1px dashed #e0e0e0; font-size: 14px;"></div>
 				<div class="mdui-card-content">
-					<div class="page-content">
+					<div class="page-content page-content-img">
 						<?php $this->content(); ?>
 					</div>
 				</div>
