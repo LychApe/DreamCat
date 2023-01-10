@@ -11,38 +11,40 @@
             </div>
 
             <div class="mdui-hidden-sm-down"
-                style="box-sizing: border-box; display: flex;flex-direction: column;align-items: flex-start;padding: 0 50px;position: relative;">
+                 style="box-sizing: border-box; display: flex;flex-direction: column;align-items: flex-start;padding: 0 50px;position: relative;">
                 <div class="footer-top-contact-logos">
-                    <?php 
-                        if (!empty($this->options->DC_FooterLogoUrl)) {
-                            echo('<img width="173px" height="35px" src="'.$this->options->DC_FooterLogoUrl.'">');
-                        }
+                    <?php
+                    if (!empty($this->options->DC_FooterLogoUrl)) {
+                        echo('<img width="173px" height="35px" src="' . $this->options->DC_FooterLogoUrl . '">');
+                    }
                     ?>
                 </div>
                 <div style="align-items: center;">
                     <div class="mdui-row-xs-3">
                         <div class="mdui-col">
                             <?php if (!empty($this->options->DC_A_qq)): ?>
-                            <a mdui-dialog="{target: '#DC_A_qq'}">
-                                <div class="DreamCat-icon-ts icon iconfont icon-QQ-circle-fill"
-                                    style="font-size: 35px;"></div>
-                            </a>
+                                <a mdui-dialog="{target: '#DC_A_qq'}">
+                                    <div class="DreamCat-icon-ts icon iconfont icon-QQ-circle-fill"
+                                         style="font-size: 35px;"></div>
+                                </a>
                             <?php endif; ?>
                         </div>
                         <div class="mdui-col">
                             <?php if (!empty($this->options->DC_A_github)): ?>
-                            <a href="<?php $this->options->DC_A_github() ?>"
-                                style="text-decoration: none;color: black;">
-                                <div class="DreamCat-icon-ts icon iconfont icon-github" style="font-size: 35px;"></div>
-                            </a>
+                                <a href="<?php $this->options->DC_A_github() ?>"
+                                   style="text-decoration: none;color: black;">
+                                    <div class="DreamCat-icon-ts icon iconfont icon-github"
+                                         style="font-size: 35px;"></div>
+                                </a>
                             <?php endif; ?>
                         </div>
                         <div class="mdui-col">
                             <?php if (!empty($this->options->DC_A_wx)): ?>
-                            <a mdui-dialog="{target: '#DC_A_wx'}">
-                                <div class="DreamCat-icon-ts icon iconfont icon-logo-wechat" style="font-size: 35px;">
-                                </div>
-                            </a>
+                                <a mdui-dialog="{target: '#DC_A_wx'}">
+                                    <div class="DreamCat-icon-ts icon iconfont icon-logo-wechat"
+                                         style="font-size: 35px;">
+                                    </div>
+                                </a>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -92,149 +94,169 @@
 </div>
 
 
-
 <script
-    src="<?php CustomCDN_FAM('ajax/libs/mdui/1.0.2/','ajax/libs/mdui/1.0.2/','js/mdui.min.js','js/mdui.min.js'); ?>">
+    src="<?php CustomCDN_FAM('ajax/libs/mdui/1.0.2/', 'ajax/libs/mdui/1.0.2/', 'js/mdui.min.js', 'js/mdui.min.js'); ?>">
 </script>
 <script src="<?php CustomCDN_url('js/dreamcat.js'); ?>"></script>
 <script
-    src="<?php CustomCDN_FAM('ajax/libs/highlight.js/11.6.0/','ajax/libs/highlight.js/11.6.0/','js/highlight.min.js','highlight.min.js'); ?>">
+    src="<?php CustomCDN_FAM('ajax/libs/highlight.js/11.6.0/', 'ajax/libs/highlight.js/11.6.0/', 'js/highlight.min.js', 'highlight.min.js'); ?>">
 </script>
 <script
-    src="<?php CustomCDN_FAM('ajax/libs/smooth-scroll/16.1.3/','ajax/libs/smooth-scroll/16.1.3/','js/smooth-scroll.min.js','smooth-scroll.min.js'); ?>">
+    src="<?php CustomCDN_FAM('ajax/libs/smooth-scroll/16.1.3/', 'ajax/libs/smooth-scroll/16.1.3/', 'js/smooth-scroll.min.js', 'smooth-scroll.min.js'); ?>">
 </script>
 
 <script>
-hljs.initHighlightingOnLoad()
+    hljs.initHighlightingOnLoad()
 </script>
 <script>
-let t = null;
-t = setTimeout(time, 1000);
-function time() {
-    clearTimeout(t);
-    dt = new Date();
-    let y = dt.getFullYear();
-    let m1 = dt.getMonth() + 1;
-    let d = dt.getDate();
-    let h = dt.getHours();
-    let m2 = dt.getMinutes();
-    let s = dt.getSeconds();
-    if(m1<10){mo ='0'+m1}else{mo = m1}
-    if(d<10){da ='0'+d}else{da = d}
-    if(h<10){ho ='0'+h}else{ho = h}
-    if(m2<10){mi ='0'+m2}else{mi = m2}
-    if(s<10){se ='0'+s}else{se = s}
-    document.querySelector(".showTime").innerHTML = y +"年" +mo +"月" +da +"日  " +ho +":" +mi +":" +se+"";
+    let t = null;
     t = setTimeout(time, 1000);
-}
+
+    function time() {
+        clearTimeout(t);
+        dt = new Date();
+        let y = dt.getFullYear();
+        let m1 = dt.getMonth() + 1;
+        let d = dt.getDate();
+        let h = dt.getHours();
+        let m2 = dt.getMinutes();
+        let s = dt.getSeconds();
+        if (m1 < 10) {
+            mo = '0' + m1
+        } else {
+            mo = m1
+        }
+        if (d < 10) {
+            da = '0' + d
+        } else {
+            da = d
+        }
+        if (h < 10) {
+            ho = '0' + h
+        } else {
+            ho = h
+        }
+        if (m2 < 10) {
+            mi = '0' + m2
+        } else {
+            mi = m2
+        }
+        if (s < 10) {
+            se = '0' + s
+        } else {
+            se = s
+        }
+        document.querySelector(".showTime").innerHTML = y + "年" + mo + "月" + da + "日  " + ho + ":" + mi + ":" + se + "";
+        t = setTimeout(time, 1000);
+    }
 </script>
 <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
 <!--右下返回顶部按钮-->
 <style>
-.scrollTop {
-    display: none;
-    /* 默认隐藏 */
-    position: fixed;
-    bottom: 20px;
-    right: 10px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 10px;
-    /* 圆角 */
-}
+    .scrollTop {
+        display: none;
+        /* 默认隐藏 */
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 10px;
+        /* 圆角 */
+    }
 </style>
 <div class="mdui-fab-wrapper">
     <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink scrollTop" id="back-top"
-        onclick="scrollFunction()">
+       onclick="scrollFunction()">
         <i class="mdui-icon material-icons">&#xe5d8;</i></a>
 </div>
 <!-- 返回顶部js -->
 <script>
-window.onscroll = function() {
-    scrollFunction()
-};
+    window.onscroll = function () {
+        scrollFunction()
+    };
 
-var scroll = new SmoothScroll("a[href*='#']");
+    var scroll = new SmoothScroll("a[href*='#']");
 
-var $ = mdui.$;
-$('#back-top').on('click', function() {
-    mdui.snackbar({
-        message: '啊！撞到头辣！(๑╹っ╹๑)',
-        position: 'right-top'
+    var $ = mdui.$;
+    $('#back-top').on('click', function () {
+        mdui.snackbar({
+            message: '啊！撞到头辣！(๑╹っ╹๑)',
+            position: 'right-top'
+        });
     });
-});
 
-// 当网页向下滑动 30px 出现"返回顶部" 按钮
-function scrollFunction() {
-    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-        document.getElementById("back-top").style.display = "block";
-    } else {
-        document.getElementById("back-top").style.display = "none";
+    // 当网页向下滑动 30px 出现"返回顶部" 按钮
+    function scrollFunction() {
+        if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+            document.getElementById("back-top").style.display = "block";
+        } else {
+            document.getElementById("back-top").style.display = "none";
+        }
     }
-}
 </script>
 
 
 <?php if (is_array($this->options->DC_GlobalApp) && in_array('DCShowClickEffect', $this->options->DC_GlobalApp)): ?>
-<script>
-! function(e, t, a) {
-    function r() {
-        for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--,
-            s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y +
-            "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale +
-            ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-        requestAnimationFrame(r)
-    }
+    <script>
+        !function (e, t, a) {
+            function r() {
+                for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--,
+                    s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y +
+                    "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale +
+                    ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+                requestAnimationFrame(r)
+            }
 
-    function n() {
-        var t = "function" == typeof e.onclick && e.onclick;
-        e.onclick = function(e) {
-            t && t(), o(e)
-        }
-    }
+            function n() {
+                var t = "function" == typeof e.onclick && e.onclick;
+                e.onclick = function (e) {
+                    t && t(), o(e)
+                }
+            }
 
-    function o(e) {
-        var a = t.createElement("div");
-        a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-        }), t.body.appendChild(a)
-    }
+            function o(e) {
+                var a = t.createElement("div");
+                a.className = "heart", s.push({
+                    el: a,
+                    x: e.clientX - 5,
+                    y: e.clientY - 5,
+                    scale: 1,
+                    alpha: 1,
+                    color: c()
+                }), t.body.appendChild(a)
+            }
 
-    function i(e) {
-        var a = t.createElement("style");
-        a.type = "text/css";
-        try {
-            a.appendChild(t.createTextNode(e))
-        } catch (t) {
-            a.styleSheet.cssText = e
-        }
-        t.getElementsByTagName("head")[0].appendChild(a)
-    }
+            function i(e) {
+                var a = t.createElement("style");
+                a.type = "text/css";
+                try {
+                    a.appendChild(t.createTextNode(e))
+                } catch (t) {
+                    a.styleSheet.cssText = e
+                }
+                t.getElementsByTagName("head")[0].appendChild(a)
+            }
 
-    function c() {
-        return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-    }
+            function c() {
+                return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+            }
 
-    var s = [];
-    e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame ||
-        e.oRequestAnimationFrame || e.msRequestAnimationFrame || function(e) {
-            setTimeout(e, 1e3 / 60)
-        }, i(
-            ".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"
-        ), n(), r()
-}(window, document);
-</script>
-<script>
-<?php $this->options->DC_WebCustomJavascript() ?>
-</script>
+            var s = [];
+            e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame ||
+                e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+                    setTimeout(e, 1e3 / 60)
+                }, i(
+                ".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"
+            ), n(), r()
+        }(window, document);
+    </script>
+    <script>
+        <?php $this->options->DC_WebCustomJavascript() ?>
+    </script>
 
 
 <?php endif; ?>
