@@ -6,33 +6,43 @@
 function isFunction(target) {
     return typeof target === 'function';
 }
+
 function isString(target) {
     return typeof target === 'string';
 }
+
 function isNumber(target) {
     return typeof target === 'number';
 }
+
 function isBoolean(target) {
     return typeof target === 'boolean';
 }
+
 function isUndefined(target) {
     return typeof target === 'undefined';
 }
+
 function isNull(target) {
     return target === null;
 }
+
 function isWindow(target) {
     return target instanceof Window;
 }
+
 function isDocument(target) {
     return target instanceof Document;
 }
+
 function isElement(target) {
     return target instanceof Element;
 }
+
 function isNode(target) {
     return target instanceof Node;
 }
+
 /**
  * 是否是 IE 浏览器
  */
@@ -40,18 +50,22 @@ function isIE() {
     // @ts-ignore
     return !!window.document.documentMode;
 }
+
 function isArrayLike(target) {
     if (isFunction(target) || isWindow(target)) {
         return false;
     }
     return isNumber(target.length);
 }
+
 function isObjectLike(target) {
     return typeof target === 'object' && target !== null;
 }
+
 function toElement(target) {
     return isDocument(target) ? target.documentElement : target;
 }
+
 /**
  * 把用 - 分隔的字符串转为驼峰（如 box-sizing 转换为 boxSizing）
  * @param string
@@ -61,6 +75,7 @@ function toCamelCase(string) {
         .replace(/^-ms-/, 'ms-')
         .replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
 }
+
 /**
  * 把驼峰法转为用 - 分隔的字符串（如 boxSizing 转换为 box-sizing）
  * @param string
@@ -68,6 +83,7 @@ function toCamelCase(string) {
 function toKebabCase(string) {
     return string.replace(/[A-Z]/g, (replacer) => '-' + replacer.toLowerCase());
 }
+
 /**
  * 获取元素的样式值
  * @param element
@@ -76,6 +92,7 @@ function toKebabCase(string) {
 function getComputedStyleValue(element, name) {
     return window.getComputedStyle(element).getPropertyValue(toKebabCase(name));
 }
+
 /**
  * 检查元素的 box-sizing 是否是 border-box
  * @param element
@@ -83,6 +100,7 @@ function getComputedStyleValue(element, name) {
 function isBorderBox(element) {
     return getComputedStyleValue(element, 'box-sizing') === 'border-box';
 }
+
 /**
  * 获取元素的 padding, border, margin 宽度（两侧宽度的和，单位为px）
  * @param element
@@ -99,6 +117,7 @@ function getExtraWidth(element, direction, extra) {
         return prev + parseFloat(getComputedStyleValue(element, prop) || '0');
     }, 0);
 }
+
 /**
  * 获取元素的样式值，对 width 和 height 进行过处理
  * @param element
@@ -112,11 +131,12 @@ function getStyle(element, name) {
             return `${valueNumber}px`;
         }
         return `${valueNumber -
-            getExtraWidth(element, name, 'border') -
-            getExtraWidth(element, name, 'padding')}px`;
+        getExtraWidth(element, name, 'border') -
+        getExtraWidth(element, name, 'padding')}px`;
     }
     return getComputedStyleValue(element, name);
 }
+
 /**
  * 获取子节点组成的数组
  * @param target
@@ -127,12 +147,14 @@ function getChildNodesArray(target, parent) {
     tempParent.innerHTML = target;
     return [].slice.call(tempParent.childNodes);
 }
+
 /**
  * 始终返回 false 的函数
  */
 function returnFalse() {
     return false;
 }
+
 /**
  * 数值单位的 CSS 属性
  */
@@ -166,8 +188,7 @@ function each(target, callback) {
                 return target;
             }
         }
-    }
-    else {
+    } else {
         const keys = Object.keys(target);
         for (let i = 0; i < keys.length; i += 1) {
             if (callback.call(target[keys[i]], keys[i], target[keys[i]]) === false) {
@@ -210,8 +231,7 @@ function get$() {
             if (/complete|loaded|interactive/.test(document.readyState) &&
                 document.body) {
                 selector.call(document, $);
-            }
-            else {
+            } else {
                 document.addEventListener('DOMContentLoaded', () => selector.call(document, $), false);
             }
             return new JQ([document]);
@@ -258,6 +278,7 @@ function get$() {
     $.fn = JQ.prototype;
     return $;
 }
+
 const $ = get$();
 
 // 避免页面加载完后直接执行css动画
@@ -276,11 +297,11 @@ $.fn.each = function (callback) {
  * @param container 父元素
  * @param contains 子元素
  * @example
-```js
-contains( document, document.body ); // true
-contains( document.getElementById('test'), document ); // false
-contains( $('.container').get(0), $('.contains').get(0) ); // false
-```
+ ```js
+ contains( document, document.body ); // true
+ contains( document.getElementById('test'), document ); // false
+ contains( $('.container').get(0), $('.contains').get(0) ); // false
+ ```
  */
 function contains(container, contains) {
     return container !== contains && toElement(container).contains(contains);
@@ -291,10 +312,10 @@ function contains(container, contains) {
  * @param first 第一个数组
  * @param second 该数组的元素将被追加到第一个数组中
  * @example
-```js
-merge( [ 0, 1, 2 ], [ 2, 3, 4 ] )
-// [ 0, 1, 2, 2, 3, 4 ]
-```
+ ```js
+ merge( [ 0, 1, 2 ], [ 2, 3, 4 ] )
+ // [ 0, 1, 2, 2, 3, 4 ]
+ ```
  */
 function merge(first, second) {
     each(second, (_, value) => {
@@ -321,6 +342,7 @@ $.fn.find = function (selector) {
 const handlers = {};
 // 元素ID
 let mduiElementId = 1;
+
 /**
  * 为元素赋予一个唯一的ID
  */
@@ -334,6 +356,7 @@ function getElementId(element) {
     // @ts-ignore
     return element[key];
 }
+
 /**
  * 解析事件名中的命名空间
  */
@@ -344,12 +367,14 @@ function parse(type) {
         ns: parts.slice(1).sort().join(' '),
     };
 }
+
 /**
  * 命名空间匹配规则
  */
 function matcherFor(ns) {
     return new RegExp('(?:^| )' + ns.replace(' ', ' .* ?') + '(?: |$)');
 }
+
 /**
  * 获取匹配的事件
  * @param element
@@ -365,6 +390,7 @@ function getHandlers(element, type, func, selector) {
         (!func || getElementId(handler.func) === getElementId(func)) &&
         (!selector || handler.selector === selector));
 }
+
 /**
  * 添加事件监听
  * @param element
@@ -388,16 +414,18 @@ function add(element, types, func, data, selector) {
             return;
         }
         const event = parse(type);
+
         function callFn(e, elem) {
             // 因为鼠标事件模拟事件的 detail 属性是只读的，因此在 e._detail 中存储参数
-            const result = func.apply(elem, 
-            // @ts-ignore
-            e._detail === undefined ? [e] : [e].concat(e._detail));
+            const result = func.apply(elem,
+                // @ts-ignore
+                e._detail === undefined ? [e] : [e].concat(e._detail));
             if (result === false) {
                 e.preventDefault();
                 e.stopPropagation();
             }
         }
+
         function proxyFn(e) {
             // @ts-ignore
             if (e._ns && !matcherFor(e._ns).test(event.ns)) {
@@ -412,17 +440,17 @@ function add(element, types, func, data, selector) {
                     .get()
                     .reverse()
                     .forEach((elem) => {
-                    if (elem === e.target ||
-                        contains(elem, e.target)) {
-                        callFn(e, elem);
-                    }
-                });
-            }
-            else {
+                        if (elem === e.target ||
+                            contains(elem, e.target)) {
+                            callFn(e, elem);
+                        }
+                    });
+            } else {
                 // 不使用事件代理
                 callFn(e, element);
             }
         }
+
         const handler = {
             type: event.type,
             ns: event.ns,
@@ -435,6 +463,7 @@ function add(element, types, func, data, selector) {
         element.addEventListener(handler.type, proxyFn, useCapture);
     });
 }
+
 /**
  * 移除事件监听
  * @param element
@@ -450,8 +479,7 @@ function remove(element, types, func, selector) {
     };
     if (!types) {
         handlersInElement.forEach((handler) => removeEvent(handler));
-    }
-    else {
+    } else {
         types.split(' ').forEach((type) => {
             if (type) {
                 getHandlers(element, type, func, selector).forEach((handler) => removeEvent(handler));
@@ -471,8 +499,7 @@ $.fn.trigger = function (type, extraParameters) {
     if (isMouseEvent) {
         // Note: MouseEvent 无法传入 detail 参数
         eventObject = new MouseEvent(event.type, eventParams);
-    }
-    else {
+    } else {
         eventParams.detail = extraParameters;
         eventObject = new CustomEvent(event.type, eventParams);
     }
@@ -503,63 +530,61 @@ function extend(target, object1, ...objectN) {
  * 若传入数组，则格式必须和 serializeArray 方法的返回值一样
  * @param obj 对象或数组
  * @example
-```js
-param({ width: 1680, height: 1050 });
-// width=1680&height=1050
-```
+ ```js
+ param({ width: 1680, height: 1050 });
+ // width=1680&height=1050
+ ```
  * @example
-```js
-param({ foo: { one: 1, two: 2 }})
-// foo[one]=1&foo[two]=2
-```
+ ```js
+ param({ foo: { one: 1, two: 2 }})
+ // foo[one]=1&foo[two]=2
+ ```
  * @example
-```js
-param({ids: [1, 2, 3]})
-// ids[]=1&ids[]=2&ids[]=3
-```
+ ```js
+ param({ids: [1, 2, 3]})
+ // ids[]=1&ids[]=2&ids[]=3
+ ```
  * @example
-```js
-param([
-  {"name":"name","value":"mdui"},
-  {"name":"password","value":"123456"}
-])
-// name=mdui&password=123456
-```
+ ```js
+ param([
+ {"name":"name","value":"mdui"},
+ {"name":"password","value":"123456"}
+ ])
+ // name=mdui&password=123456
+ ```
  */
 function param(obj) {
     if (!isObjectLike(obj) && !Array.isArray(obj)) {
         return '';
     }
     const args = [];
+
     function destructure(key, value) {
         let keyTmp;
         if (isObjectLike(value)) {
             each(value, (i, v) => {
                 if (Array.isArray(value) && !isObjectLike(v)) {
                     keyTmp = '';
-                }
-                else {
+                } else {
                     keyTmp = i;
                 }
                 destructure(`${key}[${keyTmp}]`, v);
             });
-        }
-        else {
+        } else {
             if (value == null || value === '') {
                 keyTmp = '=';
-            }
-            else {
+            } else {
                 keyTmp = `=${encodeURIComponent(value)}`;
             }
             args.push(encodeURIComponent(key) + keyTmp);
         }
     }
+
     if (Array.isArray(obj)) {
         each(obj, function () {
             destructure(this.name, this.value);
         });
-    }
-    else {
+    } else {
         each(obj, destructure);
     }
     return args.join('&');
@@ -582,6 +607,7 @@ const ajaxEvents = {
 function isQueryStringData(method) {
     return ['GET', 'HEAD'].indexOf(method) >= 0;
 }
+
 /**
  * 添加参数到 URL 上，且 URL 中不存在 ? 时，自动把第一个 & 替换为 ?
  * @param url
@@ -590,6 +616,7 @@ function isQueryStringData(method) {
 function appendQuery(url, query) {
     return `${url}&${query}`.replace(/[&?]{1,2}/, '?');
 }
+
 /**
  * 合并请求参数，参数优先级：options > globalOptions > defaults
  * @param options
@@ -629,19 +656,20 @@ function mergeOptions(options) {
     });
     return extend({}, defaults, options);
 }
+
 /**
  * 发送 ajax 请求
  * @param options
  * @example
-```js
-ajax({
+ ```js
+ ajax({
   method: "POST",
   url: "some.php",
   data: { name: "John", location: "Boston" }
 }).then(function( msg ) {
   alert( "Data Saved: " + msg );
 });
-```
+ ```
  */
 function ajax(options) {
     // 是否已取消请求
@@ -682,6 +710,7 @@ function ajax(options) {
         url = appendQuery(url, data);
         data = null;
     }
+
     /**
      * 触发事件和回调函数
      * @param event
@@ -715,6 +744,7 @@ function ajax(options) {
             }
         }
     }
+
     // XMLHttpRequest 请求
     function XHR() {
         let textStatus;
@@ -770,11 +800,9 @@ function ajax(options) {
                 if (isHttpStatusSuccess) {
                     if (xhr.status === 204 || method === 'HEAD') {
                         textStatus = 'nocontent';
-                    }
-                    else if (xhr.status === 304) {
+                    } else if (xhr.status === 304) {
                         textStatus = 'notmodified';
-                    }
-                    else {
+                    } else {
                         textStatus = 'success';
                     }
                     if (dataType === 'json') {
@@ -782,8 +810,7 @@ function ajax(options) {
                             responseData =
                                 method === 'HEAD' ? undefined : JSON.parse(xhr.responseText);
                             eventParams.data = responseData;
-                        }
-                        catch (err) {
+                        } catch (err) {
                             textStatus = 'parsererror';
                             trigger(ajaxEvents.ajaxError, eventParams, 'error', xhr, textStatus);
                             reject(new Error(textStatus));
@@ -792,8 +819,7 @@ function ajax(options) {
                             trigger(ajaxEvents.ajaxSuccess, eventParams, 'success', responseData, textStatus, xhr);
                             resolve(responseData);
                         }
-                    }
-                    else {
+                    } else {
                         responseData =
                             method === 'HEAD'
                                 ? undefined
@@ -804,8 +830,7 @@ function ajax(options) {
                         trigger(ajaxEvents.ajaxSuccess, eventParams, 'success', responseData, textStatus, xhr);
                         resolve(responseData);
                     }
-                }
-                else {
+                } else {
                     textStatus = 'error';
                     trigger(ajaxEvents.ajaxError, eventParams, 'error', xhr, textStatus);
                     reject(new Error(textStatus));
@@ -815,8 +840,7 @@ function ajax(options) {
                     if (func && func[xhr.status]) {
                         if (isHttpStatusSuccess) {
                             func[xhr.status](responseData, textStatus, xhr);
-                        }
-                        else {
+                        } else {
                             func[xhr.status](xhr, textStatus);
                         }
                     }
@@ -857,6 +881,7 @@ function ajax(options) {
             xhr.send(data);
         });
     }
+
     return XHR();
 }
 
@@ -866,12 +891,12 @@ $.ajax = ajax;
  * 为 Ajax 请求设置全局配置参数
  * @param options 键值对参数
  * @example
-```js
-ajaxSetup({
+ ```js
+ ajaxSetup({
   dataType: 'json',
   method: 'POST',
 });
-```
+ ```
  */
 function ajaxSetup(options) {
     return extend(globalOptions, options);
@@ -899,6 +924,7 @@ function setObjectToElement(element, object) {
         element[dataNS][toCamelCase(key)] = value;
     });
 }
+
 function data(element, key, value) {
     // 根据键值对设置值
     // data(element, { 'key' : 'value' })
@@ -909,7 +935,7 @@ function data(element, key, value) {
     // 根据 key、value 设置值
     // data(element, 'key', 'value')
     if (!isUndefined(value)) {
-        setObjectToElement(element, { [key]: value });
+        setObjectToElement(element, {[key]: value});
         return value;
     }
     // 获取所有值
@@ -970,26 +996,26 @@ $.param = param;
  * 若未指定键名，将移除元素上所有数据
  *
  * 多个键名可以用空格分隔，或者用数组表示多个键名
-  @example
-```js
-// 移除元素上键名为 name 的数据
-removeData(document.body, 'name');
-```
+ @example
+ ```js
+ // 移除元素上键名为 name 的数据
+ removeData(document.body, 'name');
+ ```
  * @example
-```js
-// 移除元素上键名为 name1 和 name2 的数据
-removeData(document.body, 'name1 name2');
-```
+ ```js
+ // 移除元素上键名为 name1 和 name2 的数据
+ removeData(document.body, 'name1 name2');
+ ```
  * @example
-```js
-// 移除元素上键名为 name1 和 name2 的数据
-removeData(document.body, ['name1', 'name2']);
-```
+ ```js
+ // 移除元素上键名为 name1 和 name2 的数据
+ removeData(document.body, ['name1', 'name2']);
+ ```
  * @example
-```js
-// 移除元素上所有数据
-removeData(document.body);
-```
+ ```js
+ // 移除元素上所有数据
+ removeData(document.body);
+ ```
  */
 function removeData(element, name) {
     // @ts-ignore
@@ -1012,14 +1038,12 @@ function removeData(element, name) {
         // @ts-ignore
         delete element[dataNS];
         // @ts-ignore
-    }
-    else if (isString(name)) {
+    } else if (isString(name)) {
         name
             .split(' ')
             .filter((nameItem) => nameItem)
             .forEach((nameItem) => remove(nameItem));
-    }
-    else {
+    } else {
         each(name, (_, nameItem) => remove(nameItem));
     }
 }
@@ -1030,10 +1054,10 @@ $.removeData = removeData;
  * 过滤掉数组中的重复元素
  * @param arr 数组
  * @example
-```js
-unique([1, 2, 12, 3, 2, 1, 2, 1, 1]);
-// [1, 2, 12, 3]
-```
+ ```js
+ unique([1, 2, 12, 3, 2, 1, 2, 1, 1]);
+ // [1, 2, 12, 3]
+ ```
  */
 function unique(arr) {
     const result = [];
@@ -1103,6 +1127,7 @@ each(['insertBefore', 'insertAfter'], (nameIndex, name) => {
 function isPlainText(target) {
     return (isString(target) && (target[0] !== '<' || target[target.length - 1] !== '>'));
 }
+
 each(['before', 'after'], (nameIndex, name) => {
     $.fn[name] = function (...args) {
         // after 方法，多个参数需要按参数顺序添加到元素后面，所以需要将参数顺序反向处理
@@ -1117,11 +1142,9 @@ each(['before', 'after'], (nameIndex, name) => {
                 let $target;
                 if (isPlainText(target)) {
                     $target = $(getChildNodesArray(target, 'div'));
-                }
-                else if (index && isElement(target)) {
+                } else if (index && isElement(target)) {
                     $target = $(target.cloneNode(true));
-                }
-                else {
+                } else {
                     $target = $(target);
                 }
                 $target[nameIndex ? 'insertAfter' : 'insertBefore'](element);
@@ -1175,14 +1198,12 @@ $.fn.on = function (types, selector, data, callback, one) {
         // (types, fn)
         callback = selector;
         data = selector = undefined;
-    }
-    else if (callback == null) {
+    } else if (callback == null) {
         if (isString(selector)) {
             // (types, selector, fn)
             callback = data;
             data = undefined;
-        }
-        else {
+        } else {
             // (types, data, fn)
             callback = data;
             data = selector;
@@ -1191,8 +1212,7 @@ $.fn.on = function (types, selector, data, callback, one) {
     }
     if (callback === false) {
         callback = returnFalse;
-    }
-    else if (!callback) {
+    } else if (!callback) {
         return this;
     }
     // $().one()
@@ -1330,8 +1350,7 @@ each(['attr', 'prop', 'css'], (nameIndex, name) => {
             case 0:
                 if (isNull(value)) {
                     element.removeAttribute(key);
-                }
-                else {
+                } else {
                     element.setAttribute(key, value);
                 }
                 break;
@@ -1350,6 +1369,7 @@ each(['attr', 'prop', 'css'], (nameIndex, name) => {
                 break;
         }
     }
+
     function get(element, key) {
         switch (nameIndex) {
             // attr
@@ -1366,6 +1386,7 @@ each(['attr', 'prop', 'css'], (nameIndex, name) => {
                 return getStyle(element, key);
         }
     }
+
     $.fn[name] = function (key, value) {
         if (isObjectLike(key)) {
             each(key, (k, v) => {
@@ -1467,6 +1488,7 @@ $.fn.closest = function (selector) {
 };
 
 const rbrace = /^(?:{[\w\W]*\}|\[[\w\W]*\])$/;
+
 // 从 `data-*` 中获取的值，需要经过该函数转换
 function getData(value) {
     if (value === 'true') {
@@ -1486,6 +1508,7 @@ function getData(value) {
     }
     return value;
 }
+
 // 若 value 不存在，则从 `data-*` 中获取值
 function dataAttr(element, key, value) {
     if (isUndefined(value) && element.nodeType === 1) {
@@ -1494,15 +1517,15 @@ function dataAttr(element, key, value) {
         if (isString(value)) {
             try {
                 value = getData(value);
+            } catch (e) {
             }
-            catch (e) { }
-        }
-        else {
+        } else {
             value = undefined;
         }
     }
     return value;
 }
+
 $.fn.data = function (key, value) {
     // 获取所有值
     if (isUndefined(key)) {
@@ -1583,7 +1606,7 @@ $.fn.first = function () {
 
 $.fn.has = function (selector) {
     const $targets = isString(selector) ? this.find(selector) : $(selector);
-    const { length } = $targets;
+    const {length} = $targets;
     return this.map(function () {
         for (let i = 0; i < length; i += 1) {
             if (contains(this, $targets[i])) {
@@ -1630,8 +1653,7 @@ function handleExtraWidth(element, name, value, funcIndex, includeMargin, multip
             value -= getExtraWidthValue('border');
             value -= getExtraWidthValue('padding');
         }
-    }
-    else {
+    } else {
         if (funcIndex === 0) {
             value += getExtraWidthValue('padding');
         }
@@ -1642,6 +1664,7 @@ function handleExtraWidth(element, name, value, funcIndex, includeMargin, multip
     }
     return value;
 }
+
 /**
  * 获取元素的样式值
  * @param element
@@ -1665,14 +1688,15 @@ function get(element, name, funcIndex, includeMargin) {
     if (isDocument(element)) {
         const doc = toElement(element);
         return Math.max(
-        // @ts-ignore
-        element.body[scrollProp], doc[scrollProp], 
-        // @ts-ignore
-        element.body[offsetProp], doc[offsetProp], doc[clientProp]);
+            // @ts-ignore
+            element.body[scrollProp], doc[scrollProp],
+            // @ts-ignore
+            element.body[offsetProp], doc[offsetProp], doc[clientProp]);
     }
     const value = parseFloat(getComputedStyleValue(element, name.toLowerCase()) || '0');
     return handleExtraWidth(element, name, value, funcIndex, includeMargin, 1);
 }
+
 /**
  * 设置元素的样式值
  * @param element
@@ -1701,9 +1725,10 @@ function set(element, elementIndex, name, funcIndex, includeMargin, value) {
     const numerical = parseFloat(computedValue);
     computedValue =
         handleExtraWidth(element, name, numerical, funcIndex, includeMargin, -1) +
-            (suffix || 'px');
+        (suffix || 'px');
     $element.css(dimension, computedValue);
 }
+
 each(['Width', 'Height'], (_, name) => {
     each([`inner${name}`, name.toLowerCase(), `outer${name}`], (funcIndex, funcName) => {
         $.fn[funcName] = function (margin, value) {
@@ -1735,6 +1760,7 @@ each(['val', 'html', 'text'], (nameIndex, name) => {
         2: 'textContent',
     };
     const propName = props[nameIndex];
+
     function get($elements) {
         // text() 获取所有元素的文本
         if (nameIndex === 2) {
@@ -1754,6 +1780,7 @@ each(['val', 'html', 'text'], (nameIndex, name) => {
         // @ts-ignore
         return firstElement[propName];
     }
+
     function set(element, value) {
         // text() 和 html() 赋值为 undefined，则保持原内容不变
         // val() 赋值为 undefined 则赋值为空
@@ -1769,6 +1796,7 @@ each(['val', 'html', 'text'], (nameIndex, name) => {
         // @ts-ignore
         element[propName] = value;
     }
+
     $.fn[name] = function (value) {
         // 获取值
         if (!arguments.length) {
@@ -1785,15 +1813,14 @@ each(['val', 'html', 'text'], (nameIndex, name) => {
                 if ($(element).is('select[multiple]')) {
                     map($(element).find('option'), (option) => (option.selected =
                         computedValue.indexOf(option.value) >
-                            -1));
+                        -1));
                 }
                 // 其他 checkbox, radio 等元素
                 else {
                     element.checked =
                         computedValue.indexOf(element.value) > -1;
                 }
-            }
-            else {
+            } else {
                 set(element, computedValue);
             }
         });
@@ -1841,6 +1868,7 @@ $.fn.offsetParent = function () {
 function floatStyle($element, name) {
     return parseFloat($element.css(name));
 }
+
 $.fn.position = function () {
     if (!this.length) {
         return undefined;
@@ -1853,8 +1881,7 @@ $.fn.position = function () {
     };
     if ($element.css('position') === 'fixed') {
         currentOffset = $element[0].getBoundingClientRect();
-    }
-    else {
+    } else {
         currentOffset = $element.offset();
         const $offsetParent = $element.offsetParent();
         parentOffset = $offsetParent.offset();
@@ -1871,7 +1898,7 @@ $.fn.position = function () {
 
 function get$1(element) {
     if (!element.getClientRects().length) {
-        return { top: 0, left: 0 };
+        return {top: 0, left: 0};
     }
     const rect = element.getBoundingClientRect();
     const win = element.ownerDocument.defaultView;
@@ -1880,6 +1907,7 @@ function get$1(element) {
         left: rect.left + win.pageXOffset,
     };
 }
+
 function set$1(element, value, index) {
     const $element = $(element);
     const position = $element.css('position');
@@ -1897,8 +1925,7 @@ function set$1(element, value, index) {
         const currentPosition = $element.position();
         currentTop = currentPosition.top;
         currentLeft = currentPosition.left;
-    }
-    else {
+    } else {
         currentTop = parseFloat(currentTopString);
         currentLeft = parseFloat(currentLeftString);
     }
@@ -1914,6 +1941,7 @@ function set$1(element, value, index) {
             : undefined,
     });
 }
+
 $.fn.offset = function (value) {
     // 获取坐标
     if (!arguments.length) {
@@ -1961,8 +1989,8 @@ $.fn.removeProp = function (name) {
         try {
             // @ts-ignore
             delete this[name];
+        } catch (e) {
         }
-        catch (e) { }
     });
 };
 
@@ -1971,8 +1999,7 @@ $.fn.replaceWith = function (newContent) {
         let content = newContent;
         if (isFunction(content)) {
             content = content.call(element, index, element.innerHTML);
-        }
-        else if (index && !isString(content)) {
+        } else if (index && !isString(content)) {
             content = $(content).clone();
         }
         $(element).before(content);
@@ -2025,6 +2052,7 @@ $.fn.serialize = function () {
 };
 
 const elementDisplay = {};
+
 /**
  * 获取元素的初始 display 值，用于 .show() 方法
  * @param nodeName
@@ -2044,6 +2072,7 @@ function defaultDisplay(nodeName) {
     }
     return elementDisplay[nodeName];
 }
+
 /**
  * 显示指定元素
  * @returns {JQ}
@@ -2097,6 +2126,7 @@ $.fn.transitionEnd = function (callback) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const that = this;
     const events = ['webkitTransitionEnd', 'transitionend'];
+
     function fireCallback(e) {
         if (e.target !== this) {
             return;
@@ -2107,6 +2137,7 @@ $.fn.transitionEnd = function (callback) {
             that.off(event, fireCallback);
         });
     }
+
     each(events, (_, event) => {
         that.on(event, fireCallback);
     });
@@ -2131,6 +2162,7 @@ $.fn.transform = function (transform) {
  * CSS 选择器和初始化函数组成的对象
  */
 const entries = {};
+
 /**
  * 注册并执行初始化函数
  * @param selector CSS 选择器
@@ -2171,8 +2203,7 @@ $.showOverlay = function (zIndex) {
         if (!isUndefined(zIndex)) {
             $overlay.css('z-index', zIndex);
         }
-    }
-    else {
+    } else {
         if (isUndefined(zIndex)) {
             zIndex = 2000;
         }
@@ -2200,10 +2231,10 @@ $.hideOverlay = function (force = false) {
         .removeClass('mdui-overlay-show')
         .data('_overlay_is_deleted', true)
         .transitionEnd(() => {
-        if ($overlay.data('_overlay_is_deleted')) {
-            $overlay.remove();
-        }
-    });
+            if ($overlay.data('_overlay_is_deleted')) {
+                $overlay.remove();
+            }
+        });
 };
 
 $.lockScreen = function () {
@@ -2244,11 +2275,13 @@ $.guid = function (name) {
     if (!isUndefined(name) && !isUndefined(GUID[name])) {
         return GUID[name];
     }
+
     function s4() {
         return Math.floor((1 + Math.random()) * 0x10000)
             .toString(16)
             .substring(1);
     }
+
     const guid = '_' +
         s4() +
         s4() +
@@ -2323,6 +2356,7 @@ const DEFAULT_OPTIONS = {
     pinnedClass: 'mdui-headroom-pinned-top',
     unpinnedClass: 'mdui-headroom-unpinned-top',
 };
+
 class Headroom {
     constructor(selector, options = {}) {
         /**
@@ -2357,6 +2391,7 @@ class Headroom {
         }
         this.enable();
     }
+
     /**
      * 滚动时的处理
      */
@@ -2371,14 +2406,14 @@ class Headroom {
                 currentScrollY >= this.options.offset &&
                 toleranceExceeded) {
                 this.unpin();
-            }
-            else if ((currentScrollY < this.lastScrollY && toleranceExceeded) ||
+            } else if ((currentScrollY < this.lastScrollY && toleranceExceeded) ||
                 currentScrollY <= this.options.offset) {
                 this.pin();
             }
             this.lastScrollY = currentScrollY;
         });
     }
+
     /**
      * 触发组件事件
      * @param name
@@ -2386,6 +2421,7 @@ class Headroom {
     triggerEvent(name) {
         componentEvent(name, 'headroom', this.$element, this);
     }
+
     /**
      * 动画结束的回调
      */
@@ -2399,6 +2435,7 @@ class Headroom {
             this.triggerEvent('unpinned');
         }
     }
+
     /**
      * 使元素固定住
      */
@@ -2415,6 +2452,7 @@ class Headroom {
             .addClass(this.options.pinnedClass)
             .transitionEnd(() => this.transitionEnd());
     }
+
     /**
      * 使元素隐藏
      */
@@ -2431,6 +2469,7 @@ class Headroom {
             .addClass(this.options.unpinnedClass)
             .transitionEnd(() => this.transitionEnd());
     }
+
     /**
      * 启用 headroom 插件
      */
@@ -2447,6 +2486,7 @@ class Headroom {
         this.lastScrollY = window.pageYOffset;
         $window.on('scroll', () => this.onScroll());
     }
+
     /**
      * 禁用 headroom 插件
      */
@@ -2462,6 +2502,7 @@ class Headroom {
         $window.off('scroll', () => this.onScroll());
         window.cancelAnimationFrame(this.rafId);
     }
+
     /**
      * 获取当前状态。共包含四种状态：`pinning`、`pinned`、`unpinning`、`unpinned`
      */
@@ -2469,6 +2510,7 @@ class Headroom {
         return this.state;
     }
 }
+
 mdui.Headroom = Headroom;
 
 /**
@@ -2494,6 +2536,7 @@ $(() => {
 const DEFAULT_OPTIONS$1 = {
     accordion: false,
 };
+
 class CollapseAbstract {
     constructor(selector, options = {}) {
         /**
@@ -2510,6 +2553,7 @@ class CollapseAbstract {
         extend(this.options, options);
         this.bindEvent();
     }
+
     /**
      * 绑定事件
      */
@@ -2534,6 +2578,7 @@ class CollapseAbstract {
             that.close($item);
         });
     }
+
     /**
      * 指定 item 是否处于打开状态
      * @param $item
@@ -2541,12 +2586,14 @@ class CollapseAbstract {
     isOpen($item) {
         return $item.hasClass(this.classItemOpen);
     }
+
     /**
      * 获取所有 item
      */
     getItems() {
         return this.$element.children(`.${this.classItem}`);
     }
+
     /**
      * 获取指定 item
      * @param item
@@ -2557,6 +2604,7 @@ class CollapseAbstract {
         }
         return $(item).first();
     }
+
     /**
      * 触发组件事件
      * @param name 事件名
@@ -2565,6 +2613,7 @@ class CollapseAbstract {
     triggerEvent(name, $item) {
         componentEvent(name, this.getNamespace(), $item, this);
     }
+
     /**
      * 动画结束回调
      * @param $content body 元素
@@ -2574,12 +2623,12 @@ class CollapseAbstract {
         if (this.isOpen($item)) {
             $content.transition(0).height('auto').reflow().transition('');
             this.triggerEvent('opened', $item);
-        }
-        else {
+        } else {
             $content.height('');
             this.triggerEvent('closed', $item);
         }
     }
+
     /**
      * 打开指定面板项
      * @param item 面板项的索引号、或 CSS 选择器、或 DOM 元素、或 JQ 对象
@@ -2605,6 +2654,7 @@ class CollapseAbstract {
         this.triggerEvent('open', $item);
         $item.addClass(this.classItemOpen);
     }
+
     /**
      * 关闭指定面板项
      * @param item 面板项的索引号、或 CSS 选择器、或 DOM 元素、或 JQ 对象
@@ -2625,6 +2675,7 @@ class CollapseAbstract {
             .height('')
             .transitionEnd(() => this.transitionEnd($content, $item));
     }
+
     /**
      * 切换指定面板项的打开状态
      * @param item 面板项的索引号、或 CSS 选择器、或 DOM 元素、或 JQ 对象
@@ -2633,12 +2684,14 @@ class CollapseAbstract {
         const $item = this.getItem(item);
         this.isOpen($item) ? this.close($item) : this.open($item);
     }
+
     /**
      * 打开所有面板项
      */
     openAll() {
         this.getItems().each((_, element) => this.open(element));
     }
+
     /**
      * 关闭所有面板项
      */
@@ -2652,6 +2705,7 @@ class Collapse extends CollapseAbstract {
         return 'collapse';
     }
 }
+
 mdui.Collapse = Collapse;
 
 const customAttr$1 = 'mdui-collapse';
@@ -2666,6 +2720,7 @@ class Panel extends CollapseAbstract {
         return 'panel';
     }
 }
+
 mdui.Panel = Panel;
 
 const customAttr$2 = 'mdui-panel';
@@ -2704,6 +2759,7 @@ class Table {
         this.$element = $(selector).first();
         this.init();
     }
+
     /**
      * 初始化表格
      */
@@ -2715,6 +2771,7 @@ class Table {
         this.updateTdCheckbox();
         this.updateNumericCol();
     }
+
     /**
      * 生成 checkbox 的 HTML 结构
      * @param tag 标签名
@@ -2727,6 +2784,7 @@ class Table {
             '</label>' +
             `</${tag}>`);
     }
+
     /**
      * 更新表头 checkbox 的状态
      */
@@ -2737,6 +2795,7 @@ class Table {
         checkbox.checked = selectedRow === tdRowsLength;
         checkbox.indeterminate = !!selectedRow && selectedRow !== tdRowsLength;
     }
+
     /**
      * 更新表格行的 checkbox
      */
@@ -2764,8 +2823,7 @@ class Table {
                 if ($checkbox[0].checked) {
                     $row.addClass(rowSelectedClass);
                     this.selectedRow++;
-                }
-                else {
+                } else {
                     $row.removeClass(rowSelectedClass);
                     this.selectedRow--;
                 }
@@ -2774,6 +2832,7 @@ class Table {
             this.$tdCheckboxs = this.$tdCheckboxs.add($checkbox);
         });
     }
+
     /**
      * 更新表头的 checkbox
      */
@@ -2787,18 +2846,19 @@ class Table {
             .prependTo(this.$thRow)
             .find('input[type="checkbox"]')
             .on('change', () => {
-            const isCheckedAll = this.$thCheckbox[0].checked;
-            this.selectedRow = isCheckedAll ? this.$tdRows.length : 0;
-            this.$tdCheckboxs.each((_, checkbox) => {
-                checkbox.checked = isCheckedAll;
+                const isCheckedAll = this.$thCheckbox[0].checked;
+                this.selectedRow = isCheckedAll ? this.$tdRows.length : 0;
+                this.$tdCheckboxs.each((_, checkbox) => {
+                    checkbox.checked = isCheckedAll;
+                });
+                this.$tdRows.each((_, row) => {
+                    isCheckedAll
+                        ? $(row).addClass('mdui-table-row-selected')
+                        : $(row).removeClass('mdui-table-row-selected');
+                });
             });
-            this.$tdRows.each((_, row) => {
-                isCheckedAll
-                    ? $(row).addClass('mdui-table-row-selected')
-                    : $(row).removeClass('mdui-table-row-selected');
-            });
-        });
     }
+
     /**
      * 更新数值列
      */
@@ -2815,6 +2875,7 @@ class Table {
         });
     }
 }
+
 const dataName = '_mdui_table';
 $(() => {
     mdui.mutation('.mdui-table', function () {
@@ -2831,8 +2892,7 @@ mdui.updateTables = function (selector) {
         const instance = $element.data(dataName);
         if (instance) {
             instance.init();
-        }
-        else {
+        } else {
             $element.data(dataName, new Table($element));
         }
     });
@@ -2877,6 +2937,7 @@ const endEvent = 'touchend mouseup';
 const cancelEvent = 'touchcancel mouseleave';
 const unlockEvent = 'touchend touchmove touchcancel';
 let touches = 0;
+
 /**
  * 该事件是否被允许，在执行事件前调用该方法判断事件是否可以执行
  * 若已触发 touch 事件，则阻止之后的鼠标事件
@@ -2895,6 +2956,7 @@ function isAllow(event) {
             'mouseleave',
         ].indexOf(event.type) > -1);
 }
+
 /**
  * 在 touchstart 和 touchmove、touchend、touchcancel 事件中调用该方法注册事件
  * @param event
@@ -2903,8 +2965,7 @@ function register(event) {
     if (event.type === 'touchstart') {
         // 触发了 touch 事件
         touches += 1;
-    }
-    else if (['touchmove', 'touchend', 'touchcancel'].indexOf(event.type) > -1) {
+    } else if (['touchmove', 'touchend', 'touchcancel'].indexOf(event.type) > -1) {
         // touch 事件结束 500ms 后解除对鼠标事件的阻止
         setTimeout(function () {
             if (touches) {
@@ -2932,8 +2993,8 @@ function show(event, $ripple) {
     }
     // 点击位置坐标
     const touchPosition = typeof TouchEvent !== 'undefined' &&
-        event instanceof TouchEvent &&
-        event.touches.length
+    event instanceof TouchEvent &&
+    event.touches.length
         ? event.touches[0]
         : event;
     const touchStartX = touchPosition.pageX;
@@ -2960,6 +3021,7 @@ function show(event, $ripple) {
         .reflow()
         .transform(translate);
 }
+
 /**
  * 隐藏并移除涟漪
  * @param $wave
@@ -2975,19 +3037,20 @@ function removeRipple($wave) {
         .addClass('mdui-ripple-wave-fill')
         .transform(translate.replace('scale(1)', 'scale(1.01)'))
         .transitionEnd(() => {
-        clearTimeout(removeTimer);
-        $wave
-            .addClass('mdui-ripple-wave-out')
-            .transform(translate.replace('scale(1)', 'scale(1.01)'));
-        removeTimer = setTimeout(() => $wave.remove(), 700);
-        setTimeout(() => {
-            $wave.transitionEnd(() => {
-                clearTimeout(removeTimer);
-                $wave.remove();
-            });
-        }, 0);
-    });
+            clearTimeout(removeTimer);
+            $wave
+                .addClass('mdui-ripple-wave-out')
+                .transform(translate.replace('scale(1)', 'scale(1.01)'));
+            removeTimer = setTimeout(() => $wave.remove(), 700);
+            setTimeout(() => {
+                $wave.transitionEnd(() => {
+                    clearTimeout(removeTimer);
+                    $wave.remove();
+                });
+            }, 0);
+        });
 }
+
 /**
  * 隐藏涟漪动画
  * @param this
@@ -2999,6 +3062,7 @@ function hide() {
     });
     $ripple.off(`${moveEvent} ${endEvent} ${cancelEvent}`, hide);
 }
+
 /**
  * 显示涟漪，并绑定 touchend 等事件
  * @param event
@@ -3052,12 +3116,12 @@ function showRipple(event) {
             hideRipple();
         };
         $ripple.on('touchmove', touchMove).on('touchend touchcancel', hideRipple);
-    }
-    else {
+    } else {
         show(event, $ripple);
         $ripple.on(`${moveEvent} ${endEvent} ${cancelEvent}`, hide);
     }
 }
+
 $(() => {
     $document.on(startEvent, showRipple).on(unlockEvent, register);
 });
@@ -3066,6 +3130,7 @@ const defaultData = {
     reInit: false,
     domLoadedEvent: false,
 };
+
 /**
  * 输入框事件
  * @param event
@@ -3152,9 +3217,10 @@ function inputEvent(event, data = {}) {
         $textfield.addClass('mdui-textfield-has-bottom');
     }
 }
+
 $(() => {
     // 绑定事件
-    $document.on('input focus blur', '.mdui-textfield-input', { useCapture: true }, inputEvent);
+    $document.on('input focus blur', '.mdui-textfield-input', {useCapture: true}, inputEvent);
     // 可展开文本框展开
     $document.on('click', '.mdui-textfield-expandable .mdui-textfield-icon', function () {
         $(this)
@@ -3220,6 +3286,7 @@ function updateValueStyle($slider) {
         ? $slider.addClass('mdui-slider-zero')
         : $slider.removeClass('mdui-slider-zero');
 }
+
 /**
  * 重新初始化滑块
  * @param $slider
@@ -3258,6 +3325,7 @@ function reInit($slider) {
     // 设置默认值
     updateValueStyle($slider);
 }
+
 const rangeSelector = '.mdui-slider input[type="range"]';
 $(() => {
     // 滑块滑动事件
@@ -3306,6 +3374,7 @@ mdui.updateSliders = function (selector) {
 const DEFAULT_OPTIONS$2 = {
     trigger: 'hover',
 };
+
 class Fab {
     constructor(selector, options = {}) {
         /**
@@ -3336,6 +3405,7 @@ class Fab {
             this.close();
         });
     }
+
     /**
      * 触发组件事件
      * @param name
@@ -3343,12 +3413,14 @@ class Fab {
     triggerEvent(name) {
         componentEvent(name, 'fab', this.$element, this);
     }
+
     /**
      * 当前是否为打开状态
      */
     isOpen() {
         return this.state === 'opening' || this.state === 'opened';
     }
+
     /**
      * 打开快速拨号菜单
      */
@@ -3377,6 +3449,7 @@ class Fab {
             }
         });
     }
+
     /**
      * 关闭快速拨号菜单
      */
@@ -3404,24 +3477,28 @@ class Fab {
             this.$dial.css('height', 0);
         });
     }
+
     /**
      * 切换快速拨号菜单的打开状态
      */
     toggle() {
         this.isOpen() ? this.close() : this.open();
     }
+
     /**
      * 以动画的形式显示整个浮动操作按钮
      */
     show() {
         this.$element.removeClass('mdui-fab-hide');
     }
+
     /**
      * 以动画的形式隐藏整个浮动操作按钮
      */
     hide() {
         this.$element.addClass('mdui-fab-hide');
     }
+
     /**
      * 返回当前快速拨号菜单的打开状态。共包含四种状态：`opening`、`opened`、`closing`、`closed`
      */
@@ -3429,6 +3506,7 @@ class Fab {
         return this.state;
     }
 }
+
 mdui.Fab = Fab;
 
 const customAttr$3 = 'mdui-fab';
@@ -3460,6 +3538,7 @@ const DEFAULT_OPTIONS$3 = {
     position: 'auto',
     gutter: 16,
 };
+
 class Select {
     constructor(selector, options = {}) {
         /**
@@ -3519,6 +3598,7 @@ class Select {
             }
         });
     }
+
     /**
      * 调整菜单位置
      */
@@ -3540,12 +3620,10 @@ class Select {
         if (this.options.position === 'bottom') {
             menuMarginTop = elementHeight;
             transformOriginY = '0px';
-        }
-        else if (this.options.position === 'top') {
+        } else if (this.options.position === 'top') {
             menuMarginTop = -menuHeight - 1;
             transformOriginY = '100%';
-        }
-        else {
+        } else {
             // 菜单高度不能超过窗口高度
             const menuMaxHeight = windowHeight - this.options.gutter * 2;
             if (menuHeight > menuMaxHeight) {
@@ -3566,8 +3644,7 @@ class Select {
             if (menuTop < this.options.gutter) {
                 // 不能超出窗口上方
                 menuMarginTop = -(elementTop - this.options.gutter);
-            }
-            else if (menuTop + menuHeight + this.options.gutter > windowHeight) {
+            } else if (menuTop + menuHeight + this.options.gutter > windowHeight) {
                 // 不能超出窗口下方
                 menuMarginTop = -(elementTop +
                     menuHeight +
@@ -3583,16 +3660,18 @@ class Select {
             .innerWidth(menuWidth)
             .height(menuHeight)
             .css({
-            'margin-top': menuMarginTop + 'px',
-            'transform-origin': 'center ' + transformOriginY + ' 0',
-        });
+                'margin-top': menuMarginTop + 'px',
+                'transform-origin': 'center ' + transformOriginY + ' 0',
+            });
     }
+
     /**
      * select 是否为打开状态
      */
     isOpen() {
         return this.state === 'opening' || this.state === 'opened';
     }
+
     /**
      * 对原生 select 组件进行了修改后，需要调用该方法
      */
@@ -3678,6 +3757,7 @@ class Select {
             this.toggle();
         });
     }
+
     /**
      * 动画结束的回调
      */
@@ -3700,6 +3780,7 @@ class Select {
             });
         }
     }
+
     /**
      * 触发组件事件
      * @param name
@@ -3707,12 +3788,14 @@ class Select {
     triggerEvent(name) {
         componentEvent(name, 'select', this.$native, this);
     }
+
     /**
      * 切换下拉菜单的打开状态
      */
     toggle() {
         this.isOpen() ? this.close() : this.open();
     }
+
     /**
      * 打开下拉菜单
      */
@@ -3726,6 +3809,7 @@ class Select {
         this.$element.addClass('mdui-select-open');
         this.$menu.transitionEnd(() => this.transitionEnd());
     }
+
     /**
      * 关闭下拉菜单
      */
@@ -3741,6 +3825,7 @@ class Select {
             .addClass('mdui-select-closing');
         this.$menu.transitionEnd(() => this.transitionEnd());
     }
+
     /**
      * 获取当前菜单的状态。共包含四种状态：`opening`、`opened`、`closing`、`closed`
      */
@@ -3748,6 +3833,7 @@ class Select {
         return this.state;
     }
 }
+
 mdui.Select = Select;
 
 const customAttr$4 = 'mdui-select';
@@ -3775,6 +3861,7 @@ const DEFAULT_OPTIONS$4 = {
     trigger: 'click',
     loop: false,
 };
+
 class Tab {
     constructor(selector, options = {}) {
         /**
@@ -3823,6 +3910,7 @@ class Tab {
             this.bindTabEvent(tab);
         });
     }
+
     /**
      * 指定选项卡是否已禁用
      * @param $tab
@@ -3830,6 +3918,7 @@ class Tab {
     isDisabled($tab) {
         return $tab.attr('disabled') !== undefined;
     }
+
     /**
      * 绑定在 Tab 上点击或悬浮的事件
      * @param tab
@@ -3858,6 +3947,7 @@ class Tab {
             }
         });
     }
+
     /**
      * 触发组件事件
      * @param name
@@ -3867,6 +3957,7 @@ class Tab {
     triggerEvent(name, $element, parameters = {}) {
         componentEvent(name, 'tab', $element, this, parameters);
     }
+
     /**
      * 设置激活状态的选项卡
      */
@@ -3886,13 +3977,13 @@ class Tab {
                 }
                 $(targetId).show();
                 this.setIndicatorPosition();
-            }
-            else {
+            } else {
                 $tab.removeClass('mdui-tab-active');
                 $(targetId).hide();
             }
         });
     }
+
     /**
      * 设置选项卡指示器的位置
      */
@@ -3912,11 +4003,12 @@ class Tab {
         const activeTabOffset = $activeTab.offset();
         this.$indicator.css({
             left: `${activeTabOffset.left +
-                this.$element[0].scrollLeft -
-                this.$element[0].getBoundingClientRect().left}px`,
+            this.$element[0].scrollLeft -
+            this.$element[0].getBoundingClientRect().left}px`,
             width: `${$activeTab.innerWidth()}px`,
         });
     }
+
     /**
      * 切换到下一个选项卡
      */
@@ -3926,12 +4018,12 @@ class Tab {
         }
         if (this.$tabs.length > this.activeIndex + 1) {
             this.activeIndex++;
-        }
-        else if (this.options.loop) {
+        } else if (this.options.loop) {
             this.activeIndex = 0;
         }
         this.setActive();
     }
+
     /**
      * 切换到上一个选项卡
      */
@@ -3941,12 +4033,12 @@ class Tab {
         }
         if (this.activeIndex > 0) {
             this.activeIndex--;
-        }
-        else if (this.options.loop) {
+        } else if (this.options.loop) {
             this.activeIndex = this.$tabs.length - 1;
         }
         this.setActive();
     }
+
     /**
      * 显示指定索引号、或指定id的选项卡
      * @param index 索引号、或id
@@ -3957,8 +4049,7 @@ class Tab {
         }
         if (isNumber(index)) {
             this.activeIndex = index;
-        }
-        else {
+        } else {
             this.$tabs.each((i, tab) => {
                 if (tab.id === index) {
                     this.activeIndex = i;
@@ -3968,6 +4059,7 @@ class Tab {
         }
         this.setActive();
     }
+
     /**
      * 在父元素的宽度变化时，需要调用该方法重新调整指示器位置
      * 在添加或删除选项卡时，需要调用该方法
@@ -3990,8 +4082,7 @@ class Tab {
                 this.bindTabEvent(tab);
                 if (this.activeIndex === -1) {
                     this.activeIndex = 0;
-                }
-                else if (index <= this.activeIndex) {
+                } else if (index <= this.activeIndex) {
                     this.activeIndex++;
                 }
             }
@@ -4002,8 +4093,7 @@ class Tab {
             if (newTabsElement.indexOf(tab) < 0) {
                 if (index < this.activeIndex) {
                     this.activeIndex--;
-                }
-                else if (index === this.activeIndex) {
+                } else if (index === this.activeIndex) {
                     this.activeIndex = 0;
                 }
             }
@@ -4012,6 +4102,7 @@ class Tab {
         this.setActive();
     }
 }
+
 mdui.Tab = Tab;
 
 const customAttr$5 = 'mdui-tab';
@@ -4029,6 +4120,7 @@ const DEFAULT_OPTIONS$5 = {
     overlay: false,
     swipe: false,
 };
+
 class Drawer {
     constructor(selector, options = {}) {
         /**
@@ -4046,14 +4138,11 @@ class Drawer {
             : 'left';
         if (this.$element.hasClass('mdui-drawer-close')) {
             this.state = 'closed';
-        }
-        else if (this.$element.hasClass('mdui-drawer-open')) {
+        } else if (this.$element.hasClass('mdui-drawer-open')) {
             this.state = 'opened';
-        }
-        else if (this.isDesktop()) {
+        } else if (this.isDesktop()) {
             this.state = 'opened';
-        }
-        else {
+        } else {
             this.state = 'closed';
         }
         // 浏览器窗口大小调整时
@@ -4070,16 +4159,14 @@ class Drawer {
                 if (!this.$element.hasClass('mdui-drawer-close')) {
                     this.state = 'opened';
                 }
-            }
-            else if (!this.overlay && this.state === 'opened') {
+            } else if (!this.overlay && this.state === 'opened') {
                 // 由桌面切换到手机平板时。如果抽屉栏是打开着的且没有遮罩层，则关闭抽屉栏
                 if (this.$element.hasClass('mdui-drawer-open')) {
                     $.showOverlay();
                     this.overlay = true;
                     $.lockScreen();
                     $('.mdui-overlay').one('click', () => this.close());
-                }
-                else {
+                } else {
                     this.state = 'closed';
                 }
             }
@@ -4090,12 +4177,14 @@ class Drawer {
         });
         this.swipeSupport();
     }
+
     /**
      * 是否是桌面设备
      */
     isDesktop() {
         return $window.width() >= 1024;
     }
+
     /**
      * 滑动手势支持
      */
@@ -4112,26 +4201,31 @@ class Drawer {
         const $body = $('body');
         // 手势触发的范围
         const swipeAreaWidth = 24;
+
         function setPosition(translateX) {
             const rtlTranslateMultiplier = that.position === 'right' ? -1 : 1;
             const transformCSS = `translate(${-1 * rtlTranslateMultiplier * translateX}px, 0) !important;`;
             const transitionCSS = 'initial !important;';
             that.$element.css('cssText', `transform: ${transformCSS}; transition: ${transitionCSS};`);
         }
+
         function cleanPosition() {
             that.$element[0].style.transform = '';
             that.$element[0].style.webkitTransform = '';
             that.$element[0].style.transition = '';
             that.$element[0].style.webkitTransition = '';
         }
+
         function getMaxTranslateX() {
             return that.$element.width() + 10;
         }
+
         function getTranslateX(currentX) {
             return Math.min(Math.max(swiping === 'closing'
                 ? swipeStartX - currentX
                 : getMaxTranslateX() + swipeStartX - currentX, 0), getMaxTranslateX());
         }
+
         function onBodyTouchEnd(event) {
             if (swiping) {
                 let touchX = event.changedTouches[0].pageX;
@@ -4146,23 +4240,19 @@ class Drawer {
                     if (translateRatio < 0.92) {
                         cleanPosition();
                         that.open();
-                    }
-                    else {
+                    } else {
                         cleanPosition();
                     }
-                }
-                else {
+                } else {
                     if (translateRatio > 0.08) {
                         cleanPosition();
                         that.close();
-                    }
-                    else {
+                    } else {
                         cleanPosition();
                     }
                 }
                 $.unlockScreen();
-            }
-            else {
+            } else {
                 maybeSwiping = false;
             }
             $body.off({
@@ -4173,6 +4263,7 @@ class Drawer {
                 touchcancel: onBodyTouchMove,
             });
         }
+
         function onBodyTouchMove(event) {
             let touchX = event.touches[0].pageX;
             if (that.position === 'right') {
@@ -4181,8 +4272,7 @@ class Drawer {
             const touchY = event.touches[0].pageY;
             if (swiping) {
                 setPosition(getTranslateX(touchX));
-            }
-            else if (maybeSwiping) {
+            } else if (maybeSwiping) {
                 const dXAbs = Math.abs(touchX - touchStartX);
                 const dYAbs = Math.abs(touchY - touchStartY);
                 const threshold = 8;
@@ -4191,12 +4281,12 @@ class Drawer {
                     swiping = that.state === 'opened' ? 'closing' : 'opening';
                     $.lockScreen();
                     setPosition(getTranslateX(touchX));
-                }
-                else if (dXAbs <= threshold && dYAbs > threshold) {
+                } else if (dXAbs <= threshold && dYAbs > threshold) {
                     onBodyTouchEnd();
                 }
             }
         }
+
         function onBodyTouchStart(event) {
             touchStartX = event.touches[0].pageX;
             if (that.position === 'right') {
@@ -4216,16 +4306,19 @@ class Drawer {
                 touchcancel: onBodyTouchMove,
             });
         }
+
         function enableSwipeHandling() {
             if (!openNavEventHandler) {
                 $body.on('touchstart', onBodyTouchStart);
                 openNavEventHandler = onBodyTouchStart;
             }
         }
+
         if (this.options.swipe) {
             enableSwipeHandling();
         }
     }
+
     /**
      * 触发组件事件
      * @param name
@@ -4233,6 +4326,7 @@ class Drawer {
     triggerEvent(name) {
         componentEvent(name, 'drawer', this.$element, this);
     }
+
     /**
      * 动画结束回调
      */
@@ -4240,18 +4334,19 @@ class Drawer {
         if (this.$element.hasClass('mdui-drawer-open')) {
             this.state = 'opened';
             this.triggerEvent('opened');
-        }
-        else {
+        } else {
             this.state = 'closed';
             this.triggerEvent('closed');
         }
     }
+
     /**
      * 是否处于打开状态
      */
     isOpen() {
         return this.state === 'opening' || this.state === 'opened';
     }
+
     /**
      * 打开抽屉栏
      */
@@ -4274,6 +4369,7 @@ class Drawer {
             $.lockScreen();
         }
     }
+
     /**
      * 关闭抽屉栏
      */
@@ -4296,12 +4392,14 @@ class Drawer {
             $.unlockScreen();
         }
     }
+
     /**
      * 切换抽屉栏打开/关闭状态
      */
     toggle() {
         this.isOpen() ? this.close() : this.open();
     }
+
     /**
      * 返回当前抽屉栏的状态。共包含四种状态：`opening`、`opened`、`closing`、`closed`
      */
@@ -4309,6 +4407,7 @@ class Drawer {
         return this.state;
     }
 }
+
 mdui.Drawer = Drawer;
 
 const customAttr$6 = 'mdui-drawer';
@@ -4326,6 +4425,7 @@ $(() => {
 });
 
 const container = {};
+
 function queue(name, func) {
     if (isUndefined(container[name])) {
         container[name] = [];
@@ -4335,6 +4435,7 @@ function queue(name, func) {
     }
     container[name].push(func);
 }
+
 /**
  * 从队列中移除第一个函数，并执行该函数
  * @param name 队列满
@@ -4375,6 +4476,7 @@ let isLockScreen = false;
  * 遮罩层元素
  */
 let $overlay;
+
 class Dialog {
     constructor(selector, options = {}) {
         /**
@@ -4419,6 +4521,7 @@ class Dialog {
             $(close).on('click', () => this.close());
         });
     }
+
     /**
      * 触发组件事件
      * @param name
@@ -4426,6 +4529,7 @@ class Dialog {
     triggerEvent(name) {
         componentEvent(name, 'dialog', this.$element, this);
     }
+
     /**
      * 窗口宽度变化，或对话框内容变化时，调整对话框位置和对话框内的滚动条
      */
@@ -4450,6 +4554,7 @@ class Dialog {
             ($title.innerHeight() || 0) -
             ($actions.innerHeight() || 0));
     }
+
     /**
      * hashchange 事件触发时关闭对话框
      */
@@ -4458,6 +4563,7 @@ class Dialog {
             currentInst.close(true);
         }
     }
+
     /**
      * 点击遮罩层关闭对话框
      * @param event
@@ -4468,6 +4574,7 @@ class Dialog {
             currentInst.close();
         }
     }
+
     /**
      * 动画结束回调
      */
@@ -4475,8 +4582,7 @@ class Dialog {
         if (this.$element.hasClass('mdui-dialog-open')) {
             this.state = 'opened';
             this.triggerEvent('opened');
-        }
-        else {
+        } else {
             this.state = 'closed';
             this.triggerEvent('closed');
             this.$element.hide();
@@ -4491,6 +4597,7 @@ class Dialog {
             }
         }
     }
+
     /**
      * 打开指定对话框
      */
@@ -4516,8 +4623,7 @@ class Dialog {
         // 点击遮罩层时是否关闭对话框
         if (this.options.modal) {
             $overlay.off('click', this.overlayClick);
-        }
-        else {
+        } else {
             $overlay.on('click', this.overlayClick);
         }
         // 是否显示遮罩层，不显示时，把遮罩层背景透明
@@ -4532,19 +4638,20 @@ class Dialog {
             // 后退按钮关闭对话框
             if (hash) {
                 window.location.hash = `${hash}${hash.indexOf('?') > -1 ? '&' : '?'}mdui-dialog`;
-            }
-            else {
+            } else {
                 window.location.hash = 'mdui-dialog';
             }
             $window.on('hashchange', this.hashchangeEvent);
         }
     }
+
     /**
      * 当前对话框是否为打开状态
      */
     isOpen() {
         return this.state === 'opening' || this.state === 'opened';
     }
+
     /**
      * 打开对话框
      */
@@ -4554,13 +4661,14 @@ class Dialog {
         }
         // 如果当前有正在打开或已经打开的对话框,或队列不为空，则先加入队列，等旧对话框开始关闭时再打开
         if ((currentInst &&
-            (currentInst.state === 'opening' || currentInst.state === 'opened')) ||
+                (currentInst.state === 'opening' || currentInst.state === 'opened')) ||
             queue(queueName).length) {
             queue(queueName, () => this.doOpen());
             return;
         }
         this.doOpen();
     }
+
     /**
      * 关闭对话框
      */
@@ -4600,18 +4708,21 @@ class Dialog {
             }, 100);
         });
     }
+
     /**
      * 切换对话框打开/关闭状态
      */
     toggle() {
         this.isOpen() ? this.close() : this.open();
     }
+
     /**
      * 获取对话框状态。共包含四种状态：`opening`、`opened`、`closing`、`closed`
      */
     getState() {
         return this.state;
     }
+
     /**
      * 销毁对话框
      */
@@ -4630,6 +4741,7 @@ class Dialog {
             }
         }
     }
+
     /**
      * 对话框内容变化时，需要调用该方法来调整对话框位置和滚动条高度
      */
@@ -4672,7 +4784,8 @@ const DEFAULT_BUTTON = {
     bold: false,
     close: true,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onClick: () => { },
+    onClick: () => {
+    },
 };
 const DEFAULT_OPTIONS$7 = {
     title: '',
@@ -4686,13 +4799,17 @@ const DEFAULT_OPTIONS$7 = {
     closeOnEsc: true,
     destroyOnClosed: true,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onOpen: () => { },
+    onOpen: () => {
+    },
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onOpened: () => { },
+    onOpened: () => {
+    },
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onClose: () => { },
+    onClose: () => {
+    },
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onClosed: () => { },
+    onClosed: () => {
+    },
 };
 mdui.dialog = function (options) {
     var _a, _b;
@@ -4708,7 +4825,7 @@ mdui.dialog = function (options) {
         each(options.buttons, (_, button) => {
             buttonsHTML +=
                 '<a href="javascript:void(0)" ' +
-                    `class="mdui-btn mdui-ripple mdui-text-color-primary ${button.bold ? 'mdui-btn-bold' : ''}">${button.text}</a>`;
+                `class="mdui-btn mdui-ripple mdui-text-color-primary ${button.bold ? 'mdui-btn-bold' : ''}">${button.text}</a>`;
         });
         buttonsHTML += '</div>';
     }
@@ -4735,28 +4852,28 @@ mdui.dialog = function (options) {
         instance.$element
             .find('.mdui-dialog-actions .mdui-btn')
             .each((index, button) => {
-            $(button).on('click', () => {
-                options.buttons[index].onClick(instance);
-                if (options.buttons[index].close) {
-                    instance.close();
-                }
+                $(button).on('click', () => {
+                    options.buttons[index].onClick(instance);
+                    if (options.buttons[index].close) {
+                        instance.close();
+                    }
+                });
             });
-        });
     }
     // 绑定打开关闭事件
     instance.$element
         .on('open.mdui.dialog', () => {
-        options.onOpen(instance);
-    })
+            options.onOpen(instance);
+        })
         .on('opened.mdui.dialog', () => {
-        options.onOpened(instance);
-    })
+            options.onOpened(instance);
+        })
         .on('close.mdui.dialog', () => {
-        options.onClose(instance);
-    })
+            options.onClose(instance);
+        })
         .on('closed.mdui.dialog', () => {
-        options.onClosed(instance);
-    });
+            options.onClosed(instance);
+        });
     instance.open();
     return instance;
 };
@@ -4776,7 +4893,8 @@ mdui.alert = function (text, title, onConfirm, options) {
     }
     if (isUndefined(onConfirm)) {
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        onConfirm = () => { };
+        onConfirm = () => {
+        };
     }
     if (isUndefined(options)) {
         options = {};
@@ -4818,11 +4936,13 @@ mdui.confirm = function (text, title, onConfirm, onCancel, options) {
     }
     if (isUndefined(onConfirm)) {
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        onConfirm = () => { };
+        onConfirm = () => {
+        };
     }
     if (isUndefined(onCancel)) {
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        onCancel = () => { };
+        onCancel = () => {
+        };
     }
     if (isUndefined(options)) {
         options = {};
@@ -4874,11 +4994,13 @@ mdui.prompt = function (label, title, onConfirm, onCancel, options) {
     }
     if (isUndefined(onConfirm)) {
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        onConfirm = () => { };
+        onConfirm = () => {
+        };
     }
     if (isUndefined(onCancel)) {
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        onCancel = () => { };
+        onCancel = () => {
+        };
     }
     if (isUndefined(options)) {
         options = {};
@@ -4959,6 +5081,7 @@ const DEFAULT_OPTIONS$b = {
     delay: 0,
     content: '',
 };
+
 class Tooltip {
     constructor(selector, options = {}) {
         /**
@@ -4982,31 +5105,32 @@ class Tooltip {
         const that = this;
         this.$target
             .on('touchstart mouseenter', function (event) {
-            if (that.isDisabled(this)) {
-                return;
-            }
-            if (!isAllow(event)) {
-                return;
-            }
-            register(event);
-            that.open();
-        })
+                if (that.isDisabled(this)) {
+                    return;
+                }
+                if (!isAllow(event)) {
+                    return;
+                }
+                register(event);
+                that.open();
+            })
             .on('touchend mouseleave', function (event) {
-            if (that.isDisabled(this)) {
-                return;
-            }
-            if (!isAllow(event)) {
-                return;
-            }
-            that.close();
-        })
+                if (that.isDisabled(this)) {
+                    return;
+                }
+                if (!isAllow(event)) {
+                    return;
+                }
+                that.close();
+            })
             .on(unlockEvent, function (event) {
-            if (that.isDisabled(this)) {
-                return;
-            }
-            register(event);
-        });
+                if (that.isDisabled(this)) {
+                    return;
+                }
+                register(event);
+            });
     }
+
     /**
      * 元素是否已禁用
      * @param element
@@ -5015,12 +5139,14 @@ class Tooltip {
         return (element.disabled ||
             $(element).attr('disabled') !== undefined);
     }
+
     /**
      * 是否是桌面设备
      */
     isDesktop() {
         return $window.width() > 1024;
     }
+
     /**
      * 设置 Tooltip 的位置
      */
@@ -5045,18 +5171,14 @@ class Tooltip {
                 2 <
                 $window.height()) {
                 position = 'bottom';
-            }
-            else if (targetMargin + tooltipHeight + 2 < targetProps.top) {
+            } else if (targetMargin + tooltipHeight + 2 < targetProps.top) {
                 position = 'top';
-            }
-            else if (targetMargin + tooltipWidth + 2 < targetProps.left) {
+            } else if (targetMargin + tooltipWidth + 2 < targetProps.left) {
                 position = 'left';
-            }
-            else if (targetProps.width + targetMargin + tooltipWidth + 2 <
+            } else if (targetProps.width + targetMargin + tooltipWidth + 2 <
                 $window.width() - targetProps.left) {
                 position = 'right';
-            }
-            else {
+            } else {
                 position = 'bottom';
             }
         }
@@ -5092,6 +5214,7 @@ class Tooltip {
             'margin-top': `${marginTop}px`,
         });
     }
+
     /**
      * 触发组件事件
      * @param name
@@ -5099,6 +5222,7 @@ class Tooltip {
     triggerEvent(name) {
         componentEvent(name, 'tooltip', this.$target, this);
     }
+
     /**
      * 动画结束回调
      */
@@ -5106,18 +5230,19 @@ class Tooltip {
         if (this.$element.hasClass('mdui-tooltip-open')) {
             this.state = 'opened';
             this.triggerEvent('opened');
-        }
-        else {
+        } else {
             this.state = 'closed';
             this.triggerEvent('closed');
         }
     }
+
     /**
      * 当前 tooltip 是否为打开状态
      */
     isOpen() {
         return this.state === 'opening' || this.state === 'opened';
     }
+
     /**
      * 执行打开 tooltip
      */
@@ -5128,6 +5253,7 @@ class Tooltip {
             .addClass('mdui-tooltip-open')
             .transitionEnd(() => this.transitionEnd());
     }
+
     /**
      * 打开 Tooltip
      * @param options 允许每次打开时设置不同的参数
@@ -5147,12 +5273,12 @@ class Tooltip {
         this.setPosition();
         if (this.options.delay) {
             this.timeoutId = setTimeout(() => this.doOpen(), this.options.delay);
-        }
-        else {
+        } else {
             this.timeoutId = null;
             this.doOpen();
         }
     }
+
     /**
      * 关闭 Tooltip
      */
@@ -5170,12 +5296,14 @@ class Tooltip {
             .removeClass('mdui-tooltip-open')
             .transitionEnd(() => this.transitionEnd());
     }
+
     /**
      * 切换 Tooltip 的打开状态
      */
     toggle() {
         this.isOpen() ? this.close() : this.open();
     }
+
     /**
      * 获取 Tooltip 状态。共包含四种状态：`opening`、`opened`、`closing`、`closed`
      */
@@ -5183,6 +5311,7 @@ class Tooltip {
         return this.state;
     }
 }
+
 mdui.Tooltip = Tooltip;
 
 const customAttr$8 = 'mdui-tooltip';
@@ -5208,17 +5337,23 @@ const DEFAULT_OPTIONS$c = {
     closeOnButtonClick: true,
     closeOnOutsideClick: true,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onClick: () => { },
+    onClick: () => {
+    },
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onButtonClick: () => { },
+    onButtonClick: () => {
+    },
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onOpen: () => { },
+    onOpen: () => {
+    },
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onOpened: () => { },
+    onOpened: () => {
+    },
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onClose: () => { },
+    onClose: () => {
+    },
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onClosed: () => { },
+    onClosed: () => {
+    },
 };
 /**
  * 当前打开着的 Snackbar
@@ -5228,6 +5363,7 @@ let currentInst$1 = null;
  * 队列名
  */
 const queueName$1 = '_mdui_snackbar';
+
 class Snackbar {
     constructor(options) {
         /**
@@ -5249,8 +5385,7 @@ class Snackbar {
         if (this.options.buttonColor.indexOf('#') === 0 ||
             this.options.buttonColor.indexOf('rgb') === 0) {
             buttonColorStyle = `style="color:${this.options.buttonColor}"`;
-        }
-        else if (this.options.buttonColor !== '') {
+        } else if (this.options.buttonColor !== '') {
             buttonColorClass = `mdui-text-color-${this.options.buttonColor}`;
         }
         // 添加 HTML
@@ -5264,6 +5399,7 @@ class Snackbar {
         this.setPosition('close');
         this.$element.reflow().addClass(`mdui-snackbar-${this.options.position}`);
     }
+
     /**
      * 点击 Snackbar 外面的区域关闭
      * @param event
@@ -5275,6 +5411,7 @@ class Snackbar {
             currentInst$1.close();
         }
     }
+
     /**
      * 设置 Snackbar 的位置
      * @param state
@@ -5287,15 +5424,13 @@ class Snackbar {
         // translateX
         if (position === 'bottom' || position === 'top') {
             translateX = '-50%';
-        }
-        else {
+        } else {
             translateX = '0';
         }
         // translateY
         if (state === 'open') {
             translateY = '0';
-        }
-        else {
+        } else {
             if (position === 'bottom') {
                 translateY = snackbarHeight;
             }
@@ -5311,6 +5446,7 @@ class Snackbar {
         }
         this.$element.transform(`translate(${translateX},${translateY}px`);
     }
+
     /**
      * 打开 Snackbar
      */
@@ -5359,6 +5495,7 @@ class Snackbar {
             }
         });
     }
+
     /**
      * 关闭 Snackbar
      */
@@ -5387,11 +5524,11 @@ class Snackbar {
         });
     }
 }
+
 mdui.snackbar = function (message, options = {}) {
     if (isString(message)) {
         options.message = message;
-    }
-    else {
+    } else {
         options = message;
     }
     const instance = new Snackbar(options);
@@ -5442,6 +5579,7 @@ function layerHTML(index = false) {
         '</div>' +
         '</div>');
 }
+
 /**
  * 填充 HTML
  * @param spinner
@@ -5453,6 +5591,7 @@ function fillHTML(spinner) {
         : layerHTML();
     $spinner.html(layer);
 }
+
 $(() => {
     // 页面加载完后自动填充 HTML 结构
     mdui.mutation('.mdui-spinner', function () {
@@ -5475,6 +5614,7 @@ const DEFAULT_OPTIONS$d = {
     subMenuTrigger: 'hover',
     subMenuDelay: 200,
 };
+
 class Menu {
     constructor(anchorSelector, menuSelector, options = {}) {
         /**
@@ -5525,12 +5665,14 @@ class Menu {
         // 窗口大小变化时，重新调整菜单位置
         $window.on('resize', $.throttle(() => this.readjust(), 100));
     }
+
     /**
      * 是否为打开状态
      */
     isOpen() {
         return this.state === 'opening' || this.state === 'opened';
     }
+
     /**
      * 触发组件事件
      * @param name
@@ -5538,6 +5680,7 @@ class Menu {
     triggerEvent(name) {
         componentEvent(name, 'menu', this.$element, this);
     }
+
     /**
      * 调整主菜单位置
      */
@@ -5576,18 +5719,15 @@ class Menu {
             if (anchorBottom + (isCovered ? anchorHeight : 0) > menuHeight + gutter) {
                 // 判断下方是否放得下菜单
                 position = 'bottom';
-            }
-            else if (anchorTop + (isCovered ? anchorHeight : 0) >
+            } else if (anchorTop + (isCovered ? anchorHeight : 0) >
                 menuHeight + gutter) {
                 // 判断上方是否放得下菜单
                 position = 'top';
-            }
-            else {
+            } else {
                 // 上下都放不下，居中显示
                 position = 'center';
             }
-        }
-        else {
+        } else {
             position = this.options.position;
         }
         // 自动判断菜单对齐方式
@@ -5595,17 +5735,14 @@ class Menu {
             if (anchorRight + anchorWidth > menuWidth + gutter) {
                 // 判断右侧是否放得下菜单
                 align = 'left';
-            }
-            else if (anchorLeft + anchorWidth > menuWidth + gutter) {
+            } else if (anchorLeft + anchorWidth > menuWidth + gutter) {
                 // 判断左侧是否放得下菜单
                 align = 'right';
-            }
-            else {
+            } else {
                 // 左右都放不下，居中显示
                 align = 'center';
             }
-        }
-        else {
+        } else {
             align = this.options.align;
         }
         // 设置菜单位置
@@ -5613,15 +5750,13 @@ class Menu {
             transformOriginY = '0';
             menuTop =
                 (isCovered ? 0 : anchorHeight) +
-                    (isFixed ? anchorTop : anchorOffsetTop);
-        }
-        else if (position === 'top') {
+                (isFixed ? anchorTop : anchorOffsetTop);
+        } else if (position === 'top') {
             transformOriginY = '100%';
             menuTop =
                 (isCovered ? anchorHeight : 0) +
-                    (isFixed ? anchorTop - menuHeight : anchorOffsetTop - menuHeight);
-        }
-        else {
+                (isFixed ? anchorTop - menuHeight : anchorOffsetTop - menuHeight);
+        } else {
             transformOriginY = '50%';
             // =====================在窗口中居中
             // 显示的菜单的高度，简单菜单高度不超过窗口高度，若超过了则在菜单内部显示滚动条
@@ -5636,21 +5771,19 @@ class Menu {
             }
             menuTop =
                 (windowHeight - menuHeightTemp) / 2 +
-                    (isFixed ? 0 : anchorOffsetTop - anchorTop);
+                (isFixed ? 0 : anchorOffsetTop - anchorTop);
         }
         this.$element.css('top', `${menuTop}px`);
         // 设置菜单对齐方式
         if (align === 'left') {
             transformOriginX = '0';
             menuLeft = isFixed ? anchorLeft : anchorOffsetLeft;
-        }
-        else if (align === 'right') {
+        } else if (align === 'right') {
             transformOriginX = '100%';
             menuLeft = isFixed
                 ? anchorLeft + anchorWidth - menuWidth
                 : anchorOffsetLeft + anchorWidth - menuWidth;
-        }
-        else {
+        } else {
             transformOriginX = '50%';
             //=======================在窗口中居中
             // 显示的菜单的宽度，菜单宽度不能超过窗口宽度
@@ -5662,12 +5795,13 @@ class Menu {
             }
             menuLeft =
                 (windowWidth - menuWidthTemp) / 2 +
-                    (isFixed ? 0 : anchorOffsetLeft - anchorLeft);
+                (isFixed ? 0 : anchorOffsetLeft - anchorLeft);
         }
         this.$element.css('left', `${menuLeft}px`);
         // 设置菜单动画方向
         this.$element.transformOrigin(`${transformOriginX} ${transformOriginY}`);
     }
+
     /**
      * 调整子菜单的位置
      * @param $submenu
@@ -5698,12 +5832,10 @@ class Menu {
         if (windowHeight - itemTop > submenuHeight) {
             // 判断下方是否放得下菜单
             position = 'bottom';
-        }
-        else if (itemTop + itemHeight > submenuHeight) {
+        } else if (itemTop + itemHeight > submenuHeight) {
             // 判断上方是否放得下菜单
             position = 'top';
-        }
-        else {
+        } else {
             // 默认放在下方
             position = 'bottom';
         }
@@ -5711,12 +5843,10 @@ class Menu {
         if (windowWidth - itemLeft - itemWidth > submenuWidth) {
             // 判断右侧是否放得下菜单
             align = 'left';
-        }
-        else if (itemLeft > submenuWidth) {
+        } else if (itemLeft > submenuWidth) {
             // 判断左侧是否放得下菜单
             align = 'right';
-        }
-        else {
+        } else {
             // 默认放在右侧
             align = 'left';
         }
@@ -5724,8 +5854,7 @@ class Menu {
         if (position === 'bottom') {
             transformOriginY = '0';
             submenuTop = '0';
-        }
-        else if (position === 'top') {
+        } else if (position === 'top') {
             transformOriginY = '100%';
             submenuTop = -submenuHeight + itemHeight;
         }
@@ -5734,8 +5863,7 @@ class Menu {
         if (align === 'left') {
             transformOriginX = '0';
             submenuLeft = itemWidth;
-        }
-        else if (align === 'right') {
+        } else if (align === 'right') {
             transformOriginX = '100%';
             submenuLeft = -submenuWidth;
         }
@@ -5743,6 +5871,7 @@ class Menu {
         // 设置菜单动画方向
         $submenu.transformOrigin(`${transformOriginX} ${transformOriginY}`);
     }
+
     /**
      * 打开子菜单
      * @param $submenu
@@ -5754,6 +5883,7 @@ class Menu {
             .parent('.mdui-menu-item')
             .addClass('mdui-menu-item-active');
     }
+
     /**
      * 关闭子菜单，及其嵌套的子菜单
      * @param $submenu
@@ -5778,6 +5908,7 @@ class Menu {
                 .removeClass('mdui-menu-item-active');
         });
     }
+
     /**
      * 切换子菜单状态
      * @param $submenu
@@ -5787,6 +5918,7 @@ class Menu {
             ? this.closeSubMenu($submenu)
             : this.openSubMenu($submenu);
     }
+
     /**
      * 绑定子菜单事件
      */
@@ -5816,12 +5948,12 @@ class Menu {
                 .parent('.mdui-menu')
                 .children('.mdui-menu-item')
                 .each((_, item) => {
-                const $tmpSubmenu = $(item).children('.mdui-menu');
-                if ($tmpSubmenu.length &&
-                    (!$submenu.length || !$tmpSubmenu.is($submenu))) {
-                    that.closeSubMenu($tmpSubmenu);
-                }
-            });
+                    const $tmpSubmenu = $(item).children('.mdui-menu');
+                    if ($tmpSubmenu.length &&
+                        (!$submenu.length || !$tmpSubmenu.is($submenu))) {
+                        that.closeSubMenu($tmpSubmenu);
+                    }
+                });
             // 切换当前子菜单
             if ($submenu.length) {
                 that.toggleSubMenu($submenu);
@@ -5890,6 +6022,7 @@ class Menu {
             });
         }
     }
+
     /**
      * 动画结束回调
      */
@@ -5911,12 +6044,14 @@ class Menu {
             });
         }
     }
+
     /**
      * 切换菜单状态
      */
     toggle() {
         this.isOpen() ? this.close() : this.open();
     }
+
     /**
      * 打开菜单
      */
@@ -5933,6 +6068,7 @@ class Menu {
             .addClass('mdui-menu-open')
             .transitionEnd(() => this.transitionEnd());
     }
+
     /**
      * 关闭菜单
      */
@@ -5952,6 +6088,7 @@ class Menu {
             .transitionEnd(() => this.transitionEnd());
     }
 }
+
 mdui.Menu = Menu;
 
 const customAttr$9 = 'mdui-menu';
