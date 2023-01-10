@@ -10,6 +10,7 @@ QQ交流群: `1034830519`
 | [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)         |   **Long Time Support**   | 5  Aug 2022  | 13 Jul  2021  |
 | `DreamCat 1.x`       |    **End of Life**    | 18 Feb 2021  | 15 Feb  2019 |
 
+
 ## 鸣谢
 
 `JetBrains` 提供优秀的IDE。  
