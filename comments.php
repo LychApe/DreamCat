@@ -1,57 +1,57 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-    <style>
-        .comment-list {
-            list-style-type: none;
-        }
+<style>
+    .comment-list {
+        list-style-type: none;
+    }
 
-        .fillet-A1 {
-            border-radius: .5rem
-        }
+    .fillet-A1 {
+        border-radius: .5rem
+    }
 
-        .shadow-A1 {
-            box-shadow: .5rem .875rem 2.375rem rgba(39, 44, 49, .06), .0625rem .1875rem .5rem rgba(39, 44, 49, .03)
-        }
+    .shadow-A1 {
+        box-shadow: .5rem .875rem 2.375rem rgba(39, 44, 49, .06), .0625rem .1875rem .5rem rgba(39, 44, 49, .03)
+    }
 
-        .button-ts {
-            position: relative
-        }
+    .button-ts {
+        position: relative
+    }
 
-        .button-ts:active {
-            transform: translateY(2px);
-            -webkit-transition: box-shadow 2.5s;
-            box-shadow: .5rem .875rem 2.375rem rgba(255, 255, 255, .12),
-            .0625rem .1875rem .5rem transparent
-        }
+    .button-ts:active {
+        transform: translateY(2px);
+        -webkit-transition: box-shadow 2.5s;
+        box-shadow: .5rem .875rem 2.375rem rgba(255, 255, 255, .12),
+        .0625rem .1875rem .5rem transparent
+    }
 
-        .border-comm {
-            border-radius: 12px;
-        }
+    .border-comm {
+        border-radius: 12px;
+    }
 
-        .border-comm-1 {
-            border-radius: 9px;
-        }
+    .border-comm-1 {
+        border-radius: 9px;
+    }
 
-        .border-comm-2 {
-            border-radius: 19px;
-        }
+    .border-comm-2 {
+        border-radius: 19px;
+    }
 
-        .border-comm-3 {
-            border-radius: 19px;
-        }
+    .border-comm-3 {
+        border-radius: 19px;
+    }
 
-        a {
-            text-decoration: none;
-            color: black;
-        }
+    a {
+        text-decoration: none;
+        color: black;
+    }
 
-        #cancel-comment-reply-link {
-            display: inline !important;
-        }
-    </style>
+    #cancel-comment-reply-link {
+        display: inline !important;
+    }
+</style>
 
-    <div id="comments">
-<?php $comments = null;
-$this->comments()->to($comments); ?>
+<div id="comments">
+    <?php $comments = null;
+    $this->comments()->to($comments); ?>
     <script type="text/javascript">
         function showhidediv(id) {
             var sbtitle = document.getElementById(id);
@@ -143,7 +143,7 @@ $this->comments()->to($comments); ?>
         <span class="mdui-chip-icon"><i class="mdui-icon material-icons">create</i></span>
         <span class="mdui-chip-title"><?php _e('添加新评论'); ?></span>
     </div>
-<?php if ($this->allow('comment')): ?>
+    <?php if ($this->allow('comment')): ?>
     <div id="<?php $this->respondId(); ?>" class="respond">
         <br/>
         <br/>
@@ -217,7 +217,7 @@ $this->comments()->to($comments); ?>
         </form>
 
     </div>
-    </div>
+</div>
 
     </div>
 <?php else: ?>
@@ -243,7 +243,7 @@ $this->comments()->to($comments); ?>
 <?php endif; ?>
 
 
-    </div>
+</div>
 
 
 <?php function threadedComments($comments, $options)
