@@ -231,6 +231,7 @@ $this->need('header.php'); ?>
                         <?php endif; ?>
                     </div>
                 </div>
+                <br/>
             </div>
             <div class="mdui-col-xs-12 mdui-col-sm-9">
                 <?php while ($this->next()): ?>
