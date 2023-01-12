@@ -62,7 +62,7 @@
         <div class="mdui-list DreamCat-ListM-01" mdui-collapse="{accordion: true}">
 
             <!-- 首页 -->
-            <a href="/">
+            <a href="<?php $this->options->siteUrl() ?>">
                 <li class="mdui-list-item mdui-ripple" style="margin-top: 8px;">
                     <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">near_me</i>
                     <div class="mdui-list-item-content">首页</div>
