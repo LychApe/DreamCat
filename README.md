@@ -5,8 +5,8 @@ QQ交流群: `1034830519`
 
 | 版本                                                                        |                  维护状态 |    最近更新时间    |    版本诞生时间    |
 |---------------------------------------------------------------------------|----------------------:|:------------:|:------------:|
-| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |    **InsiderPreview** | 10 Jan  2022 | 6 Jul  2022  |
-| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 5  Aug 2022  | 13 Jul  2021 |
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |    **InsiderPreview** | 12 Jan  2022 | 6 Jul  2022  |
+| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** |  1 Oct 2022  | 13 Jul  2021 |
 | `DreamCat 1.x`                                                            |       **End of Life** | 18 Feb 2021  | 15 Feb  2019 |
 
 ## 鸣谢
@@ -16,22 +16,26 @@ QQ交流群: `1034830519`
 `JetBrains` 提供了轻便的字体(Jetbrains Mono)。  
 `Sourcegcdn` 提供了高速的静态资源加速。
 
-<a href="https://www.jetbrains.com/?from=DreamCat" target="_blank">
-<img src="https://i.stay.pub/img/c8121d886f25f02e.jpg" width="145" alt="">
-<img src="https://i.stay.pub/img/e581bb90d697458d.jpg" width="145" alt="">
-</a>
-
 ## 安装(Install)
 
 > ### 开发版本（最新）
-> 1. 建议使用`Git Clone`以动态获取后续版本 (或点击 Code 下载)
-> 2. 放入`Typecho` `usr/`目录下`themes`文件夹中
+> 1. 建议使用`git clone`以动态获取后续版本
+> 2. 放入`Typecho`的`usr`目录下`themes`文件夹中
 > 3. 请确保本主题文件夹名为`DreamCat`
 > 4. 在`Typecho 管理页面`->`网站外观`启用以完成安装
 
+> master [ 3.x (公测) ] :  
+> [ git clone -b master https://github.com/LychApe/DreamCat.git ]
+>
+> InsiderPreview [ 3.x (内测) ] :  
+> [ git clone -b InsiderPreview https://github.com/LychApe/DreamCat.git ]
+>
+> 2.x_LTS [ 2.x (LTS)] :  
+> [ git clone -b 2.x_LTS https://github.com/LychApe/DreamCat.git ]
+
 > ### 稳定版本
-> 1. 请点击`Releases`下载稳定版本
-> 2. 完全解压并放入`Typecho` `usr/`目录下`themes`文件夹中
+> 1. 请点击[`Releases`](https://github.com/LychApe/DreamCat/releases)下载稳定版本
+> 2. 完全解压并放入`Typecho`的`usr`目录下`themes`文件夹中
 > 3. 请确保本主题文件夹名为`DreamCat`
 > 4. 在`Typecho 管理页面`->`网站外观`启用以完成安装
 
@@ -39,24 +43,19 @@ QQ交流群: `1034830519`
 
 ### 最新版本
 
-> DreamCat(X3.0.22xxxxx)  
+> ### DreamCat 3.0
 > 主题完成全部重构  
 > 提高主题的稳定性  
 > 优化主题的流畅度
 
-> DreamCat(2.7.220805(LTS))  
-> 提高主题的稳定性  
-> 优化主题的流畅度  
-> 1.[Feat] Add adaptation to plugin TypechoEasyTex  
-> 2.[FIx] Add footer output  
-> 3.[Fix]:更新故障CDN检测模块逻辑  
-> 4.[Fix]:fly-engine.js  
-> 5.[Perf]:去除jsdelivr  
-> 6.[Style]: 优化代码结构  
-> 7.[Perf]: 优化手机端友情链接页面  
-> 8.[Fix #19] Remove debug code  
-> 9.[Fix]:跨域问题
-
+> ### DreamCat 2.8.221001 (LTS)  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.8.221001.1(LTS).zip)
+> 1. [Feat]:新增时间轴 [`#55`](https://github.com/LychApe/DreamCat/pull/55)
+> 2. [Feat]:新增代码高亮 [`#56`](https://github.com/LychApe/DreamCat/pull/56)
+> 3. [Fix]:修复完善时间轴 [`#57`](https://github.com/LychApe/DreamCat/pull/57)
+> 4. [Feat]:新增评论区开关 [`#58`](https://github.com/LychApe/DreamCat/pull/58)
+> 5. [Feat]:新增备案号设置 [`#59`](https://github.com/LychApe/DreamCat/pull/59)
+> 6. [Fix]: fix bug [`#60`](https://github.com/LychApe/DreamCat/pull/60)
+> 7. [Fix]:fix bug [`#62`](https://github.com/LychApe/DreamCat/pull/62)
   
 ------
 
@@ -91,7 +90,7 @@ QQ交流群: `1034830519`
 
 ### 更多
 
-只要你遵循上述条款规定，您就可以自由使用并传播本源代码 版权所有 Copyright © 2015-2022 by LychApe All rights reserved
+只要你遵循上述条款规定，您就可以自由使用并传播本源代码 版权所有 Copyright © 2015-2023 by LychApe All rights reserved
 
 ## 主题开发:
 
