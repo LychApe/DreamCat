@@ -1,11 +1,11 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
-function themeVersion()
+function themeVersion(): string
 {
-    return '3.0.220807';
+    return 'X3.0.230112 (Dev-InsiderPreview)';
 }
 
-function themeConfig($form)
+function themeConfig($form): void
 {
     $DC_HeadImageUrl = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_HeadImageUrl',
@@ -69,6 +69,12 @@ function themeConfig($form)
         _t('请以半角逗号 "," 分割多个关键字,留空则不显示')
     );
     $form->addInput($keywords);
+
+    $DC_CommentsRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_CommentsRadio', array(
+        'TureMode' => '开启评论区',
+        'FalseMode' => '关闭评论区',
+    ), 'TureMode', _t('网站评论区开关'));
+    $form->addInput($DC_CommentsRadio);
 
     $DC_NavigationBarModeRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_NavigationBarModeRadio', array(
         'ColurMode' => '单色背景模式',
@@ -338,9 +344,7 @@ function themeConfig($form)
 
                 <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
                     <div class="mdui-card-content">
-                        最新版本：<a href="https://github.com/LychApe/DreamCat/"><img
-                                alt="GitHub release (latest by date)"
-                                src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
+                        最新版本：NULL(API 正在编写)
                         <div class="mdui-float-right">当前版本：<?php echo(themeVersion()); ?></div>
                     </div>
                 </div>

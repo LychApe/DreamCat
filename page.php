@@ -129,7 +129,19 @@
         </div>
         <br/>
         <div class="mdui-container">
-            <?php $this->need('comments.php'); ?>
+            <?php
+            if ($this->options->DC_CommentsRadio == "TureMode"){
+                $this->need('comments.php');
+            }else{
+                ?>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <?php
+            }
+            ?>
         </div>
     </div>
 
