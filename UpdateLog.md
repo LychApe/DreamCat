@@ -1,8 +1,18 @@
 ### 最新版本
 
-> DreamCat(2.7.220805(LTS))  
-> 提高主题的稳定性  
-> 优化主题的流畅度  
+> ### DreamCat 2.8.221001 (LTS)  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.8.221001.1(LTS).zip)
+> 1. [Feat]:新增时间轴 [`#55`](https://github.com/LychApe/DreamCat/pull/55)
+> 2. [Feat]:新增代码高亮 [`#56`](https://github.com/LychApe/DreamCat/pull/56)
+> 3. [Fix]:修复完善时间轴 [`#57`](https://github.com/LychApe/DreamCat/pull/57)
+> 4. [Feat]:新增评论区开关 [`#58`](https://github.com/LychApe/DreamCat/pull/58)
+> 5. [Feat]:新增备案号设置 [`#59`](https://github.com/LychApe/DreamCat/pull/59)
+> 6. [Fix]: fix bug [`#60`](https://github.com/LychApe/DreamCat/pull/60)
+> 7. [Fix]:fix bug [`#62`](https://github.com/LychApe/DreamCat/pull/62)
+  
+------
+
+### 历史版本
+> DreamCat(2.7.220805(LTS))
 > 1.[Feat] Add adaptation to plugin TypechoEasyTex  
 > 2.[FIx] Add footer output  
 > 3.[Fix]:更新故障CDN检测模块逻辑  
@@ -12,10 +22,6 @@
 > 7.[Perf]: 优化手机端友情链接页面  
 > 8.[Fix #19] Remove debug code  
 > 9.[Fix]:跨域问题
-  
-------
-
-### 历史版本
 
 > DreamCat(X2.6.220211)  
 > 1.修复 自定义页脚错误

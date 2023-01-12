@@ -4,7 +4,7 @@
  *
  * @package DreamCat
  * @author LychApe
- * @version X3.0.230110
+ * @version X3.0.230112 (Dev-InsiderPreview)
  * @link https://github.com/LychApe/DreamCat
  */
 
@@ -177,59 +177,79 @@ $this->need('header.php'); ?>
                     <?php } ?>
                     <div class="mdui-card-primary">
                         <div class="mdui-card-primary-title">
-                            <?php $this->options->DC_ProfileCardName() ?>
+                            <?php
+                            if (empty($this->options->DC_ProfileCardName())) {
+                                echo "博主";
+                            } else {
+                                $this->options->DC_ProfileCardName();
+                            }
+                            ?>
                         </div>
                         <div class="mdui-card-primary-subtitle">
-                            <?php $this->options->DC_ProfileCardIntroduction() ?>
+                            <?php
+                            if (empty($this->options->DC_ProfileCardIntroduction())) {
+                                echo "博主很懒,啥都没写";
+                            } else {
+                                $this->options->DC_ProfileCardIntroduction();
+                            }
+                            ?>
                         </div>
                     </div>
-                    <div style="border-top: 1px dashed #e0e0e0; font-size: 14px"></div>
-                    <div class="mdui-card-content">
-                        <?php if (!empty($this->options->DC_A_zfb)): ?>
-                            <a mdui-dialog="{target: '#DC_A_zfb'}">
-                                <span class="icon iconfont icon-zhifubao"></span>
-                            </a>
-                        <?php endif; ?>
-                        <?php if (!empty($this->options->DC_A_github)): ?>
-                            <a href="<?php $this->options->DC_A_github() ?>"
-                               style="text-decoration: none; color: black">
-                                <span class="icon iconfont icon-github"></span>
-                            </a>
-                        <?php endif; ?>
-                        <?php if (!empty($this->options->DC_A_bilibili)): ?>
-                            <a href="<?php $this->options->DC_A_bilibili() ?>"
-                               style="text-decoration: none; color: black">
-                                <span class="icon iconfont icon-icon_bilibili-circle"></span>
-                            </a>
-                        <?php endif; ?>
-                        <?php if (!empty($this->options->DC_A_linkedin)): ?>
-                            <a href="<?php $this->options->DC_A_linkedin() ?>"
-                               style="text-decoration: none; color: black">
-                                <span class="icon iconfont icon-linkedin0"></span>
-                            </a>
-                        <?php endif; ?>
-                        <?php if (!empty($this->options->DC_A_wx)): ?>
-                            <a mdui-dialog="{target: '#DC_A_wx'}">
-                                <span class="icon iconfont icon-logo-wechat"></span>
-                            </a>
-                        <?php endif; ?>
-                        <?php if (!empty($this->options->DC_A_wb)): ?>
-                            <a href="<?php $this->options->DC_A_wb() ?>" style="text-decoration: none; color: black">
-                                <span class="icon iconfont icon-weibo"></span>
-                            </a>
-                        <?php endif; ?>
-                        <?php if (!empty($this->options->DC_A_telegram)): ?>
-                            <a href="<?php $this->options->DC_A_telegram() ?>"
-                               style="text-decoration: none; color: black">
-                                <span class="icon iconfont icon-telegram"></span>
-                            </a>
-                        <?php endif; ?>
-                        <?php if (!empty($this->options->DC_A_qq)): ?>
-                            <a mdui-dialog="{target: '#DC_A_qq'}">
-                                <span class="icon iconfont icon-QQ-circle-fill"></span>
-                            </a>
-                        <?php endif; ?>
-                    </div>
+                    <?php
+                    if (!empty($this->options->DC_A_zfb) || !empty($this->options->DC_A_github)
+                        || !empty($this->options->DC_A_bilibili) || !empty($this->options->DC_A_linkedin)
+                        || !empty($this->options->DC_A_wx) || !empty($this->options->DC_A_wb)
+                        || !empty($this->options->DC_A_telegram) || !empty($this->options->DC_A_qq)):
+                        ?>
+                        <div style="border-top: 1px dashed #e0e0e0; font-size: 14px"></div>
+                        <div class="mdui-card-content">
+                            <?php if (!empty($this->options->DC_A_zfb)): ?>
+                                <a mdui-dialog="{target: '#DC_A_zfb'}">
+                                    <span class="icon iconfont icon-zhifubao"></span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if (!empty($this->options->DC_A_github)): ?>
+                                <a href="<?php $this->options->DC_A_github() ?>"
+                                   style="text-decoration: none; color: black">
+                                    <span class="icon iconfont icon-github"></span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if (!empty($this->options->DC_A_bilibili)): ?>
+                                <a href="<?php $this->options->DC_A_bilibili() ?>"
+                                   style="text-decoration: none; color: black">
+                                    <span class="icon iconfont icon-icon_bilibili-circle"></span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if (!empty($this->options->DC_A_linkedin)): ?>
+                                <a href="<?php $this->options->DC_A_linkedin() ?>"
+                                   style="text-decoration: none; color: black">
+                                    <span class="icon iconfont icon-linkedin0"></span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if (!empty($this->options->DC_A_wx)): ?>
+                                <a mdui-dialog="{target: '#DC_A_wx'}">
+                                    <span class="icon iconfont icon-logo-wechat"></span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if (!empty($this->options->DC_A_wb)): ?>
+                                <a href="<?php $this->options->DC_A_wb() ?>"
+                                   style="text-decoration: none; color: black">
+                                    <span class="icon iconfont icon-weibo"></span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if (!empty($this->options->DC_A_telegram)): ?>
+                                <a href="<?php $this->options->DC_A_telegram() ?>"
+                                   style="text-decoration: none; color: black">
+                                    <span class="icon iconfont icon-telegram"></span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if (!empty($this->options->DC_A_qq)): ?>
+                                <a mdui-dialog="{target: '#DC_A_qq'}">
+                                    <span class="icon iconfont icon-QQ-circle-fill"></span>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <br/>
             </div>
