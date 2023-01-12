@@ -74,7 +74,7 @@
                                 <ul class="mdui-menu" id="DreamCat-post-share"
                                     style="box-shadow: rgb(245 245 245 / 65%) 6px 15px 20px 18px; transform-origin: 50% 0px; position: absolute; top: 9843px; left: 481px; border-radius: 0.75rem;">
                                     <li class="mdui-menu-item">
-                                        <a href="https://connect.qq.com/widget/shareqq/index.html?site=<?php $this->options->title(); ?>&title=<?php $this->title() ?>&summary=<?php $this->summary(); ?>&url=<?php $this->permalink() ?>"
+                                        <a href="https://connect.qq.com/widget/shareqq/index.html?site=<?php $this->options->title(); ?>&title=<?php $this->title() ?>&url=<?php $this->permalink() ?>"
                                            class="mdui-ripple">分享到 QQ</a>
                                     </li>
                                     <li class="mdui-menu-item">
@@ -129,7 +129,19 @@
         </div>
         <br/>
         <div class="mdui-container">
-            <?php $this->need('comments.php'); ?>
+            <?php
+            if ($this->options->DC_CommentsRadio == "TureMode"){
+                $this->need('comments.php');
+            }else{
+                ?>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <?php
+            }
+            ?>
         </div>
     </div>
 
