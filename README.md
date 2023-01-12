@@ -24,14 +24,14 @@ QQ交流群: `1034830519`
 > 3. 请确保本主题文件夹名为`DreamCat`
 > 4. 在`Typecho 管理页面`->`网站外观`启用以完成安装
 
-> master [ 3.x (公测) ] :  
-> [ git clone -b master https://github.com/LychApe/DreamCat.git ]
+> master [ ( 3.x ) ( 公测 ) ] :  
+> ` git clone -b master https://github.com/LychApe/DreamCat.git `
 >
-> InsiderPreview [ 3.x (内测) ] :  
-> [ git clone -b InsiderPreview https://github.com/LychApe/DreamCat.git ]
+> InsiderPreview [ ( 3.x ) ( 内测 ) ] :  
+> ` git clone -b InsiderPreview https://github.com/LychApe/DreamCat.git `
 >
-> 2.x_LTS [ 2.x (LTS)] :  
-> [ git clone -b 2.x_LTS https://github.com/LychApe/DreamCat.git ]
+> 2.x_LTS [ ( 2.x ) ( LTS ) ] :  
+> ` git clone -b 2.x_LTS https://github.com/LychApe/DreamCat.git `
 
 > ### 稳定版本
 > 1. 请点击[`Releases`](https://github.com/LychApe/DreamCat/releases)下载稳定版本
