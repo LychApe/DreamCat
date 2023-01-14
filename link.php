@@ -62,9 +62,9 @@ if (!empty($User_ImageUrl_TF)) {
         </div>
         <br/>
         <?php
-        if ($this->options->DC_CommentsRadio == "TureMode"){
+        if ($this->options->DC_CommentsRadio == "TureMode") {
             $this->need('comments.php');
-        }else{
+        } else {
             ?>
             <br/>
             <br/>
