@@ -12,6 +12,7 @@
 ------
 
 ### 历史版本
+
 > DreamCat(2.7.220805(LTS))
 > 1.[Feat] Add adaptation to plugin TypechoEasyTex  
 > 2.[FIx] Add footer output  
