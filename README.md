@@ -1,6 +1,7 @@
 # DreamCat
 
 QQ交流群: `1034830519`   
+QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)  
 祝您使用愉快:-)
 
 | 版本                                                                        |                  维护状态 |    最近更新时间    |    版本诞生时间    |
@@ -90,7 +91,8 @@ QQ交流群: `1034830519`
 
 ### 更多
 
-只要你遵循上述条款规定，您就可以自由使用并传播本源代码 版权所有 Copyright © 2015-2023 by LychApe All rights reserved
+只要你遵循上述条款规定，您就可以自由使用并传播本源代码  
+Copyright © 2015-2023 by LychApe 
 
 ## 主题开发:
 
@@ -99,3 +101,4 @@ QQ交流群: `1034830519`
 - [Dev-Leo](https://github.com/Dev-Leo)
 - [CornWorld](https://github.com/CornWorld)
 - [WhiteBearcn](https://github.com/whitebearcn)
+- [huanhuan](https://huanblog.com)
