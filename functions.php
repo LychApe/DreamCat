@@ -2,7 +2,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeVersion(): string
 {
-    return 'X3.0.230112 (Dev-InsiderPreview)';
+    return 'X3.0.230204 (Dev-InsiderPreview)';
 }
 
 function themeConfig($form): void
