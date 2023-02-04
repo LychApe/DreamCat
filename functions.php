@@ -162,7 +162,7 @@ function themeConfig($form): void
         'LocalMode' => '本地资源模式',
         'FuseAccelerationMode' => '融合CDN加速模式',
         'CustomMode' => '自定义CDN加速模式'
-    ), 'black', _t('自定义CDN设置'));
+    ), 'FuseAccelerationMode', _t('自定义CDN设置'));
     $form->addInput($DC_WebCdnRadio);
     $DC_CustomCdnUrl_User = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_CustomCdnUrl_User',
@@ -570,10 +570,8 @@ function CustomCDN_url($agent)
 {
     $options = Helper::options();
     switch (true) {
-        case (empty($options->DC_WebCdnRadio) || $options->DC_WebCdnRadio == 'LocalMode'):
-            echo($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$agent");
-            break;
         case ($options->DC_WebCdnRadio == 'FuseAccelerationMode'):
+        case (empty($options->DC_WebCdnRadio) || $options->DC_WebCdnRadio == 'LocalMode'):
             echo($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$agent");
             break;
         default:
@@ -589,48 +587,12 @@ function CustomCDN_url($agent)
 #author：HanFengA7              #
 #version：0.14                  #
 #################################
-function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C)
+function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 {
     $options = Helper::options();
-    $CDN_1 = '//cdnjs.sourcegcdn.com/';
-    $CDN_2 = '//cdnjs.cloudflare.com/';
-    $CDN_HTTP = 'http:';
+    $CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/InsiderPreview/';
     if ($options->DC_WebCdnRadio == 'FuseAccelerationMode') {
-        #CDN:[SourcegCdn][1]
-        $ch1 = curl_init();
-        curl_setopt($ch1, CURLOPT_URL, $CDN_HTTP . $CDN_1 . $URL_1 . $Path_C);
-        curl_setopt($ch1, CURLOPT_TIMEOUT, 0.1); #整个cURL函数执行过程的最长等待时间
-        curl_setopt($ch1, CURLOPT_CONNECTTIMEOUT, 0.05); #连接对方最长等待时间
-        curl_setopt($ch1, CURLOPT_NOBODY, 1);
-        curl_setopt($ch1, CURLOPT_FAILONERROR, 1);
-        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
-        $result_1 = ((curl_exec($ch1) !== false) ? true : false);
-        $result_1_httpcode = curl_getinfo($ch1, CURLINFO_HTTP_CODE);
-        if ($result_1_httpcode == "200") {
-            if ($result_1 == true) {
                 echo($CDN_1 . $URL_1 . $Path_C);
-                curl_close($ch1);
-            }
-        } else {
-            #CDN:[cloudflare][2]
-            $ch2 = curl_init();
-            curl_setopt($ch2, CURLOPT_URL, $CDN_HTTP . $CDN_2 . $URL_2 . $Path_C);
-            curl_setopt($ch2, CURLOPT_TIMEOUT, 0.1); #整个cURL函数执行过程的最长等待时间
-            curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, 0.05); #连接对方最长等待时间
-            curl_setopt($ch2, CURLOPT_NOBODY, 1);
-            curl_setopt($ch2, CURLOPT_FAILONERROR, 1);
-            curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
-            $result_2 = ((curl_exec($ch2) !== false) ? true : false);
-            $result_2_httpcode = curl_getinfo($ch2, CURLINFO_HTTP_CODE);
-            if ($result_2_httpcode == "200") {
-                if ($result_2 == true) {
-                    echo($CDN_2 . $URL_2 . $Path_C);
-                    curl_close($ch2);
-                }
-            } else {
-                echo($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$Path_L");
-            }
-        }
     } else {
         if (!empty($options->DC_CustomCdnUrl_User && $options->DC_WebCdnRadio == 'CustomMode')) {
             $CustomCDN = $options->DC_CustomCdnUrl_User . "$Path_L";
@@ -641,6 +603,7 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C)
     }
 
 }
+
 
 
 #################################
@@ -686,7 +649,7 @@ function thumb($obj)
         }
     }elseif ($randImgIf == 3){
         if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.ixiaowai.cn/gqapi/gqapi2.php?';
+            $imgcdn = 'https://api.dujin.org/pic/fengjing?';
         } else {
             $imgcdn = $options->DC_CustomRandomPictures;
         }
