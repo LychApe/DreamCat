@@ -616,7 +616,9 @@ function CustomFont_url()
 {
     $options = Helper::options();
     if (empty($options->DC_CustomFont_User)) {
-        CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
+        //CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
+        CustomCDN_FAM('DreamCat_StaticResources/fonts/', '', 'fonts/SmileySans-Oblique.ttf.woff2', 'SmileySans-Oblique.ttf.woff2');
+
     } else {
         $CustomFont = $options->DC_CustomFont_User;
         echo($CustomFont);
@@ -632,9 +634,8 @@ function CustomFont_url()
 #################################
 function thumb($obj)
 {
-    $rand_num = 9999;
     $options = Helper::options();
-    $randImgIf = rand(1,3);
+    $randImgIf = rand(1,5);
     if ($randImgIf == 1){
         if (empty($options->DC_CustomRandomPictures)) {
             $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列1';
@@ -643,18 +644,30 @@ function thumb($obj)
         }
     }elseif ($randImgIf == 2){
         if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列2';
+            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列5';
         } else {
             $imgcdn = $options->DC_CustomRandomPictures;
         }
     }elseif ($randImgIf == 3){
         if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.dujin.org/pic/fengjing?';
+            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列10';
+        } else {
+            $imgcdn = $options->DC_CustomRandomPictures;
+        }
+    }elseif ($randImgIf == 4){
+        if (empty($options->DC_CustomRandomPictures)) {
+            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列6';
+        } else {
+            $imgcdn = $options->DC_CustomRandomPictures;
+        }
+    }elseif ($randImgIf == 5){
+        if (empty($options->DC_CustomRandomPictures)) {
+            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列3';
         } else {
             $imgcdn = $options->DC_CustomRandomPictures;
         }
     }
-        $imgurl = $imgcdn .'&sjImg='. md5(rand(1, $rand_num) + time());
+        $imgurl = $imgcdn .'&sjImg='. md5(rand(1, 200));
     $attach = $obj->attachments(1)->attachment;
     if (isset($attach->isImage) && $attach->isImage == 1) {
         $thu = [0, $attach->url];
