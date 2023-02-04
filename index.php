@@ -4,7 +4,7 @@
  *
  * @package DreamCat
  * @author LychApe
- * @version X3.0.230112 (Dev-InsiderPreview)
+ * @version X3.0.230204 (Dev-InsiderPreview)
  * @link https://github.com/LychApe/DreamCat
  */
 
@@ -178,7 +178,7 @@ $this->need('header.php'); ?>
                     <div class="mdui-card-primary">
                         <div class="mdui-card-primary-title">
                             <?php
-                            if (empty($this->options->DC_ProfileCardName())) {
+                            if (empty($this->options->DC_ProfileCardName)) {
                                 echo "博主";
                             } else {
                                 $this->options->DC_ProfileCardName();
@@ -187,7 +187,7 @@ $this->need('header.php'); ?>
                         </div>
                         <div class="mdui-card-primary-subtitle">
                             <?php
-                            if (empty($this->options->DC_ProfileCardIntroduction())) {
+                            if (empty($this->options->DC_ProfileCardIntroduction)) {
                                 echo "博主很懒,啥都没写";
                             } else {
                                 $this->options->DC_ProfileCardIntroduction();
