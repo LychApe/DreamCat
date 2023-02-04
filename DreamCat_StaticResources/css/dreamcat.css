@@ -377,3 +377,19 @@ pre {
     border: none !important;
     box-shadow: inset -4px 20px 20px 20px rgb(140 152 164 / 10%) !important;
 }
+
+/*右下返回顶部按钮*/
+.scrollTop {
+    display: none;
+    /* 默认隐藏 */
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    /* 圆角 */
+}

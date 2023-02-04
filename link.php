@@ -43,7 +43,7 @@ $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF;
 if (!empty($User_ImageUrl_TF)) {
     echo $User_ImageUrl_TF;
 } else {
-    echo(CustomCDN_url('img/post_bj.jpg'));
+    echo(CustomCDN_FAM('DreamCat_StaticResources/img/', '', 'img/post_bj.jpg', 'post_bj.jpg'));
 } ?>);">
 </div>
 
