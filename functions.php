@@ -645,7 +645,7 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C)
 
 #################################
 #CustomCDN_FuseAccelerationMode #
-#[自定义字体]                   #
+# [自定义字体]                   #
 #author：HanFengA7              #
 #version：0.03                  #
 #################################
@@ -663,27 +663,35 @@ function CustomFont_url()
 
 #################################
 #thumb                          #
-#[随机图片]                     #
+# [随机图片]                      #
 #author：HanFengA7              #
 #version：0.15                  #
 #################################
 function thumb($obj)
 {
-    $rand_num = 10;
+    $rand_num = 9999;
     $options = Helper::options();
-    if (empty($options->DC_CustomRandomPictures)) {
-        $imgcdn = 'https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=';
-        #https://api.ixiaowai.cn/gqapi/gqapi.php?lx=fengjing&sj=
-        #https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=
-    } else {
-        $imgcdn = $options->DC_CustomRandomPictures;
+    $randImgIf = rand(1,3);
+    if ($randImgIf == 1){
+        if (empty($options->DC_CustomRandomPictures)) {
+            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列1';
+        } else {
+            $imgcdn = $options->DC_CustomRandomPictures;
+        }
+    }elseif ($randImgIf == 2){
+        if (empty($options->DC_CustomRandomPictures)) {
+            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列2';
+        } else {
+            $imgcdn = $options->DC_CustomRandomPictures;
+        }
+    }elseif ($randImgIf == 3){
+        if (empty($options->DC_CustomRandomPictures)) {
+            $imgcdn = 'https://api.ixiaowai.cn/gqapi/gqapi2.php?';
+        } else {
+            $imgcdn = $options->DC_CustomRandomPictures;
+        }
     }
-
-    if ($rand_num == 0) {
-        $imgurl = $imgcdn . "/img/OER/0.jpg"; //如果$rand_num = 0,则显示默认图片，须命名为"0.jpg"
-    } else {
-        $imgurl = $imgcdn . "/img/OER/" . rand(1, $rand_num) . ".jpg"; // 须按"1.jpg","2.jpg","3.jpg"，一定要安装顺序
-    }
+        $imgurl = $imgcdn .'&sjImg='. md5(rand(1, $rand_num) + time());
     $attach = $obj->attachments(1)->attachment;
     if (isset($attach->isImage) && $attach->isImage == 1) {
         $thu = [0, $attach->url];
