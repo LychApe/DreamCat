@@ -15,7 +15,7 @@
                 <div class="footer-top-contact-logos">
                     <?php
                     if (!empty($this->options->DC_FooterLogoUrl)) {
-                        echo('<img width="173px" height="35px" src="' . $this->options->DC_FooterLogoUrl . '">');
+                        echo('<img width="180px" height="50px" src="' . $this->options->DC_FooterLogoUrl . '">');
                     }
                     ?>
                 </div>
