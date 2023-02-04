@@ -10,11 +10,27 @@
                     <a itemprop="url" href="<?php $this->permalink() ?>">
                         <div class="mdui-card DreamCat-card-1 DreamCat-card-ts-1">
                             <div class="mdui-card-media">
-                                <div>
-                                    <img class="DreamCat-card-post-wzimg DreamCat-card-post-wzimg-ts"
-                                         src="https://api.ixiaowai.cn/api/api.php?lx=dongman?<?php $this->title() ?>"
-                                         alt="">
-                                </div>
+                                <?php
+                                $t = thumb($this);
+                                $User_ImageUrl_TF = $this->fields->User_ImageUrl_TF;
+                                if ($t[0] == 0): ?>
+                                    <img class="DreamCat-card-post-wzimg DreamCat-card-post-wzimg-ts" src="<?php
+                                    if (!empty($User_ImageUrl_TF)) {
+                                        echo $User_ImageUrl_TF;
+                                    } else {
+                                        echo $t[1];
+                                    }
+                                    ?>" alt=""/>
+                                <?php endif; ?>
+                                <?php if ($t[0] == 1) : ?>
+                                    <img class="DreamCat-card-post-wzimg DreamCat-card-post-wzimg-ts" src="<?php
+                                    if (!empty($User_ImageUrl_TF)) {
+                                        echo $User_ImageUrl_TF;
+                                    } else {
+                                        echo $t[1];
+                                    }
+                                    ?>" alt=""/>
+                                <?php endif; ?>
                                 <div class="mdui-card-media-covered">
                                     <div class="mdui-card-primary">
                                         <div class="mdui-card-primary-title"><?php $this->title() ?>

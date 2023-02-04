@@ -144,6 +144,10 @@ $this->need('header.php'); ?>
                             </div>
                         </div>
                     </form>
+                    <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+                    <script
+                        src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/time.js', 'time.js'); ?>">
+                    </script>
                 </div>
                 <div class="mdui-col-xs-6 mdui-col-sm-3">
                     <form method="get" class="Dreamcat-search-bar mdui-hidden-sm-down mdui-float-right">
