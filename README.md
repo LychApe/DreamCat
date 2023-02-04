@@ -66,7 +66,10 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 
 ## Github Star 趋势
 
-[![Stargazers over time](https://starchart.cc/LychApe/DreamCat.svg)](https://starchart.cc/LychApe/DreamCat)
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=LychApe/DreamCat&type=Date)](https://star-history.com/#LychApe/DreamCat&Date)
+
 
 ## 版权信息
 
