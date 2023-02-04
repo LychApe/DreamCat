@@ -2,7 +2,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeVersion(): string
 {
-    return 'X3.0.230112 (Dev-InsiderPreview)';
+    return 'X3.0.230204 (Dev-InsiderPreview)';
 }
 
 function themeConfig($form): void
@@ -162,7 +162,7 @@ function themeConfig($form): void
         'LocalMode' => '本地资源模式',
         'FuseAccelerationMode' => '融合CDN加速模式',
         'CustomMode' => '自定义CDN加速模式'
-    ), 'black', _t('自定义CDN设置'));
+    ), 'FuseAccelerationMode', _t('自定义CDN设置'));
     $form->addInput($DC_WebCdnRadio);
     $DC_CustomCdnUrl_User = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_CustomCdnUrl_User',
@@ -570,10 +570,8 @@ function CustomCDN_url($agent)
 {
     $options = Helper::options();
     switch (true) {
-        case (empty($options->DC_WebCdnRadio) || $options->DC_WebCdnRadio == 'LocalMode'):
-            echo($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$agent");
-            break;
         case ($options->DC_WebCdnRadio == 'FuseAccelerationMode'):
+        case (empty($options->DC_WebCdnRadio) || $options->DC_WebCdnRadio == 'LocalMode'):
             echo($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$agent");
             break;
         default:
@@ -589,48 +587,12 @@ function CustomCDN_url($agent)
 #author：HanFengA7              #
 #version：0.14                  #
 #################################
-function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C)
+function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 {
     $options = Helper::options();
-    $CDN_1 = '//cdnjs.sourcegcdn.com/';
-    $CDN_2 = '//cdnjs.cloudflare.com/';
-    $CDN_HTTP = 'http:';
+    $CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/InsiderPreview/';
     if ($options->DC_WebCdnRadio == 'FuseAccelerationMode') {
-        #CDN:[SourcegCdn][1]
-        $ch1 = curl_init();
-        curl_setopt($ch1, CURLOPT_URL, $CDN_HTTP . $CDN_1 . $URL_1 . $Path_C);
-        curl_setopt($ch1, CURLOPT_TIMEOUT, 0.1); #整个cURL函数执行过程的最长等待时间
-        curl_setopt($ch1, CURLOPT_CONNECTTIMEOUT, 0.05); #连接对方最长等待时间
-        curl_setopt($ch1, CURLOPT_NOBODY, 1);
-        curl_setopt($ch1, CURLOPT_FAILONERROR, 1);
-        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
-        $result_1 = ((curl_exec($ch1) !== false) ? true : false);
-        $result_1_httpcode = curl_getinfo($ch1, CURLINFO_HTTP_CODE);
-        if ($result_1_httpcode == "200") {
-            if ($result_1 == true) {
                 echo($CDN_1 . $URL_1 . $Path_C);
-                curl_close($ch1);
-            }
-        } else {
-            #CDN:[cloudflare][2]
-            $ch2 = curl_init();
-            curl_setopt($ch2, CURLOPT_URL, $CDN_HTTP . $CDN_2 . $URL_2 . $Path_C);
-            curl_setopt($ch2, CURLOPT_TIMEOUT, 0.1); #整个cURL函数执行过程的最长等待时间
-            curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, 0.05); #连接对方最长等待时间
-            curl_setopt($ch2, CURLOPT_NOBODY, 1);
-            curl_setopt($ch2, CURLOPT_FAILONERROR, 1);
-            curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
-            $result_2 = ((curl_exec($ch2) !== false) ? true : false);
-            $result_2_httpcode = curl_getinfo($ch2, CURLINFO_HTTP_CODE);
-            if ($result_2_httpcode == "200") {
-                if ($result_2 == true) {
-                    echo($CDN_2 . $URL_2 . $Path_C);
-                    curl_close($ch2);
-                }
-            } else {
-                echo($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$Path_L");
-            }
-        }
     } else {
         if (!empty($options->DC_CustomCdnUrl_User && $options->DC_WebCdnRadio == 'CustomMode')) {
             $CustomCDN = $options->DC_CustomCdnUrl_User . "$Path_L";
@@ -643,9 +605,10 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C)
 }
 
 
+
 #################################
 #CustomCDN_FuseAccelerationMode #
-#[自定义字体]                   #
+# [自定义字体]                   #
 #author：HanFengA7              #
 #version：0.03                  #
 #################################
@@ -663,27 +626,35 @@ function CustomFont_url()
 
 #################################
 #thumb                          #
-#[随机图片]                     #
+# [随机图片]                      #
 #author：HanFengA7              #
 #version：0.15                  #
 #################################
 function thumb($obj)
 {
-    $rand_num = 10;
+    $rand_num = 9999;
     $options = Helper::options();
-    if (empty($options->DC_CustomRandomPictures)) {
-        $imgcdn = 'https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=';
-        #https://api.ixiaowai.cn/gqapi/gqapi.php?lx=fengjing&sj=
-        #https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images&sj=
-    } else {
-        $imgcdn = $options->DC_CustomRandomPictures;
+    $randImgIf = rand(1,3);
+    if ($randImgIf == 1){
+        if (empty($options->DC_CustomRandomPictures)) {
+            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列1';
+        } else {
+            $imgcdn = $options->DC_CustomRandomPictures;
+        }
+    }elseif ($randImgIf == 2){
+        if (empty($options->DC_CustomRandomPictures)) {
+            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列2';
+        } else {
+            $imgcdn = $options->DC_CustomRandomPictures;
+        }
+    }elseif ($randImgIf == 3){
+        if (empty($options->DC_CustomRandomPictures)) {
+            $imgcdn = 'https://api.dujin.org/pic/fengjing?';
+        } else {
+            $imgcdn = $options->DC_CustomRandomPictures;
+        }
     }
-
-    if ($rand_num == 0) {
-        $imgurl = $imgcdn . "/img/OER/0.jpg"; //如果$rand_num = 0,则显示默认图片，须命名为"0.jpg"
-    } else {
-        $imgurl = $imgcdn . "/img/OER/" . rand(1, $rand_num) . ".jpg"; // 须按"1.jpg","2.jpg","3.jpg"，一定要安装顺序
-    }
+        $imgurl = $imgcdn .'&sjImg='. md5(rand(1, $rand_num) + time());
     $attach = $obj->attachments(1)->attachment;
     if (isset($attach->isImage) && $attach->isImage == 1) {
         $thu = [0, $attach->url];

@@ -16,6 +16,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta charset="<?php $this->options->charset(); ?>">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -25,16 +26,23 @@
             'tag' => _t('标签 %s 下的文章'),
             'author' => _t('%s 发布的文章')
         ], '', ' - '); ?><?php $this->options->DC_WebName(); ?></title>
-
+    <?php
+    if ($this->options->DC_WebCdnRadio == 'FuseAccelerationMode'){
+        echo '<link rel="dns-prefetch" href="//gh.sourcegcdn.com">';
+    }
+    ?>
     <!-- 使用url函数转换相关路径 -->
     <link rel="shortcut icon" href="<?php echo($this->options->DC_WebFavicon()); ?>" type="image/x-icon"/>
     <link rel="stylesheet"
-          href="<?php CustomCDN_FAM('ajax/libs/mdui/1.0.2/', 'ajax/libs/mdui/1.0.2/', 'css/mdui.min.css', 'css/mdui.min.css'); ?>">
-    <link rel="stylesheet" href="<?php CustomCDN_url('css/md2.css'); ?>">
-    <link rel="stylesheet" href="<?php CustomCDN_url('css/dreamcat.css'); ?>">
-    <link rel="stylesheet" href="<?php CustomCDN_url('icons/iconfont/iconfont.css'); ?>">
+          href="<?php CustomCDN_FAM('DreamCat_StaticResources/css/', '', 'css/mdui.min.css', 'mdui.min.css'); ?>">
     <link rel="stylesheet"
-          href="<?php CustomCDN_FAM('ajax/libs/highlight.js/11.6.0/', 'ajax/libs/highlight.js/11.6.0/', 'css/atom-one-light.min.css', 'styles/atom-one-light.min.css'); ?>">
+          href="<?php CustomCDN_FAM('DreamCat_StaticResources/css/', '', 'css/md2.css', 'md2.css'); ?>">
+    <link rel="stylesheet"
+          href="<?php CustomCDN_FAM('DreamCat_StaticResources/css/', '', 'css/dreamcat.css', 'dreamcat.css'); ?>">
+    <link rel="stylesheet"
+          href="<?php CustomCDN_FAM('DreamCat_StaticResources/icons/iconfont/', '', 'icons/iconfont/iconfont.css', 'iconfont.css'); ?>">
+    <link rel="stylesheet"
+          href="<?php CustomCDN_FAM('DreamCat_StaticResources/css/', '', 'css/atom-one-light.min.css', 'atom-one-light.min.css'); ?>">
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header('commentReply='); ?>
 </head>
@@ -43,8 +51,7 @@
 <style>
     @font-face {
         font-family: CustomFont;
-        src: url(<?php CustomFont_url();
-        ?>);
+        src: url(<?php CustomFont_url();?>);
     }
 
     body {

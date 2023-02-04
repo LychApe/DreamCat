@@ -95,18 +95,18 @@
 
 
 <script
-    src="<?php CustomCDN_FAM('ajax/libs/mdui/1.0.2/', 'ajax/libs/mdui/1.0.2/', 'js/mdui.min.js', 'js/mdui.min.js'); ?>">
+    src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/mdui.min.js', 'mdui.min.js'); ?>">
 </script>
 <script src="<?php CustomCDN_url('js/dreamcat.js'); ?>"></script>
 <script
-    src="<?php CustomCDN_FAM('ajax/libs/highlight.js/11.6.0/', 'ajax/libs/highlight.js/11.6.0/', 'js/highlight.min.js', 'highlight.min.js'); ?>">
+    src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/highlight.min.js', 'highlight.min.js'); ?>">
 </script>
 <script
-    src="<?php CustomCDN_FAM('ajax/libs/smooth-scroll/16.1.3/', 'ajax/libs/smooth-scroll/16.1.3/', 'js/smooth-scroll.min.js', 'smooth-scroll.min.js'); ?>">
+    src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/smooth-scroll.min.js', 'smooth-scroll.min.js'); ?>">
 </script>
 
 <script>
-    hljs.initHighlightingOnLoad()
+    hljs.initHighlightingOnLoad();
 </script>
 <script>
     let t = null;
