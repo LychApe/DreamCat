@@ -616,7 +616,9 @@ function CustomFont_url()
 {
     $options = Helper::options();
     if (empty($options->DC_CustomFont_User)) {
-        CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
+        //CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
+        CustomCDN_FAM('DreamCat_StaticResources/fonts/', '', 'fonts/SmileySans-Oblique.ttf.woff2', 'SmileySans-Oblique.ttf.woff2');
+
     } else {
         $CustomFont = $options->DC_CustomFont_User;
         echo($CustomFont);
