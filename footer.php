@@ -92,7 +92,27 @@
         <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
     </div>
 </div>
-
+<style>
+    .scrollTop {
+        display: none;
+        /* 默认隐藏 */
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 10px;
+        /* 圆角 */
+    }
+</style>
+<div class="mdui-fab-wrapper">
+    <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink scrollTop" id="back-top"
+       onclick="scrollFunction()">
+        <i class="mdui-icon material-icons">&#xe5d8;</i></a>
+</div>
 
 <script
     src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/mdui.min.js', 'mdui.min.js'); ?>">
@@ -112,11 +132,6 @@
 
 
 
-<div class="mdui-fab-wrapper">
-    <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink scrollTop" id="back-top"
-       onclick="scrollFunction()">
-        <i class="mdui-icon material-icons">&#xe5d8;</i></a>
-</div>
 
 
 
