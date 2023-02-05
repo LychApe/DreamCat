@@ -7,8 +7,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeVersion(): string
 {
-    //return '2.9.230205_LTS';
-    return '2.x_LTS';
+    return '2.9.230205_LTS';
+    //return '2.x_LTS';
 }
 
 function themeConfig($form)
