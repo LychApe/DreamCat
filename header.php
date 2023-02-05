@@ -40,8 +40,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
           as="style">
     <link rel="stylesheet preload" href="<?php CustomCDN_FAM('css/', '', 'css/md2.css', 'md2.css'); ?>"
           as="style">
-    <link rel="stylesheet preload" href="<?php CustomCDN_FAM('css/', '', 'css/mdui.min.css', 'mdui.min.css'); ?>"
-          as="style">
     <link rel="stylesheet" href="//cdnjs.sourcegcdn.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-light.min.css">
     <script rel="preload"
             src="<?php CustomCDN_FAM('js/', '', 'js/mdui.min.js', 'mdui.min.js'); ?>"
