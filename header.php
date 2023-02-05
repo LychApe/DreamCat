@@ -76,7 +76,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 
 <body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
-<script src="<?php echo($this->options->rootUrl . '/usr/themes/DreamCat/DreamCat_StaticResources/js/fly-engine.js'); ?>"
+<script src="<?php CustomCDN_FAM('js/', '', 'js/fly-engine.js', 'fly-engine.js'); ?>"
         type="module"></script>
 
 
@@ -89,7 +89,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 <div class="DreamCat-menu-bg" style="background: url(<?php $this->options->CustomPicture1(); ?>);">
                     <?php else: ?>
                     <div class="DreamCat-menu-bg" style="background: url(<?php
-                    CustomCDN_FAM('img/', '', 'img/brand.jpg', 'brand.jpg');?>);">
+                    CustomCDN_FAM('img/', '', 'img/brand.jpg', 'brand.jpg'); ?>);">
                         <?php endif; ?>
                         <?php if (!empty($this->options->logoUrl)): ?>
                             <div class="Logo_centered">
@@ -100,7 +100,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                         <?php else: ?>
                             <div class="Logo_centered">
                                 <img class="DreamCat-List-headimg mdui-shadow-6"
-                                     src="<?php CustomCDN_FAM('img/', '', 'img/default-avatar.png', 'default-avatar.png');?>" style="margin-top: 40px;"
+                                     src="<?php CustomCDN_FAM('img/', '', 'img/default-avatar.png', 'default-avatar.png'); ?>"
+                                     style="margin-top: 40px;"
                                      alt="">
                             </div>
                         <?php endif; ?>
@@ -117,7 +118,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                     </div>
                 </div>
                 <!-- 首页 -->
-                <a href="/">
+                <a href="<?php $this->options->siteUrl() ?>">
                     <li class="mdui-list-item mdui-ripple" style="margin-top: 8px;">
                         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">near_me</i>
                         <div class="mdui-list-item-content">首&nbsp;&nbsp;页</div>
