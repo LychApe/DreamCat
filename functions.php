@@ -7,7 +7,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeVersion(): string
 {
-    return '2.9.230205_LTS';
+    //return '2.9.230205_LTS';
+    return '2.x_LTS';
 }
 
 function themeConfig($form)
@@ -263,8 +264,8 @@ function themeConfig($form)
         	</div>
         	<br/>
         		<div class="mdui-textfield">
-        		<textarea type="text" id="CustomFooter" class="mdui-textfield-input" rows="4" name="dreamcat_CustomFooter" value='{$options->CustomFooter}' placeholder='自定义页脚内容'></textarea>
-        		<script>document.getElementById("CustomFooter").value = '{$options->CustomFooter}'</script>
+        		<textarea type="text" id="CustomFooter" class="mdui-textfield-input" rows="4" name="dreamcat_CustomFooter" placeholder='自定义页脚内容'></textarea>
+        		<script>document.getElementById("CustomFooter").innerHTML = `{$options->CustomFooter}`</script>
         		</div>
     </div>
     <!-- 配置中心=>全局设置 [End]-->
@@ -342,7 +343,11 @@ function themeConfig($form)
         	<div class="mdui-textfield">
         	  <input type="text" class="mdui-textfield-input" name="dreamcat_CustomFont" value="{$options->CustomFont}" placeholder="填入字体链接或留空"/>
         	  <div>
-        	  <p>自定义字体：填入一个字体接链或留空</p>
+        	  <p>自定义字体：填入一个字体名称(下面)或接链(自定义)或留空</p>
+        	  <p>1.JetBrainsMono字体: 填写"JetBrainsMono"</p>
+        	  <p>2.SmileySans字体: 填写"SmileySans"</p>
+        	  <p>3.SourceHanSansHWSC字体: 填写"SourceHanSansHWSC"</p>
+        	  <p>4.自定义字体: 填写字体接链</p>
         	  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用本地字体源</p>
         	  </div>
         	</div>
@@ -352,8 +357,8 @@ function themeConfig($form)
         	  <span class="mdui-chip-title">自定义全局CSS</span>
         	</div>
         	<div class="mdui-textfield">
-        	  <textarea type="text" id="CustomizeGlobalCss" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalCss" value='{$options->CustomizeGlobalCss}' placeholder='填入CSS'></textarea>
-        	  <script>document.getElementById("CustomizeGlobalCss").value = '{$options->CustomizeGlobalCss}'</script>
+        	  <textarea type="text" id="CustomizeGlobalCss" class="mdui-textfield-input"  name="dreamcat_CustomizeGlobalCss" placeholder='填入CSS'></textarea>
+        	  <script>document.getElementById("CustomizeGlobalCss").innerHTML = `{$options->CustomizeGlobalCss}`</script>
         	</div>
     		
         	<br/>
@@ -362,7 +367,7 @@ function themeConfig($form)
         	</div>
         	<div class="mdui-textfield">
         	  <textarea type="text" id="CustomizeGlobalJs" class="mdui-textfield-input" rows="5" name="dreamcat_CustomizeGlobalJs" placeholder='填入JS'></textarea>
-        	  <script>document.getElementById("CustomizeGlobalJs").value = '{$options->CustomizeGlobalJs}'</script>
+        	  <script>document.getElementById("CustomizeGlobalJs").innerHTML = `$options->CustomizeGlobalJs`</script>
         	</div>
     		
     	</div>
@@ -453,17 +458,24 @@ function themeConfig($form)
     <script>
     		//同步input值
     		$('input').bind('input propertychange blur', function () {
-    			var name = $(this).attr("name").split('_')[1];
+    			const name = $(this).attr("name").split('_')[1];
     			$("input[name='" + name + "']").val($(this).val());
     		});
     		
-    		//同步textarea值
-    		$('textarea').bind('input propertychange blur', function () {
+    		$('textarea').bind('textarea propertychange blur', function () {
     			//var length = $("textarea").val();
-    			var name = $(this).attr("name").split('_')[1];
-    			$("input[name='" + name + "']").val($(this).val());
-    			//console.log(name);
+    			const name = $(this).attr("name").split('_')[1];
+    			$('input[name=' + name + ']').val($(this).val());
+    			console.log(name);
     		});
+    		
+    		//同步textarea值
+    		//$('textarea').bind('textarea propertychange blur', function () {
+    			//var length = $("textarea").val();
+    		//	const name = $(this).attr("name").split('_')[1];
+    		//	$('input[name=' + name + ']').val($(this).val());
+    			//console.log(name);
+    		//});
     		
     		//$('checkbox', function(){
     		//	var that = mdui.$.data(document.body,'input',);
@@ -481,7 +493,6 @@ HTML;
     $layout->html(_t($Html));
     $form->addItem($layout);
 }
-
 
 
 function themeFields($layout)
@@ -1014,7 +1025,7 @@ function CustomCDN_url($agent): void
 function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 {
     $options = Helper::options();
-    $CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/2.x_LTS/DreamCat_StaticResources/';
+    $CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/' . themeVersion() . '/DreamCat_StaticResources/';
     if ($options->CustomCdn == 'FuseAccelerationMode') {
         echo($CDN_1 . $URL_1 . $Path_C);
     } else {
@@ -1030,7 +1041,7 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 #CustomCDN_FuseAccelerationMode
 //[自定义字体]
 //author：HanFengA7
-//version：0.03
+//version：0.04
 #################################
 function CustomFont_url()
 {
@@ -1038,8 +1049,15 @@ function CustomFont_url()
     if ($options->CustomFont == '') {
         CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
     } else {
-        $CustomFont = $options->CustomFont;
-        echo($CustomFont);
+        if ($options->CustomFont == 'JetBrainsMono') {
+            echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/JetBrainsMono-Regular.woff2';
+        } elseif ($options->CustomFont == 'SmileySans') {
+            echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/SmileySans-Oblique.ttf.woff2';
+        } elseif ($options->CustomFont == 'SourceHanSansHWSC') {
+            echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/SourceHanSansHWSC-VF.otf.woff2';
+        } else {
+            echo($options->CustomFont);
+        }
     }
 }
 
