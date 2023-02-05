@@ -21,7 +21,7 @@
 						<img class="mdui-card-header-avatar" src="<?php $this->options->logoUrl() ?>"/>
 					<?php else: ?>
 						<img class="mdui-card-header-avatar"
-							 src="<?php CustomCDN_url('img/default-avatar.png'); ?>"/>
+							 src="<?php CustomCDN_FAM('img/', '', 'img/default-avatar.png', 'default-avatar.png'); ?>"/>
 					<?php endif; ?>
 					<div class="mdui-card-header-title"><?php $this->author(); ?></div>
 					<div class="mdui-card-header-subtitle"><?php $this->options->description(); ?></div>
