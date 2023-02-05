@@ -4,11 +4,11 @@ QQ交流群: `1034830519`
 QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)  
 祝您使用愉快:-)
 
-| 版本                                                                        |                  维护状态 |    最近更新时间    |    版本诞生时间    |
-|---------------------------------------------------------------------------|----------------------:|:------------:|:------------:|
-| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |    **InsiderPreview** | 12 Jan  2023 | 6 Jul  2022  |
-| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** |  1 Oct 2022  | 13 Jul  2021 |
-| `DreamCat 1.x`                                                            |       **End of Life** | 18 Feb 2021  | 15 Feb  2019 |
+| 版本                                                                        |                  维护状态 |   最近更新时间    |    版本诞生时间    |
+|---------------------------------------------------------------------------|----------------------:|:-----------:|:------------:|
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |    **InsiderPreview** | 4 Feb  2023 | 6 Jul  2022  |
+| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 5 Feb 2022  | 13 Jul  2021 |
+| `DreamCat 1.x`                                                            |       **End of Life** | 18 Feb 2021 | 15 Feb  2019 |
 
 ## 鸣谢
 
@@ -49,14 +49,13 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 > 提高主题的稳定性  
 > 优化主题的流畅度
 
-> ### DreamCat 2.8.221001 (LTS)  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.8.221001.1(LTS).zip)
-> 1. [Feat]:新增时间轴 [`#55`](https://github.com/LychApe/DreamCat/pull/55)
-> 2. [Feat]:新增代码高亮 [`#56`](https://github.com/LychApe/DreamCat/pull/56)
-> 3. [Fix]:修复完善时间轴 [`#57`](https://github.com/LychApe/DreamCat/pull/57)
-> 4. [Feat]:新增评论区开关 [`#58`](https://github.com/LychApe/DreamCat/pull/58)
-> 5. [Feat]:新增备案号设置 [`#59`](https://github.com/LychApe/DreamCat/pull/59)
-> 6. [Fix]: fix bug [`#60`](https://github.com/LychApe/DreamCat/pull/60)
-> 7. [Fix]:fix bug [`#62`](https://github.com/LychApe/DreamCat/pull/62)
+> ### DreamCat 2.9.230205_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.9.230205_LTS.zip)  
+> 1.重构主题CDN加速功能  
+> 2.优化随机图片功能  
+> 3.优化自定义字体功能  
+> 4.修复侧边栏“首页”跳转Bug  
+> 5.新增版本号控制  
+> 6.修复自定义全局CSS/全局JS/页脚内容 Bug  
   
 ------
 
@@ -66,7 +65,10 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 
 ## Github Star 趋势
 
-[![Stargazers over time](https://starchart.cc/LychApe/DreamCat.svg)](https://starchart.cc/LychApe/DreamCat)
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=LychApe/DreamCat&type=Date)](https://star-history.com/#LychApe/DreamCat&Date)
+
 
 ## 版权信息
 
@@ -92,7 +94,7 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 ### 更多
 
 只要你遵循上述条款规定，您就可以自由使用并传播本源代码  
-Copyright © 2015-2023 by LychApe 
+Copyright © 2015-2023 by LychApe
 
 ## 主题开发:
 
