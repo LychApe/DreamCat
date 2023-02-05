@@ -12,7 +12,7 @@
 
 ## 鸣谢  
 `FallsoftCDN` 提供了高速的静态资源加速。  
-`SourcegCDN` 提供了高速的静态资源加速。 
+`SourcegCDN` 提供了高速的静态资源加速。  
 `JetBrainsMono`  
 `SmileySans`  
 `SourceHanSansHWSC`  
