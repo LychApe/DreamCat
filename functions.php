@@ -1,17 +1,14 @@
 <?php
 ini_set("error_reporting", "E_ALL & ~E_NOTICE");
-/**
- * DreamCat   是一个极简自适应博客主题,年轻人追梦的必备良品!
- *
- * @package DreamCat
- * @author LychApe
- * @version 2.7.220805(LTS)
- * @link https://github.com/LychApe/DreamCat
- */
 error_reporting(E_ALL ^ E_NOTICE);
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 #define("THEME_URL", rtrim(preg_replace('/^' . preg_quote($options->siteUrl, '/') . '/', $options->rootUrl . '/', $options->themeUrl, 1), '/'));
+
+function themeVersion(): string
+{
+    return '2.9.230205_LTS';
+}
 
 function themeConfig($form)
 {
@@ -44,7 +41,7 @@ function themeConfig($form)
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('Favicon'));
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('CommentSectionSwitch'));
     $form->addInput(new Typecho_Widget_Helper_Form_Element_Hidden('ICPSet'));
-
+    $themeVersion = themeVersion();
     $options = Typecho_Widget::widget('Widget_Options');
     $Html = <<<HTML
 <meta http-equiv="x-dns-prefetch-control" content="on"/>
@@ -100,7 +97,7 @@ function themeConfig($form)
     <!-- 配置中心=>头部 [Start]-->
     <div class="mdui-card-primary">
     	<div class="mdui-card-primary-title">DreamCat 主题配置中心</div>
-    	<div class="mdui-card-primary-subtitle">Version: 2.8.221001(LTS)</div>
+    	<div class="mdui-card-primary-subtitle">Version: {$themeVersion}</div>
     </div>
     <!-- 配置中心=>头部 [End]-->
     
@@ -121,7 +118,7 @@ function themeConfig($form)
         				<div class="mdui-card-header">
         				  <img class="mdui-card-header-avatar" src="https://i.loli.net/2020/01/19/gHs2Kb39YixpyE4.png" alt=""/>
         				  <div class="mdui-card-header-title">DreamCat</div>
-        				  <div class="mdui-card-header-subtitle">2.8.221001(LTS)</div>
+        				  <div class="mdui-card-header-subtitle">{$themeVersion}</div>
         				</div>
         			</div>
                 </div>
@@ -150,7 +147,7 @@ function themeConfig($form)
     		<div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
     			<div class="mdui-card-content">
     			最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
-    			<div class="mdui-float-right">当前版本：2.8.221001(LTS)</div>
+    			<div class="mdui-float-right">当前版本：{$themeVersion}</div>
     			</div>
     		</div>
     		<br/>
@@ -484,6 +481,7 @@ HTML;
     $layout->html(_t($Html));
     $form->addItem($layout);
 }
+
 
 
 function themeFields($layout)
