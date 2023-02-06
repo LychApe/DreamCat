@@ -49,13 +49,15 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 > 提高主题的稳定性  
 > 优化主题的流畅度
 
-> ### DreamCat 2.9.230205_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.9.230205_LTS.zip)  
+> ### DreamCat 2.9.230206_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.9.230206_LTS.zip)  
 > 1.重构主题CDN加速功能  
 > 2.优化随机图片功能  
 > 3.优化自定义字体功能  
 > 4.修复侧边栏“首页”跳转Bug  
 > 5.新增版本号控制  
 > 6.修复自定义全局CSS/全局JS/页脚内容 Bug  
+> 7.优化主题自适应
+> 8.新增夜间模式
   
 ------
 
@@ -65,7 +67,6 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 
 ## Github Star 趋势
 
-## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=LychApe/DreamCat&type=Date)](https://star-history.com/#LychApe/DreamCat&Date)
 
