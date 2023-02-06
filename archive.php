@@ -35,13 +35,15 @@
                         <div class="mdui-row">
                             <div id="main">
                                 <div class="mdui-col-md-1 mdui-col-lg-1"></div>
-                                <div class="mdui-col-md-10 mdui-col-lg-10">
+                                <div
+                                    class="mdui-col-xs-12 mdui-col-sm-12 mdui-col-md-10 mdui-col-lg-10 mdui-col-xl-10">
                                     <div id="line"></div>
                                     <div id="coos">
                                         <div class="lis">
                                             <div class="spot"></div>
-                                            <div class="g-lin mdui-hidden-xs"></div>
-                                            <a href="<?php $this->permalink() ?>" title="<?php $this->title(); ?>"
+                                            <div class="g-lin mdui-hidden-sm-down"></div>
+                                            <a href="<?php $this->permalink() ?>"
+                                               title="<?php $this->title(); ?>"
                                                style="text-decoration: none;">
                                                 <?php if ($this->options->listtc == 'checked'): ?>
                                                     <div class="mdui-card mdui-hoverable shadow-A1" id="main"
@@ -112,10 +114,11 @@
                                                                         <?php if ($this->options->articletime == 'checked'): ?>
                                                                             <br>
                                                                             <small>发表时间:
-                                                                                <time datetime="<?php $this->date(
-                                                                                    'c'
-                                                                                ); ?>"
-                                                                                      itemprop="datePublished">
+                                                                                <time
+                                                                                    datetime="<?php $this->date(
+                                                                                        'c'
+                                                                                    ); ?>"
+                                                                                    itemprop="datePublished">
                                                                                     <?php $this->date(); ?></time>
                                                                             </small>
                                                                         <?php endif; ?>
@@ -138,43 +141,46 @@
                         <div class="mdui-row">
                             <div id="main">
                                 <div class="mdui-col-md-1 mdui-col-lg-1"></div>
-                                <div class="mdui-col-md-10 mdui-col-lg-10">
+                                <div
+                                    class="mdui-col-xs-12 mdui-col-sm-12 mdui-col-md-10 mdui-col-lg-10 mdui-col-xl-10">
                                     <div id="line"></div>
                                     <div id="coos">
                                         <div class="lis">
                                             <div class="spot"></div>
-                                            <div class="g-lin mdui-hidden-xs"></div>
-                                            <div class="mdui-card mdui-hoverable shadow-A1" id="main" role="main"
+                                            <div class="g-lin mdui-hidden-sm-down"></div>
+                                            <div class="mdui-card mdui-hoverable shadow-A1" id="main"
+                                                 role="main"
                                                  style="background-color: #e8e8e8; border-radius:6px; transform:translateY(-15%);">
                                                 <div class="mdui-row">
-                                                    <div class="mdui-col-xs-12 mdui-col-sm-4">
+                                                    <div
+                                                        class="mdui-col-xs-4 mdui-col-sm-3 mdui-col-md-3 mdui-col-lg-2 mdui-col-xl-2">
                                                         <div style="    background-color: #dadada;
                                                                 border-radius: 0 0 15px 15px;
                                                                 color: grey;
-                                                                left: 15px;
-                                                                margin-right: 165px;
-                                                                margin-left: 25px;
-                                                                padding: 10px;"><i
-                                                                class="mdui-icon material-icons"></i>
-                                                            <?php
-                                                            if ($timershaft_opt == "A") {
-                                                                echo " 说 说";
-                                                            } elseif ($timershaft_opt == "B") {
-                                                                echo " 日 志";
-                                                            } elseif ($timershaft_opt == "C") {
-                                                                echo " 公 告";
-                                                            } elseif ($timershaft_opt == "D") {
-                                                                echo " 状 态";
-                                                            }
-                                                            ?>
+                                                                margin-left: 30px;
+                                                                padding: 1px;">
+                                                            <div
+                                                                style="text-align: center;margin-block-start: 1em;margin-block-end: 1em;">
+                                                                <?php
+                                                                if ($timershaft_opt == "A") {
+                                                                    echo "<h4>说 说</h4>";
+                                                                } elseif ($timershaft_opt == "B") {
+                                                                    echo "<h4>日 志</h4>";
+                                                                } elseif ($timershaft_opt == "C") {
+                                                                    echo "<h4>公 告</h4>";
+                                                                } elseif ($timershaft_opt == "D") {
+                                                                    echo "<h4>状 态</h4>";
+                                                                }
+                                                                ?>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="mdui-col-xs-1 mdui-col-sm-4"></div>
-                                                    <div class="mdui-col-xs-1 mdui-col-sm-4"></div>
+
                                                 </div>
 
                                                 <div class="mdui-card-primary">
-                                                    <div class="mdui-card-primary-title"><?php $this->title(); ?></div>
+                                                    <div
+                                                        class="mdui-card-primary-title"><?php $this->title(); ?></div>
                                                     <div
                                                         class="mdui-card-primary-subtitle"><?php $this->excerpt(520, '...'); ?></div>
                                                 </div>
