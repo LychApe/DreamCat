@@ -13,7 +13,7 @@
 
 <div class="mdui-container-fluid">
 	<div class="mdui-row DreamCat-content-header" style="min-height: 140px;"></div>
-	<div class="mdui-container">
+	<div class="mdui-container" style="padding: 15px;">
 		<div class="mdui-row">
 			<div class="mdui-card shadow-A1" style="margin-top: -15%; border-radius:9px;">
 				<div class="mdui-card-header mdui-color-grey-50">

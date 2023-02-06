@@ -16,22 +16,21 @@ $this->need('header.php');
         <div class="container">
             <div class="row">
                 <!--Start-->
-                <div class="mdui-container-fluid">
-                    <div class="mdui-row DreamCat-content-header">
-                        <div class="mdui-container fade-scale in">
+                <div class="mdui-container-fluid mdui-appbar mdui-shadow-0">
+                    <div class="mdui-row DreamCat-content-header mdui-color-indigo">
+                        <div class="fade-scale in ">
                             <h1 class="title">
                                 <?php $this->options->title(); ?></h1>
                             <h5 class="subtitle">
                                 <?php $this->options->description(); ?></h5>
                         </div>
                     </div>
-                    <div class="mdui-row">
+                    <div class="mdui-row mdui-appbar mdui-shadow-0">
                         <div class="mdui-col-xs-6 mdui-float-right"
                              style="transform: translateY(-50%);width: 95px;">
-                            <button class="mdui-shadow-0 mdui-fab mdui-color-theme-accent mdui-ripple"
-                                    mdui-dialog="{target: '#search-1'}"
-                                    style="background-color: #3f51b5!important;"><i
-                                    class="mdui-icon material-icons">search</i></button>
+                            <div class="mdui-shadow-0 mdui-fab mdui-ripple mdui-color-indigo"
+                                    mdui-dialog="{target: '#search-1'}"><i
+                                    class="mdui-icon material-icons">search</i></div>
                         </div>
                     </div>
                 </div>

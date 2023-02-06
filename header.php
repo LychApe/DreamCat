@@ -73,14 +73,14 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 </head>
 
 
-<body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+<body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+<!--mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100 -->
 <script src="<?php CustomCDN_FAM('js/', '', 'js/fly-engine.js', 'fly-engine.js'); ?>"
         type="module"></script>
 
 
 <header>
-    <div class="mc-drawer mdui-drawer mdui-color-grey-50"
-         style="background: linear-gradient(135deg,#ECEFF1 0,#FAFAFA 60%);" id="main-drawer">
+    <div class="mc-drawer mdui-drawer" id="main-drawer">
         <div class="mdui-list DreamCat-List-01" mdui-collapse="{accordion: true}" style="margin-bottom: 50%;">
             <div class="mdui-card DreamCat-List-02" style="overflow: inherit;">
                 <?php if (!empty($this->options->CustomPicture1)): ?>
@@ -256,9 +256,48 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             <a href="/" class="mdui-typo-headline mdui-hidden-xs"><?php #$this->options->title(); ?></a>
             <a href="" class="mdui-typo-title"><?php #$this->archiveTitle(); ?></a>
             <div class="mdui-toolbar-spacer"></div>
-            <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon">
-                <i class="mdui-icon material-icons">refresh</i>
+            <a onclick="LDMode()" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">
+                    <div id="LDMode_BtnIcon"></div>
+                </i>
             </a>
+            <button onclick="javascript:location.reload();" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">refresh</i>
+            </button>
+            <script>
+                let LDMode_theme = "light";
+                let LDMode_Body = document.body;
+                let LDMode_BtnIcon = document.getElementById('LDMode_BtnIcon');
+
+                if (window.sessionStorage.getItem('LDMode_theme')){
+                    if (window.sessionStorage.getItem('LDMode_theme') === 'dark'){
+                        LDMode_BtnIcon.innerHTML = `&#xe3a9;`;
+                        LDMode_Body.classList.add("mdui-theme-layout-dark");
+                    }else{
+                        LDMode_BtnIcon.innerHTML = `&#xe3aa;`;
+                        LDMode_Body.classList.remove("mdui-theme-layout-dark");
+                    }
+                }else{
+                    LDMode_theme = "light";
+                    document.getElementById('LDMode_BtnIcon').innerHTML = `&#xe3aa;`;
+                    LDMode_Body.classList.remove("mdui-theme-layout-dark");
+                }
+
+                function LDMode() {
+                    if (LDMode_theme === "light") {
+                        LDMode_BtnIcon.innerHTML = `&#xe3a9;`;
+                        LDMode_Body.classList.add("mdui-theme-layout-dark");
+                        LDMode_theme = "dark";
+                        window.sessionStorage.setItem('LDMode_theme', LDMode_theme);
+                    } else if (LDMode_theme === "dark") {
+                        LDMode_BtnIcon.innerHTML = `&#xe3aa;`;
+                        LDMode_Body.classList.remove("mdui-theme-layout-dark");
+                        LDMode_theme = "light";
+                        window.sessionStorage.setItem('LDMode_theme', LDMode_theme);
+                    }
+                }
+
+            </script>
         </div>
     </div>
 </div>

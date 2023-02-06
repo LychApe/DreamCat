@@ -1,7 +1,7 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 ?>
-
+<div class=" mdui-appbar mdui-shadow-0">
 <div class="DreamCat-footer">
     <div class="DreamCat-infooter">
         <br/>
@@ -17,6 +17,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         </div>
         <br/>
     </div>
+</div>
 </div>
 
 <div class="mdui-dialog" id="About_DreamCat">
