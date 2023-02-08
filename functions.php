@@ -7,7 +7,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeVersion(): string
 {
-    return '2.9.230206_LTS';
+    return '2.9.230208_LTS';
     //return '2.x_LTS';
 }
 
@@ -1071,39 +1071,21 @@ function CustomFont_url()
 function thumb($obj)
 {
     $options = Helper::options();
-    $randImgIf = rand(1, 5);
-    if ($randImgIf == 1) {
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列1';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
+    $randImgIf = rand(1, 3);
+    if(empty($options->CustomRandomPictures)){
+        if ($randImgIf == 1) {
+                $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class=1';
+                $imgurl = $imgcdn . '&sjImg=' . md5(rand(1, 200));
+        } elseif ($randImgIf == 2) {
+                $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class=2';
+                $imgurl = $imgcdn . '&sjImg=' . md5(rand(1, 200));
+        } elseif ($randImgIf == 3) {
+                $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class=3';
+                $imgurl = $imgcdn . '&sjImg=' . md5(rand(1, 200));
         }
-    } elseif ($randImgIf == 2) {
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列5';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
-    } elseif ($randImgIf == 3) {
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列10';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
-    } elseif ($randImgIf == 4) {
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列6';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
-    } elseif ($randImgIf == 5) {
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列3';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
+    }else{
+        $imgurl = $options->CustomRandomPictures . '&sjImg=' . md5(rand(1, 200));
     }
-    $imgurl = $imgcdn . '&sjImg=' . md5(rand(1, 200));
     $attach = $obj->attachments(1)->attachment;
     if (isset($attach->isImage) && $attach->isImage == 1) {
         $thu = [0, $attach->url];
