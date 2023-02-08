@@ -49,7 +49,7 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 > 提高主题的稳定性  
 > 优化主题的流畅度
 
-> ### DreamCat 2.9.230206_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.9.230208_LTS.zip)  
+> ### DreamCat 2.9.230208_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.9.230208_LTS.zip)  
 > 1.重构主题CDN加速功能  
 > 2.优化随机图片功能  
 > 3.优化自定义字体功能  
