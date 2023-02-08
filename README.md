@@ -7,7 +7,7 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 | 版本                                                                        |                  维护状态 |   最近更新时间    |    版本诞生时间    |
 |---------------------------------------------------------------------------|----------------------:|:-----------:|:------------:|
 | [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |    **InsiderPreview** | 4 Feb  2023 | 6 Jul  2022  |
-| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 8 Feb 2022  | 13 Jul  2021 |
+| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 8 Feb 2023  | 13 Jul  2021 |
 | `DreamCat 1.x`                                                            |       **End of Life** | 18 Feb 2021 | 15 Feb  2019 |
 
 ## 鸣谢
