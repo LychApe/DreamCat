@@ -592,7 +592,7 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
     $options = Helper::options();
     $CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/InsiderPreview/';
     if ($options->DC_WebCdnRadio == 'FuseAccelerationMode') {
-                echo($CDN_1 . $URL_1 . $Path_C);
+        echo($CDN_1 . $URL_1 . $Path_C);
     } else {
         if (!empty($options->DC_CustomCdnUrl_User && $options->DC_WebCdnRadio == 'CustomMode')) {
             $CustomCDN = $options->DC_CustomCdnUrl_User . "$Path_L";
@@ -603,7 +603,6 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
     }
 
 }
-
 
 
 #################################
@@ -630,44 +629,19 @@ function CustomFont_url()
 #thumb                          #
 # [随机图片]                      #
 #author：HanFengA7              #
-#version：0.15                  #
+#version：0.16                  #
 #################################
-function thumb($obj)
+function thumb($obj): array
 {
     $options = Helper::options();
-    $randImgIf = rand(1,5);
-    if ($randImgIf == 1){
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列1';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
-    }elseif ($randImgIf == 2){
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列5';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
-    }elseif ($randImgIf == 3){
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列10';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
-    }elseif ($randImgIf == 4){
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列6';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
-    }elseif ($randImgIf == 5){
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列3';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
+    if (empty($options->DC_CustomRandomPictures)) {
+        $randImgClass = rand(1, 4);
+        $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class='.$randImgClass;
+        $imgurl = $imgcdn . '&sjImg=' . rand(1000, 9000);
+    } else {
+        $imgcdn = $options->DC_CustomRandomPictures;
+        $imgurl = $imgcdn . '&sjImg=' . rand(1000, 10000);
     }
-        $imgurl = $imgcdn .'&sjImg='. md5(rand(1, 200));
     $attach = $obj->attachments(1)->attachment;
     if (isset($attach->isImage) && $attach->isImage == 1) {
         $thu = [0, $attach->url];
