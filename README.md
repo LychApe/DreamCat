@@ -10,6 +10,7 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 | [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 14 Feb 2023  | 13 Jul  2021 |
 | `DreamCat 1.x`                                                            |       **End of Life** | 18 Feb 2021  | 15 Feb  2019 |
 
+
 ## 鸣谢
 
 `JetBrains` 提供优秀的IDE。  
@@ -57,7 +58,9 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 > 5.新增版本号控制  
 > 6.修复自定义全局CSS/全局JS/页脚内容 Bug  
 > 7.优化主题自适应  
-> 8.新增夜间模式
+> 8.新增夜间模式  
+> 9.新增多级分类  
+
   
 ------
 
