@@ -4,7 +4,7 @@
  *
  * @package DreamCat
  * @author LychApe
- * @version 2.9.230208_LTS
+ * @version 2.9.230214_LTS
  * @link https://github.com/LychApe/DreamCat
  */
 
@@ -29,7 +29,7 @@ $this->need('header.php');
                         <div class="mdui-col-xs-6 mdui-float-right"
                              style="transform: translateY(-50%);width: 95px;">
                             <div class="mdui-shadow-0 mdui-fab mdui-ripple mdui-color-indigo"
-                                    mdui-dialog="{target: '#search-1'}"><i
+                                 mdui-dialog="{target: '#search-1'}"><i
                                     class="mdui-icon material-icons">search</i></div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@ $this->need('header.php');
                                     <div class="mdui-card-media">
                                         <?php if (!empty($this->options->headbj2)): ?><img class="DreamCat-main-pic"
                                                                                            src="<?php $this->options->headbj2() ?>"
-                                                                                           style="height: 100px;position: relative;background-size: cover;background-position: center;border-radius: var(--jinsom-border-radius) var(--jinsom-border-radius) 0 0;"
+                                                                                           style="height: 100px;position: relative;background-size: cover;background-position: center;;"
                                                                                            alt=""/>
                                         <?php else: ?><img class="DreamCat-main-pic"
                                                            src="//img14.360buyimg.com/img/jfs/t1/60307/19/4269/282412/5d2629faE5c3b1ef5/02d26b22dfe459d0.jpg"
@@ -154,8 +154,72 @@ $this->need('header.php');
                     <?php while ($this->next()): ?>
                         <?php
                         $timershaft_opt = $this->fields->timershaft_opt;
-                        if (empty($timershaft_opt)):
+                        if ($timershaft_opt == "A" || $timershaft_opt == "B" || $timershaft_opt == "C" || $timershaft_opt == "D"):
                             ?>
+                            <article class="post" itemscope="" itemtype="//schema.org/BlogPosting">
+                                <div class="mdui-row">
+                                    <div id="main">
+                                        <div class="mdui-col-md-1 mdui-col-lg-1"></div>
+                                        <div
+                                            class="mdui-col-xs-12 mdui-col-sm-12 mdui-col-md-10 mdui-col-lg-10 mdui-col-xl-10">
+                                            <div id="line"></div>
+                                            <div id="coos">
+                                                <div class="lis">
+                                                    <div class="spot"></div>
+                                                    <div class="g-lin mdui-hidden-sm-down"></div>
+                                                    <div class="mdui-card mdui-hoverable shadow-A1" id="main"
+                                                         role="main"
+                                                         style="background-color: #e8e8e8; border-radius:6px; transform:translateY(-15%);">
+                                                        <div class="mdui-row">
+                                                            <div
+                                                                class="mdui-col-xs-4 mdui-col-sm-3 mdui-col-md-3 mdui-col-lg-2 mdui-col-xl-2">
+                                                                <div style="background-color: #dadada;
+                                                                    border-radius: 0 0 15px 15px;
+                                                                    color: grey;
+                                                                    margin-left: 30px;
+                                                                    padding: 1px;">
+                                                                    <div
+                                                                        style="text-align: center;margin-block-start: 1em;margin-block-end: 1em;">
+                                                                        <?php
+                                                                        if ($timershaft_opt == "A") {
+                                                                            echo "<h4>说 说</h4>";
+                                                                        } elseif ($timershaft_opt == "B") {
+                                                                            echo "<h4>日 志</h4>";
+                                                                        } elseif ($timershaft_opt == "C") {
+                                                                            echo "<h4>公 告</h4>";
+                                                                        } elseif ($timershaft_opt == "D") {
+                                                                            echo "<h4>状 态</h4>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="mdui-card-primary">
+                                                            <div
+                                                                class="mdui-card-primary-title">
+                                                                <div style="color: #282a36">
+                                                                    <?php $this->title(); ?>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                class="mdui-card-primary-subtitle">
+                                                                <div style="color: #282a36">
+                                                                    <?php $this->excerpt(520, '...'); ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mdui-col-md-1 mdui-col-lg-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        <?php else: ?>
                             <article class="post" itemscope="" itemtype="//schema.org/BlogPosting">
                                 <div class="mdui-row">
                                     <div id="main">
@@ -261,66 +325,8 @@ $this->need('header.php');
                                     </div>
                                 </div>
                             </article>
-                        <?php else: ?>
-                            <article class="post" itemscope="" itemtype="//schema.org/BlogPosting">
-                                <div class="mdui-row">
-                                    <div id="main">
-                                        <div class="mdui-col-md-1 mdui-col-lg-1"></div>
-                                        <div
-                                            class="mdui-col-xs-12 mdui-col-sm-12 mdui-col-md-10 mdui-col-lg-10 mdui-col-xl-10">
-                                            <div id="line"></div>
-                                            <div id="coos">
-                                                <div class="lis">
-                                                    <div class="spot"></div>
-                                                    <div class="g-lin mdui-hidden-sm-down"></div>
-                                                    <div class="mdui-card mdui-hoverable shadow-A1" id="main"
-                                                         role="main"
-                                                         style="background-color: #e8e8e8; border-radius:6px; transform:translateY(-15%);">
-                                                        <div class="mdui-row">
-                                                            <div
-                                                                class="mdui-col-xs-4 mdui-col-sm-3 mdui-col-md-3 mdui-col-lg-2 mdui-col-xl-2">
-                                                                <div style="    background-color: #dadada;
-                                                                border-radius: 0 0 15px 15px;
-                                                                color: grey;
-                                                                margin-left: 30px;
-                                                                padding: 1px;">
-                                                                    <div
-                                                                        style="text-align: center;margin-block-start: 1em;margin-block-end: 1em;">
-                                                                        <?php
-                                                                        if ($timershaft_opt == "A") {
-                                                                            echo "<h4>说 说</h4>";
-                                                                        } elseif ($timershaft_opt == "B") {
-                                                                            echo "<h4>日 志</h4>";
-                                                                        } elseif ($timershaft_opt == "C") {
-                                                                            echo "<h4>公 告</h4>";
-                                                                        } elseif ($timershaft_opt == "D") {
-                                                                            echo "<h4>状 态</h4>";
-                                                                        }
-                                                                        ?>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="mdui-card-primary">
-                                                            <div
-                                                                class="mdui-card-primary-title"><?php $this->title(); ?></div>
-                                                            <div
-                                                                class="mdui-card-primary-subtitle"><?php $this->excerpt(520, '...'); ?></div>
-                                                        </div>
-                                                        <div/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mdui-col-md-1 mdui-col-lg-1"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
                         <?php endif; ?>
                     <?php endwhile; ?>
-
                 </div>
 
                 <div class="moe-margin-card-top"></div>
