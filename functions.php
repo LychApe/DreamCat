@@ -637,10 +637,10 @@ function thumb($obj): array
     if (empty($options->DC_CustomRandomPictures)) {
         $randImgClass = rand(1, 4);
         $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class='.$randImgClass;
-        $imgurl = $imgcdn . '&sjImg=' . rand(1000, 9000);
+        $imgurl = $imgcdn . '&sjImg=' . rand(100, 9000);
     } else {
         $imgcdn = $options->DC_CustomRandomPictures;
-        $imgurl = $imgcdn . '&sjImg=' . rand(1000, 10000);
+        $imgurl = $imgcdn . '?&sjImg=' . rand(100, 9000);
     }
     $attach = $obj->attachments(1)->attachment;
     if (isset($attach->isImage) && $attach->isImage == 1) {
