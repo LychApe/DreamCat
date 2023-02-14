@@ -2,7 +2,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeVersion(): string
 {
-    return 'X3.0.230204 (Dev-InsiderPreview)';
+    return 'X3.0.230214 (Dev-InsiderPreview)';
 }
 
 function themeConfig($form): void
@@ -178,12 +178,21 @@ function themeConfig($form): void
         _t('选择自定义CDN加速模式即可填写CDN静态资源链接')
     );
     $form->addInput($DC_CustomCdnUrl_User);
+
+    $DC_CustomFontRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_CustomFontRadio', array(
+        'Ol_JetBrainsMono' => 'JetBrainsMono字体(在线)',
+        'Ol_SmileySans' => 'SmileySans字体(在线)',
+        'Ol_SourceHanSansHWSC' => 'SourceHanSansHWSC字体(在线)',
+        'CustomModeLocal' => '本地字体',
+        'CustomModeUser' => '自定义字体'
+    ), 'CustomModeLocal', _t('自定义字体模式'));
+    $form->addInput($DC_CustomFontRadio);
     $DC_CustomFont_User = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_CustomFont_User',
         null,
         null,
         _t('自定义字体'),
-        _t('填入一个字体接链或留空')
+        _t('选择自定义字体即可填写字体资源链接')
     );
     $form->addInput($DC_CustomFont_User);
 
@@ -615,18 +624,22 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 #CustomCDN_FuseAccelerationMode #
 # [自定义字体]                   #
 #author：HanFengA7              #
-#version：0.03                  #
+#version：0.04                  #
 #################################
 function CustomFont_url()
 {
     $options = Helper::options();
-    if (empty($options->DC_CustomFont_User)) {
-        //CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
-        CustomCDN_FAM('DreamCat_StaticResources/fonts/', '', 'fonts/SmileySans-Oblique.ttf.woff2', 'SmileySans-Oblique.ttf.woff2');
-
-    } else {
+    if ($options->DC_CustomFontRadio == "Ol_JetBrainsMono"){
+        echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/JetBrainsMono-Regular.woff2';
+    }elseif($options->DC_CustomFontRadio == "Ol_SmileySans"){
+        echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/SmileySans-Oblique.ttf.woff2';
+    }elseif($options->DC_CustomFontRadio == "Ol_SourceHanSansHWSC"){
+        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/SourceHanSansHWSC-VF.otf.woff2';
+    }elseif($options->DC_CustomFontRadio == "CustomModeUser"){
         $CustomFont = $options->DC_CustomFont_User;
         echo($CustomFont);
+    }else{
+        CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
     }
 }
 
