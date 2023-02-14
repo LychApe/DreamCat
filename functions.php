@@ -2,7 +2,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeVersion(): string
 {
-    return 'X3.0.230204 (Dev-InsiderPreview)';
+    return 'X3.0.230214 (Dev-InsiderPreview)';
 }
 
 function themeConfig($form): void
@@ -118,6 +118,12 @@ function themeConfig($form): void
     );
     $form->addInput($DC_AppImgBarHeight_PE);
 
+    $DC_ArticleListModeRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_ArticleListModeRadio', array(
+        'ImgMode' => '图片模式',
+        'TextMode' => '文字模式',
+    ), 'ImgMode', _t('文章列表模式'));
+    $form->addInput($DC_ArticleListModeRadio);
+
     $DC_ProfileCardName = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_ProfileCardName',
         null,
@@ -172,12 +178,21 @@ function themeConfig($form): void
         _t('选择自定义CDN加速模式即可填写CDN静态资源链接')
     );
     $form->addInput($DC_CustomCdnUrl_User);
+
+    $DC_CustomFontRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_CustomFontRadio', array(
+        'Ol_JetBrainsMono' => 'JetBrainsMono字体(在线)',
+        'Ol_SmileySans' => 'SmileySans字体(在线)',
+        'Ol_SourceHanSansHWSC' => 'SourceHanSansHWSC字体(在线)',
+        'CustomModeLocal' => '本地字体',
+        'CustomModeUser' => '自定义字体'
+    ), 'CustomModeLocal', _t('自定义字体模式'));
+    $form->addInput($DC_CustomFontRadio);
     $DC_CustomFont_User = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_CustomFont_User',
         null,
         null,
         _t('自定义字体'),
-        _t('填入一个字体接链或留空')
+        _t('选择自定义字体即可填写字体资源链接')
     );
     $form->addInput($DC_CustomFont_User);
 
@@ -592,7 +607,7 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
     $options = Helper::options();
     $CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/InsiderPreview/';
     if ($options->DC_WebCdnRadio == 'FuseAccelerationMode') {
-                echo($CDN_1 . $URL_1 . $Path_C);
+        echo($CDN_1 . $URL_1 . $Path_C);
     } else {
         if (!empty($options->DC_CustomCdnUrl_User && $options->DC_WebCdnRadio == 'CustomMode')) {
             $CustomCDN = $options->DC_CustomCdnUrl_User . "$Path_L";
@@ -605,23 +620,26 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 }
 
 
-
 #################################
 #CustomCDN_FuseAccelerationMode #
 # [自定义字体]                   #
 #author：HanFengA7              #
-#version：0.03                  #
+#version：0.04                  #
 #################################
 function CustomFont_url()
 {
     $options = Helper::options();
-    if (empty($options->DC_CustomFont_User)) {
-        //CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
-        CustomCDN_FAM('DreamCat_StaticResources/fonts/', '', 'fonts/SmileySans-Oblique.ttf.woff2', 'SmileySans-Oblique.ttf.woff2');
-
-    } else {
+    if ($options->DC_CustomFontRadio == "Ol_JetBrainsMono"){
+        echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/JetBrainsMono-Regular.woff2';
+    }elseif($options->DC_CustomFontRadio == "Ol_SmileySans"){
+        echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/SmileySans-Oblique.ttf.woff2';
+    }elseif($options->DC_CustomFontRadio == "Ol_SourceHanSansHWSC"){
+        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/SourceHanSansHWSC-VF.otf.woff2';
+    }elseif($options->DC_CustomFontRadio == "CustomModeUser"){
         $CustomFont = $options->DC_CustomFont_User;
         echo($CustomFont);
+    }else{
+        CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
     }
 }
 
@@ -630,44 +648,19 @@ function CustomFont_url()
 #thumb                          #
 # [随机图片]                      #
 #author：HanFengA7              #
-#version：0.15                  #
+#version：0.16                  #
 #################################
-function thumb($obj)
+function thumb($obj): array
 {
     $options = Helper::options();
-    $randImgIf = rand(1,5);
-    if ($randImgIf == 1){
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列1';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
-    }elseif ($randImgIf == 2){
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列5';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
-    }elseif ($randImgIf == 3){
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列10';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
-    }elseif ($randImgIf == 4){
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列6';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
-    }elseif ($randImgIf == 5){
-        if (empty($options->DC_CustomRandomPictures)) {
-            $imgcdn = 'https://api.r10086.com/img-api.php?type=风景系列3';
-        } else {
-            $imgcdn = $options->DC_CustomRandomPictures;
-        }
+    if (empty($options->DC_CustomRandomPictures)) {
+        $randImgClass = rand(1, 4);
+        $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class='.$randImgClass;
+        $imgurl = $imgcdn . '&sjImg=' . rand(100, 9000);
+    } else {
+        $imgcdn = $options->DC_CustomRandomPictures;
+        $imgurl = $imgcdn . '?&sjImg=' . rand(100, 9000);
     }
-        $imgurl = $imgcdn .'&sjImg='. md5(rand(1, 200));
     $attach = $obj->attachments(1)->attachment;
     if (isset($attach->isImage) && $attach->isImage == 1) {
         $thu = [0, $attach->url];
