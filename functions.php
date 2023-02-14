@@ -118,6 +118,12 @@ function themeConfig($form): void
     );
     $form->addInput($DC_AppImgBarHeight_PE);
 
+    $DC_ArticleListModeRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_ArticleListModeRadio', array(
+        'ImgMode' => '图片模式',
+        'TextMode' => '文字模式',
+    ), 'ImgMode', _t('文章列表模式'));
+    $form->addInput($DC_ArticleListModeRadio);
+
     $DC_ProfileCardName = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_ProfileCardName',
         null,
