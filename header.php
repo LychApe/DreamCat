@@ -126,8 +126,8 @@
                 </div>
                 <div class="mdui-collapse-item-body" style="">
                     <ul class="mdui-list mdui-list-dense" for="show-category-button">
-                        <?php $pages = null;
-                        $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+                        <?php
+                        $pages = $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                         <?php while ($pages->next()): ?>
                             <li class="mdui-list-item mdui-ripple">
                                 <a href="<?php $pages->permalink(); ?>"
