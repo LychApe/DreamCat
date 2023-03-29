@@ -120,12 +120,9 @@
 }
 
 .moe-page-div {
-    margin-top: 30px;
     max-width: 250px;
-    margin-left: auto;
     position: relative;
-    margin-right: auto;
-    margin-bottom: 80px;
+    margin: 30px auto 80px;
 }
 
 .moe-page-div .moe-number {
@@ -296,12 +293,20 @@
 }
 
 .Logo_centered > img {
-    margin: 0;
-    margin-top: -50px;
+    margin: -50px 0 0;
     left: 0;
 }
 
-/*DreamCat_poststyle V1.0*/
+/*DreamCat_post-style V1.1*/
+.page-content {
+    margin: 35px 0;
+    letter-spacing: 1px;
+    line-height: 1.8em;
+    word-wrap: break-word;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
 .page-content pre {
     padding: 1em !important;
     margin: .5em 0 !important;
