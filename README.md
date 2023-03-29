@@ -44,7 +44,7 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 
 ### 最新版本
 
-> ### DreamCat 3.0.230331
+> ### DreamCat 3.0.230331  
 > 1.优化文章页排版  
 > 2.优化代码结构  
 > 3.增加左侧栏分类模块  
@@ -52,7 +52,7 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 > 5.优化友链页背景图片高度  
 > 6.增加后台备案号填充
 
-> ### DreamCat 2.10.230331_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.10.230331_LTS.zip)
+> ### DreamCat 2.10.230331_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.10.230331_LTS.zip)  
 > 1.优化文章页排版  
 > 2.优化代码结构  
 > 3.去除冗余代码  
