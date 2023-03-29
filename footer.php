@@ -2,22 +2,22 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 ?>
 <div class=" mdui-appbar mdui-shadow-0">
-<div class="DreamCat-footer">
-    <div class="DreamCat-infooter">
-        <br/>
-        <div class="mdui-typo">
-            <p>Copyright © <?php echo date('Y'); ?> <a
-                    href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
-            <?php if (!empty($this->options->ICPSet)): ?>
-                <a target="_blank" style="color: black;background-color: transparent;text-decoration-line: none;"
-                   href="https://beian.miit.gov.cn/">互联网ICP备案:
-                    <?php echo($this->options->ICPSet); ?></a>
-            <?php endif ?>
-            <?php $this->options->CustomFooter(); ?>
+    <div class="DreamCat-footer">
+        <div class="DreamCat-infooter">
+            <br/>
+            <div class="mdui-typo">
+                <p>Copyright © <?php echo date('Y'); ?> <a
+                        href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
+                <?php if (!empty($this->options->ICPSet)): ?>
+                    <a target="_blank" style="color: black;background-color: transparent;text-decoration-line: none;"
+                       href="https://beian.miit.gov.cn/">互联网ICP备案:
+                        <?php echo($this->options->ICPSet); ?></a>
+                <?php endif ?>
+                <?php $this->options->CustomFooter(); ?>
+            </div>
+            <br/>
         </div>
-        <br/>
     </div>
-</div>
 </div>
 
 <div class="mdui-dialog" id="About_DreamCat">

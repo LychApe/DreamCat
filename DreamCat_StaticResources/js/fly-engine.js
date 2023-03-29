@@ -24,24 +24,24 @@ if (s) {
         passive: !0
     };
     if (l || document.addEventListener("touchstart", function (t) {
-            e = performance.now();
-            const n = t.target.closest("a");
-            if (!f(n)) return;
-            h(n.href)
-        }, n), d ? document.addEventListener("mousedown", function (t) {
-            const e = t.target.closest("a");
-            if (!f(e)) return;
-            h(e.href)
-        }, n) : document.addEventListener("mouseover", function (n) {
-            if (performance.now() - e < 1100) return;
-            const o = n.target.closest("a");
-            if (!f(o)) return;
-            o.addEventListener("mouseout", m, {
-                passive: !0
-            }), t = setTimeout(() => {
-                h(o.href), t = void 0
-            }, c)
-        }, n), u) {
+        e = performance.now();
+        const n = t.target.closest("a");
+        if (!f(n)) return;
+        h(n.href)
+    }, n), d ? document.addEventListener("mousedown", function (t) {
+        const e = t.target.closest("a");
+        if (!f(e)) return;
+        h(e.href)
+    }, n) : document.addEventListener("mouseover", function (n) {
+        if (performance.now() - e < 1100) return;
+        const o = n.target.closest("a");
+        if (!f(o)) return;
+        o.addEventListener("mouseout", m, {
+            passive: !0
+        }), t = setTimeout(() => {
+            h(o.href), t = void 0
+        }, c)
+    }, n), u) {
         let t;
         (t = window.requestIdleCallback ? t => {
             requestIdleCallback(t, {

@@ -269,15 +269,15 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 let LDMode_Body = document.body;
                 let LDMode_BtnIcon = document.getElementById('LDMode_BtnIcon');
 
-                if (window.sessionStorage.getItem('LDMode_theme')){
-                    if (window.sessionStorage.getItem('LDMode_theme') === 'dark'){
+                if (window.sessionStorage.getItem('LDMode_theme')) {
+                    if (window.sessionStorage.getItem('LDMode_theme') === 'dark') {
                         LDMode_BtnIcon.innerHTML = `&#xe3a9;`;
                         LDMode_Body.classList.add("mdui-theme-layout-dark");
-                    }else{
+                    } else {
                         LDMode_BtnIcon.innerHTML = `&#xe3aa;`;
                         LDMode_Body.classList.remove("mdui-theme-layout-dark");
                     }
-                }else{
+                } else {
                     LDMode_theme = "light";
                     document.getElementById('LDMode_BtnIcon').innerHTML = `&#xe3aa;`;
                     LDMode_Body.classList.remove("mdui-theme-layout-dark");
