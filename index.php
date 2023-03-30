@@ -254,10 +254,9 @@ $this->need('header.php'); ?>
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
-
-
-
                 </div>
+
+                <?php if (is_array($this->options->DC_ProfileCardModule) && in_array('DCShowPage', $this->options->DC_ProfileCardModule)):?>
                 <?php
                 $pages = null;
                 $pages = $this->widget('Widget_Contents_Page_List')->to($pages);
@@ -279,7 +278,9 @@ $this->need('header.php'); ?>
                         </div>
                     </div>
                 <?php endif; ?>
+                <?php endif; ?>
 
+                <?php if (is_array($this->options->DC_ProfileCardModule) && in_array('DCShowTags', $this->options->DC_ProfileCardModule)):?>
                 <?php
                 $this->widget('Widget_Metas_Tag_Cloud', 'ignoreZeroCount=1&limit=28')->to($tags); ?>
                 <?php if (!empty($tags->name)): ?>
@@ -293,6 +294,9 @@ $this->need('header.php'); ?>
                         </div>
                     </div>
                 <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if (is_array($this->options->DC_ProfileCardModule) && in_array('DCShowInfo', $this->options->DC_ProfileCardModule)):?>
                 <br/>
                 <div class="mdui-card DreamCat-card-1" style="margin-right: 30px">
                     <div class="mdui-card-content">
@@ -308,6 +312,9 @@ $this->need('header.php'); ?>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
+
+                <?php if (is_array($this->options->DC_ProfileCardModule) && in_array('DCShowCategory', $this->options->DC_ProfileCardModule)):?>
                 <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>
                 <?php if (!empty($category)): ?>
                     <br/>
@@ -319,6 +326,7 @@ $this->need('header.php'); ?>
                             <?php endwhile; ?>
                         </div>
                     </div>
+                <?php endif; ?>
                 <?php endif; ?>
                 <br/>
             </div>

@@ -151,6 +151,19 @@ function themeConfig($form): void
     );
     $form->addInput($DC_ProfileCardIntroduction);
 
+    $DC_ProfileCardModule = new \Typecho\Widget\Helper\Form\Element\Checkbox(
+        'DC_ProfileCardModule',
+        [
+            'DCShowPage' => _t('独立页面模块'),
+            'DCShowTags' => _t('标签模块'),
+            'DCShowInfo' => _t('信息统计模块'),
+            'DCShowCategory' => _t('分类模块'),
+        ],
+        ['DCShowPage', 'DCShowTags', 'DCShowInfo','DCShowCategory'],
+        _t('个人资料卡片栏模块')
+    );
+    $form->addInput($DC_ProfileCardModule->multiMode());
+
     $DC_AdmireQCode = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_AdmireQCode',
         null,
