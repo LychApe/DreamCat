@@ -131,11 +131,6 @@
 </script>
 
 
-
-
-
-
-
 <?php if (is_array($this->options->DC_GlobalApp) && in_array('DCShowClickEffect', $this->options->DC_GlobalApp)): ?>
     <script
         src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/axtx.js', 'axtx.js'); ?>">
