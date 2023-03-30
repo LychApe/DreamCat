@@ -32,10 +32,9 @@
 
 .DreamCat-ListM-01 {
     padding: 0px 0 !important;
-    margin: 0;
     list-style: none;
     background-color: transparent;
-    margin-bottom: 50%;
+    margin: 0 0 50%;
 }
 
 .DreamCat-ListM-02 {
@@ -82,8 +81,7 @@
 }
 
 .DreamCat-Logo-centered > img {
-    margin: 0;
-    margin-top: -50px;
+    margin: -50px 0 0;
     left: 0;
 }
 
@@ -182,12 +180,9 @@
 }
 
 .DreamCat-page-div {
-    margin-top: 30px;
     max-width: 250px;
-    margin-left: auto;
     position: relative;
-    margin-right: auto;
-    margin-bottom: 80px;
+    margin: 30px auto 80px;
 }
 
 .DreamCat-page-div .DreamCat-number {
@@ -208,11 +203,21 @@
     transform: scale(1.2);
 }
 
-.DreamCat-PageContent-A h1:before {
+.DreamCat-PageContent-A{
+    overflow: hidden;
+    padding: 15px;
+    margin: 10px 0;
+    letter-spacing: 1px;
+    line-height: 1.8em;
+    word-wrap: break-word;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.DreamCat-PageContent-A h1:hover:before {
     color: #2bbc8a;
     content: "#";
     font-weight: bold;
-    font-size: 2rem;
     margin-right: 5px;
 }
 
@@ -223,13 +228,13 @@
     font-weight: 700;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    transition: cubic-bezier(0.39, 0.58, 0.57, 1);
 }
 
-.DreamCat-PageContent-A h2:before {
+.DreamCat-PageContent-A h2:hover:before {
     color: #2bbc8a;
     content: "##";
     font-weight: bold;
-    font-size: 1.8rem;
     margin-right: 5px;
 }
 
@@ -240,13 +245,13 @@
     font-weight: 600;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    transition: cubic-bezier(0.39, 0.58, 0.57, 1);
 }
 
-.DreamCat-PageContent-A h3:before {
+.DreamCat-PageContent-A h3:hover:before {
     color: #2bbc8a;
     content: "###";
     font-weight: bold;
-    font-size: 1.6rem;
     margin-right: 5px;
 }
 
@@ -257,13 +262,13 @@
     font-weight: 500;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    transition: cubic-bezier(0.39, 0.58, 0.57, 1);
 }
 
-.DreamCat-PageContent-A h4:before {
+.DreamCat-PageContent-A h4:hover:before {
     color: #2bbc8a;
     content: "####";
     font-weight: bold;
-    font-size: 1.4rem;
     margin-right: 5px;
 }
 
@@ -274,13 +279,13 @@
     font-weight: 500;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    transition: cubic-bezier(0.39, 0.58, 0.57, 1);
 }
 
-.DreamCat-PageContent-A h5:before {
+.DreamCat-PageContent-A h5:hover:before {
     color: #2bbc8a;
     content: "#####";
     font-weight: bold;
-    font-size: 1.2rem;
     margin-right: 5px;
 }
 
@@ -291,13 +296,13 @@
     font-weight: 500;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    transition: cubic-bezier(0.39, 0.58, 0.57, 1);
 }
 
-.DreamCat-PageContent-A h6:before {
+.DreamCat-PageContent-A h6:hover:before {
     color: #2bbc8a;
     content: "######";
     font-weight: bold;
-    font-size: 1.1rem;
     margin-right: 5px;
 }
 
@@ -308,6 +313,7 @@
     font-weight: 500;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    transition: cubic-bezier(0.39, 0.58, 0.57, 1);
 }
 
 .doc-footer-nav-left {
@@ -371,11 +377,13 @@
 }
 
 pre {
-    background-color: #fafafa !important;
-    border-radius: 16px !important;
+    background: rgb(198,198,203) !important;
+    background: linear-gradient(13deg, rgba(198,198,203,1) 7%, rgba(233,233,246,1) 100%) !important;
+    /*background-color: #fafafa !important;*/
+    border-radius: 12px !important;
     padding: 12px 16px !important;
     border: none !important;
-    box-shadow: inset -4px 20px 20px 20px rgb(140 152 164 / 10%) !important;
+    /*box-shadow: inset -4px 20px 20px 20px rgb(140 152 164 / 10%) !important;*/
 }
 
 /*右下返回顶部按钮*/
