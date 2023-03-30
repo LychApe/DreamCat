@@ -254,6 +254,9 @@ $this->need('header.php'); ?>
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
+
+
+
                 </div>
                 <?php
                 $pages = null;
@@ -276,6 +279,7 @@ $this->need('header.php'); ?>
                         </div>
                     </div>
                 <?php endif; ?>
+
                 <?php
                 $this->widget('Widget_Metas_Tag_Cloud', 'ignoreZeroCount=1&limit=28')->to($tags); ?>
                 <?php if (!empty($tags->name)): ?>
@@ -304,8 +308,21 @@ $this->need('header.php'); ?>
                         </div>
                     </div>
                 </div>
+                <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>
+                <?php if (!empty($category)): ?>
+                    <br/>
+                    <div class="mdui-card DreamCat-card-1" style="margin-right: 30px">
+                        <div class="mdui-card-content">
+                            <?php while ($category->next()): ?>
+                                <a href="<?php $category->permalink(); ?>"
+                                   class="size-<?php $category->split(5, 10, 20, 30); ?>"><?php $category->name(); ?></a>
+                            <?php endwhile; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
                 <br/>
             </div>
+
             <div class="mdui-col-xs-12 mdui-col-sm-9">
                 <?php while ($this->next()): ?>
                     <style>
