@@ -70,6 +70,15 @@ function themeConfig($form): void
     );
     $form->addInput($keywords);
 
+    $icpba = new \Typecho\Widget\Helper\Form\Element\Text(
+        'icpba',
+        null,
+        null,
+        _t('网站ICP备案号'),
+        _t('留空则不显示')
+    );
+    $form->addInput($icpba);
+
     $DC_CommentsRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_CommentsRadio', array(
         'TureMode' => '开启评论区',
         'FalseMode' => '关闭评论区',
