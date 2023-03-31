@@ -255,39 +255,48 @@ $this->need('header.php'); ?>
                         </div>
                     <?php endif; ?>
                 </div>
+
+                <?php if (is_array($this->options->DC_ProfileCardModule) && in_array('DCShowPage', $this->options->DC_ProfileCardModule)):?>
                 <?php
                 $pages = null;
                 $pages = $this->widget('Widget_Contents_Page_List')->to($pages);
                 ?>
-                <?php if(!empty($pages->title)):?>
+                <?php if (!empty($pages->title)): ?>
                     <br/>
                     <div class="mdui-card DreamCat-card-1" style="margin-right: 30px">
                         <div class="mdui-card-content">
-                        <?php while ($pages->next()): ?>
-                            <li class="mdui-list-item mdui-ripple Dreamcat-search-bar" style="
+                            <?php while ($pages->next()): ?>
+                                <li class="mdui-list-item mdui-ripple Dreamcat-search-bar" style="
                             margin: 0px 0px 15px;">
-                                <a href="<?php $pages->permalink(); ?>"
-                                   class="mdui-list-item-content mdui-text-color-theme-text"
-                                   title="<?php $pages->title(); ?>">
-                                    <?php $pages->title(); ?>
-                                </a>
-                            </li>
-                        <?php endwhile; ?>
+                                    <a href="<?php $pages->permalink(); ?>"
+                                       class="mdui-list-item-content mdui-text-color-theme-text"
+                                       title="<?php $pages->title(); ?>">
+                                        <?php $pages->title(); ?>
+                                    </a>
+                                </li>
+                            <?php endwhile; ?>
                         </div>
                     </div>
-                <?php endif;?>
+                <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if (is_array($this->options->DC_ProfileCardModule) && in_array('DCShowTags', $this->options->DC_ProfileCardModule)):?>
                 <?php
                 $this->widget('Widget_Metas_Tag_Cloud', 'ignoreZeroCount=1&limit=28')->to($tags); ?>
-                <?php if(!empty($tags->name)): ?>
-                <br/>
-                <div class="mdui-card DreamCat-card-1" style="margin-right: 30px">
-                    <div class="mdui-card-content">
-                        <?php while($tags->next()): ?>
-                            <a href="<?php $tags->permalink(); ?>" class="size-<?php $tags->split(5, 10, 20, 30); ?>"><?php $tags->name(); ?></a>
-                        <?php endwhile; ?>
+                <?php if (!empty($tags->name)): ?>
+                    <br/>
+                    <div class="mdui-card DreamCat-card-1" style="margin-right: 30px">
+                        <div class="mdui-card-content">
+                            <?php while ($tags->next()): ?>
+                                <a href="<?php $tags->permalink(); ?>"
+                                   class="size-<?php $tags->split(5, 10, 20, 30); ?>"><?php $tags->name(); ?></a>
+                            <?php endwhile; ?>
+                        </div>
                     </div>
-                </div>
                 <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if (is_array($this->options->DC_ProfileCardModule) && in_array('DCShowInfo', $this->options->DC_ProfileCardModule)):?>
                 <br/>
                 <div class="mdui-card DreamCat-card-1" style="margin-right: 30px">
                     <div class="mdui-card-content">
@@ -298,12 +307,30 @@ $this->need('header.php'); ?>
                             </div>
                         </div>
                         <div class="Dreamcat-search-bar" style="">
-                            <div style="text-align: center; margin: 15px;"> 评 论 : <?php $stat->publishedCommentsNum() ?></div>
+                            <div style="text-align: center; margin: 15px;"> 评 论
+                                : <?php $stat->publishedCommentsNum() ?></div>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
+
+                <?php if (is_array($this->options->DC_ProfileCardModule) && in_array('DCShowCategory', $this->options->DC_ProfileCardModule)):?>
+                <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>
+                <?php if (!empty($category)): ?>
+                    <br/>
+                    <div class="mdui-card DreamCat-card-1" style="margin-right: 30px">
+                        <div class="mdui-card-content">
+                            <?php while ($category->next()): ?>
+                                <a href="<?php $category->permalink(); ?>"
+                                   class="size-<?php $category->split(5, 10, 20, 30); ?>"><?php $category->name(); ?></a>
+                            <?php endwhile; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <?php endif; ?>
                 <br/>
             </div>
+
             <div class="mdui-col-xs-12 mdui-col-sm-9">
                 <?php while ($this->next()): ?>
                     <style>

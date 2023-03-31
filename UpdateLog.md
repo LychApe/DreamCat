@@ -1,19 +1,28 @@
 ### 最新版本
 
-> ### DreamCat 2.8.221001 (LTS)  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.8.221001.1(LTS).zip)
-> 1. [Feat]:新增时间轴 [`#55`](https://github.com/LychApe/DreamCat/pull/55)
-> 2. [Feat]:新增代码高亮 [`#56`](https://github.com/LychApe/DreamCat/pull/56)
-> 3. [Fix]:修复完善时间轴 [`#57`](https://github.com/LychApe/DreamCat/pull/57)
-> 4. [Feat]:新增评论区开关 [`#58`](https://github.com/LychApe/DreamCat/pull/58)
-> 5. [Feat]:新增备案号设置 [`#59`](https://github.com/LychApe/DreamCat/pull/59)
-> 6. [Fix]: fix bug [`#60`](https://github.com/LychApe/DreamCat/pull/60)
-> 7. [Fix]:fix bug [`#62`](https://github.com/LychApe/DreamCat/pull/62)
-  
+> DreamCat 2.10.230331_LTS  
+> 1.优化文章页排版  
+> 2.优化代码结构  
+> 3.去除冗余代码
+
 ------
 
 ### 历史版本
 
-> DreamCat(2.7.220805(LTS))
+> DreamCat 2.9.230214_LTS  
+> 1.重构主题CDN加速功能   
+> 2.优化随机图片功能  
+> 3.优化自定义字体功能  
+> 4.修复侧边栏“首页”跳转Bug  
+> 5.新增版本号控制  
+> 6.修复自定义全局CSS/全局JS/页脚内容 Bug  
+> 7.优化主题自适应  
+> 8.新增夜间模式  
+> 9.新增多级分类
+
+> DreamCat(2.7.220805(LTS))  
+> 提高主题的稳定性  
+> 优化主题的流畅度  
 > 1.[Feat] Add adaptation to plugin TypechoEasyTex  
 > 2.[FIx] Add footer output  
 > 3.[Fix]:更新故障CDN检测模块逻辑  
@@ -67,10 +76,9 @@
 > 5.增加 自定义页脚内容  
 > 6.重构 404页面  
 > 7.远程静态资源版本号锁定  
-> 8.移除[gitmodules]引入,改用[git clone]引入本地静态资源  
+> 8.移除[git modules]引入,改用[git clone]引入本地静态资源  
 > 9.格式化代码,提高可读性
-
-10. 修复 http默认强制变成https (20210904)
+> 10.修复 http默认强制变成https (20210904)
 
 > DreamCat(X2.1.210716)  
 > 1.重构主题配置中心  
@@ -145,7 +153,7 @@
 > 1.格式化代码格式, 提高可读性(仅完成大部分, 未全部完成)  
 > 2.修复了几个bug  
 > 3.删除了一些无用代码和调试代码, 缩减体积  
-<small> 感谢 [https://github.com/CornWorld](CornWorld) 的代码贡献  </small>
+<small> 感谢 [https://github.com/CornWorld] CornWorld 的代码贡献  </small>
 
 > DreamCat (X1.5-20201031)
 <br/>1.修复UI若干bug

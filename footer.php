@@ -5,7 +5,9 @@
         <div style="display: flex; justify-content: space-between;color: #000;padding: 40px 0;">
 
             <div style="display: flex;flex-direction: column;line-height: 2;color: #000;">
-                <!--<a target="_blank" style="color: black;background-color: transparent;text-decoration-line: none;" href="https://beian.miit.gov.cn/">互联网ICP备案：</a>-->
+                <?php if (!empty($this->options->icpba)): ?>
+                    <a target="_blank" style="color: black;background-color: transparent;text-decoration-line: none;" href="https://beian.miit.gov.cn/">互联网ICP备案：<?php $this->options->icpba() ?></a>
+                <?php endif; ?>
                 <span><?php $this->options->DC_WebCustomFooter(); ?></span>
                 <span>Copyright © <?php echo date('Y'); ?> <?php $this->options->DC_WebName(); ?>.</span>
             </div>
@@ -129,11 +131,6 @@
 <script>
     hljs.initHighlightingOnLoad();
 </script>
-
-
-
-
-
 
 
 <?php if (is_array($this->options->DC_GlobalApp) && in_array('DCShowClickEffect', $this->options->DC_GlobalApp)): ?>

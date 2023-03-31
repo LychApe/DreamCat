@@ -27,7 +27,7 @@
             'author' => _t('%s 发布的文章')
         ], '', ' - '); ?><?php $this->options->DC_WebName(); ?></title>
     <?php
-    if ($this->options->DC_WebCdnRadio == 'FuseAccelerationMode'){
+    if ($this->options->DC_WebCdnRadio == 'FuseAccelerationMode') {
         echo '<link rel="dns-prefetch" href="//gh.sourcegcdn.com">';
     }
     ?>
