@@ -2,7 +2,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeVersion(): string
 {
-    return 'X3.0.230214 (Dev-InsiderPreview)';
+    return '3.0.230331 (Dev-InsiderPreview)';
 }
 
 function themeConfig($form): void
@@ -69,6 +69,15 @@ function themeConfig($form): void
         _t('请以半角逗号 "," 分割多个关键字,留空则不显示')
     );
     $form->addInput($keywords);
+
+    $icpba = new \Typecho\Widget\Helper\Form\Element\Text(
+        'icpba',
+        null,
+        null,
+        _t('网站ICP备案号'),
+        _t('留空则不显示')
+    );
+    $form->addInput($icpba);
 
     $DC_CommentsRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_CommentsRadio', array(
         'TureMode' => '开启评论区',
@@ -141,6 +150,19 @@ function themeConfig($form): void
         _t('个人资料卡片介绍将显示在个人资料卡片,留空则不显示')
     );
     $form->addInput($DC_ProfileCardIntroduction);
+
+    $DC_ProfileCardModule = new \Typecho\Widget\Helper\Form\Element\Checkbox(
+        'DC_ProfileCardModule',
+        [
+            'DCShowPage' => _t('独立页面模块'),
+            'DCShowTags' => _t('标签模块'),
+            'DCShowInfo' => _t('信息统计模块'),
+            'DCShowCategory' => _t('分类模块'),
+        ],
+        ['DCShowPage', 'DCShowTags', 'DCShowInfo','DCShowCategory'],
+        _t('个人资料卡片栏模块')
+    );
+    $form->addInput($DC_ProfileCardModule->multiMode());
 
     $DC_AdmireQCode = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_AdmireQCode',
@@ -629,16 +651,16 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 function CustomFont_url()
 {
     $options = Helper::options();
-    if ($options->DC_CustomFontRadio == "Ol_JetBrainsMono"){
+    if ($options->DC_CustomFontRadio == "Ol_JetBrainsMono") {
         echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/JetBrainsMono-Regular.woff2';
-    }elseif($options->DC_CustomFontRadio == "Ol_SmileySans"){
+    } elseif ($options->DC_CustomFontRadio == "Ol_SmileySans") {
         echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/SmileySans-Oblique.ttf.woff2';
-    }elseif($options->DC_CustomFontRadio == "Ol_SourceHanSansHWSC"){
+    } elseif ($options->DC_CustomFontRadio == "Ol_SourceHanSansHWSC") {
         echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/SourceHanSansHWSC-VF.otf.woff2';
-    }elseif($options->DC_CustomFontRadio == "CustomModeUser"){
+    } elseif ($options->DC_CustomFontRadio == "CustomModeUser") {
         $CustomFont = $options->DC_CustomFont_User;
         echo($CustomFont);
-    }else{
+    } else {
         CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
     }
 }
@@ -655,7 +677,7 @@ function thumb($obj): array
     $options = Helper::options();
     if (empty($options->DC_CustomRandomPictures)) {
         $randImgClass = rand(1, 4);
-        $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class='.$randImgClass;
+        $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class=' . $randImgClass;
         $imgurl = $imgcdn . '&sjImg=' . rand(100, 9000);
     } else {
         $imgcdn = $options->DC_CustomRandomPictures;

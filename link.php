@@ -47,15 +47,18 @@ if (!empty($User_ImageUrl_TF)) {
 } ?>);">
 </div>
 
-<div style="margin-top: -250px;">
+<div style="margin-top: -150px;">
     <div class="mdui-container">
         <div class="mdui-card DreamCat-card-1">
             <div class="mdui-card-content">
                 <div class="mdui-typo mdui-container">
                     <br/>
+                    <br/>
                     <div class="mdui-row-sm-1 mdui-row-md-3 mdui-row-lg-4 mdui-row-xl-5">
                         <?php $this->content(); ?>
                     </div>
+                    <br/>
+                    <br/>
                     <br/>
                 </div>
             </div>

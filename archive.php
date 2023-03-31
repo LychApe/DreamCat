@@ -95,7 +95,7 @@
                 $pages = null;
                 $pages = $this->widget('Widget_Contents_Page_List')->to($pages);
                 ?>
-                <?php if(!empty($pages->title)):?>
+                <?php if (!empty($pages->title)): ?>
                     <br/>
                     <div class="mdui-card DreamCat-card-1" style="margin-right: 30px">
                         <div class="mdui-card-content">
@@ -111,15 +111,16 @@
                             <?php endwhile; ?>
                         </div>
                     </div>
-                <?php endif;?>
+                <?php endif; ?>
                 <?php
                 $this->widget('Widget_Metas_Tag_Cloud', 'ignoreZeroCount=1&limit=28')->to($tags); ?>
-                <?php if(!empty($tags->name)): ?>
+                <?php if (!empty($tags->name)): ?>
                     <br/>
                     <div class="mdui-card DreamCat-card-1" style="margin-right: 30px">
                         <div class="mdui-card-content">
-                            <?php while($tags->next()): ?>
-                                <a href="<?php $tags->permalink(); ?>" class="size-<?php $tags->split(5, 10, 20, 30); ?>"><?php $tags->name(); ?></a>
+                            <?php while ($tags->next()): ?>
+                                <a href="<?php $tags->permalink(); ?>"
+                                   class="size-<?php $tags->split(5, 10, 20, 30); ?>"><?php $tags->name(); ?></a>
                             <?php endwhile; ?>
                         </div>
                     </div>
@@ -134,7 +135,8 @@
                             </div>
                         </div>
                         <div class="Dreamcat-search-bar" style="">
-                            <div style="text-align: center; margin: 15px;"> 评 论 : <?php $stat->publishedCommentsNum() ?></div>
+                            <div style="text-align: center; margin: 15px;"> 评 论
+                                : <?php $stat->publishedCommentsNum() ?></div>
                         </div>
                     </div>
                 </div>

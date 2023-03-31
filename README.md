@@ -6,10 +6,9 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 
 | 版本                                                                        |                  维护状态 |    最近更新时间    |    版本诞生时间    |
 |---------------------------------------------------------------------------|----------------------:|:------------:|:------------:|
-| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |    **InsiderPreview** | 14 Feb  2023 | 6 Jul  2022  |
-| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 14 Feb 2023  | 13 Jul  2021 |
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |    **InsiderPreview** | 31 Mar  2023 | 6 Jul  2022  |
+| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 31 Mar  2023 | 13 Jul  2021 |
 | `DreamCat 1.x`                                                            |       **End of Life** | 18 Feb 2021  | 15 Feb  2019 |
-
 
 ## 鸣谢
 
@@ -45,22 +44,19 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 
 ### 最新版本
 
-> ### DreamCat 3.0
-> 主题完成全部重构  
-> 提高主题的稳定性  
-> 优化主题的流畅度
+> ### DreamCat 3.0.230331
+> **此次更新需要重新启用主题**  
+> 1.优化文章页排版  
+> 2.优化代码结构  
+> 3.增加左侧栏分类模块  
+> 4.增加左侧栏模块开关  
+> 5.优化友链页背景图片高度  
+> 6.增加后台备案号填充
 
-> ### DreamCat 2.9.230214_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.9.230214_LTS.zip)
-> 1.重构主题CDN加速功能  
-> 2.优化随机图片功能  
-> 3.优化自定义字体功能  
-> 4.修复侧边栏“首页”跳转Bug  
-> 5.新增版本号控制  
-> 6.修复自定义全局CSS/全局JS/页脚内容 Bug  
-> 7.优化主题自适应  
-> 8.新增夜间模式  
-> 9.新增多级分类  
-
+> ### DreamCat 2.10.230331_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.10.230331_LTS.zip)
+> 1.优化文章页排版  
+> 2.优化代码结构  
+> 3.去除冗余代码
   
 ------
 
@@ -70,9 +66,7 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 
 ## Github Star 趋势
 
-
 [![Star History Chart](https://api.star-history.com/svg?repos=LychApe/DreamCat&type=Date)](https://star-history.com/#LychApe/DreamCat&Date)
-
 
 ## 版权信息
 
@@ -84,7 +78,7 @@ QQ频道：[`Dreamcat`](https://pd.qq.com/s/apze6ocaj)
 
 1. 如果您不进行分发, 您能可以无限制的复制与运行本项目
 2. 您可以无限制的分发本项目原本的源码(包括但不限于`收费`)
-2. 所有继承本项目的衍生作品(包括但不限于`Fork`)必须遵循`GPLv3`, 并含有醒目修改声明与本项目的原版权声明
+3. 所有继承本项目的衍生作品(包括但不限于`Fork`)必须遵循`GPLv3`, 并含有醒目修改声明与本项目的原版权声明
 
 ### 附加条款
 
