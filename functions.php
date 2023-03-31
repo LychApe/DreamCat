@@ -7,7 +7,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeVersion(): string
 {
-    return '2.9.230214_LTS';
+    return '2.10.230331_LTS';
     //return '2.x_LTS';
 }
 
@@ -1072,17 +1072,17 @@ function thumb($obj)
 {
     $options = Helper::options();
     $randImgIf = rand(1, 3);
-    if(empty($options->CustomRandomPictures)){
+    if (empty($options->CustomRandomPictures)) {
         if ($randImgIf == 1) {
-                $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class=1';
+            $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class=1';
         } elseif ($randImgIf == 2) {
-                $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class=2';
+            $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class=2';
         } else {
-                $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class=3';
+            $imgcdn = 'https://api.hanfenga7.cn/RandomImg/V1/api.php?type=img&class=3';
         }
-        $imgurl = $imgcdn . '&sjImg=' . rand(10,999);
-    }else{
-        $imgurl = $options->CustomRandomPictures . '?&sjImg=' . rand(10,999);
+        $imgurl = $imgcdn . '&sjImg=' . rand(10, 999);
+    } else {
+        $imgurl = $options->CustomRandomPictures . '?&sjImg=' . rand(10, 999);
     }
     $attach = $obj->attachments(1)->attachment;
     if (isset($attach->isImage) && $attach->isImage == 1) {
