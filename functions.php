@@ -2,7 +2,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeVersion(): string
 {
-    return '3.0.230331 (Dev-InsiderPreview)';
+    return '3.0.230710';
 }
 
 function themeConfig($form): void
@@ -159,7 +159,7 @@ function themeConfig($form): void
             'DCShowInfo' => _t('信息统计模块'),
             'DCShowCategory' => _t('分类模块'),
         ],
-        ['DCShowPage', 'DCShowTags', 'DCShowInfo','DCShowCategory'],
+        ['DCShowPage', 'DCShowTags', 'DCShowInfo', 'DCShowCategory'],
         _t('个人资料卡片栏模块')
     );
     $form->addInput($DC_ProfileCardModule->multiMode());
