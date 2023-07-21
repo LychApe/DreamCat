@@ -9,10 +9,11 @@
 1.JetBrainsMono (JetBrains)  
 2.SmileySans (oooooohmygosh)  
 3.SourceHanSansHWSC (Adobe Type)  
-
+4.HarmonyOS_Sans_SC_Regular (HarmonyOS)
 ## 鸣谢  
 `FallsoftCDN` 提供了高速的静态资源加速。  
 `SourcegCDN` 提供了高速的静态资源加速。  
 `JetBrainsMono`  
 `SmileySans`  
 `SourceHanSansHWSC`  
+`HarmonyOS_Sans`
