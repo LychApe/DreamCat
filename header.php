@@ -178,7 +178,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>Theme: <a mdui-dialog="{target:'#About_DreamCat'}">DreamCat</a> <?php echo(themeVersion()); ?></p>
+            <p>Theme: <a mdui-dialog="{target:'#About_DreamCat'}">DreamCat</a></p>
         </div>
     </div>
 </header>
