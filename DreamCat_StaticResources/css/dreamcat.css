@@ -203,7 +203,7 @@
     transform: scale(1.2);
 }
 
-.DreamCat-PageContent-A{
+.DreamCat-PageContent-A {
     overflow: hidden;
     padding: 15px;
     margin: 10px 0;
@@ -377,13 +377,34 @@
 }
 
 pre {
-    background: rgb(198,198,203) !important;
-    background: linear-gradient(13deg, rgba(198,198,203,1) 7%, rgba(233,233,246,1) 100%) !important;
+    background: rgb(198, 198, 203) !important;
+    background: linear-gradient(13deg, rgba(198, 198, 203, 1) 7%, rgba(233, 233, 246, 1) 100%) !important;
     /*background-color: #fafafa !important;*/
     border-radius: 12px !important;
     padding: 12px 16px !important;
     border: none !important;
     /*box-shadow: inset -4px 20px 20px 20px rgb(140 152 164 / 10%) !important;*/
+}
+
+.page-content table {
+    display: table;
+    border-spacing: 0;
+    border: 7px solid #eeeeee;
+    border-radius: 9px;
+}
+
+.page-content table th {
+    background-color: #eeeeee;
+    white-space: nowrap;
+}
+
+.page-content table td {
+    background-color: #fafafa;
+}
+
+.page-content table td, table th {
+    padding: 16px 20px;
+    border-radius: 0;
 }
 
 /*右下返回顶部按钮*/
