@@ -386,6 +386,27 @@ pre {
     /*box-shadow: inset -4px 20px 20px 20px rgb(140 152 164 / 10%) !important;*/
 }
 
+.page-content table {
+    display: table;
+    border-spacing: 0;
+    border: 7px solid #eeeeee;
+    border-radius: 9px;
+}
+
+.page-content table th {
+    background-color: #eeeeee;
+    white-space: nowrap;
+}
+
+.page-content table td {
+    background-color: #fafafa;
+}
+
+.page-content table td, table th {
+    padding: 16px 20px;
+    border-radius: 0;
+}
+
 /*右下返回顶部按钮*/
 .scrollTop {
     display: none;

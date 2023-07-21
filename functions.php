@@ -2,7 +2,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeVersion(): string
 {
-    return '3.0.230710';
+    return '3.0.230721';
 }
 
 function themeConfig($form): void
@@ -204,7 +204,7 @@ function themeConfig($form): void
     $DC_CustomFontRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_CustomFontRadio', array(
         'Ol_JetBrainsMono' => 'JetBrainsMono字体(在线)',
         'Ol_SmileySans' => 'SmileySans字体(在线)',
-        'Ol_SourceHanSansHWSC' => 'SourceHanSansHWSC字体(在线)',
+        'Ol_HarmonyOS_Sans' => 'HarmonyOS_Sans字体(在线)',
         'CustomModeLocal' => '本地字体',
         'CustomModeUser' => '自定义字体'
     ), 'CustomModeLocal', _t('自定义字体模式'));
@@ -381,7 +381,7 @@ function themeConfig($form): void
 
                 <div class="mdui-card shadow-A1" style="background-color: rgb(130 123 123 / 14%);">
                     <div class="mdui-card-content">
-                        最新版本：NULL(API 正在编写)
+                        最新版本：<a href="https://github.com/LychApe/DreamCat/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square"></a>
                         <div class="mdui-float-right">当前版本：<?php echo(themeVersion()); ?></div>
                     </div>
                 </div>
@@ -627,7 +627,8 @@ function CustomCDN_url($agent)
 function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 {
     $options = Helper::options();
-    $CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/InsiderPreview/';
+    //$CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/InsiderPreview/';
+    $CDN_1 = 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/'.themeVersion().'/';
     if ($options->DC_WebCdnRadio == 'FuseAccelerationMode') {
         echo($CDN_1 . $URL_1 . $Path_C);
     } else {
@@ -652,11 +653,11 @@ function CustomFont_url()
 {
     $options = Helper::options();
     if ($options->DC_CustomFontRadio == "Ol_JetBrainsMono") {
-        echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/JetBrainsMono-Regular.woff2';
+        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/JetBrainsMono-Regular.woff2';
     } elseif ($options->DC_CustomFontRadio == "Ol_SmileySans") {
-        echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/SmileySans-Oblique.ttf.woff2';
-    } elseif ($options->DC_CustomFontRadio == "Ol_SourceHanSansHWSC") {
-        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/SourceHanSansHWSC-VF.otf.woff2';
+        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/SmileySans-Oblique.ttf.woff2';
+    } elseif ($options->DC_CustomFontRadio == "Ol_HarmonyOS_Sans") {
+        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/HarmonyOS_Sans_SC_Regular.ttf';
     } elseif ($options->DC_CustomFontRadio == "CustomModeUser") {
         $CustomFont = $options->DC_CustomFont_User;
         echo($CustomFont);
