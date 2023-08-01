@@ -4,7 +4,7 @@
  *
  * @package DreamCat 2.x (LTS)
  * @author LychApe
- * @version 2.10.230331_LTS
+ * @version 2.10.230801_LTS
  * @link https://github.com/LychApe/DreamCat
  */
 
