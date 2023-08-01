@@ -2,7 +2,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeVersion(): string
 {
-    return '3.0.230721';
+    return '3.0.230801';
 }
 
 function themeConfig($form): void
@@ -628,7 +628,7 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 {
     $options = Helper::options();
     //$CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/InsiderPreview/';
-    $CDN_1 = 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/'.themeVersion().'/';
+    $CDN_1 = 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat@'.themeVersion().'/';
     if ($options->DC_WebCdnRadio == 'FuseAccelerationMode') {
         echo($CDN_1 . $URL_1 . $Path_C);
     } else {
@@ -653,11 +653,11 @@ function CustomFont_url()
 {
     $options = Helper::options();
     if ($options->DC_CustomFontRadio == "Ol_JetBrainsMono") {
-        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/JetBrainsMono-Regular.woff2';
+        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat@fonts/fonts/JetBrainsMono-Regular.woff2';
     } elseif ($options->DC_CustomFontRadio == "Ol_SmileySans") {
-        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/SmileySans-Oblique.ttf.woff2';
+        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat@fonts/fonts/SmileySans-Oblique.ttf.woff2';
     } elseif ($options->DC_CustomFontRadio == "Ol_HarmonyOS_Sans") {
-        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/HarmonyOS_Sans_SC_Regular.ttf';
+        echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat@fonts/fonts/HarmonyOS_Sans_SC_Regular.ttf';
     } elseif ($options->DC_CustomFontRadio == "CustomModeUser") {
         $CustomFont = $options->DC_CustomFont_User;
         echo($CustomFont);
