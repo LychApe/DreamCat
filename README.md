@@ -5,8 +5,8 @@ QQ交流群: `1034830519`
 
 | 版本                                                                        |                  维护状态 |    最近更新时间    |    版本诞生时间    |
 |---------------------------------------------------------------------------|----------------------:|:------------:|:------------:|
-| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |          **Official** | 21 July  2023 | 6 Jul  2022  |
-| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 31 Mar  2023 | 13 Jul  2021 |
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |          **Official** | 1 Aug  2023  | 6 Jul  2022  |
+| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 1 Aug  2023 | 13 Jul  2021 |
 | `DreamCat 1.x`                                                            |       **End of Life** | 18 Feb 2021  | 15 Feb  2019 |
 
 ## 鸣谢
@@ -15,7 +15,7 @@ QQ交流群: `1034830519`
 `JetBrains` 工具极大地提高了DreamCat的创造力和效率。  
 `JetBrains` 提供了轻便的字体(Jetbrains Mono)。  
 `Sourcegcdn` 提供了高速的静态资源加速。  
-`Fallsoft` 提供了高速的静态资源加速。  
+`Fallsoft` 提供了高速的静态资源加速。
 
 ## 安装(Install)
 
@@ -44,7 +44,7 @@ QQ交流群: `1034830519`
 
 ### 最新版本
 
-> ### DreamCat 3.0.230721  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.230721.zip)
+> ### DreamCat 3.0.230801  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.230801.zip)
 > 1.优化文章页排版  
 > 2.优化代码结构  
 > 3.增加左侧栏分类模块  
@@ -54,11 +54,14 @@ QQ交流群: `1034830519`
 > 7.优化访问速度  
 > 8.增加表格样式  
 > 9.优化字体库
+> 10.更换CDN链接
 
-> ### DreamCat 2.10.230331_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.10.230331_LTS.zip)  
+> ### DreamCat 2.10.230801_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.10.230801_LTS.zip)
 > 1.优化文章页排版  
 > 2.优化代码结构  
 > 3.去除冗余代码  
+> 4.更换CDN链接  
+> 5.优化字体库
   
 ------
 

@@ -7,7 +7,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeVersion(): string
 {
-    return '2.10.230331_LTS';
+    return '2.10.230801_LTS';
     //return '2.x_LTS';
 }
 
@@ -347,7 +347,8 @@ function themeConfig($form)
         	  <p>1.JetBrainsMono字体: 填写"JetBrainsMono"</p>
         	  <p>2.SmileySans字体: 填写"SmileySans"</p>
         	  <p>3.SourceHanSansHWSC字体: 填写"SourceHanSansHWSC"</p>
-        	  <p>4.自定义字体: 填写字体接链</p>
+        	  <p>4.HarmonyOSSans字体: 填写"HarmonyOSSans"</p>
+        	  <p>5.自定义字体: 填写字体接链</p>
         	  <p style="color: rgba(0,0,0,.54);font-size: smaller;">p.s.留空则默认使用本地字体源</p>
         	  </div>
         	</div>
@@ -1025,7 +1026,8 @@ function CustomCDN_url($agent): void
 function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 {
     $options = Helper::options();
-    $CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/' . themeVersion() . '/DreamCat_StaticResources/';
+    //$CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/' . themeVersion() . '/DreamCat_StaticResources/';
+    $CDN_1 = 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat@' . themeVersion() . '/DreamCat_StaticResources/';
     if ($options->CustomCdn == 'FuseAccelerationMode') {
         echo($CDN_1 . $URL_1 . $Path_C);
     } else {
@@ -1041,7 +1043,7 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 #CustomCDN_FuseAccelerationMode
 //[自定义字体]
 //author：HanFengA7
-//version：0.04
+//version：0.05
 #################################
 function CustomFont_url()
 {
@@ -1050,11 +1052,13 @@ function CustomFont_url()
         CustomCDN_url("fonts/JetBrainsMono-Regular.woff2");
     } else {
         if ($options->CustomFont == 'JetBrainsMono') {
-            echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/JetBrainsMono-Regular.woff2';
+            echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat@fonts/fonts/JetBrainsMono-Regular.woff2';
         } elseif ($options->CustomFont == 'SmileySans') {
-            echo 'https://gh.sourcegcdn.com/LychApe/DreamCat/fonts/fonts/SmileySans-Oblique.ttf.woff2';
+            echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat@fonts/fonts/SmileySans-Oblique.ttf.woff2';
         } elseif ($options->CustomFont == 'SourceHanSansHWSC') {
-            echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat/fonts/fonts/SourceHanSansHWSC-VF.otf.woff2';
+            echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat@fonts/fonts/SourceHanSansHWSC-VF.otf.woff2';
+        } elseif ($options->CustomFont == 'HarmonyOSSans') {
+            echo 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat@fonts/fonts/HarmonyOS_Sans_SC_Regular.ttf';
         } else {
             echo($options->CustomFont);
         }
