@@ -197,7 +197,7 @@
                 </p>
                 <p>Designed by <a href="https://www.hanfenga7.cn/" style="text-decoration: none">HanFengA7</a> Power
                     by
-                    <a href="http://typecho.org/" style="text-decoration: none">Typecho</a>
+                    <a href="https://typecho.org/" style="text-decoration: none">Typecho</a>
                 </p>
                 <p>Copyright © 2015-<?php echo date('Y'); ?> by LychApe All rights reserved!</p>
             </div>
