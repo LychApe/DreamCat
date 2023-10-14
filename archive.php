@@ -12,7 +12,7 @@
                         <img src="<?php $this->options->DC_HeadImageUrl(); ?>" class="card-img-top" style="width: 100%"
                              alt="..."/>
                     <?php } else { ?>
-                        <img src="http://q1.qlogo.cn/g?b=qq&nk=10001&s=640" class="card-img-top" style="width: 100%"
+                        <img src="https://q1.qlogo.cn/g?b=qq&nk=10001&s=640" class="card-img-top" style="width: 100%"
                              alt="..."/>
                     <?php } ?>
                     <div class="mdui-card-primary">
@@ -151,7 +151,7 @@
                         }
                     </style>
                     <?php if ($this->options->DC_ArticleListModeRadio == "ImgMode"): ?>
-                        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+                        <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
                             <a itemprop="url" href="<?php $this->permalink() ?>">
                                 <div class="mdui-card DreamCat-card-1 DreamCat-card-ts-1">
                                     <div class="mdui-card-media">
@@ -199,7 +199,7 @@
                             <br/>
                         </article>
                     <?php else: ?>
-                        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+                        <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
                             <div class="mdui-card DreamCat-card-1 DreamCat-card-ts-1">
                                 <a itemprop="url" href="<?php $this->permalink() ?>">
                                     <div class="mdui-card-primary">

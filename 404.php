@@ -6,7 +6,7 @@
 <div class="mdui-container fade-scale in">
     <div class="mdui-typo-display-3">
         <div class="mdui-center">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+            <svg version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px"
                  y="0px" viewBox="0 0 2475 1650" enable-background="new 0 0 2475 1650" xml:space="preserve">
                 <g id="Background"></g>
                 <g id="Illustration">
