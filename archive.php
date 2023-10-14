@@ -2,6 +2,12 @@
 <?php $this->need('header.php'); ?>
 <?php $this->need('tpl/PageHearder.php'); ?>
 
+<style>
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
 <br/>
 <div class="mdui-container">
     <div class="mdui-container">
