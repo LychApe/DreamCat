@@ -3,7 +3,7 @@
     align-items: center;
     width: 100%;
     max-width: 260px;
-    height: 40px;
+    height: 46px;
     background-color: #eef2f5;
     border-radius: 8px;
     transition-duration: .18s;
@@ -12,7 +12,7 @@
 
 .Dreamcat-search-input {
     flex: 1;
-    height: 46px;
+    height: 52px;
     background-color: transparent;
     border: none;
     outline: none;
