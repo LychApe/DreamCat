@@ -31,7 +31,6 @@ if (!empty($User_ImageUrl_TF)) {
 } ?>);">
 </div>
 
-
 <div class="mdui-container">
     <div class="mdui-container">
         <div class="mdui-card DreamCat-card-1" style="margin-top: -250px;">
