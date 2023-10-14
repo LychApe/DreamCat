@@ -5,8 +5,8 @@ QQ交流群: `1034830519`
 
 | 版本                                                                        |                  维护状态 |    最近更新时间    |    版本诞生时间    |
 |---------------------------------------------------------------------------|----------------------:|:------------:|:------------:|
-| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |          **Official** | 1 Aug  2023  | 6 Jul  2022  |
-| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 1 Aug  2023 | 13 Jul  2021 |
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |          **Official** | 14 Oct  2023 | 6 Jul  2022  |
+| [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 1 Aug  2023  | 13 Jul  2021 |
 | `DreamCat 1.x`                                                            |       **End of Life** | 18 Feb 2021  | 15 Feb  2019 |
 
 ## 鸣谢
@@ -44,17 +44,10 @@ QQ交流群: `1034830519`
 
 ### 最新版本
 
-> ### DreamCat 3.0.230801  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.230801.zip)
-> 1.优化文章页排版  
-> 2.优化代码结构  
-> 3.增加左侧栏分类模块  
-> 4.增加左侧栏模块开关  
-> 5.优化友链页背景图片高度  
-> 6.增加后台备案号填充  
-> 7.优化访问速度  
-> 8.增加表格样式  
-> 9.优化字体库
-> 10.更换CDN链接  
+> ### DreamCat 3.0.231014  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.231014.zip)
+> 1.`修复` HTTPS安全检测降为B级  
+> 2.`修复` 时间区域上下不居中  
+> 3.`修复` 搜索无内容时CSS样式异常
 
 > ### DreamCat 2.10.230801_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.10.230801_LTS.zip)
 > 1.优化文章页排版  
