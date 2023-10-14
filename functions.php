@@ -2,7 +2,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeVersion(): string
 {
-    return '3.0.230801';
+    return '3.0.231014';
 }
 
 function themeConfig($form): void
