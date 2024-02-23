@@ -1,4 +1,14 @@
 ### 历史版本
+> ### DreamCat 3.0.240224  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.240224.zip)
+> 1.`新增` 底部居中样式和左右样式  
+> 2.`优化` 文字模式下的样式  
+> 2.`修复` 去除无效CDN资源
+
+> ### DreamCat 3.0.231014  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.231014.zip)
+> 1.`修复` HTTPS安全检测降为B级  
+> 2.`修复` 时间区域上下不居中  
+> 3.`修复` 搜索无内容时CSS样式异常
+
 > ### DreamCat 3.0.230801  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.230801.zip)
 > 1.优化文章页排版  
 > 2.优化代码结构  
