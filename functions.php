@@ -263,9 +263,7 @@ function themeConfig($form): void
     ?>
     <!-- 配置中心=>CSS [Start] -->
     <link rel="dns-prefetch" href="//cdn.staticfile.org"/>
-    <link rel="dns-prefetch" href="//npm.sourcegcdn.com"/>
     <link rel="stylesheet preload" href="//cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css" as="style">
-    <link rel="stylesheet preload" href="//npm.sourcegcdn.com/mdui@1.0.2/dist/css/mdui.min.css" as="style">
     <!-- 配置中心=>CSS [End] -->
 
     <style>
@@ -489,9 +487,7 @@ function themeConfig($form): void
         <!-- 配置中心=>弹窗:开发者列表 [End]-->
         <!-- 配置中心=>JS [Start] -->
         <script rel="preload" src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js" as="script"></script>
-        <script rel="preload" src="//npm.sourcegcdn.com/jquery@3.6.0/dist/jquery.min.js" as="script"></script>
         <script rel="preload" src="//cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js" as="script"></script>
-        <script rel="preload" src="//npm.sourcegcdn.com/mdui@1.0.2/dist/js/mdui.min.js" as="script"></script>
         <!-- 配置中心=>JS [End] -->
 
     </div>
