@@ -4,7 +4,7 @@
  *
  * @package DreamCat 3.0
  * @author LychApe
- * @version 3.0.231014
+ * @version 3.0.240224
  * @link https://github.com/LychApe/DreamCat
  */
 
@@ -410,7 +410,20 @@ $this->need('header.php'); ?>
                                                 </small>
                                             <?php endif; ?>
                                         </div>
-                                        <div class="mdui-card-content"><?php $this->excerpt(150, '......'); ?></div>
+                                        <div
+                                            class="mdui-card-content"
+                                            style="
+                                            max-height: 200px;
+                                            overflow: hidden;
+                                            filter:blur(2px)"
+                                        >
+                                            <?php $this->summary(); ?>
+                                        </div>
+                                        <div
+                                            style="filter:blur(1px);text-align: center;"
+                                        >
+                                            <h3 style="font-weight: 200;">- 阅读剩余部分 -</h3>
+                                        </div>
                                     </div>
                                 </a>
                                 <div class="mdui-chip" style="margin: 0px 15px 20px;">
