@@ -234,6 +234,12 @@ function themeConfig($form): void
     $DC_WebCustomFooter = new Typecho_Widget_Helper_Form_Element_Textarea('DC_WebCustomFooter', NULL, NULL, _t('自定义页脚内容'));
     $form->addInput($DC_WebCustomFooter);
 
+    $DC_WebCustomFooterModeRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_WebCustomFooterModeRadio', array(
+        'LRMode' => '左右模式',
+        'CMode' => '居中模式',
+    ), 'LRMode', _t('自定义页脚模式'));
+    $form->addInput($DC_WebCustomFooterModeRadio);
+
     $DC_A_qq = new \Typecho\Widget\Helper\Form\Element\Text(
         'DC_A_qq', null, null, _t('QQ二维码图片地址'), _t('填写您的QQ二维码图片地址,它将在首页以及其他地方显示，不填则不显示'));
     $form->addInput($DC_A_qq);
