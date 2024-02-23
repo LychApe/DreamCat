@@ -11,10 +11,7 @@ QQ交流群: `1034830519`
 
 ## 鸣谢
 
-`JetBrains` 提供优秀的IDE。  
-`JetBrains` 工具极大地提高了DreamCat的创造力和效率。  
-`JetBrains` 提供了轻便的字体(Jetbrains Mono)。  
-`Sourcegcdn` 提供了高速的静态资源加速。  
+`JetBrains` 提供了轻便的字体(Jetbrains Mono)。   
 `Fallsoft` 提供了高速的静态资源加速。
 
 ## 安装(Install)
@@ -27,9 +24,6 @@ QQ交流群: `1034830519`
 
 > master [ ( 3.x ) ( 公测 ) ] :  
 > ` git clone -b master https://github.com/LychApe/DreamCat.git `
->
-> InsiderPreview [ ( 3.x ) ( 内测 ) ] :  
-> ` git clone -b InsiderPreview https://github.com/LychApe/DreamCat.git `
 >
 > 2.x_LTS [ ( 2.x ) ( LTS ) ] :  
 > ` git clone -b 2.x_LTS https://github.com/LychApe/DreamCat.git `
@@ -44,10 +38,10 @@ QQ交流群: `1034830519`
 
 ### 最新版本
 
-> ### DreamCat 3.0.231014  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.231014.zip)
-> 1.`修复` HTTPS安全检测降为B级  
-> 2.`修复` 时间区域上下不居中  
-> 3.`修复` 搜索无内容时CSS样式异常
+> ### DreamCat 3.0.240224  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.231014.zip)
+> 1.`新增` 底部居中样式和左右样式  
+> 2.`优化` 文字模式下的样式  
+> 2.`修复` 去除无效CDN资源
 
 > ### DreamCat 2.10.230801_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.10.230801_LTS.zip)
 > 1.优化文章页排版  

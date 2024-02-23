@@ -56,6 +56,7 @@
 
     body {
         font-family: CustomFont, serif;
+        background-color: #fcfcfceb;
     }
 
     <?php $this->options->DC_WebCustomStyle();
