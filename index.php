@@ -391,7 +391,9 @@ $this->need('header.php'); ?>
                         <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
                             <div class="mdui-card DreamCat-card-1 DreamCat-card-ts-1">
                                 <a itemprop="url" href="<?php $this->permalink() ?>">
-                                    <div class="mdui-card-primary">
+                                    <div class="mdui-card-primary"
+                                         style="background: linear-gradient(to bottom, rgb(238 242 245 / 59%), rgba(255, 255, 255, 0));
+                                            mask-image: linear-gradient(to top, transparent, black);">
                                         <div class="mdui-card-primary-title">
                                             <?php $this->title() ?>
                                         </div>
@@ -414,13 +416,12 @@ $this->need('header.php'); ?>
                                             class="mdui-card-content"
                                             style="
                                             max-height: 200px;
-                                            overflow: hidden;
-                                            filter:blur(2px)"
+                                            overflow: hidden;"
                                         >
                                             <?php $this->summary(); ?>
                                         </div>
                                         <div
-                                            style="filter:blur(1px);text-align: center;"
+                                            style="text-align: center;"
                                         >
                                             <h3 style="font-weight: 200;">- 阅读剩余部分 -</h3>
                                         </div>
