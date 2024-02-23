@@ -5,7 +5,7 @@ QQ交流群: `1034830519`
 
 | 版本                                                                        |                  维护状态 |    最近更新时间    |    版本诞生时间    |
 |---------------------------------------------------------------------------|----------------------:|:------------:|:------------:|
-| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |          **Official** | 14 Oct  2023 | 6 Jul  2022  |
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |          **Official** | 24 Feb  2024 | 6 Jul  2022  |
 | [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 1 Aug  2023  | 13 Jul  2021 |
 | `DreamCat 1.x`                                                            |       **End of Life** | 18 Feb 2021  | 15 Feb  2019 |
 
@@ -38,7 +38,7 @@ QQ交流群: `1034830519`
 
 ### 最新版本
 
-> ### DreamCat 3.0.240224  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.231014.zip)
+> ### DreamCat 3.0.240224  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.240224.zip)
 > 1.`新增` 底部居中样式和左右样式  
 > 2.`优化` 文字模式下的样式  
 > 2.`修复` 去除无效CDN资源
@@ -84,7 +84,7 @@ QQ交流群: `1034830519`
 ### 更多
 
 只要你遵循上述条款规定，您就可以自由使用并传播本源代码  
-Copyright © 2015-2023 by LychApe
+Copyright © 2015-2024 by LychApe
 
 ## 主题开发:
 
