@@ -392,7 +392,7 @@ $this->need('header.php'); ?>
                             <div class="mdui-card DreamCat-card-1 DreamCat-card-ts-1">
                                 <a itemprop="url" href="<?php $this->permalink() ?>">
                                     <div class="mdui-card-primary"
-                                         style="background: linear-gradient(to bottom, rgb(238 242 245 / 59%), rgba(255, 255, 255, 0));
+                                         style="background: linear-gradient(to bottom, rgb(238 242 245 / 25%), rgba(255, 255, 255, 0));
                                             mask-image: linear-gradient(to top, transparent, black);">
                                         <div class="mdui-card-primary-title">
                                             <?php $this->title() ?>
