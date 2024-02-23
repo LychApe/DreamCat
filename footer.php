@@ -1,5 +1,6 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
+<?php if (!empty($this->options->DC_WebCustomFooterModeRadio == 'LRMode')): ?>
 <footer>
     <div style="background-color: #f2f2f2; padding: 0 8%;">
         <div style="display: flex; justify-content: space-between;color: #000;padding: 40px 0;">
@@ -57,7 +58,41 @@
         </div>
     </div>
 </footer>
+<?php else: ?>
+    <footer class="dreamcat-footer-c-0">
+        <div class="dreamcat-footer-c-1"
+             style="
+             background-color: #f2f2f2;
+             display: flex;
+             justify-content: center;
+             align-items: center;">
+            <div class="dreamcat-footer--c2"
+                 style="
+                 display: flex;
+                 justify-content: space-between;
+                 color: #000;
+                 padding: 40px 0;
+                 text-align: center;">
 
+                <div class="dreamcat-footer-c-3"
+                     style="
+                     display: flex;
+                     flex-direction: column;
+                     line-height: 2;
+                     color: #000;
+                     text-align: center;">
+                    <?php if (!empty($this->options->icpba)): ?>
+                        <a target="_blank" style="color: black;background-color: transparent;text-decoration-line: none;"
+                           href="https://beian.miit.gov.cn/">互联网ICP备案：<?php $this->options->icpba() ?></a>
+                    <?php endif; ?>
+                    <span><?php $this->options->DC_WebCustomFooter(); ?></span>
+                    <span>Copyright © <?php echo date('Y'); ?> <?php $this->options->DC_WebName(); ?>.</span>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+<?php endif; ?>
 
 <div class="mdui-dialog" id="DC_A_qq">
     <div class="mdui-dialog-title">加我的QQ</div>
