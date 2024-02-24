@@ -2,7 +2,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeVersion(): string
 {
-    return '3.0.231014';
+    return '3.0.240224';
 }
 
 function themeConfig($form): void
@@ -78,6 +78,12 @@ function themeConfig($form): void
         _t('留空则不显示')
     );
     $form->addInput($icpba);
+
+    $DC_LoginIconRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_LoginIconRadio', array(
+        'TureMode' => '显示登录按钮',
+        'FalseMode' => '不显示登录按钮',
+    ), 'FalseMode', _t('侧栏登录按钮开关'));
+    $form->addInput($DC_LoginIconRadio);
 
     $DC_CommentsRadio = new Typecho_Widget_Helper_Form_Element_Radio('DC_CommentsRadio', array(
         'TureMode' => '开启评论区',

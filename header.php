@@ -141,6 +141,24 @@
                     </ul>
                 </div>
             </div>
+            <!-- Login -->
+            <?php if (!empty($this->options->DC_LoginIconRadio == 'TureMode')): ?>
+                <?php if ($this->user->hasLogin()): ?>
+                    <a href="<?php echo $this->options->siteUrl ?>./admin">
+                        <li class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">account_box</i>
+                            <div class="mdui-list-item-content">后台</div>
+                        </li>
+                    </a>
+                <?php else: ?>
+                    <a href="<?php echo $this->options->siteUrl ?>./admin">
+                        <li class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-text">&#xe853;</i>
+                            <div class="mdui-list-item-content">登录</div>
+                        </li>
+                    </a>
+                <?php endif; ?>
+            <?php endif;?>
             <!-- RSS -->
             <?php if (is_array($this->options->DC_GlobalApp) && in_array('DCShowRSS', $this->options->DC_GlobalApp)): ?>
                 <a href="<?php $this->options->feedUrl(); ?>">
