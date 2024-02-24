@@ -392,7 +392,7 @@ $this->need('header.php'); ?>
                             <div class="mdui-card DreamCat-card-1 DreamCat-card-ts-1">
                                 <a itemprop="url" href="<?php $this->permalink() ?>">
                                     <div class="mdui-card-primary"
-                                         style="background: linear-gradient(to bottom, rgb(238 242 245 / 25%), rgba(255, 255, 255, 0));
+                                         style="background: linear-gradient(to bottom, rgb(238 242 245 / 50%), rgba(255, 255, 255, 0));
                                             mask-image: linear-gradient(to top, transparent, black);">
                                         <div class="mdui-card-primary-title">
                                             <?php $this->title() ?>
@@ -435,12 +435,16 @@ $this->need('header.php'); ?>
                                         <?php echo $this->category(','); ?>
                                     </span>
                                 </div>
+                                <?php if (count($this->tags) > 0): ?>
                                 <div class="mdui-chip">
                                     <span class="mdui-chip-icon">
                                         <i class="mdui-icon material-icons">&#xe226;</i>
                                     </span>
-                                    <span class="mdui-chip-title"><?php $this->tags(' , ', true, '没有标签'); ?></span>
+                                        <span class="mdui-chip-title">
+                                            <?php $this->tags(' , ', true, '没有标签'); ?>
+                                        </span>
                                 </div>
+                                <?php endif; ?>
                             </div>
                             <br/>
                         </article>
