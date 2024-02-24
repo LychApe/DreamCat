@@ -208,7 +208,7 @@
     <div class="mdui-dialog-content" style="height: 219px;">
         <blockquote>
             <div class="mdui-typo">
-                <p>主题名称：<a href="https://typecho.me/1516.html" target="_blank">DreamCat</a> | 版本：<a
+                <p>主题名称：<a href="https://dreamcat.lychape.cn" target="_blank">DreamCat</a> | 版本：<a
                         href="https://github.com/LychApe/DreamCat"
                         target="_blank"><?php echo(themeVersion()); ?></a></p>
                 <p>主题开发：<a href="https://github.com/HanFengA7" target="_blank">HanFengA7</a> | <a
@@ -218,7 +218,7 @@
                     by
                     <a href="https://typecho.org/" style="text-decoration: none">Typecho</a>
                 </p>
-                <p>Copyright © 2015-<?php echo date('Y'); ?> by LychApe All rights reserved!</p>
+                <p>Copyright © 2015-<?php echo date('Y'); ?> by <a href="https://lychape.cn" target="_blank">LychApe</a> All rights reserved!</p>
             </div>
         </blockquote>
         <div class="mdui-dialog-actions">
