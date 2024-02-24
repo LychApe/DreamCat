@@ -1,5 +1,5 @@
 ### 历史版本
-> ### DreamCat 3.0.240224  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.240224.zip)
+> ### DreamCat 3.0.240224  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.24022.1.zip)
 > 1.`新增` 底部‘居中样式’和‘左右样式’  
 > 2.`新增` 侧栏登录按钮开关  
 > 3.`优化` 文字模式下的样式  
