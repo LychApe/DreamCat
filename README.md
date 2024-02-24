@@ -39,9 +39,10 @@ QQ交流群: `1034830519`
 ### 最新版本
 
 > ### DreamCat 3.0.240224  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.240224.zip)
-> 1.`新增` 底部居中样式和左右样式  
+> 1.`新增` 底部‘居中样式’和‘左右样式’  
 > 2.`优化` 文字模式下的样式  
-> 2.`修复` 去除无效CDN资源
+> 3.`优化` 文字模式下的标签展示  
+> 4.`修复` 去除无效CDN资源
 
 > ### DreamCat 2.10.230801_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.10.230801_LTS.zip)
 > 1.优化文章页排版  
