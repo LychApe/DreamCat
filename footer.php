@@ -81,11 +81,11 @@
                      line-height: 2;
                      color: #000;
                      text-align: center;">
+                    <span><?php $this->options->DC_WebCustomFooter(); ?></span>
                     <?php if (!empty($this->options->icpba)): ?>
                         <a target="_blank" style="color: black;background-color: transparent;text-decoration-line: none;"
                            href="https://beian.miit.gov.cn/">互联网ICP备案：<?php $this->options->icpba() ?></a>
                     <?php endif; ?>
-                    <span><?php $this->options->DC_WebCustomFooter(); ?></span>
                     <span>Copyright © <?php echo date('Y'); ?> <?php $this->options->DC_WebName(); ?>.</span>
                 </div>
 
