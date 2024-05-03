@@ -2,7 +2,7 @@
 <?php $this->need('header.php'); ?>
 
 <div class="mdui-container-fluid" >
-	<div class="mdui-row DreamCat-content-header" >
+	<div class="mdui-row dreamcat-content-header" >
 		<div class="mdui-container" >
 			<h1 class="dreamcat-title title" >
                 <?php
@@ -14,7 +14,6 @@
                     'date' => _t('归档：%s')
                 ], '', '');
                 ?>
-
 			</h1 >
 		</div >
 	</div >
@@ -29,6 +28,17 @@
 
 <?php $this->need("component/toolbar.php") ?>
 
-<?php $this->need('component/sidebar.php'); ?>
+<div class="mdui-container" >
+	<div class="mdui-container" >
+		<div class="mdui-row" >
+			<div class="mdui-col-xs-6 mdui-col-sm-3 mdui-hidden-sm-down" >
+				<?php $this->need('component/sidebar.php'); ?>
+			</div>
+			<div class="mdui-col-xs-12 mdui-col-sm-9" >
+				<?php $this->need("component/article-list.php") ?>
+			</div>
+		</div >
+	</div >
+</div >
 
 <?php $this->need('footer.php'); ?>
