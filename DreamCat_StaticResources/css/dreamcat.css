@@ -1,4 +1,4 @@
-.DreamCat-ListM-01 {
+.dreamcat-drawer-list {
 	background-color: transparent;
 	list-style: none;
 	margin: 0 0 50%;
@@ -6,7 +6,7 @@
 }
 
 
-.DreamCat-card-1 {
+.dreamcat-card {
 	background-clip: border-box;
 	background-color: #fff;
 	border-radius: .75rem;
@@ -15,13 +15,13 @@
 }
 
 
-.Dreamcat-post-copyright {
+.dreamcat-post-copyright {
 	background-color: #f5f5f5;
 	border-radius: 0 !important;
 	margin-bottom: 0;
 }
 
-.Dreamcat-post-copyright > svg {
+.dreamcat-post-copyright > svg {
 	height: 120px;
 	opacity: .05;
 	pointer-events: none;
@@ -31,27 +31,27 @@
 	width: 120px;
 }
 
-.Dreamcat-post-copyright > div {
+.dreamcat-post-copyright > div {
 	border-left: 5px solid #f5f5f5;
 	padding: 16px;
 }
 
-.Dreamcat-post-btn {
+.dreamcat-post-btn {
 	padding: 0 0 20px;
 	text-align: center;
 	width: 100%;
 }
 
-.Dreamcat-post-btn > button {
+.dreamcat-post-btn > button {
 	height: 60px;
 	width: 60px;
 }
 
-.DreamCat-icon-ts {
+.dreamcat-icon-ts {
 	transition: all 0.6s .3s ease-in-out;
 }
 
-.DreamCat-icon-ts:hover {
+.dreamcat-icon-ts:hover {
 	transform: scale(1.2);
 }
 

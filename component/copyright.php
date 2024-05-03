@@ -1,4 +1,4 @@
-<div class="mdui-card Dreamcat-post-copyright mdui-color-grey-50" >
+<div class="mdui-card dreamcat-post-copyright mdui-color-grey-50" >
 	<svg class="icon" viewBox="0 0 1024 1024" width="128"
 	     height="128" >
 		<path

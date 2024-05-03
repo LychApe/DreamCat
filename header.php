@@ -132,7 +132,7 @@ EOF;
 
 <header >
 	<div class="mc-drawer mdui-drawer mdui-drawer-close dreamcat-drawer" id="main-drawer" >
-		<div class="mdui-list DreamCat-ListM-01" mdui-collapse="{accordion: true}" >
+		<div class="mdui-list dreamcat-drawer-list" mdui-collapse="{accordion: true}" >
 			<!-- 首页 -->
 			<a href="<?php $this->options->siteUrl() ?>" >
 				<li class="mdui-list-item mdui-ripple" >

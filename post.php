@@ -19,7 +19,7 @@ $this->need('header.php');
 </div >
 
 <div class="mdui-container dreamcat-content-wrapper" >
-	<div class="mdui-card DreamCat-card-1" >
+	<div class="mdui-card dreamcat-card" >
 		<div class="mdui-card-content" >
 			<div class="mdui-typo dreamcat-content page-content" >
                 <?php $this->content(); ?>

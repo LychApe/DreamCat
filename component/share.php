@@ -1,5 +1,5 @@
 <div class="mdui-col" >
-	<div class="Dreamcat-post-btn" >
+	<div class="dreamcat-post-btn" >
 		<button mdui-menu="{target: '#DreamCat-post-share',align: 'center'}"
 		        mdui-tooltip="{content: '分享'}"
 		        class="mdui-btn mdui-btn-icon mdui-color-grey-200 mdui-ripple" >

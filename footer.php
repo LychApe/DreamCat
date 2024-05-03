@@ -29,7 +29,7 @@
 							<div class="mdui-col" >
                                 <?php if (!empty($this->options->DC_A_qq)): ?>
 									<a mdui-dialog="{target: '#DC_A_qq'}" >
-										<div class="DreamCat-icon-ts icon iconfont icon-QQ-circle-fill"
+										<div class="dreamcat-icon-ts icon iconfont icon-QQ-circle-fill"
 										     style="font-size: 35px;" ></div >
 									</a >
                                 <?php endif; ?>
@@ -38,7 +38,7 @@
                                 <?php if (!empty($this->options->DC_A_github)): ?>
 									<a href="<?php $this->options->DC_A_github() ?>"
 									   style="text-decoration: none;color: black;" >
-										<div class="DreamCat-icon-ts icon iconfont icon-github"
+										<div class="dreamcat-icon-ts icon iconfont icon-github"
 										     style="font-size: 35px;" ></div >
 									</a >
                                 <?php endif; ?>
@@ -46,7 +46,7 @@
 							<div class="mdui-col" >
                                 <?php if (!empty($this->options->DC_A_wx)): ?>
 									<a mdui-dialog="{target: '#DC_A_wx'}" >
-										<div class="DreamCat-icon-ts icon iconfont icon-logo-wechat"
+										<div class="dreamcat-icon-ts icon iconfont icon-logo-wechat"
 										     style="font-size: 35px;" >
 										</div >
 									</a >

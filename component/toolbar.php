@@ -1,6 +1,6 @@
 <div class="mdui-container mdui-hidden-sm-down dreamcat-toolbar" >
 	<div class='mdui-row' >
-		<div class="mdui-card DreamCat-card-1" >
+		<div class="mdui-card dreamcat-card" >
 			<div class="mdui-card-content" >
 				<div class="mdui-row" >
 					<div class="mdui-col-xs-6 mdui-col-sm-3" >

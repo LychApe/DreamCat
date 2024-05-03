@@ -1,6 +1,6 @@
 <?php if (!empty($this->options->DC_AdmireQCode)): ?>
 	<div class="mdui-col" >
-		<div class="Dreamcat-post-btn" >
+		<div class="dreamcat-post-btn" >
 			<button mdui-menu="{target: '#Dreamcat-post-btn',align: 'center'}"
 			        mdui-tooltip="{content: '赞赏'}"
 			        class="mdui-btn mdui-btn-icon mdui-color-grey-200 mdui-ripple" >
