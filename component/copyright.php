@@ -1,10 +1,5 @@
 <div class="mdui-card dreamcat-post-copyright mdui-color-grey-50" >
-	<svg class="icon" viewBox="0 0 1024 1024" width="128"
-	     height="128" >
-		<path
-				d="M512 106.7a405.3 405.3 0 110 810.6 405.3 405.3 0 010-810.6zm0 85.3a320 320 0 100 640 320 320 0 000-640zm42.7 277.3V704h-85.4V469.3h85.4zM512 298.7a47 47 0 110 93.8 47 47 0 010-93.8z" >
-		</path >
-	</svg >
+	<img alt="info_icon" src="<?php CustomCDN_FAM('DreamCat_StaticResources/img/', '', 'img/info.svg', 'info.svg'); ?>" >
 	<div class="mdui-card-actions mdui-typo" >
 		#本文链接：<a href="<?php $this->permalink() ?>" ><?php $this->permalink() ?></a ><br >
 		#本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank"
