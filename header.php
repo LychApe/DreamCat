@@ -243,3 +243,19 @@
         </div>
     </div>
 </div>
+
+<div class="mdui-appbar mdui-shadow-0 " >
+	<div class="mdui-toolbar" >
+            <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+                  mdui-drawer="{target: '#main-drawer', swipe: true}" >
+                <i class="mdui-icon material-icons dreamcat-icon-white" >menu</i >
+            </span >
+		<div class="mdui-toolbar-spacer" ></div >
+		<button mdui-dialog="{target: '#search-1'}" class="mdui-btn mdui-btn-icon mdui-hidden-md-up" >
+			<i class="mdui-icon material-icons dreamcat-icon-white" >search</i >
+		</button >
+		<a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon" >
+			<i class="mdui-icon material-icons dreamcat-icon-white" >refresh</i >
+		</a >
+	</div >
+</div >
