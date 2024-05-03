@@ -14,7 +14,7 @@ $this->need('header.php');
 	</div >
 </div >
 
-<div class="mdui-hidden-sm-down dreamcat-img-header-wrapper" >
+<div class="dreamcat-img-header-wrapper" >
 	<div class='dreamcat-img-header dreamcat-img-header-post' ></div >
 </div >
 
