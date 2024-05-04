@@ -81,21 +81,21 @@
 					</div >
 				</a >
 				<div class="mdui-chip" style="margin: 0px 15px 20px;" >
-                                    <span class="mdui-chip-icon" >
-                                        <i class="mdui-icon material-icons" >&#xe149;</i >
-                                    </span >
+					<span class="mdui-chip-icon" >
+						<i class="mdui-icon material-icons" >&#xe149;</i >
+					</span >
 					<span class="mdui-chip-title" >
-                                        <?php echo $this->category(','); ?>
-                                    </span >
+						<?php echo $this->category(','); ?>
+					</span >
 				</div >
                 <?php if (count($this->tags) > 0): ?>
 					<div class="mdui-chip" >
-                                    <span class="mdui-chip-icon" >
-                                        <i class="mdui-icon material-icons" >&#xe226;</i >
-                                    </span >
+						<span class="mdui-chip-icon" >
+							<i class="mdui-icon material-icons" >&#xe226;</i >
+						</span >
 						<span class="mdui-chip-title" >
-                                            <?php $this->tags(' , ', true, '没有标签'); ?>
-                                        </span >
+							<?php $this->tags(' , ', true, '没有标签'); ?>
+						</span >
 					</div >
                 <?php endif; ?>
 			</div >
@@ -107,21 +107,21 @@
 <div style="height: 30px;" ></div >
 
 <div class="dreamcat-page-div DreamCat-card-a" >
-    <?php $this->pageLink('<button
-				class="mdui-btn mdui-btn-icon mdui-ripple mdui-color-theme-accent mdui-shadow-5 DreamCat-prev"
-			>
-				<i class="mdui-icon material-icons">navigate_before</i></button
-			>', 'prev'); ?>
+    <?php $this->pageLink('
+		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-color-theme-accent mdui-shadow-5 DreamCat-prev" >
+			<i class="mdui-icon material-icons">navigate_before</i>
+		</button>
+		', 'prev'); ?>
 	<button class="mdui-btn dreamcat-number" disabled="" >
-                <span class="" >
-                    <?php if ($this->_currentPage > 1) echo $this->_currentPage; else echo
-                    1; ?>/
-                    <?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>
-                </span >
+		<span >
+			<?php if ($this->_currentPage > 1) echo $this->_currentPage; else echo
+			1; ?>/
+			<?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>
+		</span >
 	</button >
-    <?php $this->pageLink('<button
-				class="mdui-btn mdui-btn-icon mdui-ripple mdui-color-theme-accent mdui-shadow-5 DreamCat-next"
-			>
-				<i class="mdui-icon material-icons">navigate_next</i></button
-			>', 'next'); ?>
+    <?php $this->pageLink('
+		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-color-theme-accent mdui-shadow-5 DreamCat-next">
+			<i class="mdui-icon material-icons">navigate_next</i>
+		</button>
+		', 'next'); ?>
 </div >
