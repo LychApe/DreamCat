@@ -418,3 +418,9 @@ a {
 .dreamcat-disabled {
 	cursor: not-allowed;
 }
+
+.dreamcat-config-card {
+	background-color: rgb(130 123 123 / 14%);
+	box-shadow: .5rem .875rem 2.375rem rgba(39, 44, 49, .06), .0625rem .1875rem .5rem rgba(39, 44, 49, .03);
+
+}
