@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+        contentStyleType="text/css"
+        preserveAspectRatio="none"
+        style="width:2475px;height:1650px;background:#FFFFFF;"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        width="128px"
+        height="128px"
+        zoomAndPan="magnify"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+    <path
+            d="M512 106.7a405.3 405.3 0 110 810.6 405.3 405.3 0 010-810.6zm0 85.3a320 320 0 100 640 320 320 0 000-640zm42.7 277.3V704h-85.4V469.3h85.4zM512 298.7a47 47 0 110 93.8 47 47 0 010-93.8z" >
+    </path >
+</svg >
