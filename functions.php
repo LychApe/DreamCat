@@ -618,7 +618,7 @@ function art_count($cid)
 
 /**
  * @param $agent
- * @author HanFeng47
+ * @author HanFengA7
  * version 0.13
  */
 function CustomCDN_url($agent)
@@ -642,7 +642,7 @@ function CustomCDN_url($agent)
  * @param $URL_2
  * @param $Path_L
  * @param $Path_C
- * @author HanFeng47
+ * @author HanFengA7
  * version 0.14
  */
 function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
@@ -665,7 +665,7 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 
 /**
  * 自定义字体
- * @author HanFeng47
+ * @author HanFengA7
  * version 0.04
  */
 function CustomFont_url()
