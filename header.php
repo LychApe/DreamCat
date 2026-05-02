@@ -29,11 +29,6 @@
             'date' => _t('归档：%s')
         ], '', ' - ') . $this->options->DC_WebName(); ?>
 	</title >
-    <?php
-    if ($this->options->DC_WebCdnRadio == 'FuseAccelerationMode') {
-        echo '<link rel="dns-prefetch" href="//cdn.fallsoft.cn">';
-    }
-    ?>
 	<!-- 使用url函数转换相关路径 -->
 	<link rel="shortcut icon" href="<?php echo($this->options->DC_WebFavicon()); ?>" type="image/x-icon" />
 	<link rel="stylesheet"

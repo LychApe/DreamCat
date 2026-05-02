@@ -73,9 +73,8 @@ function themeConfig($form): void
 
     $addRadio('DC_WebCdnRadio', [
         'LocalMode' => '本地资源模式',
-        'FuseAccelerationMode' => '融合CDN加速模式',
         'CustomMode' => '自定义CDN加速模式',
-    ], 'FuseAccelerationMode', '自定义CDN设置');
+    ], 'LocalMode', '自定义CDN设置');
     $addText('DC_CustomCdnUrl_User', 'CDN静态资源链接', '选择自定义CDN加速模式即可填写CDN静态资源链接');
 
     $addRadio('DC_CustomFontRadio', [

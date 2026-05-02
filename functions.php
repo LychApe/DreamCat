@@ -165,12 +165,12 @@ function art_count($cid)
 function CustomCDN_url($agent)
 {
     $options = Helper::options();
-    if ($options->DC_WebCdnRadio == 'FuseAccelerationMode' || empty($options->DC_WebCdnRadio) || $options->DC_WebCdnRadio == 'LocalMode') {
-        echo dreamcatThemeStaticUrl($agent);
+    if ($options->DC_WebCdnRadio == 'CustomMode' && !empty($options->DC_CustomCdnUrl_User)) {
+        echo $options->DC_CustomCdnUrl_User . $agent;
         return;
     }
 
-    echo $options->DC_CustomCdnUrl_User . $agent;
+    echo dreamcatThemeStaticUrl($agent);
 }
 
 
@@ -185,13 +185,6 @@ function CustomCDN_url($agent)
 function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
 {
     $options = Helper::options();
-    //$CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/InsiderPreview/';
-    $CDN_1 = 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat@' . themeVersion() . '/';
-    if ($options->DC_WebCdnRadio == 'FuseAccelerationMode') {
-        echo $CDN_1 . $URL_1 . $Path_C;
-        return;
-    }
-
     if ($options->DC_WebCdnRadio == 'CustomMode' && !empty($options->DC_CustomCdnUrl_User)) {
         echo $options->DC_CustomCdnUrl_User . $Path_L;
         return;
