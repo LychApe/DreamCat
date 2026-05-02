@@ -5,6 +5,11 @@
 	padding: 0px 0 !important;
 }
 
+html,
+body {
+	overflow-x: hidden;
+}
+
 
 .dreamcat-card {
 	background-clip: border-box;
@@ -348,6 +353,7 @@ a {
 
 .dreamcat-drawer .dreamcat-drawer-list,
 .dreamcat-drawer .mdui-collapse-item,
+.dreamcat-drawer .mdui-collapse-item-open,
 .dreamcat-drawer .mdui-collapse-item-body,
 .dreamcat-drawer .mdui-list {
 	background-color: var(--dreamcat-surface-bg, #fff) !important;
@@ -378,8 +384,10 @@ a {
 }
 
 .dreamcat-toolbar {
-	margin-bottom: 16px;
-	transform: translateY(-50%);
+	margin-bottom: 32px;
+	margin-top: -39px;
+	position: relative;
+	z-index: 2;
 }
 
 .dreamcat-search {
@@ -406,8 +414,8 @@ a {
 	background-color: var(--dreamcat-theme-primary, #3f51b5);
 	box-sizing: border-box;
 	color: #fff;
-	min-height: 296px;
-	padding: 88px 16px 96px 0;
+	min-height: 232px;
+	padding: 72px 16px 76px 0;
 	position: relative;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }

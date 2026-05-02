@@ -122,7 +122,9 @@ $dreamcatAccentHex = dreamcatThemeColorHex('accent', $dreamcatAccentColor);
 
 		.mdui-container-fluid + .dreamcat-img-header-wrapper,
 		.mdui-container-fluid + .dreamcat-img-header-wrapper + .dreamcat-img-header-wrapper {
+			height: 0;
 			margin-bottom: 0;
+			overflow: hidden;
 		}
 
 		.dreamcat-img-header-index {
