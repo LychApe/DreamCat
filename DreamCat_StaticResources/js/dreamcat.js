@@ -3,7 +3,7 @@ window.onscroll = function () {
     scrollFunction()
 };
 
-var scroll = new SmoothScroll("a[href*='#']");
+var scroll = typeof SmoothScroll !== 'undefined' ? new SmoothScroll("a[href*='#']") : null;
 
 var $ = mdui.$;
 $('#back-top').on('click', function () {
@@ -15,10 +15,12 @@ $('#back-top').on('click', function () {
 
 // 当网页向下滑动 30px 出现"返回顶部" 按钮
 function scrollFunction() {
+    var backTop = document.getElementById("back-top");
+    if (!backTop) return;
     if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-        document.getElementById("back-top").style.display = "block";
+        backTop.style.display = "block";
     } else {
-        document.getElementById("back-top").style.display = "none";
+        backTop.style.display = "none";
     }
 }
 
