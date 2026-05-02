@@ -346,10 +346,23 @@ a {
 	padding-top: 8px;
 }
 
+.dreamcat-drawer .dreamcat-drawer-list,
+.dreamcat-drawer .mdui-collapse-item,
+.dreamcat-drawer .mdui-collapse-item-body,
+.dreamcat-drawer .mdui-list {
+	background-color: var(--dreamcat-surface-bg, #fff) !important;
+}
+
 .dreamcat-drawer .mdui-collapse-item-open > .mdui-collapse-item-header,
-.dreamcat-drawer .mdui-list-item-active {
+.dreamcat-drawer .mdui-list-item-active,
+.dreamcat-drawer .mdui-list-item-active:hover {
 	background-color: var(--dreamcat-surface-bg, #fff) !important;
 	color: var(--dreamcat-text-primary, rgba(0, 0, 0, .87)) !important;
+}
+
+.dreamcat-drawer .mdui-collapse-item-open > .mdui-collapse-item-header:hover,
+.dreamcat-drawer .mdui-list-item:hover {
+	background-color: rgba(0, 0, 0, .04) !important;
 }
 
 .dreamcat-drawer .mdui-list-item-active .mdui-list-item-icon,
@@ -365,7 +378,7 @@ a {
 }
 
 .dreamcat-toolbar {
-	margin-bottom: 48px;
+	margin-bottom: 16px;
 	transform: translateY(-50%);
 }
 
@@ -393,8 +406,8 @@ a {
 	background-color: var(--dreamcat-theme-primary, #3f51b5);
 	box-sizing: border-box;
 	color: #fff;
-	min-height: 180px;
-	padding: 80px 16px 72px 0;
+	min-height: 296px;
+	padding: 88px 16px 96px 0;
 	position: relative;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }

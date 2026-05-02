@@ -120,6 +120,11 @@ $dreamcatAccentHex = dreamcatThemeColorHex('accent', $dreamcatAccentColor);
 			margin-bottom: 8rem;
 		}
 
+		.mdui-container-fluid + .dreamcat-img-header-wrapper,
+		.mdui-container-fluid + .dreamcat-img-header-wrapper + .dreamcat-img-header-wrapper {
+			margin-bottom: 0;
+		}
+
 		.dreamcat-img-header-index {
 		<?php
             $mod=$this->options->DC_NavigationBarModeRadio;
