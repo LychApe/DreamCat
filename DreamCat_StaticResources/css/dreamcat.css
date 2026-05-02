@@ -434,7 +434,7 @@ a {
 .dreamcat-theme-options {
 	display: grid;
 	gap: 8px;
-	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
 .dreamcat-theme-options-compact {
@@ -454,6 +454,12 @@ a {
 	min-height: 38px;
 	padding: 0 12px;
 	transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+	white-space: nowrap;
+}
+
+.dreamcat-theme-option span:last-child {
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .dreamcat-theme-option:hover,

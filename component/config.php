@@ -150,7 +150,6 @@ function themeConfig($form): void
     };
     $configHighlights = [
         ['label' => '当前版本', 'value' => $themeVersion, 'hint' => '本地主题版本'],
-        ['label' => '外观偏好', 'value' => '前台用户控制', 'hint' => '保存在浏览器本地'],
         ['label' => '资源模式', 'value' => '本地 / 自定义 CDN', 'hint' => '按当前设置自动加载'],
         ['label' => '配置备份', 'value' => '可备份恢复', 'hint' => '页面底部操作'],
     ];
@@ -302,7 +301,7 @@ function themeConfig($form): void
 
         .dreamcat-config-grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 12px;
             padding: 18px 24px 0;
         }
@@ -451,7 +450,7 @@ function themeConfig($form): void
             }
 
             .dreamcat-config-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
         }
 
