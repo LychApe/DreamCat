@@ -371,12 +371,22 @@ a {
 
 .dreamcat-content-header {
 	background-color: var(--dreamcat-theme-primary, #3f51b5);
+	box-sizing: border-box;
 	color: #fff;
+	left: 0;
 	max-height: 10rem;
 	min-height: 3rem;
 	padding: 10px 16px 48px 256px;
 	position: absolute;
+	right: 0;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	width: 100%;
+}
+
+.dreamcat-content-header .dreamcat-title,
+.dreamcat-content-header .dreamcat-subtitle {
+	box-sizing: border-box;
+	max-width: 100%;
 }
 
 .dreamcat-comment-text {

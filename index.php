@@ -13,7 +13,7 @@ $this->need('header.php'); ?>
 
 
 <div class="mdui-container-fluid" >
-	<div class="mdui-row DreamCat-content-header" >
+	<div class="mdui-row dreamcat-content-header" >
 		<div class="mdui-container" >
 			<h1 class="dreamcat-title title" >
                 <?php $this->options->DC_WebName(); ?>
