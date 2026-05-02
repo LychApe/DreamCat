@@ -45,7 +45,7 @@
 			<div class="mdui-card dreamcat-card dreamcat-card-animation-1" >
 				<a itemprop="url" href="<?php $this->permalink() ?>" >
 					<div class="mdui-card-primary"
-					     style="background: linear-gradient(to bottom, rgb(238 242 245 / 50%), rgba(255, 255, 255, 0));
+					     style="background: linear-gradient(to bottom, var(--dreamcat-soft-bg, rgb(238 242 245 / 50%)), rgba(255, 255, 255, 0));
                                             mask-image: linear-gradient(to top, transparent, black);" >
 						<div class="mdui-card-primary-title" >
                             <?php $this->title() ?>

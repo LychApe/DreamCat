@@ -32,13 +32,11 @@
 	<div class="mdui-valign" >
 		<div class="mdui-row mdui-center" >
 			<a href="<?php $this->options->siteUrl(); ?>" style="text-decoration: none;" >
-				<button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple"
-				        style="background-color: #3f51b5!important;" >返回首页
+				<button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" >返回首页
 				</button >
 			</a >
 			<a onclick="history.back(-1);" >
-				<button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple"
-				        style="background-color: #3f51b5!important;" >返回上一页
+				<button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" >返回上一页
 				</button >
 			</a >
 		</div >

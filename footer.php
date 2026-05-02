@@ -2,13 +2,13 @@
 
 <?php if (!empty($this->options->DC_WebCustomFooterModeRadio == 'LRMode')): ?>
 	<footer >
-		<div style="background-color: #f2f2f2; padding: 0 8%;" >
-			<div style="display: flex; justify-content: space-between;color: #000;padding: 40px 0;" >
+		<div style="background-color: var(--dreamcat-surface-muted, #f2f2f2); padding: 0 8%;" >
+			<div style="display: flex; justify-content: space-between;color: var(--dreamcat-text-primary, #000);padding: 40px 0;" >
 
-				<div style="display: flex;flex-direction: column;line-height: 2;color: #000;" >
+				<div style="display: flex;flex-direction: column;line-height: 2;color: var(--dreamcat-text-primary, #000);" >
                     <?php if (!empty($this->options->icpba)): ?>
 						<a target="_blank"
-						   style="color: black;background-color: transparent;text-decoration-line: none;"
+						   style="color: var(--dreamcat-text-primary, black);background-color: transparent;text-decoration-line: none;"
 						   href="https://beian.miit.gov.cn/" >互联网ICP备案：<?php $this->options->icpba() ?></a >
                     <?php endif; ?>
 					<span ><?php $this->options->DC_WebCustomFooter(); ?></span >
@@ -35,10 +35,10 @@
                                 <?php endif; ?>
 							</div >
 							<div class="mdui-col" >
-                                <?php if (!empty($this->options->DC_A_github)): ?>
-									<a href="<?php $this->options->DC_A_github() ?>"
-									   style="text-decoration: none;color: black;" >
-										<div class="dreamcat-icon-ts icon iconfont icon-github"
+								<?php if (!empty($this->options->DC_A_github)): ?>
+					<a href="<?php $this->options->DC_A_github() ?>"
+					   style="text-decoration: none;color: var(--dreamcat-text-primary, black);" >
+						<div class="dreamcat-icon-ts icon iconfont icon-github"
 										     style="font-size: 35px;" ></div >
 									</a >
                                 <?php endif; ?>
@@ -61,31 +61,31 @@
 	</footer >
 <?php else: ?>
 	<footer class="dreamcat-footer-c-0" >
-		<div class="dreamcat-footer-c-1"
-		     style="
-             background-color: #f2f2f2;
+			<div class="dreamcat-footer-c-1"
+			     style="
+             background-color: var(--dreamcat-surface-muted, #f2f2f2);
              display: flex;
              justify-content: center;
              align-items: center;" >
 			<div class="dreamcat-footer--c2"
 			     style="
-                 display: flex;
-                 justify-content: space-between;
-                 color: #000;
-                 padding: 40px 0;
-                 text-align: center;" >
+                  display: flex;
+                  justify-content: space-between;
+                  color: var(--dreamcat-text-primary, #000);
+                  padding: 40px 0;
+                  text-align: center;" >
 
 				<div class="dreamcat-footer-c-3"
 				     style="
-                     display: flex;
-                     flex-direction: column;
-                     line-height: 2;
-                     color: #000;
-                     text-align: center;" >
+                      display: flex;
+                      flex-direction: column;
+                      line-height: 2;
+                      color: var(--dreamcat-text-primary, #000);
+                      text-align: center;" >
 					<span ><?php $this->options->DC_WebCustomFooter(); ?></span >
                     <?php if (!empty($this->options->icpba)): ?>
 						<a target="_blank"
-						   style="color: black;background-color: transparent;text-decoration-line: none;"
+						   style="color: var(--dreamcat-text-primary, black);background-color: transparent;text-decoration-line: none;"
 						   href="https://beian.miit.gov.cn/" >互联网ICP备案：<?php $this->options->icpba() ?></a >
                     <?php endif; ?>
 					<span >Copyright © <?php echo date('Y'); ?> <?php $this->options->DC_WebName(); ?>.</span >
@@ -133,7 +133,7 @@
 	</div >
 </div >
 <div class="mdui-fab-wrapper" >
-	<a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink scrollTop" id="back-top"
+	<a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-theme-accent scrollTop" id="back-top"
 	   onclick="scrollFunction()" >
 		<i class="mdui-icon material-icons" >&#xe5d8;</i ></a >
 </div >

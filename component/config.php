@@ -48,6 +48,10 @@ function themeConfig($form): void
     $addText('DC_AppImgBarHeight', '导航栏高度(PC)', '在这里填入导航栏高度, 以在网站导航栏显示，留空则显示默认');
     $addText('DC_AppImgBarHeight_PE', '导航栏高度(PE)', '在这里填入导航栏高度, 以在网站导航栏显示，留空则显示默认');
 
+    $addRadio('DC_ThemePrimaryColor', dreamcatThemePrimaryColorOptions(), 'indigo', '主题色');
+    $addRadio('DC_ThemeAccentColor', dreamcatThemeAccentColorOptions(), 'pink', '强调色');
+    $addRadio('DC_NightModeRadio', dreamcatNightModeOptions(), 'LightMode', '夜间模式');
+
     $addRadio('DC_ArticleListModeRadio', [
         'ImgMode' => '图片模式',
         'TextMode' => '文字模式',
@@ -150,6 +154,7 @@ function themeConfig($form): void
     };
     $configHighlights = [
         ['label' => '当前版本', 'value' => $themeVersion, 'hint' => '本地主题版本'],
+        ['label' => '外观模式', 'value' => '主题色 / 夜间模式', 'hint' => '前台即时生效'],
         ['label' => '资源模式', 'value' => '本地 / 自定义 CDN', 'hint' => '按当前设置自动加载'],
         ['label' => '配置备份', 'value' => '可备份恢复', 'hint' => '页面底部操作'],
     ];
@@ -301,7 +306,7 @@ function themeConfig($form): void
 
         .dreamcat-config-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 12px;
             padding: 18px 24px 0;
         }
@@ -450,7 +455,7 @@ function themeConfig($form): void
             }
 
             .dreamcat-config-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 

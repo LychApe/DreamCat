@@ -16,6 +16,114 @@ function defaultBackgroundImage(): string
     return 'https://tva3.sinaimg.cn/large/0072Vf1pgy1foxkfdxnnqj31hc0u0h5j.jpg';
 }
 
+function dreamcatThemePrimaryColorOptions(): array
+{
+    return array(
+        'indigo' => '靛蓝 Indigo',
+        'blue' => '蓝色 Blue',
+        'light-blue' => '浅蓝 Light Blue',
+        'cyan' => '青色 Cyan',
+        'teal' => '水鸭 Teal',
+        'green' => '绿色 Green',
+        'light-green' => '浅绿 Light Green',
+        'lime' => '青柠 Lime',
+        'yellow' => '黄色 Yellow',
+        'amber' => '琥珀 Amber',
+        'orange' => '橙色 Orange',
+        'deep-orange' => '深橙 Deep Orange',
+        'red' => '红色 Red',
+        'pink' => '粉色 Pink',
+        'purple' => '紫色 Purple',
+        'deep-purple' => '深紫 Deep Purple',
+        'brown' => '棕色 Brown',
+        'grey' => '灰色 Grey',
+        'blue-grey' => '蓝灰 Blue Grey',
+    );
+}
+
+function dreamcatThemeAccentColorOptions(): array
+{
+    return array(
+        'pink' => '粉色 Pink',
+        'red' => '红色 Red',
+        'purple' => '紫色 Purple',
+        'deep-purple' => '深紫 Deep Purple',
+        'indigo' => '靛蓝 Indigo',
+        'blue' => '蓝色 Blue',
+        'light-blue' => '浅蓝 Light Blue',
+        'cyan' => '青色 Cyan',
+        'teal' => '水鸭 Teal',
+        'green' => '绿色 Green',
+        'light-green' => '浅绿 Light Green',
+        'lime' => '青柠 Lime',
+        'yellow' => '黄色 Yellow',
+        'amber' => '琥珀 Amber',
+        'orange' => '橙色 Orange',
+        'deep-orange' => '深橙 Deep Orange',
+    );
+}
+
+function dreamcatNightModeOptions(): array
+{
+    return array(
+        'LightMode' => '浅色模式',
+        'DarkMode' => '夜间模式',
+        'AutoMode' => '跟随系统',
+    );
+}
+
+function dreamcatThemeColorHex(string $type, string $color): string
+{
+    $colors = array(
+        'primary' => array(
+            'amber' => '#FFC107',
+            'blue' => '#2196F3',
+            'blue-grey' => '#607D8B',
+            'brown' => '#795548',
+            'cyan' => '#00BCD4',
+            'deep-orange' => '#FF5722',
+            'deep-purple' => '#673AB7',
+            'green' => '#4CAF50',
+            'grey' => '#9E9E9E',
+            'indigo' => '#3F51B5',
+            'light-blue' => '#03A9F4',
+            'light-green' => '#8BC34A',
+            'lime' => '#CDDC39',
+            'orange' => '#FF9800',
+            'pink' => '#E91E63',
+            'purple' => '#9C27B0',
+            'red' => '#F44336',
+            'teal' => '#009688',
+            'yellow' => '#FFEB3B',
+        ),
+        'accent' => array(
+            'amber' => '#FFC400',
+            'blue' => '#448AFF',
+            'cyan' => '#18FFFF',
+            'deep-orange' => '#FF6E40',
+            'deep-purple' => '#7C4DFF',
+            'green' => '#69F0AE',
+            'indigo' => '#536DFE',
+            'light-blue' => '#40C4FF',
+            'light-green' => '#B2FF59',
+            'lime' => '#EEFF41',
+            'orange' => '#FFAB40',
+            'pink' => '#FF4081',
+            'purple' => '#E040FB',
+            'red' => '#FF5252',
+            'teal' => '#64FFDA',
+            'yellow' => '#FFFF00',
+        ),
+    );
+
+    return $colors[$type][$color] ?? ($type == 'accent' ? '#FF4081' : '#3F51B5');
+}
+
+function dreamcatSelectedOption($value, array $options, string $default): string
+{
+    return isset($options[$value]) ? $value : $default;
+}
+
 function dreamcatThemeAdminUrl(): string
 {
     return Helper::options()->adminUrl('options-theme.php');

@@ -41,19 +41,19 @@
             <?php endif; ?>
             <?php if (!empty($this->options->DC_A_github)): ?>
 				<a href="<?php $this->options->DC_A_github() ?>"
-				   style="text-decoration: none; color: black" >
+				   style="text-decoration: none; color: var(--dreamcat-text-primary, black)" >
 					<span class="icon iconfont icon-github" ></span >
 				</a >
             <?php endif; ?>
             <?php if (!empty($this->options->DC_A_bilibili)): ?>
 				<a href="<?php $this->options->DC_A_bilibili() ?>"
-				   style="text-decoration: none; color: black" >
+				   style="text-decoration: none; color: var(--dreamcat-text-primary, black)" >
 					<span class="icon iconfont icon-icon_bilibili-circle" ></span >
 				</a >
             <?php endif; ?>
             <?php if (!empty($this->options->DC_A_linkedin)): ?>
 				<a href="<?php $this->options->DC_A_linkedin() ?>"
-				   style="text-decoration: none; color: black" >
+				   style="text-decoration: none; color: var(--dreamcat-text-primary, black)" >
 					<span class="icon iconfont icon-linkedin0" ></span >
 				</a >
             <?php endif; ?>
@@ -64,13 +64,13 @@
             <?php endif; ?>
             <?php if (!empty($this->options->DC_A_wb)): ?>
 				<a href="<?php $this->options->DC_A_wb() ?>"
-				   style="text-decoration: none; color: black" >
+				   style="text-decoration: none; color: var(--dreamcat-text-primary, black)" >
 					<span class="icon iconfont icon-weibo" ></span >
 				</a >
             <?php endif; ?>
             <?php if (!empty($this->options->DC_A_telegram)): ?>
 				<a href="<?php $this->options->DC_A_telegram() ?>"
-				   style="text-decoration: none; color: black" >
+				   style="text-decoration: none; color: var(--dreamcat-text-primary, black)" >
 					<span class="icon iconfont icon-telegram" ></span >
 				</a >
             <?php endif; ?>

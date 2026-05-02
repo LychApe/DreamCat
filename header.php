@@ -1,4 +1,20 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php
+$dreamcatPrimaryColor = dreamcatSelectedOption($this->options->DC_ThemePrimaryColor, dreamcatThemePrimaryColorOptions(), 'indigo');
+$dreamcatAccentColor = dreamcatSelectedOption($this->options->DC_ThemeAccentColor, dreamcatThemeAccentColorOptions(), 'pink');
+$dreamcatNightMode = dreamcatSelectedOption($this->options->DC_NightModeRadio, dreamcatNightModeOptions(), 'LightMode');
+$dreamcatPrimaryHex = dreamcatThemeColorHex('primary', $dreamcatPrimaryColor);
+$dreamcatAccentHex = dreamcatThemeColorHex('accent', $dreamcatAccentColor);
+$dreamcatLayoutClass = '';
+$dreamcatNightClass = '';
+if ($dreamcatNightMode == 'DarkMode') {
+    $dreamcatLayoutClass = 'mdui-theme-layout-dark';
+    $dreamcatNightClass = 'dreamcat-night-mode';
+} elseif ($dreamcatNightMode == 'AutoMode') {
+    $dreamcatLayoutClass = 'mdui-theme-layout-auto';
+    $dreamcatNightClass = 'dreamcat-night-mode-auto';
+}
+?>
 <!DOCTYPE HTML>
 <html >
 <!--
@@ -45,6 +61,40 @@
     <?php $this->header('commentReply='); ?>
 
 	<style >
+		:root {
+			--dreamcat-theme-primary: <?php echo $dreamcatPrimaryHex; ?>;
+			--dreamcat-theme-accent: <?php echo $dreamcatAccentHex; ?>;
+			--dreamcat-body-bg: #fcfcfc;
+			--dreamcat-surface-bg: #ffffff;
+			--dreamcat-surface-muted: #f5f5f5;
+			--dreamcat-soft-bg: #eef2f5;
+			--dreamcat-text-primary: #212121;
+			--dreamcat-text-secondary: rgba(0, 0, 0, .62);
+			--dreamcat-border-color: #eeeeee;
+		}
+
+		.dreamcat-night-mode {
+			--dreamcat-body-bg: #121212;
+			--dreamcat-surface-bg: #1e1e1e;
+			--dreamcat-surface-muted: #242424;
+			--dreamcat-soft-bg: #242a32;
+			--dreamcat-text-primary: rgba(255, 255, 255, .88);
+			--dreamcat-text-secondary: rgba(255, 255, 255, .64);
+			--dreamcat-border-color: rgba(255, 255, 255, .12);
+		}
+
+		@media (prefers-color-scheme: dark) {
+			.dreamcat-night-mode-auto {
+				--dreamcat-body-bg: #121212;
+				--dreamcat-surface-bg: #1e1e1e;
+				--dreamcat-surface-muted: #242424;
+				--dreamcat-soft-bg: #242a32;
+				--dreamcat-text-primary: rgba(255, 255, 255, .88);
+				--dreamcat-text-secondary: rgba(255, 255, 255, .64);
+				--dreamcat-border-color: rgba(255, 255, 255, .12);
+			}
+		}
+
 		@font-face {
 			font-family: CustomFont;
 			src: url(<?php CustomFont_url();?>);
@@ -52,7 +102,8 @@
 
 		body {
 			font-family: CustomFont, serif;
-			background-color: #fcfcfceb;
+			background-color: var(--dreamcat-body-bg);
+			color: var(--dreamcat-text-primary);
 		}
 
 		.dreamcat-img-header {
@@ -79,7 +130,7 @@
 		    } else {
 		        $color=$this->options->DC_AppImgBarColor;
 		        if(empty($color)){
-		            $color='#3f51b5';
+		            $color=$dreamcatPrimaryHex;
 		        }
 		        echo "background-color: $color!important;\n";
 		    }
@@ -123,7 +174,7 @@ EOF;
 	</style >
 </head >
 
-<body class="mdui-drawer-body mdui-theme-primary-indigo mdui-theme-accent-pink" >
+<body class="mdui-drawer-body mdui-theme-primary-<?php echo $dreamcatPrimaryColor; ?> mdui-theme-accent-<?php echo $dreamcatAccentColor; ?> <?php echo $dreamcatLayoutClass; ?> <?php echo $dreamcatNightClass; ?>" >
 
 <header >
 	<div class="mc-drawer mdui-drawer mdui-drawer-close dreamcat-drawer" id="main-drawer" >
