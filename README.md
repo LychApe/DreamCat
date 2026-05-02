@@ -5,7 +5,7 @@ QQ交流群: `1034830519`
 
 | 版本                                                                        |                  维护状态 |    最近更新时间    |    版本诞生时间    |
 |---------------------------------------------------------------------------|----------------------:|:------------:|:------------:|
-| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |          **Official** | 24 Feb  2024 | 6 Jul  2022  |
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |          **Official** | 2 May  2026  | 6 Jul  2022  |
 | [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 1 Aug  2023  | 13 Jul  2021 |
 | `DreamCat 1.x`                                                            |       **End of Life** | 18 Feb 2021  | 15 Feb  2019 |
 
@@ -38,13 +38,9 @@ QQ交流群: `1034830519`
 
 ### 最新版本
 
-> ### DreamCat 3.0.240224  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.240224.zip)
-> 1.`新增` 底部‘居中样式’和‘左右样式’  
-> 2.`新增` 侧栏登录按钮开关  
-> 3.`优化` 文字模式下的样式  
-> 4.`优化` 文字模式下的标签展示,在无标签情况下隐藏  
-> 5.`优化` 代码框样式  
-> 6.`修复` 去除无效CDN资源
+> ### DreamCat 3.0.260502  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.260502.zip)
+> 1.`更新` 主题版本号
+> 2.`优化` DreamCat 主题配置中心代码
 
 > ### DreamCat 2.10.230801_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.10.230801_LTS.zip)
 > 1.优化文章页排版  

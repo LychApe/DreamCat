@@ -8,12 +8,79 @@ require_once 'component/config.php';
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeVersion(): string
 {
-    return '3.0.240224';
+    return '3.0.260502';
 }
 
 function defaultBackgroundImage(): string
 {
     return 'https://tva3.sinaimg.cn/large/0072Vf1pgy1foxkfdxnnqj31hc0u0h5j.jpg';
+}
+
+function dreamcatThemeAdminUrl(): string
+{
+    return Helper::options()->adminUrl('options-theme.php');
+}
+
+function dreamcatThemeStaticUrl(string $path): string
+{
+    return Helper::options()->rootUrl . '/usr/themes/DreamCat/DreamCat_StaticResources/' . $path;
+}
+
+function dreamcatRenderAdminNotice(string $message, int $delay = 2500): void
+{
+    $adminUrl = dreamcatThemeAdminUrl();
+    echo '<div>' . $message . '</div>';
+    echo '<script>setTimeout(function(){ location.href = "' . $adminUrl . '"; }, ' . $delay . ');</script>';
+}
+
+function dreamcatRenderAdjacentPost($widget, string $comparisonOperator, int $sortDirection, array $config): void
+{
+    $db = Typecho_Db::get();
+    $sql = $db->select()->from('table.contents')->where('table.contents.created ' . $comparisonOperator . ' ?', $widget->created)->where(
+        'table.contents.status = ?', 'publish'
+    )->where('table.contents.type = ?', $widget->type)->where('table.contents.password IS NULL')->order(
+        'table.contents.created', $sortDirection
+    )->limit(1);
+    $content = $db->fetchRow($sql);
+
+    $linkClass = $config['linkClass'];
+    $icon = $config['icon'];
+    $label = $config['label'];
+    $emptyLabel = $config['emptyLabel'];
+    $textClass = $config['textClass'] ?? '';
+    $emptyTextClass = $config['emptyTextClass'] ?? $textClass;
+    $directionClass = $config['directionClass'] ?? '';
+    $chapterClass = $config['chapterClass'] ?? '';
+
+    if ($content) {
+        $content = $widget->filter($content);
+        echo '<a href="' . $content['permalink'] . '" class="' . $linkClass . '"><div class="doc-footer-nav-text' . $textClass . '"><i class="mdui-icon material-icons">' . $icon . '</i><span class="doc-footer-nav-direction' . $directionClass . '">' . $label . '</span><div class="doc-footer-nav-chapter' . $chapterClass . '">' . $content['title'] . '</div></div></a>';
+        return;
+    }
+
+    echo '<a class="' . $linkClass . '"><div class="doc-footer-nav-text' . $emptyTextClass . '"><i class="mdui-icon material-icons">' . $icon . '</i><span class="doc-footer-nav-direction' . $directionClass . '">' . $label . '</span><div class="doc-footer-nav-chapter' . $chapterClass . '">' . $emptyLabel . '</div></div></a>';
+}
+
+function dreamcatBrowserVersion(string $agent, string $needle): string
+{
+    $parts = explode($needle, $agent, 2);
+    if (!isset($parts[1])) {
+        return '';
+    }
+
+    $versionParts = explode('.', $parts[1]);
+    return $versionParts[0];
+}
+
+function dreamcatFirstMatchLabel(string $agent, array $rules, $fallback = false)
+{
+    foreach ($rules as $pattern => $label) {
+        if (preg_match($pattern, $agent)) {
+            return $label;
+        }
+    }
+
+    return $fallback;
 }
 
 function themeFields($layout)
@@ -44,23 +111,20 @@ function backupHandler() {
                 $currentValue = $db->fetchRow($db->select()->from('table.options')->where('name = ?', 'theme:DreamCat'))['value'];
                 $db->query($db->delete('table.options')->where('name = ?', 'themeBackup:DreamCat'));
                 $db->query($db->insert('table.options')->rows(array('name' => 'themeBackup:DreamCat', 'user' => '0', 'value' => $currentValue)));
-				echo '<div >备份完成！</div>';
-                echo '<script>setTimeout(function(){ location.href = "'. Helper::options()->adminUrl('options-theme.php') .'"; }, 2500);</script>';
+                dreamcatRenderAdminNotice('备份完成！');
                 break;
             case "还原模板数据":
                 $backupData = $db->fetchRow($db->select()->from('table.options')->where('name = ?', 'themeBackup:DreamCat'));
                 if ($backupData) {
                     $db->query($db->update('table.options')->rows(array('value' => $backupData['value']))->where('name = ?', 'theme:DreamCat'));
-                    echo '<div >检测到模板备份数据，恢复完成！请等待自动刷新！若无反应请 <a href="'. Helper::options()->adminUrl('options-theme.php') .'">点击这里</a></div>';
-                    echo '<script>setTimeout(function(){ location.href = "'. Helper::options()->adminUrl('options-theme.php') .'"; }, 2000);</script>';
+                    dreamcatRenderAdminNotice('检测到模板备份数据，恢复完成！请等待自动刷新！若无反应请 <a href="' . dreamcatThemeAdminUrl() . '">点击这里</a>', 2000);
                 } else {
-                    echo '<div >没有模板备份数据，恢复不了哦！</div>';
+                    echo '<div>没有模板备份数据，恢复不了哦！</div>';
                 }
                 break;
             case "删除备份数据":
                 $db->query($db->delete('table.options')->where('name = ?', 'themeBackup:DreamCat'));
-                echo '<div >删除成功！请等待自动刷新！若无反应请 <a href="'. Helper::options()->adminUrl('options-theme.php') .'">点击这里</a></div>';
-                echo '<script>setTimeout(function(){ location.href = "'. Helper::options()->adminUrl('options-theme.php') .'"; }, 2500);</script>';
+                dreamcatRenderAdminNotice('删除成功！请等待自动刷新！若无反应请 <a href="' . dreamcatThemeAdminUrl() . '">点击这里</a>');
                 break;
         }
     }
@@ -101,16 +165,12 @@ function art_count($cid)
 function CustomCDN_url($agent)
 {
     $options = Helper::options();
-    switch (true) {
-        case ($options->DC_WebCdnRadio == 'FuseAccelerationMode'):
-        case (empty($options->DC_WebCdnRadio) || $options->DC_WebCdnRadio == 'LocalMode'):
-            echo($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$agent");
-            break;
-        default:
-            $CustomCDN = $options->DC_CustomCdnUrl_User . "$agent";
-            echo "$CustomCDN";
-            break;
+    if ($options->DC_WebCdnRadio == 'FuseAccelerationMode' || empty($options->DC_WebCdnRadio) || $options->DC_WebCdnRadio == 'LocalMode') {
+        echo dreamcatThemeStaticUrl($agent);
+        return;
     }
+
+    echo $options->DC_CustomCdnUrl_User . $agent;
 }
 
 
@@ -128,15 +188,16 @@ function CustomCDN_FAM($URL_1, $URL_2, $Path_L, $Path_C): void
     //$CDN_1 = 'https://gh.sourcegcdn.com/LychApe/DreamCat/InsiderPreview/';
     $CDN_1 = 'https://cdn.fallsoft.cn/gh/LychApe/DreamCat@' . themeVersion() . '/';
     if ($options->DC_WebCdnRadio == 'FuseAccelerationMode') {
-        echo($CDN_1 . $URL_1 . $Path_C);
-    } else {
-        if (!empty($options->DC_CustomCdnUrl_User && $options->DC_WebCdnRadio == 'CustomMode')) {
-            $CustomCDN = $options->DC_CustomCdnUrl_User . "$Path_L";
-            echo "$CustomCDN";
-        } else {
-            echo($options->rootUrl . "/usr/themes/DreamCat/DreamCat_StaticResources/" . "$Path_L");
-        }
+        echo $CDN_1 . $URL_1 . $Path_C;
+        return;
     }
+
+    if ($options->DC_WebCdnRadio == 'CustomMode' && !empty($options->DC_CustomCdnUrl_User)) {
+        echo $options->DC_CustomCdnUrl_User . $Path_L;
+        return;
+    }
+
+    echo dreamcatThemeStaticUrl($Path_L);
 
 }
 
@@ -196,23 +257,16 @@ function thumb($obj): array
  */
 function theNext($widget)
 {
-    $db = Typecho_Db::get();
-    $sql = $db->select()->from('table.contents')->where('table.contents.created > ?', $widget->created)->where(
-        'table.contents.status = ?', 'publish'
-    )->where('table.contents.type = ?', $widget->type)->where('table.contents.password IS NULL')->order(
-        'table.contents.created', Typecho_Db::SORT_ASC
-    )->limit(1);
-    $content = $db->fetchRow($sql);
-    if ($content) {
-        $content = $widget->filter($content);
-        $link =
-            '<a href="' . $content['permalink'] . '" class="mdui-ripple mdui-color-grey-50 mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right"><div class="doc-footer-nav-text"><i class="mdui-icon material-icons">arrow_forward</i><span class="doc-footer-nav-direction">Next</span><div class="doc-footer-nav-chapter">' . $content['title'] . '</div></div></a>';
-        echo $link;
-    } else {
-        $link2 =
-            '<a class="mdui-ripple mdui-color-grey-50 mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right"><div class="doc-footer-nav-text dreamcat-disabled"><i class="mdui-icon material-icons">arrow_forward</i><span class="doc-footer-nav-direction">Next</span><div class="doc-footer-nav-chapter">没有啦!!!</div></div></a>';
-        echo $link2;
-    }
+    dreamcatRenderAdjacentPost($widget, '>', Typecho_Db::SORT_ASC, array(
+        'linkClass' => 'mdui-ripple mdui-color-grey-50 mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right',
+        'icon' => 'arrow_forward',
+        'label' => 'Next',
+        'emptyLabel' => '没有啦!!!',
+        'textClass' => '',
+        'emptyTextClass' => ' dreamcat-disabled',
+        'directionClass' => '',
+        'chapterClass' => '',
+    ));
 }
 
 /** 显示上一篇
@@ -222,23 +276,16 @@ function theNext($widget)
  */
 function thePrev($widget)
 {
-    $db = Typecho_Db::get();
-    $sql = $db->select()->from('table.contents')->where('table.contents.created < ?', $widget->created)->where(
-        'table.contents.status = ?', 'publish'
-    )->where('table.contents.type = ?', $widget->type)->where('table.contents.password IS NULL')->order(
-        'table.contents.created', Typecho_Db::SORT_DESC
-    )->limit(1);
-    $content = $db->fetchRow($sql);
-    if ($content) {
-        $content = $widget->filter($content);
-        $link =
-            '<a href="' . $content['permalink'] . '" class="mdui-ripple mdui-color-grey-50 mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"><div class="doc-footer-nav-text"><i class="mdui-icon material-icons">arrow_back</i><span class="doc-footer-nav-direction mdui-hidden-xs-down">Previous</span><div class="doc-footer-nav-chapter mdui-hidden-xs-down">' . $content['title'] . '</div></div></a>';
-        echo $link;
-    } else {
-        $link2 =
-            '<a class="mdui-ripple mdui-color-grey-50 mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"><div class="doc-footer-nav-text dreamcat-disabled"><i class="mdui-icon material-icons">arrow_back</i><span class="doc-footer-nav-direction mdui-hidden-xs-down">Previous</span><div class="doc-footer-nav-chapter mdui-hidden-xs-down">没有啦!!!</div></div></a>';
-        echo $link2;
-    }
+    dreamcatRenderAdjacentPost($widget, '<', Typecho_Db::SORT_DESC, array(
+        'linkClass' => 'mdui-ripple mdui-color-grey-50 mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left',
+        'icon' => 'arrow_back',
+        'label' => 'Previous',
+        'emptyLabel' => '没有啦!!!',
+        'textClass' => '',
+        'emptyTextClass' => ' dreamcat-disabled',
+        'directionClass' => ' mdui-hidden-xs-down',
+        'chapterClass' => ' mdui-hidden-xs-down',
+    ));
 }
 
 /**
@@ -248,99 +295,91 @@ function thePrev($widget)
  */
 function getBrowser($agent)
 {
-    if (preg_match('/MSIE\s([^\s|;]+)/i', $agent, $regs)) {
-        $output = 'IE Browser';
-    } else if (preg_match('/FireFox\/([^\s]+)/i', $agent, $regs)) {
-        $str1 = explode('Firefox/', $regs[0]);
-        $FireFox_vern = explode('.', $str1[1]);
-        $output = 'Firefox Browser ' . $FireFox_vern[0];
-    } else if (preg_match('/Maxthon([\d]*)\/([^\s]+)/i', $agent, $regs)) {
-        $str1 = explode('Maxthon/', $agent);
-        $Maxthon_vern = explode('.', $str1[1]);
-        $output = 'Maxthon Browser ' . $Maxthon_vern[0];
-    } else if (preg_match('#SE2([a-zA-Z0-9.]+)#i', $agent)) {
-        $output = 'Sogo Browser';
-    } else if (preg_match('#360([a-zA-Z0-9.]+)#i', $agent)) {
-        $output = '360 Browser';
-    } else if (preg_match('/Edge([\d]*)\/([^\s]+)/i', $agent, $regs)) {
-        $str1 = explode('Edge/', $regs[0]);
-        $Edge_vern = explode('.', $str1[1]);
-        $output = 'Edge ' . $Edge_vern[0];
-    } else if (preg_match('/EdgiOS([\d]*)\/([^\s]+)/i', $agent, $regs)) {
-        $str1 = explode('EdgiOS/', $regs[0]);
-        $output = 'Edge';
-    } else if (preg_match('/UC/i', $agent)) {
-        $str1 = explode('rowser/', $agent);
-        $UCBrowser_vern = explode('.', $str1[1]);
-        $output = 'UC Browser ' . $UCBrowser_vern[0];
-    } else if (preg_match('/OPR/i', $agent)) {
-        $str1 = explode('OPR/', $agent);
-        $opr_vern = explode('.', $str1[1]);
-        $output = 'Open Browser ' . $opr_vern[0];
-    } else if (preg_match('/MicroMesseng/i', $agent)) {
-        $output = 'Weixin Browser';
-    } else if (preg_match('/WeiBo/i', $agent)) {
-        $output = 'WeiBo Browser';
-    } else if (preg_match('/QQ/i', $agent) || preg_match('/QQBrowser\/([^\s]+)/i', $agent)) {
-        $str1 = explode('rowser/', $agent);
-        $QQ_vern = explode('.', $str1[1]);
-        $output = 'QQ Browser ' . $QQ_vern[0];
-    } else if (preg_match('/MQBHD/i', $agent)) {
-        $str1 = explode('MQBHD/', $agent);
-        $QQ_vern = explode('.', $str1[1]);
-        $output = 'QQ Browser ' . $QQ_vern[0];
-    } else if (preg_match('/BIDU/i', $agent)) {
-        $output = 'Baidu Browser';
-    } else if (preg_match('/LBBROWSER/i', $agent)) {
-        $output = 'KS Browser';
-    } else if (preg_match('/TheWorld/i', $agent)) {
-        $output = 'TheWorld Browser';
-    } else if (preg_match('/XiaoMi/i', $agent)) {
-        $output = 'XiaoMi Browser';
-    } else if (preg_match('/UBrowser/i', $agent)) {
-        $str1 = explode('rowser/', $agent);
-        $UCBrowser_vern = explode('.', $str1[1]);
-        $output = 'UCBrowser ' . $UCBrowser_vern[0];
-    } else if (preg_match('/mailapp/i', $agent)) {
-        $output = 'Email Browser';
-    } else if (preg_match('/2345Explorer/i', $agent)) {
-        $output = '2345 Browser';
-    } else if (preg_match('/Sleipnir/i', $agent)) {
-        $output = 'Sleipnir Browser';
-    } else if (preg_match('/YaBrowser/i', $agent)) {
-        $output = 'Yandex Browser';
-    } else if (preg_match('/Opera[\s|\/]([^\s]+)/i', $agent)) {
-        $output = 'Opera Browser';
-    } else {
-        if (preg_match('/MZBrowser/i', $agent)) {
-            $output = 'MZ Browser';
-        } else {
-            if (preg_match('/VivoBrowser/i', $agent)) {
-                $output = 'Vivo Browser';
-            } else if (preg_match('/Quark/i', $agent)) {
-                $output = 'Quark Browser';
-            } else if (preg_match('/mixia/i', $agent)) {
-                $output = 'Mixia Browser';
-            } else if (preg_match('/fusion/i', $agent)) {
-                $output = 'Fusion';
-            } else if (preg_match('/CoolMarket/i', $agent)) {
-                $output = 'CoolMarket Browser';
-            } else if (preg_match('/Thunder/i', $agent)) {
-                $output = 'Thunder Browser';
-            } else if (preg_match('/Chrome([\d]*)\/([^\s]+)/i', $agent)) {
-                $str1 = explode('Chrome/', $agent);
-                $chrome_vern = explode('.', $str1[1]);
-                $output = 'Chrome ' . $chrome_vern[0];
-            } else if (preg_match('/safari\/([^\s]+)/i', $agent)) {
-                $str1 = explode('Version/', $agent);
-                $safari_vern = explode('.', $str1[1]);
-                $output = 'Safari' . $safari_vern[0];
-            } else {
-                return false;
-            }
-        }
+    if (preg_match('/MSIE\s([^\s|;]+)/i', $agent)) {
+        return 'IE Browser';
     }
-    return $output;
+
+    if (preg_match('/FireFox\/([^\s]+)/i', $agent)) {
+        return 'Firefox Browser ' . dreamcatBrowserVersion($agent, 'Firefox/');
+    }
+
+    if (preg_match('/Maxthon([\d]*)\/([^\s]+)/i', $agent)) {
+        return 'Maxthon Browser ' . dreamcatBrowserVersion($agent, 'Maxthon/');
+    }
+
+    if (preg_match('#SE2([a-zA-Z0-9.]+)#i', $agent)) {
+        return 'Sogo Browser';
+    }
+
+    if (preg_match('#360([a-zA-Z0-9.]+)#i', $agent)) {
+        return '360 Browser';
+    }
+
+    if (preg_match('/Edge([\d]*)\/([^\s]+)/i', $agent)) {
+        return 'Edge ' . dreamcatBrowserVersion($agent, 'Edge/');
+    }
+
+    if (preg_match('/EdgiOS([\d]*)\/([^\s]+)/i', $agent)) {
+        return 'Edge';
+    }
+
+    if (preg_match('/UC/i', $agent)) {
+        return 'UC Browser ' . dreamcatBrowserVersion($agent, 'rowser/');
+    }
+
+    if (preg_match('/OPR/i', $agent)) {
+        return 'Open Browser ' . dreamcatBrowserVersion($agent, 'OPR/');
+    }
+
+    if (preg_match('/MicroMesseng/i', $agent)) {
+        return 'Weixin Browser';
+    }
+
+    if (preg_match('/WeiBo/i', $agent)) {
+        return 'WeiBo Browser';
+    }
+
+    if (preg_match('/QQ/i', $agent) || preg_match('/QQBrowser\/([^\s]+)/i', $agent)) {
+        return 'QQ Browser ' . dreamcatBrowserVersion($agent, 'rowser/');
+    }
+
+    if (preg_match('/MQBHD/i', $agent)) {
+        return 'QQ Browser ' . dreamcatBrowserVersion($agent, 'MQBHD/');
+    }
+
+    $label = dreamcatFirstMatchLabel($agent, array(
+        '/BIDU/i' => 'Baidu Browser',
+        '/LBBROWSER/i' => 'KS Browser',
+        '/TheWorld/i' => 'TheWorld Browser',
+        '/XiaoMi/i' => 'XiaoMi Browser',
+        '/UBrowser/i' => 'UCBrowser ' . dreamcatBrowserVersion($agent, 'rowser/'),
+        '/mailapp/i' => 'Email Browser',
+        '/2345Explorer/i' => '2345 Browser',
+        '/Sleipnir/i' => 'Sleipnir Browser',
+        '/YaBrowser/i' => 'Yandex Browser',
+        '/Opera[\s|\/]([^\s]+)/i' => 'Opera Browser',
+        '/MZBrowser/i' => 'MZ Browser',
+        '/VivoBrowser/i' => 'Vivo Browser',
+        '/Quark/i' => 'Quark Browser',
+        '/mixia/i' => 'Mixia Browser',
+        '/fusion/i' => 'Fusion',
+        '/CoolMarket/i' => 'CoolMarket Browser',
+        '/Thunder/i' => 'Thunder Browser',
+    ));
+
+    if ($label !== false) {
+        return $label;
+    }
+
+    if (preg_match('/Chrome([\d]*)\/([^\s]+)/i', $agent)) {
+        return 'Chrome ' . dreamcatBrowserVersion($agent, 'Chrome/');
+    }
+
+    if (preg_match('/safari\/([^\s]+)/i', $agent)) {
+        return 'Safari' . dreamcatBrowserVersion($agent, 'Version/');
+    }
+
+    return false;
 }
 
 
@@ -350,86 +389,68 @@ function getBrowser($agent)
  */
 function getOs($agent)
 {
-    $os = false;
     if (preg_match('/win/i', $agent)) {
         if (preg_match('/nt 6.0/i', $agent)) {
-            $os = 'Windows Vista';
-        } else {
-            if (preg_match('/nt 6.1/i', $agent)) {
-                $os = 'Windows 7';
-            } else {
-                if (preg_match('/nt6.2/i', $agent)) {
-                    $os = 'Windows 8';
-                } else {
-                    if (preg_match('/nt 6.3/i', $agent)) {
-                        $os = 'Windows 8.1';
-                    } else {
-                        if (preg_match('/nt 5.1/i', $agent)) {
-                            $os = 'Windows XP';
-                        } else {
-                            if (preg_match('/nt 10.0/i', $agent)) {
-                                $os = 'Windows 10';
-                            } else {
-                                $os = 'Windows';
-                            }
-                        }
-                    }
-                }
-            }
+            return 'Windows Vista';
         }
-    } else {
-        if (preg_match('/android/i', $agent)) {
-            if (preg_match('/android9/i', $agent)) {
-                $os = 'Android P';
-            } else {
-                if (preg_match('/android 8/i', $agent)) {
-                    $os = 'Android O';
-                } else {
-                    if (preg_match('/android 7/i', $agent)) {
-                        $os = 'Android N';
-                    } else {
-                        if (preg_match('/android 6/i', $agent)) {
-                            $os = 'Android M';
-                        } else {
-                            if (preg_match('/android 5/i', $agent)) {
-                                $os = 'Android L';
-                            } else {
-                                $os = 'Android';
-                            }
-                        }
-                    }
-                }
-            }
-        } else {
-            if (preg_match('/ubuntu/i', $agent)) {
-                $os = 'Linux';
-            } else {
-                if (preg_match('/linux/i', $agent)) {
-                    $os = 'Linux';
-                } else {
-                    if (preg_match('/iPhone/i', $agent)) {
-                        $os = 'iPhone';
-                    } else {
-                        if (preg_match('/iPad/i', $agent)) {
-                            $os =
-                                'iPad';
-                        } else {
-                            if (preg_match('/mac/i', $agent)) {
-                                $os = 'OSX';
-                            } else {
-                                if (preg_match('/cros/i', $agent)) {
-                                    $os = 'Chrome os';
-                                } else {
-                                    return false;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+
+        if (preg_match('/nt 6.1/i', $agent)) {
+            return 'Windows 7';
         }
+
+        if (preg_match('/nt6.2/i', $agent)) {
+            return 'Windows 8';
+        }
+
+        if (preg_match('/nt 6.3/i', $agent)) {
+            return 'Windows 8.1';
+        }
+
+        if (preg_match('/nt 5.1/i', $agent)) {
+            return 'Windows XP';
+        }
+
+        if (preg_match('/nt 10.0/i', $agent)) {
+            return 'Windows 10';
+        }
+
+        return 'Windows';
     }
-    return $os;
+
+    if (preg_match('/android/i', $agent)) {
+        if (preg_match('/android9/i', $agent)) {
+            return 'Android P';
+        }
+
+        if (preg_match('/android 8/i', $agent)) {
+            return 'Android O';
+        }
+
+        if (preg_match('/android 7/i', $agent)) {
+            return 'Android N';
+        }
+
+        if (preg_match('/android 6/i', $agent)) {
+            return 'Android M';
+        }
+
+        if (preg_match('/android 5/i', $agent)) {
+            return 'Android L';
+        }
+
+        return 'Android';
+    }
+
+    $label = dreamcatFirstMatchLabel($agent, array(
+        '/ubuntu/i' => 'Linux',
+        '/linux/i' => 'Linux',
+        '/iPhone/i' => 'iPhone',
+        '/iPad/i' => 'iPad',
+        '/mac/i' => 'OSX',
+        '/cros/i' => 'Chrome os',
+    ));
+
+    return $label;
 }
 
 
