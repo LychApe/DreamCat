@@ -1,19 +1,9 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php
-$dreamcatPrimaryColor = dreamcatSelectedOption($this->options->DC_ThemePrimaryColor, dreamcatThemePrimaryColorOptions(), 'indigo');
-$dreamcatAccentColor = dreamcatSelectedOption($this->options->DC_ThemeAccentColor, dreamcatThemeAccentColorOptions(), 'pink');
-$dreamcatNightMode = dreamcatSelectedOption($this->options->DC_NightModeRadio, dreamcatNightModeOptions(), 'LightMode');
+$dreamcatPrimaryColor = 'indigo';
+$dreamcatAccentColor = 'pink';
 $dreamcatPrimaryHex = dreamcatThemeColorHex('primary', $dreamcatPrimaryColor);
 $dreamcatAccentHex = dreamcatThemeColorHex('accent', $dreamcatAccentColor);
-$dreamcatLayoutClass = '';
-$dreamcatNightClass = '';
-if ($dreamcatNightMode == 'DarkMode') {
-    $dreamcatLayoutClass = 'mdui-theme-layout-dark';
-    $dreamcatNightClass = 'dreamcat-night-mode';
-} elseif ($dreamcatNightMode == 'AutoMode') {
-    $dreamcatLayoutClass = 'mdui-theme-layout-auto';
-    $dreamcatNightClass = 'dreamcat-night-mode-auto';
-}
 ?>
 <!DOCTYPE HTML>
 <html >
@@ -36,6 +26,18 @@ if ($dreamcatNightMode == 'DarkMode') {
 	<meta charset="<?php $this->options->charset(); ?>" >
 	<meta name="renderer" content="webkit" >
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" >
+	<script>
+		(function () {
+			try {
+				var theme = JSON.parse(localStorage.getItem('dreamcat-theme-settings')) || {};
+				var root = document.documentElement;
+				var primaryColors = {amber: '#FFC107', blue: '#2196F3', 'blue-grey': '#607D8B', brown: '#795548', cyan: '#00BCD4', 'deep-orange': '#FF5722', 'deep-purple': '#673AB7', green: '#4CAF50', grey: '#9E9E9E', indigo: '#3F51B5', 'light-blue': '#03A9F4', 'light-green': '#8BC34A', lime: '#CDDC39', orange: '#FF9800', pink: '#E91E63', purple: '#9C27B0', red: '#F44336', teal: '#009688', yellow: '#FFEB3B'};
+				var accentColors = {amber: '#FFC400', blue: '#448AFF', cyan: '#18FFFF', 'deep-orange': '#FF6E40', 'deep-purple': '#7C4DFF', green: '#69F0AE', indigo: '#536DFE', 'light-blue': '#40C4FF', 'light-green': '#B2FF59', lime: '#EEFF41', orange: '#FFAB40', pink: '#FF4081', purple: '#E040FB', red: '#FF5252', teal: '#64FFDA', yellow: '#FFFF00'};
+				if (theme.primary && primaryColors[theme.primary]) root.style.setProperty('--dreamcat-theme-primary', primaryColors[theme.primary]);
+				if (theme.accent && accentColors[theme.accent]) root.style.setProperty('--dreamcat-theme-accent', accentColors[theme.accent]);
+			} catch (e) {}
+		})();
+	</script>
 	<title >
         <?php $this->archiveTitle([
             'category' => _t('分类：%s'),
@@ -174,7 +176,26 @@ EOF;
 	</style >
 </head >
 
-<body class="mdui-drawer-body mdui-theme-primary-<?php echo $dreamcatPrimaryColor; ?> mdui-theme-accent-<?php echo $dreamcatAccentColor; ?> <?php echo $dreamcatLayoutClass; ?> <?php echo $dreamcatNightClass; ?>" >
+<body class="mdui-drawer-body mdui-theme-primary-<?php echo $dreamcatPrimaryColor; ?> mdui-theme-accent-<?php echo $dreamcatAccentColor; ?>" >
+<script>
+	(function () {
+		try {
+			var theme = JSON.parse(localStorage.getItem('dreamcat-theme-settings')) || {};
+			var body = document.body;
+			var primaryColors = {amber: 1, blue: 1, 'blue-grey': 1, brown: 1, cyan: 1, 'deep-orange': 1, 'deep-purple': 1, green: 1, grey: 1, indigo: 1, 'light-blue': 1, 'light-green': 1, lime: 1, orange: 1, pink: 1, purple: 1, red: 1, teal: 1, yellow: 1};
+			var accentColors = {amber: 1, blue: 1, cyan: 1, 'deep-orange': 1, 'deep-purple': 1, green: 1, indigo: 1, 'light-blue': 1, 'light-green': 1, lime: 1, orange: 1, pink: 1, purple: 1, red: 1, teal: 1, yellow: 1};
+			var replaceClass = function (prefix, value) {
+				body.className = body.className.split(/\s+/).filter(function (className) {
+					return className && className.indexOf(prefix) !== 0;
+				}).concat(prefix + value).join(' ');
+			};
+			if (theme.primary && primaryColors[theme.primary]) replaceClass('mdui-theme-primary-', theme.primary);
+			if (theme.accent && accentColors[theme.accent]) replaceClass('mdui-theme-accent-', theme.accent);
+			if (theme.mode === 'DarkMode') body.classList.add('mdui-theme-layout-dark', 'dreamcat-night-mode');
+			if (theme.mode === 'AutoMode') body.classList.add('mdui-theme-layout-auto', 'dreamcat-night-mode-auto');
+		} catch (e) {}
+	})();
+</script>
 
 <header >
 	<div class="mc-drawer mdui-drawer mdui-drawer-close dreamcat-drawer" id="main-drawer" >
@@ -361,8 +382,55 @@ EOF;
 		<button mdui-dialog="{target: '#search-1'}" class="mdui-btn mdui-btn-icon mdui-hidden-md-up" >
 			<i class="mdui-icon material-icons dreamcat-icon-white" >search</i >
 		</button >
+		<button mdui-dialog="{target: '#dreamcat-theme-dialog'}" class="mdui-btn mdui-btn-icon" title="外观设置" >
+			<i class="mdui-icon material-icons dreamcat-icon-white" >palette</i >
+		</button >
 		<a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon" >
 			<i class="mdui-icon material-icons dreamcat-icon-white" >refresh</i >
 		</a >
+	</div >
+</div >
+
+<div class="mdui-dialog dreamcat-theme-dialog" id="dreamcat-theme-dialog" >
+	<div class="mdui-dialog-title" >外观设置</div >
+	<div class="mdui-dialog-content" >
+		<div class="dreamcat-theme-panel" >
+			<div class="dreamcat-theme-section" >
+				<div class="dreamcat-theme-section-title" >主题色</div >
+				<div class="dreamcat-theme-options" >
+                    <?php foreach (dreamcatThemePrimaryColorOptions() as $color => $label): ?>
+						<button type="button" class="dreamcat-theme-option" data-dreamcat-theme-primary="<?php echo $color; ?>" style="--dreamcat-option-color: <?php echo dreamcatThemeColorHex('primary', $color); ?>;" >
+							<span class="dreamcat-theme-dot" ></span >
+							<span ><?php echo $label; ?></span >
+						</button >
+                    <?php endforeach; ?>
+				</div >
+			</div >
+
+			<div class="dreamcat-theme-section" >
+				<div class="dreamcat-theme-section-title" >强调色</div >
+				<div class="dreamcat-theme-options" >
+                    <?php foreach (dreamcatThemeAccentColorOptions() as $color => $label): ?>
+						<button type="button" class="dreamcat-theme-option" data-dreamcat-theme-accent="<?php echo $color; ?>" style="--dreamcat-option-color: <?php echo dreamcatThemeColorHex('accent', $color); ?>;" >
+							<span class="dreamcat-theme-dot" ></span >
+							<span ><?php echo $label; ?></span >
+						</button >
+                    <?php endforeach; ?>
+				</div >
+			</div >
+
+			<div class="dreamcat-theme-section" >
+				<div class="dreamcat-theme-section-title" >夜间模式</div >
+				<div class="dreamcat-theme-options dreamcat-theme-options-compact" >
+                    <?php foreach (dreamcatNightModeOptions() as $mode => $label): ?>
+						<button type="button" class="dreamcat-theme-option" data-dreamcat-theme-mode="<?php echo $mode; ?>" ><?php echo $label; ?></button >
+                    <?php endforeach; ?>
+				</div >
+			</div >
+		</div >
+	</div >
+	<div class="mdui-dialog-actions" >
+		<button class="mdui-btn mdui-ripple" id="dreamcat-theme-reset" type="button" >恢复默认</button >
+		<button class="mdui-btn mdui-ripple" mdui-dialog-confirm >完成</button >
 	</div >
 </div >

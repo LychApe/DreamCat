@@ -42,7 +42,7 @@ QQ交流群: `1034830519`
 > 1.`优化` DreamCat 主题配置中心布局和样式
 > 2.`优化` functions.php 重复逻辑
 > 3.`移除` 融合CDN加速模式
-> 4.`新增` 主题色、强调色和夜间模式设置
+> 4.`新增` 前台主题色、强调色和夜间模式设置
 
 > ### DreamCat 2.10.230801_LTS  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/2.10.230801_LTS.zip)
 > 1.优化文章页排版  

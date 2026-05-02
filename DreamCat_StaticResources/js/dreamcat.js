@@ -26,6 +26,168 @@ function scrollFunction() {
 
 /*返回顶部js End*/
 
+var dreamcatThemeColors = {
+    primary: {
+        amber: '#FFC107',
+        blue: '#2196F3',
+        'blue-grey': '#607D8B',
+        brown: '#795548',
+        cyan: '#00BCD4',
+        'deep-orange': '#FF5722',
+        'deep-purple': '#673AB7',
+        green: '#4CAF50',
+        grey: '#9E9E9E',
+        indigo: '#3F51B5',
+        'light-blue': '#03A9F4',
+        'light-green': '#8BC34A',
+        lime: '#CDDC39',
+        orange: '#FF9800',
+        pink: '#E91E63',
+        purple: '#9C27B0',
+        red: '#F44336',
+        teal: '#009688',
+        yellow: '#FFEB3B'
+    },
+    accent: {
+        amber: '#FFC400',
+        blue: '#448AFF',
+        cyan: '#18FFFF',
+        'deep-orange': '#FF6E40',
+        'deep-purple': '#7C4DFF',
+        green: '#69F0AE',
+        indigo: '#536DFE',
+        'light-blue': '#40C4FF',
+        'light-green': '#B2FF59',
+        lime: '#EEFF41',
+        orange: '#FFAB40',
+        pink: '#FF4081',
+        purple: '#E040FB',
+        red: '#FF5252',
+        teal: '#64FFDA',
+        yellow: '#FFFF00'
+    }
+};
+
+var dreamcatThemeDefaults = {
+    primary: 'indigo',
+    accent: 'pink',
+    mode: 'LightMode'
+};
+
+function dreamcatStoredTheme() {
+    try {
+        return JSON.parse(localStorage.getItem('dreamcat-theme-settings')) || {};
+    } catch (e) {
+        return {};
+    }
+}
+
+function dreamcatSaveTheme(theme) {
+    localStorage.setItem('dreamcat-theme-settings', JSON.stringify(theme));
+}
+
+function dreamcatThemeValue(theme, key) {
+    if (key === 'primary' && dreamcatThemeColors.primary[theme[key]]) {
+        return theme[key];
+    }
+    if (key === 'accent' && dreamcatThemeColors.accent[theme[key]]) {
+        return theme[key];
+    }
+    if (key === 'mode' && ['LightMode', 'DarkMode', 'AutoMode'].indexOf(theme[key]) !== -1) {
+        return theme[key];
+    }
+    return dreamcatThemeDefaults[key];
+}
+
+function dreamcatReplaceClassByPrefix(element, prefix, value) {
+    var classes = element.className.split(/\s+/).filter(function (className) {
+        return className && className.indexOf(prefix) !== 0;
+    });
+    classes.push(prefix + value);
+    element.className = classes.join(' ');
+}
+
+function dreamcatApplyTheme(theme) {
+    var body = document.body;
+    if (!body) return;
+
+    var primary = dreamcatThemeValue(theme, 'primary');
+    var accent = dreamcatThemeValue(theme, 'accent');
+    var mode = dreamcatThemeValue(theme, 'mode');
+
+    dreamcatReplaceClassByPrefix(body, 'mdui-theme-primary-', primary);
+    dreamcatReplaceClassByPrefix(body, 'mdui-theme-accent-', accent);
+    body.classList.remove('mdui-theme-layout-dark', 'mdui-theme-layout-auto', 'dreamcat-night-mode', 'dreamcat-night-mode-auto');
+
+    if (mode === 'DarkMode') {
+        body.classList.add('mdui-theme-layout-dark', 'dreamcat-night-mode');
+    } else if (mode === 'AutoMode') {
+        body.classList.add('mdui-theme-layout-auto', 'dreamcat-night-mode-auto');
+    }
+
+    document.documentElement.style.setProperty('--dreamcat-theme-primary', dreamcatThemeColors.primary[primary] || dreamcatThemeColors.primary.indigo);
+    document.documentElement.style.setProperty('--dreamcat-theme-accent', dreamcatThemeColors.accent[accent] || dreamcatThemeColors.accent.pink);
+    dreamcatUpdateThemeDialog(theme);
+}
+
+function dreamcatUpdateThemeDialog(theme) {
+    var primary = dreamcatThemeValue(theme, 'primary');
+    var accent = dreamcatThemeValue(theme, 'accent');
+    var mode = dreamcatThemeValue(theme, 'mode');
+
+    document.querySelectorAll('[data-dreamcat-theme-primary]').forEach(function (button) {
+        button.classList.toggle('is-active', button.getAttribute('data-dreamcat-theme-primary') === primary);
+    });
+    document.querySelectorAll('[data-dreamcat-theme-accent]').forEach(function (button) {
+        button.classList.toggle('is-active', button.getAttribute('data-dreamcat-theme-accent') === accent);
+    });
+    document.querySelectorAll('[data-dreamcat-theme-mode]').forEach(function (button) {
+        button.classList.toggle('is-active', button.getAttribute('data-dreamcat-theme-mode') === mode);
+    });
+}
+
+function dreamcatBindThemeDialog() {
+    var theme = Object.assign({}, dreamcatThemeDefaults, dreamcatStoredTheme());
+    dreamcatApplyTheme(theme);
+
+    document.querySelectorAll('[data-dreamcat-theme-primary]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            theme.primary = button.getAttribute('data-dreamcat-theme-primary');
+            dreamcatSaveTheme(theme);
+            dreamcatApplyTheme(theme);
+        });
+    });
+    document.querySelectorAll('[data-dreamcat-theme-accent]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            theme.accent = button.getAttribute('data-dreamcat-theme-accent');
+            dreamcatSaveTheme(theme);
+            dreamcatApplyTheme(theme);
+        });
+    });
+    document.querySelectorAll('[data-dreamcat-theme-mode]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            theme.mode = button.getAttribute('data-dreamcat-theme-mode');
+            dreamcatSaveTheme(theme);
+            dreamcatApplyTheme(theme);
+        });
+    });
+
+    var resetButton = document.getElementById('dreamcat-theme-reset');
+    if (resetButton) {
+        resetButton.addEventListener('click', function () {
+            theme = Object.assign({}, dreamcatThemeDefaults);
+            localStorage.removeItem('dreamcat-theme-settings');
+            dreamcatApplyTheme(theme);
+        });
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', dreamcatBindThemeDialog);
+} else {
+    dreamcatBindThemeDialog();
+}
+
 function showhidediv(id) {
     var sbtitle = document.getElementById(id);
     if (sbtitle) {

@@ -416,6 +416,75 @@ a {
 	margin-right: -12px !important;
 }
 
+.dreamcat-theme-dialog .mdui-dialog-content {
+	padding-top: 8px;
+}
+
+.dreamcat-theme-panel {
+	display: grid;
+	gap: 20px;
+}
+
+.dreamcat-theme-section-title {
+	color: var(--dreamcat-text-primary, #212121);
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.dreamcat-theme-options {
+	display: grid;
+	gap: 8px;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+
+.dreamcat-theme-options-compact {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dreamcat-theme-option {
+	align-items: center;
+	background: var(--dreamcat-surface-bg, #fff);
+	border: 1px solid var(--dreamcat-border-color, #eeeeee);
+	border-radius: 10px;
+	color: var(--dreamcat-text-primary, #212121);
+	cursor: pointer;
+	display: inline-flex;
+	gap: 8px;
+	justify-content: flex-start;
+	min-height: 38px;
+	padding: 0 12px;
+	transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.dreamcat-theme-option:hover,
+.dreamcat-theme-option.is-active {
+	border-color: var(--dreamcat-theme-primary, #3f51b5);
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--dreamcat-theme-primary, #3f51b5) 16%, transparent);
+}
+
+.dreamcat-theme-dot {
+	background: var(--dreamcat-option-color, var(--dreamcat-theme-primary, #3f51b5));
+	border-radius: 50%;
+	display: inline-block;
+	flex: 0 0 auto;
+	height: 14px;
+	width: 14px;
+}
+
+@supports not (color: color-mix(in srgb, red 50%, white)) {
+	.dreamcat-theme-option:hover,
+	.dreamcat-theme-option.is-active {
+		box-shadow: 0 0 0 2px rgba(63, 81, 181, .16);
+	}
+}
+
+@media (max-width: 600px) {
+	.dreamcat-theme-options,
+	.dreamcat-theme-options-compact {
+		grid-template-columns: 1fr;
+	}
+}
+
 .dreamcat-disabled {
 	cursor: not-allowed;
 }
