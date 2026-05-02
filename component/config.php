@@ -166,115 +166,116 @@ function themeConfig($form): void
     <?php endforeach; ?>
     <style>
         :root {
-            --dreamcat-primary: #4353ff;
-            --dreamcat-ink: #1f2430;
-            --dreamcat-muted: #6f7485;
-            --dreamcat-border: rgba(67, 83, 255, .12);
-            --dreamcat-surface: rgba(255, 255, 255, .86);
+            --dreamcat-primary: #3f51b5;
+            --dreamcat-primary-soft: #eef1ff;
+            --dreamcat-ink: #202432;
+            --dreamcat-muted: #717888;
+            --dreamcat-border: #e6e9f2;
+            --dreamcat-surface: #ffffff;
+            --dreamcat-page: #f6f7fb;
         }
 
         .dreamcat-config-shell {
-            margin: 24px 0;
+            margin: 20px 0 24px;
             color: var(--dreamcat-ink);
         }
 
         .dreamcat-config-panel {
             overflow: hidden;
             border: 1px solid var(--dreamcat-border);
-            border-radius: 28px;
-            background: linear-gradient(135deg, rgba(67, 83, 255, .08), rgba(143, 92, 255, .07) 45%, rgba(255, 255, 255, .96));
-            box-shadow: 0 24px 70px rgba(35, 42, 80, .12);
+            border-radius: 18px;
+            background: var(--dreamcat-page);
+            box-shadow: 0 10px 30px rgba(32, 36, 50, .06);
         }
 
         .dreamcat-config-hero {
             display: grid;
-            grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
-            gap: 24px;
-            padding: 34px;
+            grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+            gap: 20px;
+            padding: 24px;
+            border-bottom: 1px solid var(--dreamcat-border);
+            background: #fff;
         }
 
         .dreamcat-config-kicker {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(67, 83, 255, .1);
+            padding: 0;
+            background: transparent;
             color: var(--dreamcat-primary);
             font-size: 12px;
             font-weight: 700;
             letter-spacing: .04em;
-            text-transform: uppercase;
         }
 
         .dreamcat-config-title {
-            margin: 18px 0 10px;
-            font-size: clamp(30px, 4vw, 46px);
-            line-height: 1.08;
+            margin: 10px 0 8px;
+            font-size: clamp(24px, 3vw, 32px);
+            line-height: 1.2;
             font-weight: 800;
-            letter-spacing: -.04em;
+            letter-spacing: -.02em;
         }
 
         .dreamcat-config-subtitle {
             max-width: 720px;
             margin: 0;
             color: var(--dreamcat-muted);
-            font-size: 15px;
-            line-height: 1.8;
+            font-size: 14px;
+            line-height: 1.75;
         }
 
         .dreamcat-config-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 24px;
+            gap: 10px;
+            margin-top: 18px;
         }
 
         .dreamcat-config-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 40px;
-            padding: 0 18px;
-            border-radius: 999px;
+            min-height: 36px;
+            padding: 0 14px;
+            border-radius: 10px;
             background: var(--dreamcat-primary);
             color: #fff !important;
             font-weight: 700;
             text-decoration: none !important;
-            box-shadow: 0 10px 26px rgba(67, 83, 255, .28);
+            box-shadow: 0 8px 18px rgba(63, 81, 181, .18);
         }
 
         .dreamcat-config-button.is-secondary {
-            background: rgba(255, 255, 255, .78);
+            background: #fff;
             color: var(--dreamcat-primary) !important;
-            box-shadow: inset 0 0 0 1px rgba(67, 83, 255, .18);
+            box-shadow: inset 0 0 0 1px var(--dreamcat-border);
         }
 
         .dreamcat-version-card,
         .dreamcat-config-card {
-            border: 1px solid rgba(255, 255, 255, .7);
-            border-radius: 22px;
+            border: 1px solid var(--dreamcat-border);
+            border-radius: 14px;
             background: var(--dreamcat-surface);
-            box-shadow: 0 14px 40px rgba(35, 42, 80, .08);
-            backdrop-filter: blur(16px);
+            box-shadow: 0 6px 18px rgba(32, 36, 50, .04);
         }
 
         .dreamcat-version-card {
-            padding: 24px;
+            align-self: stretch;
+            padding: 18px;
         }
 
         .dreamcat-version-head {
             display: flex;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 18px;
+            gap: 12px;
+            margin-bottom: 14px;
         }
 
         .dreamcat-version-head img {
-            width: 54px;
-            height: 54px;
-            border-radius: 18px;
-            box-shadow: 0 8px 24px rgba(67, 83, 255, .2);
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
         }
 
         .dreamcat-version-name {
@@ -290,8 +291,8 @@ function themeConfig($form): void
         .dreamcat-badges {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 18px;
+            gap: 6px;
+            margin-top: 14px;
         }
 
         .dreamcat-badges img {
@@ -301,64 +302,63 @@ function themeConfig($form): void
         .dreamcat-config-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 16px;
-            padding: 0 34px 34px;
+            gap: 12px;
+            padding: 18px 24px 0;
         }
 
         .dreamcat-config-card {
-            padding: 20px;
+            padding: 16px;
         }
 
         .dreamcat-config-card-label {
             color: var(--dreamcat-muted);
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             letter-spacing: .04em;
         }
 
         .dreamcat-config-card-value {
-            margin-top: 8px;
-            font-size: 20px;
+            margin-top: 7px;
+            font-size: 18px;
             font-weight: 800;
         }
 
         .dreamcat-config-card-hint {
             margin-top: 6px;
             color: var(--dreamcat-muted);
-            font-size: 13px;
+            font-size: 12px;
         }
 
         .dreamcat-config-content {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) 340px;
-            gap: 18px;
-            padding: 0 34px 34px;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 12px;
+            padding: 12px 24px 24px;
         }
 
         .dreamcat-link-list {
             display: grid;
-            gap: 12px;
+            gap: 10px;
         }
 
         .dreamcat-link-card {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            padding: 16px 18px;
-            border: 1px solid rgba(67, 83, 255, .12);
-            border-radius: 18px;
-            background: rgba(255, 255, 255, .7);
+            gap: 14px;
+            padding: 13px 14px;
+            border: 1px solid var(--dreamcat-border);
+            border-radius: 12px;
+            background: #fff;
             color: inherit !important;
             text-decoration: none !important;
-            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            transition: background .18s ease, border-color .18s ease, color .18s ease;
             cursor: pointer;
         }
 
         .dreamcat-link-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(67, 83, 255, .28);
-            box-shadow: 0 14px 34px rgba(35, 42, 80, .1);
+            border-color: #cfd5ea;
+            background: #fafbff;
         }
 
         .dreamcat-link-title {
@@ -368,7 +368,7 @@ function themeConfig($form): void
         .dreamcat-link-description {
             margin-top: 4px;
             color: var(--dreamcat-muted);
-            font-size: 13px;
+            font-size: 12px;
         }
 
         .dreamcat-link-arrow {
@@ -377,41 +377,42 @@ function themeConfig($form): void
         }
 
         .dreamcat-note {
-            padding: 20px;
-            border-radius: 22px;
-            background: rgba(31, 36, 48, .88);
-            color: rgba(255, 255, 255, .92);
+            padding: 16px;
+            border: 1px solid #eadfc4;
+            border-radius: 14px;
+            background: #fff8e8;
+            color: #4f3b12;
         }
 
         .dreamcat-note-title {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 800;
         }
 
         .dreamcat-note p {
             margin: 10px 0 0;
-            color: rgba(255, 255, 255, .72);
+            color: #725927;
             line-height: 1.75;
         }
 
         .dreamcat-developer-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
+            gap: 10px;
         }
 
         .dreamcat-developer-card {
-            border-radius: 16px;
-            background: rgba(67, 83, 255, .05);
+            border-radius: 12px;
+            background: #f8f9ff;
         }
 
         .typecho-option {
-            margin-bottom: 18px !important;
-            padding: 18px 20px !important;
-            border: 1px solid rgba(67, 83, 255, .1);
-            border-radius: 18px;
+            margin-bottom: 12px !important;
+            padding: 16px !important;
+            border: 1px solid var(--dreamcat-border);
+            border-radius: 14px;
             background: #fff;
-            box-shadow: 0 8px 24px rgba(35, 42, 80, .04);
+            box-shadow: 0 4px 14px rgba(32, 36, 50, .03);
         }
 
         .typecho-option label.typecho-label {
@@ -432,10 +433,10 @@ function themeConfig($form): void
             align-items: center;
             margin: 18px 0;
             padding: 16px;
-            border: 1px solid rgba(67, 83, 255, .1);
-            border-radius: 18px;
+            border: 1px solid var(--dreamcat-border);
+            border-radius: 14px;
             background: #fff;
-            box-shadow: 0 8px 24px rgba(35, 42, 80, .04);
+            box-shadow: 0 4px 14px rgba(32, 36, 50, .03);
         }
 
         form.protected[action="?DreamCatBackup"] input.btn {
@@ -448,6 +449,12 @@ function themeConfig($form): void
                 grid-template-columns: 1fr;
             }
 
+            .dreamcat-config-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 760px) {
             .dreamcat-config-grid {
                 grid-template-columns: 1fr;
             }
@@ -476,9 +483,9 @@ function themeConfig($form): void
         <div class="dreamcat-config-panel">
             <div class="dreamcat-config-hero">
                 <div>
-                    <div class="dreamcat-config-kicker">DreamCat Control Center</div>
+                    <div class="dreamcat-config-kicker">主题设置</div>
                     <h2 class="dreamcat-config-title">DreamCat 主题配置中心</h2>
-                    <p class="dreamcat-config-subtitle">集中管理站点资料、展示样式、资源加载和社交链接。下方仍使用 Typecho 原生配置项保存，顶部面板用于快速了解主题状态和常用入口。</p>
+                    <p class="dreamcat-config-subtitle">集中管理站点资料、展示样式、资源加载和社交链接。顶部只展示当前状态和常用入口，具体配置仍在下方表单中保存。</p>
                     <div class="dreamcat-config-actions">
                         <a class="dreamcat-config-button" href="https://github.com/LychApe/DreamCat/" target="_blank" rel="noopener noreferrer">查看项目</a>
                         <a class="dreamcat-config-button is-secondary" href="https://github.com/LychApe/DreamCat/releases" target="_blank" rel="noopener noreferrer">检查更新</a>
@@ -514,7 +521,7 @@ function themeConfig($form): void
 
             <div class="dreamcat-config-content">
                 <div class="dreamcat-config-card">
-                    <div class="dreamcat-config-card-label">Quick Links</div>
+                    <div class="dreamcat-config-card-label">常用入口</div>
                     <div class="dreamcat-link-list">
                         <?php foreach ($quickLinks as $link) : ?>
                             <?php if (isset($link['dialog'])) : ?>
