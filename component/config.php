@@ -148,110 +148,429 @@ function themeConfig($form): void
     $escape = static function ($value): string {
         return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
     };
+    $configHighlights = [
+        ['label' => '当前版本', 'value' => $themeVersion, 'hint' => '本地主题版本'],
+        ['label' => '资源模式', 'value' => '本地 / 自定义 CDN', 'hint' => '按当前设置自动加载'],
+        ['label' => '配置备份', 'value' => '可备份恢复', 'hint' => '页面底部操作'],
+    ];
+    $quickLinks = [
+        ['title' => '项目主页', 'description' => '查看源码、Release 和问题反馈', 'url' => 'https://github.com/LychApe/DreamCat/'],
+        ['title' => '更新日志', 'description' => '了解主题版本变化和修复记录', 'url' => 'https://github.com/LychApe/DreamCat/releases'],
+        ['title' => '开发者', 'description' => '查看 DreamCat 贡献者列表', 'dialog' => '#developerDialog'],
+    ];
     ?>
 
     <!-- 配置中心=>CSS [Start] -->
-    <link rel="dns-prefetch" href="//cdn.fallsoft.cn">
     <?php foreach (['mdui.min.css', 'md2.css', 'dreamcat.css'] as $stylesheet) : ?>
         <link rel="stylesheet" href="<?php CustomCDN_FAM('DreamCat_StaticResources/css/', '', 'css/' . $stylesheet, $stylesheet); ?>" >
     <?php endforeach; ?>
+    <style>
+        :root {
+            --dreamcat-primary: #4353ff;
+            --dreamcat-ink: #1f2430;
+            --dreamcat-muted: #6f7485;
+            --dreamcat-border: rgba(67, 83, 255, .12);
+            --dreamcat-surface: rgba(255, 255, 255, .86);
+        }
+
+        .dreamcat-config-shell {
+            margin: 24px 0;
+            color: var(--dreamcat-ink);
+        }
+
+        .dreamcat-config-panel {
+            overflow: hidden;
+            border: 1px solid var(--dreamcat-border);
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(67, 83, 255, .08), rgba(143, 92, 255, .07) 45%, rgba(255, 255, 255, .96));
+            box-shadow: 0 24px 70px rgba(35, 42, 80, .12);
+        }
+
+        .dreamcat-config-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+            gap: 24px;
+            padding: 34px;
+        }
+
+        .dreamcat-config-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(67, 83, 255, .1);
+            color: var(--dreamcat-primary);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .dreamcat-config-title {
+            margin: 18px 0 10px;
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1.08;
+            font-weight: 800;
+            letter-spacing: -.04em;
+        }
+
+        .dreamcat-config-subtitle {
+            max-width: 720px;
+            margin: 0;
+            color: var(--dreamcat-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .dreamcat-config-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .dreamcat-config-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0 18px;
+            border-radius: 999px;
+            background: var(--dreamcat-primary);
+            color: #fff !important;
+            font-weight: 700;
+            text-decoration: none !important;
+            box-shadow: 0 10px 26px rgba(67, 83, 255, .28);
+        }
+
+        .dreamcat-config-button.is-secondary {
+            background: rgba(255, 255, 255, .78);
+            color: var(--dreamcat-primary) !important;
+            box-shadow: inset 0 0 0 1px rgba(67, 83, 255, .18);
+        }
+
+        .dreamcat-version-card,
+        .dreamcat-config-card {
+            border: 1px solid rgba(255, 255, 255, .7);
+            border-radius: 22px;
+            background: var(--dreamcat-surface);
+            box-shadow: 0 14px 40px rgba(35, 42, 80, .08);
+            backdrop-filter: blur(16px);
+        }
+
+        .dreamcat-version-card {
+            padding: 24px;
+        }
+
+        .dreamcat-version-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .dreamcat-version-head img {
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(67, 83, 255, .2);
+        }
+
+        .dreamcat-version-name {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .dreamcat-version-meta {
+            color: var(--dreamcat-muted);
+            font-size: 13px;
+        }
+
+        .dreamcat-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .dreamcat-badges img {
+            max-width: 100%;
+        }
+
+        .dreamcat-config-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            padding: 0 34px 34px;
+        }
+
+        .dreamcat-config-card {
+            padding: 20px;
+        }
+
+        .dreamcat-config-card-label {
+            color: var(--dreamcat-muted);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .04em;
+        }
+
+        .dreamcat-config-card-value {
+            margin-top: 8px;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .dreamcat-config-card-hint {
+            margin-top: 6px;
+            color: var(--dreamcat-muted);
+            font-size: 13px;
+        }
+
+        .dreamcat-config-content {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 18px;
+            padding: 0 34px 34px;
+        }
+
+        .dreamcat-link-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .dreamcat-link-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 16px 18px;
+            border: 1px solid rgba(67, 83, 255, .12);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, .7);
+            color: inherit !important;
+            text-decoration: none !important;
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            cursor: pointer;
+        }
+
+        .dreamcat-link-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(67, 83, 255, .28);
+            box-shadow: 0 14px 34px rgba(35, 42, 80, .1);
+        }
+
+        .dreamcat-link-title {
+            font-weight: 800;
+        }
+
+        .dreamcat-link-description {
+            margin-top: 4px;
+            color: var(--dreamcat-muted);
+            font-size: 13px;
+        }
+
+        .dreamcat-link-arrow {
+            color: var(--dreamcat-primary);
+            font-weight: 800;
+        }
+
+        .dreamcat-note {
+            padding: 20px;
+            border-radius: 22px;
+            background: rgba(31, 36, 48, .88);
+            color: rgba(255, 255, 255, .92);
+        }
+
+        .dreamcat-note-title {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .dreamcat-note p {
+            margin: 10px 0 0;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.75;
+        }
+
+        .dreamcat-developer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .dreamcat-developer-card {
+            border-radius: 16px;
+            background: rgba(67, 83, 255, .05);
+        }
+
+        .typecho-option {
+            margin-bottom: 18px !important;
+            padding: 18px 20px !important;
+            border: 1px solid rgba(67, 83, 255, .1);
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(35, 42, 80, .04);
+        }
+
+        .typecho-option label.typecho-label {
+            margin-bottom: 8px;
+            color: var(--dreamcat-ink);
+            font-weight: 800;
+        }
+
+        .typecho-option input.text,
+        .typecho-option textarea {
+            border-radius: 12px;
+        }
+
+        form.protected[action="?DreamCatBackup"] {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin: 18px 0;
+            padding: 16px;
+            border: 1px solid rgba(67, 83, 255, .1);
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(35, 42, 80, .04);
+        }
+
+        form.protected[action="?DreamCatBackup"] input.btn {
+            border-radius: 999px;
+        }
+
+        @media (max-width: 960px) {
+            .dreamcat-config-hero,
+            .dreamcat-config-content {
+                grid-template-columns: 1fr;
+            }
+
+            .dreamcat-config-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .dreamcat-config-hero,
+            .dreamcat-config-grid,
+            .dreamcat-config-content {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .dreamcat-config-hero {
+                padding-top: 22px;
+            }
+
+            .dreamcat-developer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
     <!-- 配置中心=>CSS [End] -->
 
-    <div class="mdui-card" style="margin-top: 2rem; margin-bottom: 1rem;">
-        <div class="mdui-card-primary" >
-            <div class="mdui-card-primary-title" >DreamCat 主题配置中心</div >
-            <div class="mdui-card-primary-subtitle" >Version: <?php echo $themeVersion; ?></div >
-        </div >
+    <div class="dreamcat-config-shell">
+        <div class="dreamcat-config-panel">
+            <div class="dreamcat-config-hero">
+                <div>
+                    <div class="dreamcat-config-kicker">DreamCat Control Center</div>
+                    <h2 class="dreamcat-config-title">DreamCat 主题配置中心</h2>
+                    <p class="dreamcat-config-subtitle">集中管理站点资料、展示样式、资源加载和社交链接。下方仍使用 Typecho 原生配置项保存，顶部面板用于快速了解主题状态和常用入口。</p>
+                    <div class="dreamcat-config-actions">
+                        <a class="dreamcat-config-button" href="https://github.com/LychApe/DreamCat/" target="_blank" rel="noopener noreferrer">查看项目</a>
+                        <a class="dreamcat-config-button is-secondary" href="https://github.com/LychApe/DreamCat/releases" target="_blank" rel="noopener noreferrer">检查更新</a>
+                    </div>
+                </div>
 
-        <div class="mdui-tab mdui-tab-centered" mdui-tab >
-            <a href="#example3-tab1" class="mdui-ripple" >模板信息</a >
-        </div >
-
-        <div id="example3-tab1" class="mdui-p-a-2" >
-            <div class="mdui-card-content" >
-                <div class="mdui-row-xs-2" >
-                    <div class="mdui-col" >
-                        <div class="mdui-card button-ts dreamcat-config-card" >
-                            <div class="mdui-card-header" >
-                                <img class="mdui-card-header-avatar" src="<?php echo $escape($brandAvatar); ?>" alt="" />
-                                <div class="mdui-card-header-title" >DreamCat</div >
-                                <div class="mdui-card-header-subtitle" ><?php echo $themeVersion; ?></div >
-                            </div >
-                        </div >
-                    </div >
-                    <div class="mdui-col" >
-                        <div class="mdui-card button-ts dreamcat-config-card" mdui-dialog="{target: '#developerDialog'}" >
-                            <div class="mdui-card-header" >
-                                <img class="mdui-card-header-avatar" src="<?php echo $escape($brandAvatar); ?>" alt="" />
-                                <div class="mdui-card-header-title" >点击查看开发者</div >
-                                <div class="mdui-card-header-subtitle" >简单不先于复杂,而是在复杂之后</div >
-                            </div >
-                        </div >
-                    </div >
-                </div >
-                <br />
-
-                <div class="mdui-card dreamcat-config-card" >
-                    <div class="mdui-card-content" >
+                <div class="dreamcat-version-card">
+                    <div class="dreamcat-version-head">
+                        <img src="<?php echo $escape($brandAvatar); ?>" alt="DreamCat logo" />
+                        <div>
+                            <div class="dreamcat-version-name">DreamCat</div>
+                            <div class="dreamcat-version-meta">Version <?php echo $themeVersion; ?></div>
+                        </div>
+                    </div>
+                    <a href="https://github.com/LychApe/DreamCat/" target="_blank" rel="noopener noreferrer"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square" ></a>
+                    <div class="dreamcat-badges">
                         <?php foreach ($githubBadges as $badge) : ?>
                             <img alt="<?php echo $escape($badge['alt']); ?>" src="<?php echo $escape($badge['url']); ?>" >
                         <?php endforeach; ?>
-                    </div >
-                </div >
-                <br />
+                    </div>
+                </div>
+            </div>
 
-                <div class="mdui-card dreamcat-config-card" >
-                    <div class="mdui-card-content" >
-                        最新版本：<a href="https://github.com/LychApe/DreamCat/" ><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/LychApe/DreamCat?style=flat-square" ></a >
-                        <div class="mdui-float-right" >当前版本：<?php echo $themeVersion; ?></div >
-                    </div >
-                </div >
-                <br />
+            <div class="dreamcat-config-grid">
+                <?php foreach ($configHighlights as $highlight) : ?>
+                    <div class="dreamcat-config-card">
+                        <div class="dreamcat-config-card-label"><?php echo $escape($highlight['label']); ?></div>
+                        <div class="dreamcat-config-card-value"><?php echo $escape($highlight['value']); ?></div>
+                        <div class="dreamcat-config-card-hint"><?php echo $escape($highlight['hint']); ?></div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
 
-                <div class="mdui-card dreamcat-config-card" >
-                    <div class="mdui-card-content" >
-                        <div class="mdui-typo" >
-                            <p >QQ交流群: 1034830519</p >
-                            <p >最后，祝您使用愉快 :)</p >
-                        </div >
-                    </div >
-                </div >
-            </div >
-        </div >
-
-        <div class="mdui-card-content" >
-            <div class="mdui-dialog" id="developerDialog" >
-                <div class="mdui-dialog-title" >开发者列表</div >
-                <div class="mdui-dialog-content" >
-                    <div class="mdui-row-xs-2" >
-                        <?php foreach ($developerList as $developer) : ?>
-                            <div class="mdui-col" >
-                                <div class="mdui-card dreamcat-config-card button-ts" >
-                                    <div class="mdui-card-header" >
-                                        <img class="mdui-card-header-avatar" src="<?php echo $escape($developer['avatar']); ?>" alt="<?php echo $escape($developer['name']); ?>'s avatar" />
-                                        <div class="mdui-card-header-title" ><?php echo $escape($developer['name']); ?></div >
-                                        <div class="mdui-card-header-subtitle" ><?php echo $escape($developer['subtitle']); ?></div >
-                                    </div >
-                                </div >
-                                <br />
-                            </div >
+            <div class="dreamcat-config-content">
+                <div class="dreamcat-config-card">
+                    <div class="dreamcat-config-card-label">Quick Links</div>
+                    <div class="dreamcat-link-list">
+                        <?php foreach ($quickLinks as $link) : ?>
+                            <?php if (isset($link['dialog'])) : ?>
+                                <div class="dreamcat-link-card" mdui-dialog="{target: '<?php echo $escape($link['dialog']); ?>'}">
+                            <?php else : ?>
+                                <a class="dreamcat-link-card" href="<?php echo $escape($link['url']); ?>" target="_blank" rel="noopener noreferrer">
+                            <?php endif; ?>
+                                    <div>
+                                        <div class="dreamcat-link-title"><?php echo $escape($link['title']); ?></div>
+                                        <div class="dreamcat-link-description"><?php echo $escape($link['description']); ?></div>
+                                    </div>
+                                    <span class="dreamcat-link-arrow">&gt;</span>
+                            <?php if (isset($link['dialog'])) : ?>
+                                </div>
+                            <?php else : ?>
+                                </a>
+                            <?php endif; ?>
                         <?php endforeach; ?>
-                    </div >
-                    <br />
-                    此外，我们还收到了来自全球各地开发者通过 GitHub 提交的众多贡献。
-                </div >
-                <div class="mdui-dialog-actions" >
-                    <button class="mdui-btn mdui-ripple" mdui-dialog-confirm >确认</button >
-                </div >
-            </div >
-        </div >
+                    </div>
+                </div>
+
+                <div class="dreamcat-note">
+                    <div class="dreamcat-note-title">配置建议</div>
+                    <p>建议先完成站点头像、标题、导航栏和文章列表模式，再配置 CDN、字体和自定义脚本。保存前可使用底部备份功能保留当前配置。</p>
+                    <p>QQ交流群：1034830519</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mdui-dialog" id="developerDialog">
+            <div class="mdui-dialog-title">开发者列表</div>
+            <div class="mdui-dialog-content">
+                <div class="dreamcat-developer-grid">
+                    <?php foreach ($developerList as $developer) : ?>
+                        <div class="mdui-card dreamcat-developer-card">
+                            <div class="mdui-card-header">
+                                <img class="mdui-card-header-avatar" src="<?php echo $escape($developer['avatar']); ?>" alt="<?php echo $escape($developer['name']); ?>'s avatar" />
+                                <div class="mdui-card-header-title"><?php echo $escape($developer['name']); ?></div>
+                                <div class="mdui-card-header-subtitle"><?php echo $escape($developer['subtitle']); ?></div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <p>此外，我们还收到了来自全球各地开发者通过 GitHub 提交的众多贡献。</p>
+            </div>
+            <div class="mdui-dialog-actions">
+                <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
+            </div>
+        </div>
 
         <!-- 配置中心=>JS [Start] -->
         <?php foreach (['mdui.min.js', 'dreamcat.js'] as $script) : ?>
             <script src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/' . $script, $script); ?>" ></script >
         <?php endforeach; ?>
         <!-- 配置中心=>JS [End] -->
-    </div >
+    </div>
 <?php
     backupHandler();
 }
