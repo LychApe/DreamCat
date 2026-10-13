@@ -5,9 +5,69 @@ QQ交流群: `1034830519`
 
 | 版本                                                                        |                  维护状态 |    最近更新时间    |    版本诞生时间    |
 |---------------------------------------------------------------------------|----------------------:|:------------:|:------------:|
-| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |          **Official** | 2 May  2026  | 6 Jul  2022  |
+| [`DreamCat 3.x`](https://github.com/LychApe/DreamCat/tree/InsiderPreview) |          **Official** | 4 Oct  2026  | 6 Jul  2022  |
 | [`DreamCat 2.x`](https://github.com/LychApe/DreamCat/tree/2.x_LTS)        | **Long Time Support** | 1 Aug  2023  | 13 Jul  2021 |
 | `DreamCat 1.x`                                                            |       **End of Life** | 18 Feb 2021  | 15 Feb  2019 |
+
+## 环境兼容
+
+`DreamCat 3.x` 已在 `Typecho 1.3.0` + `PHP 8.4` (nginx / SQLite) 环境下完成全模板回归:首页、文章、独立页面、自定义模板页(友链)、分类/标签/作者归档、搜索、404 与 Feed 均正常,后台主题配置中心正常,无 PHP 弃用警告。
+
+主题代码基线为 **PHP 8.0+**(使用了 `match`、箭头函数等语法),请搭配 PHP 8.0 及以上版本运行。
+
+### 推荐服务端配置
+
+主题自身资源已做 minify,但**压缩与缓存属于服务端职责**——未开启 gzip 时首屏资源体积约为开启后的 3 倍。推荐 nginx 配置:
+
+```nginx
+# http 块: 文本资源压缩 (woff2 字体本身已压缩, 无需加入)
+gzip on;
+gzip_vary on;
+gzip_comp_level 5;
+gzip_min_length 256;
+gzip_types text/plain text/css text/javascript application/javascript application/json application/xml image/svg+xml;
+
+# server 块: 静态资源缓存
+location ~* \.(css|js|png|jpg|jpeg|svg|woff2?|ttf|eot|map)$ {
+    expires 7d;
+    add_header Cache-Control "public";
+}
+```
+
+开启后本主题首页资源传输体积约 **270 KB**(未开启约 850 KB)。
+
+### 图标字体子集维护
+
+`MaterialIcons-Regular.woff2` 是按需子集(仅含主题使用的 25 个图标, 约 2 KB; 原始全量 43 KB)。**新增图标后需重新生成**, 否则新图标会显示为文字:
+
+```bash
+pip install fonttools brotli
+# 1. 从模板/JS 提取用到的图标名, 与官方清单比对:
+#    https://github.com/google/material-design-icons/blob/master/font/MaterialIcons-Regular.codepoints
+# 2. 在 GSUB 中删除非目标连字, 再按字形裁剪 (连字字体必须先删规则再裁字形):
+python3 - <<'PY'
+from fontTools.ttLib import TTFont
+f = TTFont('DreamCat_StaticResources/icons/material-icons/MaterialIcons-Regular.woff2')
+# 换用全量字体: git show HEAD~1:... 或重新下载, 以下 names 换成实际图标列表
+names = ['menu', 'search']  # ← 所有用到的图标
+codepoints = {l.split()[0]: int(l.split()[1], 16)
+              for l in open('codepoints.txt')}  # 官方 codepoints 清单
+cmap = f.getBestCmap()
+keep = {cmap[codepoints[n]] for n in names}
+for lookup in f['GSUB'].table.LookupList.Lookup:
+    if lookup.LookupType != 4: continue
+    for st in lookup.SubTable:
+        for first in list(st.ligatures):
+            kept = [l for l in st.ligatures[first] if l.LigGlyph in keep]
+            st.ligatures[first] = kept if kept else None
+            if not kept: del st.ligatures[first]
+f.save('/tmp/pruned.ttf')
+PY
+python3 -m fontTools.subset /tmp/pruned.ttf \
+  --glyphs-file=glyphs.txt --flavor=woff2 --layout-features=liga,ccmp --no-hinting \
+  --output-file=DreamCat_StaticResources/icons/material-icons/MaterialIcons-Regular.woff2
+# glyphs.txt 内容: 26 个字母 + 下划线的字形名(经 cmap 反查) + 25 个图标字形名
+```
 
 ## 鸣谢
 
@@ -37,6 +97,15 @@ QQ交流群: `1034830519`
 ## 更新日志
 
 ### 最新版本
+
+> ### DreamCat 3.0.261004  [`下载`](https://github.com/CornWorld/DreamCat/archive/refs/tags/3.0.261004.zip)
+> 1. `适配` Typecho 1.3.0 + PHP 8.4 全模板回归(首页/文章/页面/归档/搜索/404/Feed/后台配置中心)
+> 2. `修复` 文章页"上一篇/下一篇"链接地址缺失(全 PHP 版本)
+> 3. `修复` PHP 8 下存在相邻文章时文章页 TypeError
+> 4. `修复` 评论"取消回复"按钮失效
+> 5. `新增` 站点 favicon
+> 6. `升级` highlight.js 11.12.0 / smooth-scroll 16.1.3, 改用 `highlightAll()`
+> 7. `变更` 代码现代化, 语法基线提升至 PHP 8.0+ 与 ES2020
 
 > ### DreamCat 3.0.260502  [`下载`](https://github.com/LychApe/DreamCat/archive/refs/tags/3.0.260502.zip)
 > 1. `优化` DreamCat 主题配置中心布局和样式

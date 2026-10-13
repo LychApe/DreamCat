@@ -3,7 +3,7 @@
 		<img src="<?php $this->options->DC_HeadImageUrl(); ?>" class="card-img-top" style="width: 100%"
 		     alt="head image" />
     <?php } else { ?>
-		<img src="https://q1.qlogo.cn/g?b=qq&nk=10001&s=640" class="card-img-top" style="width: 100%"
+		<img src="https://q1.qlogo.cn/g?b=qq&nk=10001&s=140" class="card-img-top" style="width: 100%"
 		     alt="head image" />
     <?php } ?>
 	<div class="mdui-card-primary" >
@@ -34,6 +34,7 @@
         ?>
 		<div style="border-top: 1px dashed #e0e0e0; font-size: 14px" ></div >
 		<div class="mdui-card-content" >
+			<?php $dreamcatIsMobile = (bool) preg_match('/Android|iPhone|iPad|Mobile/i', $_SERVER['HTTP_USER_AGENT'] ?? ''); ?>
             <?php if (!empty($this->options->DC_A_zfb)): ?>
 				<a mdui-dialog="{target: '#DC_A_zfb'}" >
 					<span class="icon iconfont icon-zhifubao" ></span >
@@ -58,9 +59,15 @@
 				</a >
             <?php endif; ?>
             <?php if (!empty($this->options->DC_A_wx)): ?>
-				<a mdui-dialog="{target: '#DC_A_wx'}" >
-					<span class="icon iconfont icon-logo-wechat" ></span >
-				</a >
+				<?php if ($dreamcatIsMobile && !empty($this->options->DC_A_wx_id)): ?>
+					<a href="weixin://" >
+						<span class="icon iconfont icon-logo-wechat" ></span >
+					</a >
+				<?php else: ?>
+					<a mdui-dialog="{target: '#DC_A_wx'}" >
+						<span class="icon iconfont icon-logo-wechat" ></span >
+					</a >
+				<?php endif; ?>
             <?php endif; ?>
             <?php if (!empty($this->options->DC_A_wb)): ?>
 				<a href="<?php $this->options->DC_A_wb() ?>"
@@ -75,9 +82,15 @@
 				</a >
             <?php endif; ?>
             <?php if (!empty($this->options->DC_A_qq)): ?>
-				<a mdui-dialog="{target: '#DC_A_qq'}" >
-					<span class="icon iconfont icon-QQ-circle-fill" ></span >
-				</a >
+				<?php if ($dreamcatIsMobile && !empty($this->options->DC_A_qq_id)): ?>
+					<a href="mqqapi://card/show_pslcard?src_type=internal&version=1&uin=<?php $this->options->DC_A_qq_id(); ?>&card_type=person&source=qrcode" >
+						<span class="icon iconfont icon-QQ-circle-fill" ></span >
+					</a >
+				<?php else: ?>
+					<a mdui-dialog="{target: '#DC_A_qq'}" >
+						<span class="icon iconfont icon-QQ-circle-fill" ></span >
+					</a >
+				<?php endif; ?>
             <?php endif; ?>
 		</div >
     <?php endif; ?>
