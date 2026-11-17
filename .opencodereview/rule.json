@@ -1,0 +1,19 @@
+{
+  "rules": [
+    {
+      "path": "**/*.php",
+      "rule": "DreamCat 是 Typecho 主题 (PHP 8.0+ 基线, 兼容 Typecho 1.3)。强制执行:\n\n- PHP 8 严格性: 函数签名类型必须与调用方实参类型一致 (本仓事故: dreamcatRenderAdjacentPost() 声明 int 而上游常量是 string, 多文章站点全站 500)。新增标量类型参数时, 逐个调用点核对实参类型。\n- Typecho API 语义: Widget::filter() 不产出 permalink——文章链接必须用 \\Typecho\\Router::url() 生成 (本仓事故: 上一篇/下一篇 href 为空)。引用核心 Widget 属性前先在 var/Widget 里确认存在。\n- 未保存的主题选项 (theme:* options) 读出来是 null 而非表单默认值: 所有配置读取必须带 null 兜底, 默认开启的功能用 !== 'FalseMode' / 未设置即开启 的判定方向。\n- 静态资源引用必须走 CustomCDN_FAM(); 新增 CSS/JS 引用时同步核对 DreamCat_StaticResources 下文件真实存在, 内容变更过的文件必须 bump 引用处的 ?v= 版本号 (7 天强缓存)。\n- 模板输出用户可控数据 (评论者 UA/昵称/配置填写的 URL) 必须经 Typecho 的转义; 拼接 attribute 时核对引号闭合。\n- 代码风格: 语法基线 PHP 8.0 (match/箭头函数可用); 禁止 each()/create_function/${var} 插值等 8.x 弃用写法; 数组字面量用 []。",
+      "merge_system_rule": true
+    },
+    {
+      "path": "DreamCat_StaticResources/js/*.js",
+      "rule": "主题自有 JS (ES2020, 无构建器, 浏览器原生加载)。强制执行:\n\n- 本目录是 PHP 主题仓库, 禁止引入 package.json/构建链; 新库以 vendor dist 文件入 DreamCat_StaticResources/, 并在 README 登记版本与来源。\n- 代码在 </body> 前同步加载: 操作 DOM 前必须判断元素存在 (空守卫) 或挂 DOMContentLoaded——老代码靠 setTimeout 时序碰巧可用属已知反模式。\n- 全局暴露/命名: 新增顶层 const/let 会污染全局, 与其他脚本冲突风险自行核对; mdui 组件调用前确认 mdui-lite 契约覆盖 (drawer/dialog/snackbar/ripple/collapse/menu/headroom/tab/tooltip/select/textfield/slider/bottom_nav/table/panel/spinner)。\n- mdui 组件着色禁止硬编码色值, 必须引用 --mdui-primary-*/--mdui-accent* CSS 变量 (mdui-lite 的调色板层)。\n- 字体: material-icons 是子集字体 (仅含已用图标)。新增图标字形时必须重跑子集化流程 (README「图标字体子集维护」), 否则新图标显示为文字。\n- 第三方 vendored 文件 (highlight.min.js/smooth-scroll.min.js/fly-engine.js/axtx.js) 不做手工修改, 升级走官方 dist 替换。",
+      "merge_system_rule": true
+    },
+    {
+      "path": "DreamCat_StaticResources/css/*.css",
+      "rule": "主题样式层。强制执行:\n\n- dreamcat.css 是品牌皮肤唯一来源; mdui-lite.css 是 vendor 产物禁止手改 (升级走 vanblog/packages/mdui-lite 构建替换)。\n- 颜色引用优先 var(--dreamcat-*) 主题变量与 var(--mdui-*) 调色板变量; 新增硬编码色值需说明理由 (如阴影/白底固定值)。\n- 选择器与 mdui 类叠加时 (.mdui-xxx.dreamcat-yyy) 注意 !important 优先级战: 主题覆盖 vendor 需要 !important 时要注明被覆盖方的优先级来源。\n- @font-face 变更必须核对字体文件真实存在且子集覆盖所引用字形。",
+      "merge_system_rule": true
+    }
+  ]
+}

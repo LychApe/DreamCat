@@ -1,45 +1,24 @@
-let t = null;
-t = setTimeout(time, 1000);
+/* 侧栏实时时钟 */
+(() => {
+    const start = () => {
+        const clock = document.querySelector('.showTime');
+        if (!clock) return;
 
-function time() {
-    clearTimeout(t);
-    let dt = new Date();
-    let y = dt.getFullYear();
-    let m1 = dt.getMonth() + 1;
-    let d = dt.getDate();
-    let h = dt.getHours();
-    let m2 = dt.getMinutes();
-    let s = dt.getSeconds();
-    let mo;
-    if (m1 < 10) {
-        mo = '0' + m1
+        const pad = (n) => String(n).padStart(2, '0');
+
+        const tick = () => {
+            const now = new Date();
+            clock.innerHTML = `${now.getFullYear()}年${pad(now.getMonth() + 1)}月${pad(now.getDate())}日  `
+                + `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+        };
+
+        tick();
+        setInterval(tick, 1000);
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start);
     } else {
-        mo = m1
+        start();
     }
-    let da;
-    if (d < 10) {
-        da = '0' + d
-    } else {
-        da = d
-    }
-    let ho;
-    if (h < 10) {
-        ho = '0' + h
-    } else {
-        ho = h
-    }
-    let mi;
-    if (m2 < 10) {
-        mi = '0' + m2
-    } else {
-        mi = m2
-    }
-    let se;
-    if (s < 10) {
-        se = '0' + s
-    } else {
-        se = s
-    }
-    document.querySelector(".showTime").innerHTML = y + "年" + mo + "月" + da + "日  " + ho + ":" + mi + ":" + se + "";
-    t = setTimeout(time, 1000);
-}
+})();

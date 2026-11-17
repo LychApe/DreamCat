@@ -138,8 +138,8 @@
 		<i class="mdui-icon material-icons" >&#xe5d8;</i ></a >
 </div >
 
-<script
-		src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/mdui.min.js', 'mdui.min.js'); ?>" >
+<script type="module"
+		src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/mdui-lite.js?v=261006c', 'mdui-lite.js'); ?>" >
 </script >
 <script
 		src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/highlight.min.js', 'highlight.min.js'); ?>" >
@@ -151,8 +151,22 @@
 		src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/dreamcat.js', 'dreamcat.js'); ?>" >
 </script >
 <script >
-	hljs.initHighlightingOnLoad();
+	hljs.highlightAll();
 </script >
+
+<?php if ($this->is('post')): ?>
+	<script >
+		<?php $postFeatures = is_array($this->options->DC_PostFeature) ? $this->options->DC_PostFeature : null; ?>
+		window.dreamcatPostConfig = {
+			toc: <?php echo $this->options->DC_TocModeRadio !== 'FalseMode' ? 'true' : 'false'; ?>,
+			codeCopy: <?php echo $postFeatures === null || in_array('DCCodeCopy', $postFeatures) ? 'true' : 'false'; ?>,
+			lightbox: <?php echo $postFeatures === null || in_array('DCImageLightbox', $postFeatures) ? 'true' : 'false'; ?>
+		};
+	</script >
+	<script
+			src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/post.js', 'post.js'); ?>" >
+	</script >
+<?php endif; ?>
 
 
 <?php if (is_array($this->options->DC_GlobalApp) && in_array('DCShowClickEffect', $this->options->DC_GlobalApp)): ?>

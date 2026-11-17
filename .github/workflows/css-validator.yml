@@ -1,0 +1,24 @@
+name: css-validator
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  csstree-validator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install csstree-validator
+        run: npm i --no-save --prefix "$RUNNER_TEMP/cssv" csstree-validator@4
+
+      # spec 级产物校验: 非法 CSS 声明会被浏览器静默丢弃且无任何告警
+      # (实例: mdui-lite Less4 未求值除法产出 `margin: 0 8px / 2`, 视觉回归数月后才暴露)
+      - name: Validate shipped CSS
+        run: find DreamCat_StaticResources -name '*.css' -print0 | xargs -0 -n 1 "$RUNNER_TEMP/cssv/node_modules/.bin/csstree-validator"

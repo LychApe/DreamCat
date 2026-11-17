@@ -1,3 +1,12 @@
+/* Material Icons 字体 (子集: 仅含主题使用的图标, 由上游全量字体裁剪生成) */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(../icons/material-icons/MaterialIcons-Regular.woff2) format('woff2');
+}
+
 .dreamcat-drawer-list {
 	background-color: transparent;
 	list-style: none;
@@ -614,4 +623,206 @@ a {
 		--dreamcat-text-secondary: rgba(0, 0, 0, .62);
 		--dreamcat-border-color: #eeeeee;
 	}
+}
+
+/* ========== 文章阅读增强: 目录 / 代码复制 / 灯箱 ========== */
+
+/* 目录: 宽屏右侧浮动面板 */
+.dreamcat-toc {
+	display: none;
+	position: fixed;
+	top: 110px;
+	right: 20px;
+	width: 264px;
+	max-height: calc(100vh - 160px);
+	overflow-y: auto;
+	padding: 12px 14px;
+	background: rgba(255, 255, 255, .96);
+	border-radius: 8px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, .12);
+	font-size: 13px;
+	z-index: 10;
+}
+
+.dreamcat-toc-title {
+	font-weight: 600;
+	font-size: 14px;
+	margin-bottom: 8px;
+	color: var(--dreamcat-text-primary, #212121);
+}
+
+.dreamcat-toc-list,
+.dreamcat-toc-list ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.dreamcat-toc-list ul {
+	margin-left: 12px;
+	padding-left: 10px;
+	border-left: 2px solid var(--dreamcat-border-color, #eee);
+}
+
+.dreamcat-toc-list a {
+	display: block;
+	padding: 4px 6px;
+	color: var(--dreamcat-text-secondary, rgba(0, 0, 0, .62));
+	text-decoration: none;
+	border-radius: 4px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	transition: background .2s, color .2s;
+}
+
+.dreamcat-toc-list a:hover {
+	background: var(--dreamcat-primary-soft, #eef1ff);
+	color: var(--dreamcat-theme-primary, #3f51b5);
+}
+
+.dreamcat-toc-list a.is-active {
+	color: var(--dreamcat-theme-accent, #ff4081);
+	font-weight: 600;
+	background: var(--dreamcat-primary-soft, #eef1ff);
+}
+
+/* 目录: 窄屏 FAB + 弹层 */
+.dreamcat-toc-fab {
+	position: fixed;
+	right: 20px;
+	bottom: 90px;
+	z-index: 20;
+}
+
+@media (max-width: 599px) {
+	.dreamcat-toc-fab {
+		bottom: 80px;
+		right: 14px;
+	}
+}
+
+@media (max-width: 1499px) {
+	/* !important 保持窄幅下面板隐藏: 基础规则 display:none 在 >=1500px 媒体查询内被翻转为 block, 此处反向压制 */
+	.dreamcat-toc {
+		display: none !important;
+	}
+}
+
+@media (min-width: 1500px) {
+	.dreamcat-toc {
+		display: block;
+	}
+
+	.dreamcat-toc-fab {
+		display: none !important;
+	}
+}
+
+/* 目录弹层内的列表 */
+.mdui-dialog .dreamcat-toc-list a {
+	white-space: normal;
+}
+
+/* 代码块复制按钮 */
+.dreamcat-content pre {
+	position: relative;
+}
+
+.dreamcat-code-copy {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	padding: 4px 12px;
+	font-size: 12px;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, .82);
+	background: rgba(255, 255, 255, .12);
+	border: 1px solid rgba(255, 255, 255, .25);
+	border-radius: 4px;
+	cursor: pointer;
+	opacity: 0;
+	transition: opacity .2s, background .2s;
+}
+
+.dreamcat-content pre:hover .dreamcat-code-copy,
+.dreamcat-code-copy:focus-visible,
+.dreamcat-code-copy.is-copied {
+	opacity: 1;
+}
+
+.dreamcat-code-copy:hover {
+	background: rgba(255, 255, 255, .22);
+}
+
+/* #a5ffb9: 固定成功指示色, 与主题强调色无关 (强调色可为红/绿等, 用作成功反馈会歧义) */
+.dreamcat-code-copy.is-copied {
+	color: #a5ffb9;
+	border-color: rgba(165, 255, 185, .5);
+}
+
+/* 图片灯箱 */
+.dreamcat-lightboxable {
+	cursor: zoom-in;
+	transition: opacity .2s;
+}
+
+.dreamcat-lightboxable:hover {
+	opacity: .88;
+}
+
+.dreamcat-lightbox {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	background: rgba(0, 0, 0, .82);
+	z-index: 4000;
+	cursor: zoom-out;
+	animation: dreamcat-lightbox-in .2s ease;
+}
+
+.dreamcat-lightbox.is-closing {
+	opacity: 0;
+	transition: opacity .2s;
+}
+
+.dreamcat-lightbox img {
+	max-width: 92vw;
+	max-height: 84vh;
+	border-radius: 4px;
+	box-shadow: 0 8px 40px rgba(0, 0, 0, .5);
+}
+
+.dreamcat-lightbox-caption {
+	color: rgba(255, 255, 255, .85);
+	font-size: 14px;
+	max-width: 90vw;
+	text-align: center;
+}
+
+@keyframes dreamcat-lightbox-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* ========== 菜单按钮悬浮 (issue #118) ========== */
+.dreamcat-menu-toggle {
+	position: fixed;
+	top: 10px;
+	left: 12px;
+	z-index: 2000;
+}
+
+/* 滚动后脱离白色头图区域, 图标切换为主题色以保证可见 */
+.dreamcat-menu-toggle.is-scrolled .mdui-icon,
+.dreamcat-menu-toggle.is-scrolled i {
+	color: var(--dreamcat-theme-primary, #3f51b5) !important;
 }

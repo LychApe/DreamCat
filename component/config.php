@@ -65,6 +65,16 @@ function themeConfig($form): void
 
     $addText('DC_AdmireQCode', '博客赞赏二维码地址', '在这里填入赞赏二维码地址,留空则不显示');
 
+    $addRadio('DC_TocModeRadio', [
+        'TureMode' => '开启文章目录',
+        'FalseMode' => '关闭文章目录',
+    ], 'TureMode', '文章目录开关');
+
+    $addCheckbox('DC_PostFeature', [
+        'DCCodeCopy' => _t('代码块复制按钮'),
+        'DCImageLightbox' => _t('图片灯箱'),
+    ], ['DCCodeCopy', 'DCImageLightbox'], '文章功能增强');
+
     $addCheckbox('DC_GlobalApp', [
         'DCShowClickEffect' => _t('点击特效'),
         'DCShowPublicationTime' => _t('首页文章显示发表时间'),
@@ -97,7 +107,9 @@ function themeConfig($form): void
     ], 'LRMode', '自定义页脚模式');
 
     $addText('DC_A_qq', 'QQ二维码图片地址', '填写您的QQ二维码图片地址,它将在首页以及其他地方显示，不填则不显示');
+    $addText('DC_A_qq_id', 'QQ号码(移动端唤起)', '填写QQ号码后, 手机端点击QQ图标将直接唤起QQ加好友, 留空则显示二维码');
     $addText('DC_A_wx', '微信二维码图片地址', '填写您的微信二维码图片地址,它将在首页以及其他地方显示，不填则不显示');
+    $addText('DC_A_wx_id', '微信号(移动端唤起)', '填写微信号后, 手机端点击微信图标将尝试唤起微信, 留空则显示二维码');
     $addText('DC_A_zfb', '支付宝二维码图片地址', '填写您的支付宝二维码图片地址,它将在首页以及其他地方显示，不填则不显示');
     $addText('DC_A_wb', '微博地址', '填写您的微博地址,它将在首页以及其他地方显示，不填则不显示');
     $addText('DC_A_github', 'Github地址', '填写您的Github地址,它将在首页以及其他地方显示，不填则不显示');
@@ -161,7 +173,7 @@ function themeConfig($form): void
     ?>
 
     <!-- 配置中心=>CSS [Start] -->
-    <?php foreach (['mdui.min.css', 'md2.css', 'dreamcat.css'] as $stylesheet) : ?>
+    <?php foreach (['mdui-lite.css?v=261008a', 'md2.css', 'dreamcat.css?v=261005b'] as $stylesheet) : ?>
         <link rel="stylesheet" href="<?php CustomCDN_FAM('DreamCat_StaticResources/css/', '', 'css/' . $stylesheet, $stylesheet); ?>" >
     <?php endforeach; ?>
     <style>
@@ -573,7 +585,7 @@ function themeConfig($form): void
         </div>
 
         <!-- 配置中心=>JS [Start] -->
-        <?php foreach (['mdui.min.js', 'dreamcat.js'] as $script) : ?>
+        <?php foreach (['mdui-lite.js?v=261006c', 'dreamcat.js'] as $script) : ?>
             <script src="<?php CustomCDN_FAM('DreamCat_StaticResources/js/', '', 'js/' . $script, $script); ?>" ></script >
         <?php endforeach; ?>
         <!-- 配置中心=>JS [End] -->

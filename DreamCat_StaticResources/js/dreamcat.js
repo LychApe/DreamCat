@@ -1,32 +1,32 @@
-/*返回顶部js Start*/
-window.onscroll = function () {
-    scrollFunction()
+/* 返回顶部 + 菜单按钮悬浮态 Start */
+const dreamcatBackTop = document.getElementById('back-top');
+const dreamcatMenuToggle = document.querySelector('.dreamcat-menu-toggle');
+
+const dreamcatScrollFunction = () => {
+    const scrolled = document.body.scrollTop > 30 || document.documentElement.scrollTop > 30;
+
+    if (dreamcatBackTop) {
+        dreamcatBackTop.style.display = scrolled ? 'block' : 'none';
+    }
+    dreamcatMenuToggle?.classList.toggle('is-scrolled', scrolled);
 };
 
-var scroll = typeof SmoothScroll !== 'undefined' ? new SmoothScroll("a[href*='#']") : null;
+window.addEventListener('scroll', dreamcatScrollFunction, { passive: true });
+dreamcatScrollFunction();
 
-var $ = mdui.$;
-$('#back-top').on('click', function () {
-    mdui.snackbar({
-        message: '啊！撞到头辣！(๑╹っ╹๑)',
-        position: 'right-top'
+const dreamcatSmoothScroll = typeof SmoothScroll !== 'undefined' ? new SmoothScroll("a[href*='#']") : null;
+
+if (dreamcatBackTop) {
+    dreamcatBackTop.addEventListener('click', () => {
+        mdui.snackbar({
+            message: '啊！撞到头辣！(๑╹っ╹๑)',
+            position: 'right-top'
+        });
     });
-});
-
-// 当网页向下滑动 30px 出现"返回顶部" 按钮
-function scrollFunction() {
-    var backTop = document.getElementById("back-top");
-    if (!backTop) return;
-    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-        backTop.style.display = "block";
-    } else {
-        backTop.style.display = "none";
-    }
 }
+/* 返回顶部 + 菜单按钮悬浮态 End */
 
-/*返回顶部js End*/
-
-var dreamcatThemeColors = {
+const dreamcatThemeColors = {
     primary: {
         amber: '#FFC107',
         blue: '#2196F3',
@@ -68,52 +68,43 @@ var dreamcatThemeColors = {
     }
 };
 
-var dreamcatThemeDefaults = {
+const dreamcatThemeDefaults = {
     primary: 'indigo',
     accent: 'pink',
     mode: 'LightMode'
 };
 
-function dreamcatStoredTheme() {
+const dreamcatThemeModes = ['LightMode', 'DarkMode', 'AutoMode'];
+
+const dreamcatStoredTheme = () => {
     try {
-        return JSON.parse(localStorage.getItem('dreamcat-theme-settings')) || {};
-    } catch (e) {
+        return JSON.parse(localStorage.getItem('dreamcat-theme-settings')) ?? {};
+    } catch {
         return {};
     }
-}
+};
 
-function dreamcatSaveTheme(theme) {
-    localStorage.setItem('dreamcat-theme-settings', JSON.stringify(theme));
-}
+const dreamcatSaveTheme = (theme) => localStorage.setItem('dreamcat-theme-settings', JSON.stringify(theme));
 
-function dreamcatThemeValue(theme, key) {
-    if (key === 'primary' && dreamcatThemeColors.primary[theme[key]]) {
-        return theme[key];
+const dreamcatThemeValue = (theme, key) => {
+    if (key === 'mode') {
+        return dreamcatThemeModes.includes(theme[key]) ? theme[key] : dreamcatThemeDefaults[key];
     }
-    if (key === 'accent' && dreamcatThemeColors.accent[theme[key]]) {
-        return theme[key];
-    }
-    if (key === 'mode' && ['LightMode', 'DarkMode', 'AutoMode'].indexOf(theme[key]) !== -1) {
-        return theme[key];
-    }
-    return dreamcatThemeDefaults[key];
-}
+    return dreamcatThemeColors[key]?.[theme[key]] ? theme[key] : dreamcatThemeDefaults[key];
+};
 
-function dreamcatReplaceClassByPrefix(element, prefix, value) {
-    var classes = element.className.split(/\s+/).filter(function (className) {
-        return className && className.indexOf(prefix) !== 0;
-    });
-    classes.push(prefix + value);
-    element.className = classes.join(' ');
-}
+const dreamcatReplaceClassByPrefix = (element, prefix, value) => {
+    const kept = element.className.split(/\s+/).filter((name) => name && !name.startsWith(prefix));
+    element.className = [...kept, prefix + value].join(' ');
+};
 
-function dreamcatApplyTheme(theme) {
-    var body = document.body;
+const dreamcatApplyTheme = (theme) => {
+    const body = document.body;
     if (!body) return;
 
-    var primary = dreamcatThemeValue(theme, 'primary');
-    var accent = dreamcatThemeValue(theme, 'accent');
-    var mode = dreamcatThemeValue(theme, 'mode');
+    const primary = dreamcatThemeValue(theme, 'primary');
+    const accent = dreamcatThemeValue(theme, 'accent');
+    const mode = dreamcatThemeValue(theme, 'mode');
 
     dreamcatReplaceClassByPrefix(body, 'mdui-theme-primary-', primary);
     dreamcatReplaceClassByPrefix(body, 'mdui-theme-accent-', accent);
@@ -125,62 +116,40 @@ function dreamcatApplyTheme(theme) {
         body.classList.add('mdui-theme-layout-auto', 'dreamcat-night-mode-auto');
     }
 
-    document.documentElement.style.setProperty('--dreamcat-theme-primary', dreamcatThemeColors.primary[primary] || dreamcatThemeColors.primary.indigo);
-    document.documentElement.style.setProperty('--dreamcat-theme-accent', dreamcatThemeColors.accent[accent] || dreamcatThemeColors.accent.pink);
+    document.documentElement.style.setProperty('--dreamcat-theme-primary', dreamcatThemeColors.primary[primary] ?? dreamcatThemeColors.primary.indigo);
+    document.documentElement.style.setProperty('--dreamcat-theme-accent', dreamcatThemeColors.accent[accent] ?? dreamcatThemeColors.accent.pink);
     dreamcatUpdateThemeDialog(theme);
-}
+};
 
-function dreamcatUpdateThemeDialog(theme) {
-    var primary = dreamcatThemeValue(theme, 'primary');
-    var accent = dreamcatThemeValue(theme, 'accent');
-    var mode = dreamcatThemeValue(theme, 'mode');
-
-    document.querySelectorAll('[data-dreamcat-theme-primary]').forEach(function (button) {
-        button.classList.toggle('is-active', button.getAttribute('data-dreamcat-theme-primary') === primary);
-    });
-    document.querySelectorAll('[data-dreamcat-theme-accent]').forEach(function (button) {
-        button.classList.toggle('is-active', button.getAttribute('data-dreamcat-theme-accent') === accent);
-    });
-    document.querySelectorAll('[data-dreamcat-theme-mode]').forEach(function (button) {
-        button.classList.toggle('is-active', button.getAttribute('data-dreamcat-theme-mode') === mode);
-    });
-}
-
-function dreamcatBindThemeDialog() {
-    var theme = Object.assign({}, dreamcatThemeDefaults, dreamcatStoredTheme());
-    dreamcatApplyTheme(theme);
-
-    document.querySelectorAll('[data-dreamcat-theme-primary]').forEach(function (button) {
-        button.addEventListener('click', function () {
-            theme.primary = button.getAttribute('data-dreamcat-theme-primary');
-            dreamcatSaveTheme(theme);
-            dreamcatApplyTheme(theme);
-        });
-    });
-    document.querySelectorAll('[data-dreamcat-theme-accent]').forEach(function (button) {
-        button.addEventListener('click', function () {
-            theme.accent = button.getAttribute('data-dreamcat-theme-accent');
-            dreamcatSaveTheme(theme);
-            dreamcatApplyTheme(theme);
-        });
-    });
-    document.querySelectorAll('[data-dreamcat-theme-mode]').forEach(function (button) {
-        button.addEventListener('click', function () {
-            theme.mode = button.getAttribute('data-dreamcat-theme-mode');
-            dreamcatSaveTheme(theme);
-            dreamcatApplyTheme(theme);
-        });
-    });
-
-    var resetButton = document.getElementById('dreamcat-theme-reset');
-    if (resetButton) {
-        resetButton.addEventListener('click', function () {
-            theme = Object.assign({}, dreamcatThemeDefaults);
-            localStorage.removeItem('dreamcat-theme-settings');
-            dreamcatApplyTheme(theme);
+const dreamcatUpdateThemeDialog = (theme) => {
+    for (const key of ['primary', 'accent', 'mode']) {
+        const current = dreamcatThemeValue(theme, key);
+        document.querySelectorAll(`[data-dreamcat-theme-${key}]`).forEach((button) => {
+            button.classList.toggle('is-active', button.getAttribute(`data-dreamcat-theme-${key}`) === current);
         });
     }
-}
+};
+
+const dreamcatBindThemeDialog = () => {
+    let theme = { ...dreamcatThemeDefaults, ...dreamcatStoredTheme() };
+    dreamcatApplyTheme(theme);
+
+    for (const key of ['primary', 'accent', 'mode']) {
+        document.querySelectorAll(`[data-dreamcat-theme-${key}]`).forEach((button) => {
+            button.addEventListener('click', () => {
+                theme[key] = button.getAttribute(`data-dreamcat-theme-${key}`);
+                dreamcatSaveTheme(theme);
+                dreamcatApplyTheme(theme);
+            });
+        });
+    }
+
+    document.getElementById('dreamcat-theme-reset')?.addEventListener('click', () => {
+        theme = { ...dreamcatThemeDefaults };
+        localStorage.removeItem('dreamcat-theme-settings');
+        dreamcatApplyTheme(theme);
+    });
+};
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', dreamcatBindThemeDialog);
@@ -188,87 +157,69 @@ if (document.readyState === 'loading') {
     dreamcatBindThemeDialog();
 }
 
-function showhidediv(id) {
-    var sbtitle = document.getElementById(id);
-    if (sbtitle) {
-        if (sbtitle.style.display == 'flex') {
-            sbtitle.style.display = 'none';
-        } else {
-            sbtitle.style.display = 'flex';
-        }
+const showhidediv = (id) => {
+    const target = document.getElementById(id);
+    if (target) {
+        target.style.display = target.style.display === 'flex' ? 'none' : 'flex';
     }
-}
+};
 
-(function () {
+(() => {
+    const dom = (id) => document.getElementById(id);
+
     window.TypechoComment = {
-        dom: function (id) {
-            return document.getElementById(id)
-        },
-        pom: function (id) {
-            return document.getElementsByClassName(id)[0]
-        },
-        iom: function (id, dis) {
-            var alist = document.getElementsByClassName(id);
-            if (alist) {
-                for (var idx = 0; idx < alist.length; idx++) {
-                    var mya = alist[idx];
-                    mya.style.display = dis
-                }
+        reply(cid, coid) {
+            const comment = dom(cid);
+            if (!comment || typeof getResponseIdFromTypecho !== 'function') {
+                return false;
             }
-        },
-        create: function (tag, attr) {
-            var el = document.createElement(tag);
-            for (var key in attr) {
-                el.setAttribute(key, attr[key])
+            const response = dom(getResponseIdFromTypecho());
+            if (!response) {
+                return false;
             }
-            return el
-        },
-        reply: function (cid, coid) {
-            var comment = this.dom(cid),
-                parent = comment.parentNode,
-                response = this.dom(getResponseIdFromTypecho()),
-                input = this.dom("comment-parent"),
-                form = "form" == response.tagName ? response : response.getElementsByTagName("form")[0],
-                textarea = response.getElementsByTagName("textarea")[0];
-            if (null == input) {
-                input = this.create("input", {
-                    "type": "hidden",
-                    "name": "parent",
-                    "id": "comment-parent"
-                });
-                form.appendChild(input)
+            let input = dom('comment-parent');
+            const form = response.tagName === 'FORM' ? response : response.getElementsByTagName('form')[0];
+            const textarea = response.getElementsByTagName('textarea')[0];
+
+            if (input === null) {
+                input = document.createElement('input');
+                Object.assign(input, { type: 'hidden', name: 'parent', id: 'comment-parent' });
+                form.appendChild(input);
             }
-            input.setAttribute("value", coid);
-            if (null == this.dom("comment-form-place-holder")) {
-                var holder = this.create("div", {
-                    "id": "comment-form-place-holder"
-                });
-                response.parentNode.insertBefore(holder, response)
+            input.setAttribute('value', coid);
+
+            if (dom('comment-form-place-holder') === null) {
+                const holder = document.createElement('div');
+                holder.id = 'comment-form-place-holder';
+                response.parentNode.insertBefore(holder, response);
             }
+
             comment.appendChild(response);
-            this.iom("comment-reply", "");
-            this.pom("cp-" + cid).style.display = "none";
-            this.iom("cancel-comment-reply", "none");
-            this.pom("cl-" + cid).style.display = "";
-            if (null != textarea && "text" == textarea.name) {
-                textarea.focus()
+            document.querySelectorAll('.comment-reply').forEach((el) => (el.style.display = ''));
+            dom(`cp-${cid}`).style.display = 'none';
+            document.querySelectorAll('.cancel-comment-reply').forEach((el) => (el.style.display = 'none'));
+            dom(`cl-${cid}`).style.display = '';
+            if (textarea?.name === 'text') {
+                textarea.focus();
             }
-            return false
+            return false;
         },
-        cancelReply: function () {
-            var response = this.dom("<?php echo $this->respondId(); ?>"),
-                holder = this.dom("comment-form-place-holder"),
-                input = this.dom("comment-parent");
-            if (null != input) {
-                input.parentNode.removeChild(input)
+        cancelReply() {
+            if (typeof getResponseIdFromTypecho !== 'function') {
+                return true;
             }
-            if (null == holder) {
-                return true
+            const response = dom(getResponseIdFromTypecho());
+            const holder = dom('comment-form-place-holder');
+            const input = dom('comment-parent');
+
+            input?.parentNode.removeChild(input);
+            if (holder === null) {
+                return true;
             }
-            this.iom("comment-reply", "");
-            this.iom("cancel-comment-reply", "none");
+            document.querySelectorAll('.comment-reply').forEach((el) => (el.style.display = ''));
+            document.querySelectorAll('.cancel-comment-reply').forEach((el) => (el.style.display = 'none'));
             holder.parentNode.insertBefore(response, holder);
-            return false
+            return false;
         }
-    }
+    };
 })();
